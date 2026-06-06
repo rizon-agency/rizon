@@ -68,10 +68,10 @@ export const Hero = () => {
             {
               value: (
                 <>
-                  <span className="text-primary">4</span>+
+                  <span className="text-primary">25</span>k+
                 </>
               ),
-              label: "Learning platforms shipped recently",
+              label: "Learners served across our platforms",
             },
           ].map((stat, i) => (
             <div
