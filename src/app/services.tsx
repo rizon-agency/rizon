@@ -7,9 +7,6 @@ import { ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/section-header";
 
-const SERVICE_IMAGE =
-  "https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=800";
-
 type Service = {
   name: string;
   title: string;
@@ -31,7 +28,7 @@ const services: Service[] = [
       "You own all the code",
       "It grows as you grow",
     ],
-    image: SERVICE_IMAGE,
+    image: "/services/custom-e-learning-platforms.png",
   },
   {
     name: "School & University Portals",
@@ -45,7 +42,7 @@ const services: Service[] = [
       "Progress tracking and reporting",
       "Parent/guardian access portals",
     ],
-    image: SERVICE_IMAGE,
+    image: "/services/school-university-portals.png",
   },
   {
     name: "Corporate Training Platforms",
@@ -59,7 +56,7 @@ const services: Service[] = [
       "Certification and credential management",
       "Integration with your existing tools",
     ],
-    image: SERVICE_IMAGE,
+    image: "/services/corporate-training-platforms.png",
   },
   {
     name: "Platform Upgrades & Custom Features",
@@ -73,7 +70,7 @@ const services: Service[] = [
       "Integration with new tools",
       "Bug fixes and optimization",
     ],
-    image: SERVICE_IMAGE,
+    image: "/services/platform-upgrades-custom-features.png",
   },
 ];
 
@@ -178,10 +175,13 @@ export const Services = () => {
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button size="lg" asChild>
-                <Link href="#get-in-touch">Service details</Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="#get-in-touch">Book a call</Link>
+                <Link
+                  href="https://cal.com/rizon.agency-cvbkll/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book a call
+                </Link>
               </Button>
             </div>
           </div>
