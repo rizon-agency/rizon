@@ -1,3 +1,5 @@
+"use client";
+
 import {
   BarChart3,
   BookOpen,
@@ -8,6 +10,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { SectionHeader } from "@/components/section-header";
+import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 
 type Feature = {
   title: string;
@@ -88,21 +91,24 @@ const features: Feature[] = [
 export const Features = () => {
   return (
     <section id="features" className="container mx-auto px-4 mt-32 md:mt-40">
-      <SectionHeader
-        label="Features"
-        title={
-          <>
-            Features we{" "}
-            <span className="text-primary italic">build</span>
-          </>
-        }
-        description="Everything you need to create engaging and effective learning experiences."
-      />
+      <Reveal>
+        <SectionHeader
+          label="Features"
+          title={
+            <>
+              Features we{" "}
+              <span className="text-primary italic">build</span>
+            </>
+          }
+          description="Everything you need to create engaging and effective learning experiences."
+        />
+      </Reveal>
 
-      <div className="mt-16 grid grid-cols-1 border-t border-l border-border sm:grid-cols-2 lg:grid-cols-3">
+      <RevealGroup stagger={0.1} className="mt-16 grid grid-cols-1 border-t border-l border-border sm:grid-cols-2 lg:grid-cols-3">
         {features.map(({ title, items, icon: Icon }) => (
-          <article
+          <RevealItem
             key={title}
+            as="article"
             className="group border-b border-r border-border p-8 transition-colors duration-300 hover:bg-muted/40"
           >
             <Icon
@@ -126,9 +132,9 @@ export const Features = () => {
                 </li>
               ))}
             </ul>
-          </article>
+          </RevealItem>
         ))}
-      </div>
+      </RevealGroup>
     </section>
   );
 };

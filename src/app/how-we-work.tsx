@@ -1,4 +1,7 @@
+"use client";
+
 import { SectionHeader } from "@/components/section-header";
+import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 
 const stepLabels = [
   "one",
@@ -50,21 +53,24 @@ const steps: Step[] = [
 export const HowWeWork = () => {
   return (
     <section id="how-we-work" className="container mx-auto px-4 mt-32 md:mt-40">
-      <SectionHeader
-        label="How we work"
-        title={
-          <>
-            How we actually{" "}
-            <span className="text-primary italic">work with you</span>
-          </>
-        }
-        description="No confusing process or project-management jargon. Just straightforward."
-      />
+      <Reveal>
+        <SectionHeader
+          label="How we work"
+          title={
+            <>
+              How we actually{" "}
+              <span className="text-primary italic">work with you</span>
+            </>
+          }
+          description="No confusing process or project-management jargon. Just straightforward."
+        />
+      </Reveal>
 
-      <ol className="mt-16 border-t border-border">
+      <RevealGroup stagger={0.1} as="ol" className="mt-16 border-t border-border">
         {steps.map(({ title, description }, index) => (
-          <li
+          <RevealItem
             key={title}
+            as="li"
             className="grid grid-cols-[auto_1fr] items-start gap-x-8 border-b border-border py-10 md:gap-x-14 md:py-14 lg:gap-x-20"
           >
             <span
@@ -85,9 +91,9 @@ export const HowWeWork = () => {
                 {description}
               </p>
             </div>
-          </li>
+          </RevealItem>
         ))}
-      </ol>
+      </RevealGroup>
     </section>
   );
 };

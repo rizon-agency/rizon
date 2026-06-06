@@ -1,5 +1,8 @@
+"use client";
+
 import { Cpu, MonitorPlay, Radio, Scissors, MessageSquare, type LucideIcon } from "lucide-react";
 import { SectionHeader } from "@/components/section-header";
+import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 
 type Reason = {
   title: string;
@@ -43,21 +46,24 @@ const reasons: Reason[] = [
 export const WhyUs = () => {
   return (
     <section id="why-us" className="container mx-auto px-4 mt-32 md:mt-40">
-      <SectionHeader
-        label="Why us"
-        title={
-          <>
-            Why{" "}
-            <span className="text-primary italic">choose us</span>
-          </>
-        }
-        description="Most agencies optimize for their own convenience and bill you for it. Here's how we've decided to work instead — in writing."
-      />
+      <Reveal>
+        <SectionHeader
+          label="Why us"
+          title={
+            <>
+              Why{" "}
+              <span className="text-primary italic">choose us</span>
+            </>
+          }
+          description="Most agencies optimize for their own convenience and bill you for it. Here's how we've decided to work instead — in writing."
+        />
+      </Reveal>
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 border-t border-border">
+      <RevealGroup stagger={0.1} className="mt-16 grid grid-cols-1 md:grid-cols-2 border-t border-border">
         {reasons.map(({ title, description, icon: Icon }, index) => (
-          <article
+          <RevealItem
             key={title}
+            as="article"
             className="group relative border-b border-border md:odd:border-r py-10 md:py-12 md:even:pl-12 md:odd:pr-12"
           >
             <span
@@ -79,9 +85,9 @@ export const WhyUs = () => {
             <p className="mt-3 max-w-md text-[15px] leading-relaxed text-muted-foreground">
               {description}
             </p>
-          </article>
+          </RevealItem>
         ))}
-      </div>
+      </RevealGroup>
     </section>
   );
 };

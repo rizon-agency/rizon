@@ -1,21 +1,46 @@
+"use client";
+
 import Link from "next/link";
+import { motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/ui/button";
 
+const ease = [0.25, 0.46, 0.45, 0.94] as const;
+
 export const Hero = () => {
+  const reduced = useReducedMotion();
+
+  const fade = (delay: number) =>
+    reduced
+      ? {}
+      : {
+          initial: { opacity: 0, y: 40 } as const,
+          animate: { opacity: 1, y: 0 } as const,
+          transition: { duration: 1, delay, ease },
+        };
+
   return (
     <section id="home" className="container mx-auto px-4 pt-32 md:pt-40">
       <div className="grid grid-cols-1 items-end gap-x-12 gap-y-10 lg:grid-cols-12">
         <div className="lg:col-span-8">
-          <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
+          <motion.span
+            {...fade(0.2)}
+            className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary"
+          >
             <span className="h-px w-8 bg-primary" aria-hidden />
             Custom LMS development
-          </span>
-          <h1 className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance sm:text-6xl md:text-7xl">
+          </motion.span>
+          <motion.h1
+            {...fade(0.35)}
+            className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance sm:text-6xl md:text-7xl"
+          >
             Ready to launch your online learning platform?
-          </h1>
+          </motion.h1>
         </div>
 
-        <div className="lg:col-span-4">
+        <motion.div
+          {...fade(0.5)}
+          className="lg:col-span-4"
+        >
           <p className="text-lg leading-relaxed text-muted-foreground text-pretty">
             We build custom e-learning platforms from scratch-designed around
             how you teach, not how some template thinks you should. No monthly
@@ -35,10 +60,13 @@ export const Hero = () => {
               </Link>
             </Button>
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      <div className="mt-16 border-t border-border md:mt-20">
+      <motion.div
+        {...fade(0.7)}
+        className="mt-16 border-t border-border md:mt-20"
+      >
         <dl className="grid grid-cols-2 lg:grid-cols-4">
           {[
             {
@@ -89,7 +117,7 @@ export const Hero = () => {
             </div>
           ))}
         </dl>
-      </div>
+      </motion.div>
     </section>
   );
 };

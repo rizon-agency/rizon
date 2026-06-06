@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/section-header";
+import { Reveal } from "@/components/reveal";
 
 type Service = {
   name: string;
@@ -83,16 +84,18 @@ export const Services = () => {
       <div className="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-12">
         {/* Left — selector */}
         <div className="lg:col-span-5">
-          <SectionHeader
-            label="Services"
-            title={
-              <>
-                What we{" "}
-                <span className="text-primary italic">offer</span>
-              </>
-            }
-            description="We build exactly what you need. No templates. No compromises."
-          />
+          <Reveal>
+            <SectionHeader
+              label="Services"
+              title={
+                <>
+                  What we{" "}
+                  <span className="text-primary italic">offer</span>
+                </>
+              }
+              description="We build exactly what you need. No templates. No compromises."
+            />
+          </Reveal>
 
           <ul className="mt-10 border-t border-border" role="tablist">
             {services.map((service, index) => {

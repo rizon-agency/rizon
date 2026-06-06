@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
 import { SectionHeader } from "@/components/section-header";
+import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 
 type QA = {
   question: string;
@@ -55,25 +56,27 @@ export const Faq = () => {
       <div className="grid grid-cols-1 gap-x-16 gap-y-10 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-24">
-            <SectionHeader
-              label="FAQ"
-              title={
-                <>
-                  Questions,{" "}
-                  <span className="text-primary italic">answered</span>
-                </>
-              }
-              description="Everything you need to know about working with us. Still curious? Just ask — we're happy to get specific."
-            />
+            <Reveal>
+              <SectionHeader
+                label="FAQ"
+                title={
+                  <>
+                    Questions,{" "}
+                    <span className="text-primary italic">answered</span>
+                  </>
+                }
+                description="Everything you need to know about working with us. Still curious? Just ask — we're happy to get specific."
+              />
+            </Reveal>
           </div>
         </div>
 
         <div className="lg:col-span-7">
-          <dl className="border-t border-border">
+          <RevealGroup stagger={0.08} className="border-t border-border">
             {faqs.map(({ question, answer }, index) => {
               const isOpen = index === open;
               return (
-                <div key={question} className="border-b border-border">
+                <RevealItem key={question} className="border-b border-border">
                   <dt>
                     <button
                       type="button"
@@ -118,10 +121,10 @@ export const Faq = () => {
                       </p>
                     </div>
                   </dd>
-                </div>
+                </RevealItem>
               );
             })}
-          </dl>
+          </RevealGroup>
         </div>
       </div>
     </section>
