@@ -27,7 +27,7 @@ const links = [
 
 export const Navigation = () => {
   return (
-    <div className="rounded-full border flex items-center w-fit fixed top-2 left-1/2 -translate-x-1/2 shadow-md p-1 gap-2 bg-background">
+    <div className="rounded-full border flex items-center w-fit fixed top-2 left-1/2 -translate-x-1/2 shadow-md p-1 gap-2 bg-background z-50">
       <Button size="sm" variant="outline" className="rounded-full">
         .r
       </Button>

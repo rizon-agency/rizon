@@ -1,12 +1,27 @@
+import { Cta } from "./cta";
+import { Faq } from "./faq";
+import { Features } from "./features";
+import { Footer } from "./footer";
 import { Hero } from "./hero";
+import { HowWeWork } from "./how-we-work";
 import { Navigation } from "./navigation";
+import { Services } from "./services";
+import { WhyUs } from "./why-us";
+import { Work } from "./work";
 
 const Page = () => {
   return (
     <div>
       <Navigation />
       <Hero />
-      <div className="h-[300vh]" />
+      <WhyUs />
+      <HowWeWork />
+      <Services />
+      <Features />
+      <Work />
+      <Cta />
+      <Faq />
+      <Footer />
     </div>
   );
 };
