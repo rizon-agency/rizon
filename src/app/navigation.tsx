@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LogoWithText } from "@/components/logo";
 
 const links = [
   { name: "Home", href: "/#home", id: "home" },
@@ -88,7 +89,7 @@ export const Navigation = () => {
           onClick={() => setOpen(false)}
           className="shrink-0 text-xl font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
-          rizon<span className="text-primary">.</span>
+          <LogoWithText size={70} />
         </Link>
 
         <nav

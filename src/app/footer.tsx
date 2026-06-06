@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LogoWithText } from "@/components/logo";
 
 const navLinks = [
   { name: "Home", href: "/#home" },
@@ -37,11 +38,8 @@ export const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 gap-x-12 gap-y-12 py-16 lg:grid-cols-12 md:py-20">
           <div className="lg:col-span-6">
-            <Link
-              href="/"
-              className="text-2xl font-semibold tracking-tight"
-            >
-              rizon<span className="text-primary">.</span>
+            <Link href="/" className="inline-block">
+              <LogoWithText size={120} />
             </Link>
             <p className="mt-5 max-w-sm text-lg leading-relaxed text-muted-foreground text-pretty">
               Custom LMS development agency. Building learning platforms that
