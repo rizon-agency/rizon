@@ -1,4 +1,5 @@
-import { Cpu, MonitorPlay, Radio, Scissors, type LucideIcon } from "lucide-react";
+import { Cpu, MonitorPlay, Radio, Scissors, MessageSquare, type LucideIcon } from "lucide-react";
+import { SectionHeader } from "@/components/section-header";
 
 type Reason = {
   title: string;
@@ -31,26 +32,27 @@ const reasons: Reason[] = [
       "We cut anything that doesn't earn its place. No bloated feature lists you'll never open — just the things your users actually reach for.",
     icon: Scissors,
   },
+  {
+    title: "Your feedback shapes everything",
+    description:
+      "Your input drives every decision. We don't disappear for months — you're part of the process from day one.",
+    icon: MessageSquare,
+  },
 ];
 
 export const WhyUs = () => {
   return (
     <section id="why-us" className="container mx-auto px-4 mt-32 md:mt-40">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-6 items-end">
-        <div className="lg:col-span-7">
-          <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
-            <span className="h-px w-8 bg-primary" aria-hidden />
-            Why us
-          </span>
-          <h2 className="mt-5 text-4xl md:text-5xl font-semibold tracking-tight leading-[1.05] text-balance">
-            Four commitments we don&apos;t break.
-          </h2>
-        </div>
-        <p className="lg:col-span-5 text-lg leading-relaxed text-muted-foreground text-pretty">
-          Most agencies optimize for their own convenience and bill you for it.
-          Here&apos;s how we&apos;ve decided to work instead — in writing.
-        </p>
-      </div>
+      <SectionHeader
+        label="Why us"
+        title={
+          <>
+            Why{" "}
+            <span className="text-primary italic">choose us</span>
+          </>
+        }
+        description="Most agencies optimize for their own convenience and bill you for it. Here's how we've decided to work instead — in writing."
+      />
 
       <div className="mt-16 grid grid-cols-1 md:grid-cols-2 border-t border-border">
         {reasons.map(({ title, description, icon: Icon }, index) => (

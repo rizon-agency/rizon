@@ -1,0 +1,264 @@
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Navigation } from "../../navigation";
+import { Footer } from "../../footer";
+import { projects, getProjectBySlug } from "@/lib/projects";
+
+export function generateStaticParams() {
+  return projects.map((project) => ({ slug: project.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+
+  if (!project) {
+    return { title: "Project not found — Rizon" };
+  }
+
+  return {
+    title: `${project.title} — Rizon`,
+    description: project.description,
+    openGraph: {
+      title: project.title,
+      description: project.description,
+      images: [{ url: project.preview }],
+    },
+  };
+}
+
+export default async function ProjectPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+
+  if (!project) {
+    notFound();
+  }
+
+  const index = projects.findIndex((p) => p.slug === slug);
+  const number = String(index + 1).padStart(2, "0");
+  const next = projects[(index + 1) % projects.length];
+
+  const meta = [
+    { label: "Year", value: project.year },
+    { label: "Discipline", value: "Custom LMS development" },
+    { label: "Stack", value: project.tech.join(", ") },
+  ];
+
+  return (
+    <>
+      <Navigation />
+
+      <main>
+        {/* Header */}
+        <section className="container mx-auto px-4 pt-24 md:pt-28">
+          <Link
+            href="/#work"
+            className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ArrowLeft
+              size={15}
+              strokeWidth={1.75}
+              aria-hidden
+              className="transition-transform duration-300 ease-out group-hover:-translate-x-1"
+            />
+            Selected work
+          </Link>
+
+          <div className="mt-6 grid grid-cols-1 items-end gap-x-12 gap-y-10 lg:grid-cols-12">
+            <div className="lg:col-span-8">
+              <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
+                <span className="font-mono text-sm not-italic tabular-nums">
+                  {number}
+                </span>
+                <span className="h-px w-8 bg-primary" aria-hidden />
+                Case study
+              </span>
+              <h1 className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance sm:text-6xl">
+                {project.title}
+              </h1>
+            </div>
+
+            <div className="lg:col-span-4">
+              <p className="text-lg leading-relaxed text-muted-foreground text-pretty">
+                {project.description}
+              </p>
+              {project.link ? (
+                <Button asChild variant="outline" size="sm" className="mt-6">
+                  <Link
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit live site
+                    <ArrowUpRight size={15} strokeWidth={1.75} aria-hidden />
+                  </Link>
+                </Button>
+              ) : null}
+            </div>
+          </div>
+
+          {/* Meta strip */}
+          <dl className="mt-14 grid grid-cols-1 border-t border-border sm:grid-cols-3">
+            {meta.map(({ label, value }) => (
+              <div
+                key={label}
+                className="border-b border-border py-5 sm:border-b-0 sm:border-r sm:py-6 sm:pr-6 sm:last:border-r-0 sm:[&:not(:first-child)]:pl-6"
+              >
+                <dt className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">
+                  {label}
+                </dt>
+                <dd className="mt-2 text-[15px] text-foreground text-pretty">
+                  {value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        {/* Lead image */}
+        <section className="container mx-auto px-4 mt-12 md:mt-16">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-muted md:aspect-[21/9]">
+            <Image
+              src={project.preview}
+              alt={`${project.title} — overview`}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-top"
+            />
+          </div>
+        </section>
+
+        {/* Problem / Solution */}
+        <section className="container mx-auto px-4 mt-32 md:mt-40">
+          <div className="grid grid-cols-1 border-t border-border md:grid-cols-2">
+            <article className="border-b border-border py-10 md:border-b-0 md:border-r md:py-12 md:pr-12">
+              <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground/70">
+                <span className="font-mono text-sm tabular-nums text-foreground/40">
+                  01
+                </span>
+                The problem
+              </span>
+              <p className="mt-7 text-xl leading-relaxed tracking-tight text-foreground text-pretty">
+                {project.problem}
+              </p>
+            </article>
+
+            <article className="py-10 md:py-12 md:pl-12">
+              <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
+                <span className="font-mono text-sm tabular-nums">02</span>
+                Our solution
+              </span>
+              <p className="mt-7 text-xl leading-relaxed tracking-tight text-foreground text-pretty">
+                {project.solution}
+              </p>
+            </article>
+          </div>
+        </section>
+
+        {/* Gallery */}
+        <section className="container mx-auto px-4 mt-32 md:mt-40">
+          <div className="flex items-end justify-between gap-6 border-b border-border pb-6">
+            <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              <span className="h-px w-8 bg-primary" aria-hidden />
+              Inside the build
+            </span>
+            <span className="font-mono text-xs tabular-nums text-muted-foreground/60">
+              {String(project.images.length).padStart(2, "0")} frames
+            </span>
+          </div>
+
+          <div className="mt-8 flex flex-col gap-12 md:gap-20">
+            {project.images.map((image, i) => (
+              <figure key={image.src} className="group">
+                <div className="relative overflow-hidden rounded-xl border border-border bg-muted shadow-sm">
+                  <Image
+                    src={image.src}
+                    alt={`${project.title} — screen ${i + 1}`}
+                    width={image.width}
+                    height={image.height}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    className="h-auto w-full"
+                  />
+                </div>
+                <figcaption className="mt-4 flex items-center gap-3 text-xs text-muted-foreground">
+                  <span className="font-mono tabular-nums text-foreground/40">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="h-px w-6 bg-border" aria-hidden />
+                  {project.title} — view {i + 1} of {project.images.length}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="container mx-auto px-4 mt-32 md:mt-40">
+          <div className="grid grid-cols-1 items-end gap-x-12 gap-y-8 border-t border-border pt-14 lg:grid-cols-12">
+            <h2 className="text-3xl font-semibold tracking-tight leading-[1.05] text-balance lg:col-span-8 md:text-4xl">
+              Want a platform like this, built around how you actually work?
+            </h2>
+            <div className="lg:col-span-4 lg:justify-self-end">
+              <Button size="lg" asChild>
+                <Link
+                  href="https://cal.com/rizon.agency-cvbkll/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book a call
+                  <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Next project */}
+        <section className="container mx-auto px-4 mt-20">
+          <Link
+            href={`/work/${next.slug}`}
+            className="group relative block border-t border-border py-10"
+          >
+            <span
+              className="absolute left-0 -top-px h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100"
+              aria-hidden
+            />
+            <div className="flex items-center justify-between gap-6">
+              <div>
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground/60">
+                  Next project
+                </span>
+                <h3 className="mt-3 text-2xl font-medium tracking-tight text-balance md:text-3xl">
+                  {next.title}
+                </h3>
+              </div>
+              <ArrowRight
+                size={28}
+                strokeWidth={1.5}
+                aria-hidden
+                className="shrink-0 -translate-x-2 text-muted-foreground transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:text-foreground"
+              />
+            </div>
+          </Link>
+        </section>
+      </main>
+
+      <Footer />
+    </>
+  );
+}

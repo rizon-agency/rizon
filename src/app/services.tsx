@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SectionHeader } from "@/components/section-header";
 
 const SERVICE_IMAGE =
   "https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=800";
@@ -22,12 +23,13 @@ const services: Service[] = [
     name: "Custom E-Learning Platforms",
     title: "Custom E-Learning Platforms",
     description:
-      "Your own online school — your brand, your rules, your revenue. Create courses, enroll students, track progress, and get paid, without handing a cut to Udemy or living inside someone else's limitations.",
+      "Your own online school — your brand, your rules, your revenue. We build platforms where you can create courses, enroll students, track progress, and get paid-all without giving a cut to Udemy or dealing with someone else's limitations.",
     features: [
-      "Built exactly how you need it",
+      "A platform built exactly how you need it",
       "Complete control over everything",
       "No monthly platform fees",
-      "You own all of the code",
+      "You own all the code",
+      "It grows as you grow",
     ],
     image: SERVICE_IMAGE,
   },
@@ -35,12 +37,13 @@ const services: Service[] = [
     name: "School & University Portals",
     title: "School & University Portals",
     description:
-      "More than a cookie-cutter LMS. Learning platforms built around how your institution actually operates — class management, assignments, grading, student portals, and parent access.",
+      "Your institution needs more than a cookie-cutter LMS. You need something that works the way your school actually operates. We build learning platforms for schools and universities-class management, assignments, grading, student portals, parent access, whatever your institution needs.",
     features: [
       "Custom-built for how your school works",
       "Student and teacher dashboards",
       "Assignment submission and grading",
-      "Parent and guardian access",
+      "Progress tracking and reporting",
+      "Parent/guardian access portals",
     ],
     image: SERVICE_IMAGE,
   },
@@ -48,12 +51,13 @@ const services: Service[] = [
     name: "Corporate Training Platforms",
     title: "Corporate Training Platforms",
     description:
-      "Train your team without the off-the-shelf limits. Internal platforms for onboarding, compliance, skill development, and certifications — everything your people need to learn, in one place.",
+      "Train your team without the limitations of off-the-shelf training software. We build internal training platforms for companies-onboarding programs, compliance training, skill development, certifications. Everything your team needs to learn, all in one place.",
     features: [
-      "Fully branded training portal",
+      "Branded training portal",
       "Course creation and management",
-      "Compliance reporting",
-      "Certification management",
+      "Progress tracking and compliance reporting",
+      "Certification and credential management",
+      "Integration with your existing tools",
     ],
     image: SERVICE_IMAGE,
   },
@@ -61,12 +65,13 @@ const services: Service[] = [
     name: "Platform Upgrades & Custom Features",
     title: "Platform Upgrades & Custom Features",
     description:
-      "Already have a platform that isn't doing what you need? On Moodle, Canvas, or something custom, we add features, redesign the interface, speed things up, and integrate new tools without starting over.",
+      "Already have a platform but it's not doing what you need? We can fix that. Whether you're using Moodle, Canvas, or something custom, we can add features, redesign the interface, speed things up, or integrate new tools.",
     features: [
-      "New features built to your spec",
-      "Better design and UX",
+      "New features built to your specs",
+      "Better design and user experience",
       "Performance improvements",
       "Integration with new tools",
+      "Bug fixes and optimization",
     ],
     image: SERVICE_IMAGE,
   },
@@ -81,17 +86,16 @@ export const Services = () => {
       <div className="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-12">
         {/* Left — selector */}
         <div className="lg:col-span-5">
-          <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
-            <span className="h-px w-8 bg-primary" aria-hidden />
-            Services
-          </span>
-          <h2 className="mt-5 text-4xl md:text-5xl font-semibold tracking-tight leading-[1.05] text-balance">
-            Built exactly what you need.
-          </h2>
-          <p className="mt-5 max-w-md text-lg leading-relaxed text-muted-foreground text-pretty">
-            No templates, no compromises. Pick what fits where you are — we shape
-            the platform around the rest.
-          </p>
+          <SectionHeader
+            label="Services"
+            title={
+              <>
+                What we{" "}
+                <span className="text-primary italic">offer</span>
+              </>
+            }
+            description="We build exactly what you need. No templates. No compromises."
+          />
 
           <ul className="mt-10 border-t border-border" role="tablist">
             {services.map((service, index) => {

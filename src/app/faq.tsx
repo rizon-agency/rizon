@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Plus } from "lucide-react";
+import { SectionHeader } from "@/components/section-header";
 
 type QA = {
   question: string;
@@ -12,37 +13,37 @@ const faqs: QA[] = [
   {
     question: "How quickly can you build our platform?",
     answer:
-      "It depends on scope, but you won't wait months to see something real. We ship a working version to production in the first sprint and add features week by week — so you're clicking through your platform in days, not waiting for one big reveal at the end.",
+      "It depends on your specific needs, but here's how we approach timelines: We break everything into weekly sprints with live demos. You see real progress every week, not vague updates. Most platforms launch in phases-core features first (8-12 weeks), then we iterate and add more based on what you're learning from actual users. We'll give you a clear roadmap after our first conversation.",
   },
   {
     question: "How involved will we be during development?",
     answer:
-      "Very. Every week you'll see what's been built, test it live, and give feedback that shapes the next sprint. This isn't a 'disappear for months then surprise you' situation — you're part of the process from day one.",
+      "Very. Every week you'll see what's been built, test it live, and give feedback. Your input shapes the next sprint. This isn't a 'disappear for months then surprise you' situation-you're part of the process from day one.",
   },
   {
     question: "Can you integrate with our existing tools?",
     answer:
-      "Yes. We connect the tools you already rely on — payments like Stripe and PayPal, video via Zoom or Google Meet, plus email, CRM, and analytics. If it has an API, we can almost certainly wire it in.",
+      "Yes. Payment gateways, CRMs, email platforms, Zoom, Google Meet, SSO systems-whatever you're currently using gets connected. We build around your workflow, not against it.",
   },
   {
     question: "What happens after we launch?",
     answer:
-      "We don't vanish. We stay on for fixes, improvements, and new features as your needs change. And because you own the code, you're free to bring in any developer later — you're never locked to us.",
+      "Launch is just the beginning. We offer maintenance contracts for ongoing support, updates, new features, and optimizations. Most clients stay with us long-term because their platform keeps evolving with their needs.",
   },
   {
     question: "Will the platform scale as we grow?",
     answer:
-      "It's built to. We architect for growth from the start, so adding courses, users, and features later doesn't mean rebuilding. The platform grows with you instead of hitting a wall.",
+      "That's the plan. We architect platforms to handle growth from day one. Whether you're at 500 users or 50,000, the infrastructure supports it. And if you need adjustments as you scale, that's what maintenance contracts are for.",
   },
   {
     question: "Is the platform mobile-friendly?",
     answer:
-      "Always. Everything we build works on any device out of the box — phones, tablets, and desktops — with clean dashboards for both students and instructors. Offline support is available for mobile apps.",
+      "Completely. Works seamlessly on desktop, tablet, and mobile. Responsive by default, not as an afterthought.",
   },
   {
     question: "Who owns the code and platform?",
     answer:
-      "You do — all of it. The code, the data, the platform. No monthly platform fees, no vendor lock-in, and no one taking a cut of your revenue. It's yours to run, change, or move whenever you want.",
+      "You do. Full ownership transfers to you upon final payment. The code, the platform, the infrastructure-it's all yours. Our maintenance contracts are optional, not required.",
   },
 ];
 
@@ -54,17 +55,16 @@ export const Faq = () => {
       <div className="grid grid-cols-1 gap-x-16 gap-y-10 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-24">
-            <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
-              <span className="h-px w-8 bg-primary" aria-hidden />
-              FAQ
-            </span>
-            <h2 className="mt-5 text-4xl md:text-5xl font-semibold tracking-tight leading-[1.05] text-balance">
-              Questions, answered.
-            </h2>
-            <p className="mt-5 max-w-md text-lg leading-relaxed text-muted-foreground text-pretty">
-              Everything you need to know about working with us. Still curious?
-              Just ask — we&apos;re happy to get specific.
-            </p>
+            <SectionHeader
+              label="FAQ"
+              title={
+                <>
+                  Questions,{" "}
+                  <span className="text-primary italic">answered</span>
+                </>
+              }
+              description="Everything you need to know about working with us. Still curious? Just ask — we're happy to get specific."
+            />
           </div>
         </div>
 

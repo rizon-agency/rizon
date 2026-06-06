@@ -7,6 +7,7 @@ import {
   Trophy,
   type LucideIcon,
 } from "lucide-react";
+import { SectionHeader } from "@/components/section-header";
 
 type Feature = {
   title: string;
@@ -16,14 +17,14 @@ type Feature = {
 
 const features: Feature[] = [
   {
-    title: "AI-Powered",
+    title: "AI-Powered Features",
     icon: Sparkles,
     items: [
-      "Auto-generated course content",
-      "Automatic quiz creation",
+      "Auto-generate course content",
+      "Create quizzes automatically",
       "Instant grading and feedback",
       "Smart content recommendations",
-      "Personalized learning paths",
+      "Personalized learning paths for each student",
     ],
   },
   {
@@ -43,9 +44,10 @@ const features: Feature[] = [
     items: [
       "Video lectures and multimedia",
       "Quizzes and assessments",
-      "Live classes (Zoom, Meet)",
+      "Live classes (Zoom, Google Meet integration)",
       "Discussion forums",
-      "Completion certificates",
+      "Assignment submissions",
+      "Certificates when they finish",
     ],
   },
   {
@@ -53,8 +55,8 @@ const features: Feature[] = [
     icon: BarChart3,
     items: [
       "Real-time progress tracking",
-      "Performance dashboards",
-      "See who's engaged or stuck",
+      "Detailed performance dashboards",
+      "See who's engaged, who's stuck",
       "Custom reports",
       "Learning analytics",
     ],
@@ -64,21 +66,21 @@ const features: Feature[] = [
     icon: MonitorSmartphone,
     items: [
       "Works on any device",
-      "Simple dashboards",
+      "Simple dashboards for students and instructors",
       "Easy navigation",
       "Multiple languages",
-      "Offline support on mobile",
+      "Works offline (for mobile apps)",
     ],
   },
   {
     title: "Integrations & Security",
     icon: ShieldCheck,
     items: [
-      "Payments (Stripe, PayPal)",
-      "Connect Zoom, email, CRM",
+      "Payment processing (Stripe, PayPal, etc.)",
+      "Connect your tools (Zoom, email, CRM)",
       "Secure login options",
-      "Encrypted data",
-      "Cloud-based access",
+      "Your data is encrypted and safe",
+      "Cloud-based (always accessible)",
     ],
   },
 ];
@@ -86,21 +88,16 @@ const features: Feature[] = [
 export const Features = () => {
   return (
     <section id="features" className="container mx-auto px-4 mt-32 md:mt-40">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-6 items-end">
-        <div className="lg:col-span-7">
-          <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
-            <span className="h-px w-8 bg-primary" aria-hidden />
-            Features
-          </span>
-          <h2 className="mt-5 text-4xl md:text-5xl font-semibold tracking-tight leading-[1.05] text-balance">
-            Everything a learning platform needs.
-          </h2>
-        </div>
-        <p className="lg:col-span-5 text-lg leading-relaxed text-muted-foreground text-pretty">
-          The building blocks for engaging, effective learning — mix and match
-          what your platform actually calls for.
-        </p>
-      </div>
+      <SectionHeader
+        label="Features"
+        title={
+          <>
+            Features we{" "}
+            <span className="text-primary italic">build</span>
+          </>
+        }
+        description="Everything you need to create engaging and effective learning experiences."
+      />
 
       <div className="mt-16 grid grid-cols-1 border-t border-l border-border sm:grid-cols-2 lg:grid-cols-3">
         {features.map(({ title, items, icon: Icon }) => (
