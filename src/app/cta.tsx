@@ -6,7 +6,7 @@ import { Reveal } from "@/components/reveal";
 
 export const Cta = () => {
   return (
-    <section id="contact" className="container mx-auto px-4 mt-32 md:mt-40">
+    <section className="container mx-auto px-4 mt-32 md:mt-40">
       <Reveal duration={0.7}>
         <div className="rounded-lg bg-primary px-6 py-16 text-primary-foreground sm:px-10 md:px-16 md:py-24">
           <div className="grid grid-cols-1 items-end gap-x-12 gap-y-10 lg:grid-cols-12">
@@ -16,17 +16,17 @@ export const Cta = () => {
                 Get started
               </span>
               <h2 className="mt-5 text-4xl font-semibold tracking-tight leading-[1.05] text-balance md:text-5xl lg:text-6xl">
-                Ready to{" "}
-                <span className="italic">build your platform?</span>
+                Your learning product deserves{" "}
+                <span className="italic">its own platform.</span>
               </h2>
             </div>
 
             <div className="lg:col-span-5">
               <p className="text-lg leading-relaxed text-primary-foreground/80 text-pretty">
-                If you&apos;re ready to deliver exceptional learning experiences
-                with a platform built around your specific needs and goals,
-                you&apos;re in the right place. We build e-learning platforms that
-                give you the flexibility and control to grow without limitations.
+                If you want to deliver a learning experience built around your
+                product, your learners, and your goals, you are in the right
+                place. We build platforms that give you the control and
+                flexibility to grow without limits.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -35,8 +35,8 @@ export const Cta = () => {
                   asChild
                   className="bg-background text-foreground hover:bg-background/90"
                 >
-                  <Link href="https://cal.com/rizon.agency-cvbkll/30min" target="_blank" rel="noopener noreferrer">
-                    Book a call
+                  <Link href="/#contact">
+                    Get in touch
                   </Link>
                 </Button>
               </div>

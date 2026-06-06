@@ -1,3 +1,4 @@
+import { Contact } from "./contact";
 import { Cta } from "./cta";
 import { Faq } from "./faq";
 import { Features } from "./features";
@@ -21,6 +22,7 @@ const Page = () => {
       <Work />
       <Cta />
       <Faq />
+      <Contact />
       <Footer />
     </div>
   );

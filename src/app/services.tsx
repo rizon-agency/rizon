@@ -21,10 +21,10 @@ const services: Service[] = [
     name: "Custom E-Learning Platforms",
     title: "Custom E-Learning Platforms",
     description:
-      "Your own online school — your brand, your rules, your revenue. We build platforms where you can create courses, enroll students, track progress, and get paid-all without giving a cut to Udemy or dealing with someone else's limitations.",
+      "The platform your learning product runs on: your brand, your rules, your revenue. Create and structure content, enroll and manage learners, track progress, handle payments, all without handing a cut to a third party or living inside someone else's limits.",
     features: [
       "A platform built exactly how you need it",
-      "Complete control over everything",
+      "Complete control over the product and the data",
       "No monthly platform fees",
       "You own all the code",
       "It grows as you grow",
@@ -90,7 +90,7 @@ export const Services = () => {
               title={
                 <>
                   What we{" "}
-                  <span className="text-primary italic">offer</span>
+                  <span className="text-primary italic">build</span>
                 </>
               }
               description="We build exactly what you need. No templates. No compromises."
@@ -178,11 +178,7 @@ export const Services = () => {
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button size="lg" asChild>
-                <Link
-                  href="https://cal.com/rizon.agency-cvbkll/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href="/#contact">
                   Book a call
                 </Link>
               </Button>

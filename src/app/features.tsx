@@ -27,11 +27,11 @@ const features: Feature[] = [
       "Create quizzes automatically",
       "Instant grading and feedback",
       "Smart content recommendations",
-      "Personalized learning paths for each student",
+      "Personalized learning paths for each learner",
     ],
   },
   {
-    title: "Make Learning Fun",
+    title: "Engagement & Gamification",
     icon: Trophy,
     items: [
       "Badges and achievements",
@@ -47,43 +47,43 @@ const features: Feature[] = [
     items: [
       "Video lectures and multimedia",
       "Quizzes and assessments",
-      "Live classes (Zoom, Google Meet integration)",
+      "Live classes (Zoom, Google Meet)",
       "Discussion forums",
       "Assignment submissions",
-      "Certificates when they finish",
+      "Completion certificates",
     ],
   },
   {
-    title: "Track Everything",
+    title: "Tracking & Analytics",
     icon: BarChart3,
     items: [
       "Real-time progress tracking",
       "Detailed performance dashboards",
-      "See who's engaged, who's stuck",
+      "See who is engaged and who is stuck",
       "Custom reports",
       "Learning analytics",
     ],
   },
   {
-    title: "Easy to Use",
+    title: "Usability",
     icon: MonitorSmartphone,
     items: [
       "Works on any device",
-      "Simple dashboards for students and instructors",
-      "Easy navigation",
+      "Clear dashboards for learners and instructors",
+      "Simple navigation",
       "Multiple languages",
-      "Works offline (for mobile apps)",
+      "Offline support on mobile",
     ],
   },
   {
     title: "Integrations & Security",
     icon: ShieldCheck,
     items: [
-      "Payment processing (Stripe, PayPal, etc.)",
+      "Payment processing (Stripe, PayPal, and more)",
       "Connect your tools (Zoom, email, CRM)",
-      "Secure login options",
-      "Your data is encrypted and safe",
-      "Cloud-based (always accessible)",
+      "Secure login and SSO options",
+      "Encrypted data",
+      "Cloud-based and always accessible",
     ],
   },
 ];
@@ -96,11 +96,11 @@ export const Features = () => {
           label="Features"
           title={
             <>
-              Features we{" "}
+              What we can{" "}
               <span className="text-primary italic">build</span>
             </>
           }
-          description="Everything you need to create engaging and effective learning experiences."
+          description="Everything you need to deliver learning experiences that work."
         />
       </Reveal>
 

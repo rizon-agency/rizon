@@ -194,7 +194,7 @@ export const projects: Project[] = [
   {
     "slug": "advanced-math-learning-platform",
     "title": "Advanced Math Learning Platform",
-    "description": "Comprehensive LMS for advanced mathematics education. Live webinars with chat and whiteboard, interactive coursework, homework submissions, student rankings, achievement badges, and real-time collaboration tools.",
+    "description": "Comprehensive LMS for advanced mathematics education. Live webinars with chat and whiteboard, interactive coursework, homework submissions, student rankings, achievement badges, and real-time collaboration.",
     "problem": "A mathematics education provider needed a modern platform to deliver advanced courses online. Their existing solution couldn't handle live webinars, lacked interactive features, and had no way to track student progress or foster collaboration between learners.",
     "solution": "We built a comprehensive learning management system with live webinar integration featuring chat and whiteboard functionality. The platform includes interactive homework submission and grading, student performance analytics with rankings, an achievement system with badges, and real-time collaboration tools for group learning.",
     "year": "2024",

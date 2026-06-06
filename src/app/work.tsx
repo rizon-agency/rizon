@@ -15,11 +15,11 @@ export const Work = () => {
           label="Selected work"
           title={
             <>
-              What we&apos;ve been{" "}
-              <span className="text-primary italic">working on</span>
+              What we have been{" "}
+              <span className="text-primary italic">building</span>
             </>
           }
-          description="A couple projects we've finished recently. Nothing fancy, just stuff that works."
+          description="A few platforms we have shipped recently. Real products, in production, doing real work."
         />
       </Reveal>
 

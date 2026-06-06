@@ -33,7 +33,7 @@ export const Hero = () => {
             {...fade(0.35)}
             className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance sm:text-6xl md:text-7xl"
           >
-            Ready to launch your online learning platform?
+            The platform behind your learning product, built from scratch.
           </motion.h1>
         </div>
 
@@ -42,20 +42,20 @@ export const Hero = () => {
           className="lg:col-span-4"
         >
           <p className="text-lg leading-relaxed text-muted-foreground text-pretty">
-            We build custom e-learning platforms from scratch-designed around
-            how you teach, not how some template thinks you should. No monthly
-            fees eating your revenue. No feature limits. Just a platform
-            that&apos;s actually yours.
+            We build custom e-learning platforms designed around how you teach,
+            not how a template thinks you should. No monthly fees eating your
+            revenue. No feature ceilings. A platform that is fully yours, code
+            and all.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button size="lg" asChild>
-              <Link href="https://cal.com/rizon.agency-cvbkll/30min" target="_blank" rel="noopener noreferrer">
+              <Link href="/#contact">
                 Get in touch
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="#case-studies">
+              <Link href="/#work">
                 See our work
               </Link>
             </Button>
@@ -67,7 +67,7 @@ export const Hero = () => {
         {...fade(0.7)}
         className="mt-16 border-t border-border md:mt-20"
       >
-        <dl className="grid grid-cols-2 lg:grid-cols-4">
+        <dl className="grid grid-cols-3">
           {[
             {
               value: (
@@ -75,7 +75,7 @@ export const Hero = () => {
                   <span className="text-primary">0</span>%
                 </>
               ),
-              label: "Platform fees — you keep every dollar you earn",
+              label: "Platform fees. You keep every dollar you earn.",
             },
             {
               value: (
@@ -83,7 +83,7 @@ export const Hero = () => {
                   <span className="text-primary">100</span>%
                 </>
               ),
-              label: "Code ownership — the platform is yours to keep",
+              label: "Code ownership. The platform is yours to keep.",
             },
             {
               value: (
@@ -93,20 +93,12 @@ export const Hero = () => {
               ),
               label: "Your platform goes live and stays live",
             },
-            {
-              value: (
-                <>
-                  <span className="text-primary">25</span>k+
-                </>
-              ),
-              label: "Learners served across our platforms",
-            },
           ].map((stat, i) => (
             <div
               key={i}
               className={`py-10 md:py-12 ${
                 i > 0 ? "border-l border-border pl-6 md:pl-8" : "pr-6 md:pr-8"
-              } ${i === 1 || i === 3 ? "pr-0" : ""}`}
+              } ${i === 2 ? "pr-0" : ""}`}
             >
               <dt className="text-5xl font-light tracking-tight sm:text-6xl md:text-7xl">
                 {stat.value}

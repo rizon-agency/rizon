@@ -21,7 +21,7 @@ const steps: Step[] = [
   {
     title: "First call",
     description:
-      "Tell us about your vision. What are you building? Who's it for? What's holding you back right now? We listen first.",
+      "Tell us about your vision. What are you building? Who is it for? What is holding you back right now? We listen first.",
   },
   {
     title: "Plan the next feature",
@@ -31,7 +31,7 @@ const steps: Step[] = [
   {
     title: "Design it",
     description:
-      "We design how it looks and how it works. You see exactly what it will be — before we write a single line of code.",
+      "We design how it looks and how it works. You see exactly what it will be before we write a single line of code.",
   },
   {
     title: "Build it",
@@ -41,12 +41,12 @@ const steps: Step[] = [
   {
     title: "Demo it",
     description:
-      "We give you a live version to play with. Test it, break it, tell us what feels right and what doesn't.",
+      "We give you a live version to play with. Test it, break it, tell us what feels right and what does not.",
   },
   {
     title: "Launch it",
     description:
-      "We launch it to your platform. Your users get it.",
+      "We ship it to your platform. Your users get it.",
   },
 ];
 
@@ -62,7 +62,7 @@ export const HowWeWork = () => {
               <span className="text-primary italic">work with you</span>
             </>
           }
-          description="No confusing process or project-management jargon. Just straightforward."
+          description="No confusing process, no project-management jargon. Just straightforward."
         />
       </Reveal>
 

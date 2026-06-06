@@ -15,7 +15,6 @@ const links = [
   { name: "Work", href: "/#work", id: "work" },
 ];
 
-const CAL_LINK = "https://cal.com/rizon.agency-cvbkll/30min";
 
 export const Navigation = () => {
   const pathname = usePathname();
@@ -150,7 +149,7 @@ export const Navigation = () => {
 
         <div className="hidden md:block">
           <Button asChild size="sm">
-            <Link href={CAL_LINK} target="_blank" rel="noopener noreferrer">
+            <Link href="/#contact" onClick={(e) => handleAnchorClick(e, "contact")}>
               Book a call
             </Link>
           </Button>
@@ -206,10 +205,8 @@ export const Navigation = () => {
             ))}
             <Button asChild className="mt-4 mb-2 w-full">
               <Link
-                href={CAL_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setOpen(false)}
+                href="/#contact"
+                onClick={(e) => handleAnchorClick(e, "contact")}
               >
                 Book a call
               </Link>

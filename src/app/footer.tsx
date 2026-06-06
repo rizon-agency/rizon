@@ -27,7 +27,7 @@ export const Footer = () => {
               <LogoWithText size={120} />
             </Link>
             <p className="mt-5 max-w-sm text-lg leading-relaxed text-muted-foreground text-pretty">
-              Custom LMS development agency. Building learning platforms that
+              Custom LMS development agency. Building learning platforms
               people actually want to use.
             </p>
           </div>

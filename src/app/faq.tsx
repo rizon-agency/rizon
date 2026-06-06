@@ -14,37 +14,37 @@ const faqs: QA[] = [
   {
     question: "How quickly can you build our platform?",
     answer:
-      "It depends on your specific needs, but here's how we approach timelines: We break everything into weekly sprints with live demos. You see real progress every week, not vague updates. Most platforms launch in phases-core features first (8-12 weeks), then we iterate and add more based on what you're learning from actual users. We'll give you a clear roadmap after our first conversation.",
+      "It depends on scope, but here is how we approach timelines. We break everything into weekly sprints with live demos, so you see real progress every week instead of vague updates. Most platforms launch in phases: core features first (usually 8 to 12 weeks), then we iterate and add more based on what you learn from real users. You get a clear roadmap after our first conversation.",
   },
   {
     question: "How involved will we be during development?",
     answer:
-      "Very. Every week you'll see what's been built, test it live, and give feedback. Your input shapes the next sprint. This isn't a 'disappear for months then surprise you' situation-you're part of the process from day one.",
+      "Very. Every week you see what has been built, test it live, and give feedback that shapes the next sprint. This is not a disappear-for-months-then-surprise-you situation. You are part of the process from day one.",
   },
   {
     question: "Can you integrate with our existing tools?",
     answer:
-      "Yes. Payment gateways, CRMs, email platforms, Zoom, Google Meet, SSO systems-whatever you're currently using gets connected. We build around your workflow, not against it.",
+      "Yes. Payment gateways, CRMs, email platforms, Zoom, Google Meet, SSO, whatever you currently use gets connected. We build around your workflow, not against it.",
   },
   {
     question: "What happens after we launch?",
     answer:
-      "Launch is just the beginning. We offer maintenance contracts for ongoing support, updates, new features, and optimizations. Most clients stay with us long-term because their platform keeps evolving with their needs.",
+      "Launch is the beginning, not the end. We offer optional maintenance contracts for ongoing support, updates, new features, and optimizations. Most clients stay with us long-term because their platform keeps evolving with their needs.",
   },
   {
     question: "Will the platform scale as we grow?",
     answer:
-      "That's the plan. We architect platforms to handle growth from day one. Whether you're at 500 users or 50,000, the infrastructure supports it. And if you need adjustments as you scale, that's what maintenance contracts are for.",
+      "That is the plan. We architect for growth from day one. Whether you are at 500 learners or 50,000, the infrastructure supports it, and we adjust as you scale.",
   },
   {
     question: "Is the platform mobile-friendly?",
     answer:
-      "Completely. Works seamlessly on desktop, tablet, and mobile. Responsive by default, not as an afterthought.",
+      "Completely. It works on desktop, tablet, and mobile, responsive by default rather than as an afterthought.",
   },
   {
     question: "Who owns the code and platform?",
     answer:
-      "You do. Full ownership transfers to you upon final payment. The code, the platform, the infrastructure-it's all yours. Our maintenance contracts are optional, not required.",
+      "You do. Full ownership transfers to you on final payment: the code, the platform, the infrastructure. Maintenance is optional, never required.",
   },
 ];
 
@@ -65,7 +65,7 @@ export const Faq = () => {
                     <span className="text-primary italic">answered</span>
                   </>
                 }
-                description="Everything you need to know about working with us. Still curious? Just ask — we're happy to get specific."
+                description="Everything you need to know about working with us. Still curious? Just ask, we are happy to get specific."
               />
             </Reveal>
           </div>

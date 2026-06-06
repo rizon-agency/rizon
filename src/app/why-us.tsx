@@ -14,13 +14,13 @@ const reasons: Reason[] = [
   {
     title: "Best tech for your needs, not ours",
     description:
-      "We pick the stack that fits your project and the people who'll maintain it — not the one we happen to be fastest at. You're never paying for our habits.",
+      "We pick the stack that fits your project and the people who will maintain it, not the one we happen to be fastest at. You never pay for our habits.",
     icon: Cpu,
   },
   {
     title: "Weekly live demos and updates",
     description:
-      "Every week you get a working build to click through and a plain-English rundown of what changed. No month-long silences, no surprise invoices.",
+      "Every week you get a working build to click through and a plain-English rundown of what changed. No month-long silences. No surprise invoices.",
     icon: MonitorPlay,
   },
   {
@@ -30,15 +30,15 @@ const reasons: Reason[] = [
     icon: Radio,
   },
   {
-    title: "Build only what you'll use",
+    title: "Build only what you will use",
     description:
-      "We cut anything that doesn't earn its place. No bloated feature lists you'll never open — just the things your users actually reach for.",
+      "We cut anything that does not earn its place. No bloated feature lists you will never open, just the things your users actually reach for.",
     icon: Scissors,
   },
   {
     title: "Your feedback shapes everything",
     description:
-      "Your input drives every decision. We don't disappear for months — you're part of the process from day one.",
+      "Your input drives every decision. We do not disappear for months. You are part of the process from day one.",
     icon: MessageSquare,
   },
 ];
@@ -52,10 +52,10 @@ export const WhyUs = () => {
           title={
             <>
               Why{" "}
-              <span className="text-primary italic">choose us</span>
+              <span className="text-primary italic">work with us</span>
             </>
           }
-          description="Most agencies optimize for their own convenience and bill you for it. Here's how we've decided to work instead — in writing."
+          description="Most agencies optimize for their own convenience and bill you for it. Here is how we have decided to work instead, in writing."
         />
       </Reveal>
 
