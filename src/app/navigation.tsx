@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LogoWithText } from "@/components/logo";
@@ -17,6 +18,7 @@ const links = [
 const CAL_LINK = "https://cal.com/rizon.agency-cvbkll/30min";
 
 export const Navigation = () => {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeId, setActiveId] = useState("home");
@@ -54,6 +56,23 @@ export const Navigation = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Smooth-scroll to hash target if already on the home page.
+  // Cross-page navigations just use Next.js default (instant).
+  const handleAnchorClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+      if (pathname === "/") {
+        e.preventDefault();
+        const target = document.getElementById(id);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+          window.history.replaceState(null, "", `/#${id}`);
+        }
+      }
+      setOpen(false);
+    },
+    [pathname],
+  );
+
   // Slide the hairline under the hovered link, falling back to the active one.
   const targetId = hoverId ?? activeId;
   const measure = () => {
@@ -86,7 +105,7 @@ export const Navigation = () => {
       <div className="container mx-auto flex h-16 items-center justify-between gap-8 px-4">
         <Link
           href="/#home"
-          onClick={() => setOpen(false)}
+          onClick={(e) => handleAnchorClick(e, "home")}
           className="shrink-0 text-xl font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           <LogoWithText size={70} />
@@ -107,6 +126,7 @@ export const Navigation = () => {
                 ref={(el) => {
                   itemRefs.current[link.id] = el;
                 }}
+                onClick={(e) => handleAnchorClick(e, link.id)}
                 onMouseEnter={() => setHoverId(link.id)}
                 aria-current={isActive ? "page" : undefined}
                 className={`px-4 py-2 text-[13px] font-medium tracking-tight transition-colors duration-200 focus-visible:outline-none focus-visible:text-foreground ${
@@ -163,7 +183,7 @@ export const Navigation = () => {
               <Link
                 key={link.id}
                 href={link.href}
-                onClick={() => setOpen(false)}
+                onClick={(e) => handleAnchorClick(e, link.id)}
                 aria-current={activeId === link.id ? "page" : undefined}
                 className="group flex items-center justify-between border-b border-border py-3.5 text-[15px] font-medium transition-colors last:border-b-0"
               >
