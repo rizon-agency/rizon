@@ -67,7 +67,7 @@ export const Hero = () => {
         {...fade(0.7)}
         className="mt-16 border-t border-border md:mt-20"
       >
-        <dl className="grid grid-cols-3">
+        <dl className="grid grid-cols-1 sm:grid-cols-3">
           {[
             {
               value: (
@@ -96,14 +96,16 @@ export const Hero = () => {
           ].map((stat, i) => (
             <div
               key={i}
-              className={`py-10 md:py-12 ${
-                i > 0 ? "border-l border-border pl-6 md:pl-8" : "pr-6 md:pr-8"
-              } ${i === 2 ? "pr-0" : ""}`}
+              className={`py-8 sm:py-10 md:py-12 ${
+                i > 0
+                  ? "border-t sm:border-t-0 sm:border-l border-border sm:pl-6 md:pl-8"
+                  : "sm:pr-6 md:pr-8"
+              } ${i === 2 ? "sm:pr-0" : ""}`}
             >
-              <dt className="text-5xl font-light tracking-tight sm:text-6xl md:text-7xl">
+              <dt className="text-4xl font-light tracking-tight sm:text-5xl md:text-7xl">
                 {stat.value}
               </dt>
-              <dd className="mt-4 max-w-[18ch] text-[15px] leading-snug text-muted-foreground">
+              <dd className="mt-3 sm:mt-4 max-w-[18ch] text-[15px] leading-snug text-muted-foreground">
                 {stat.label}
               </dd>
             </div>
