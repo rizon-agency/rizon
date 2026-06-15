@@ -16,27 +16,59 @@ const links = [
   { name: "Blog", href: "/blog", id: "blog", isPage: true },
 ];
 
+const sectionLinks = links.filter((l) => !l.isPage);
+
 export const Navigation = () => {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
 
+  // Seed from URL hash so the correct section is active immediately on refresh.
+  const [activeId, setActiveId] = useState(() => {
+    if (typeof window === "undefined") return "home";
+    const hash = window.location.hash.replace("#", "");
+    return sectionLinks.some((l) => l.id === hash) ? hash : "home";
+  });
+
+  // Single scroll listener: frosted header + scroll-spy in one pass.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+
+      // Only run scroll-spy on the home page where sections live.
+      if (pathname !== "/") return;
+
+      const mid = window.scrollY + window.innerHeight * 0.4;
+      const current = sectionLinks
+        .map((l) => ({ id: l.id, el: document.getElementById(l.id) }))
+        .filter((s): s is { id: string; el: HTMLElement } => s.el !== null)
+        .filter((s) => s.el.offsetTop <= mid)
+        .pop();
+
+      if (current) setActiveId(current.id);
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [pathname]);
 
   const handleAnchorClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
       if (pathname === "/") {
         e.preventDefault();
+        setActiveId(id);
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
         window.history.replaceState(null, "", `/#${id}`);
       }
     },
     [pathname],
   );
+
+  // Blog uses pathname; section links use scroll-spy (only meaningful on "/").
+  const isActive = (link: (typeof links)[0]) =>
+    link.isPage
+      ? pathname.startsWith(link.href)
+      : pathname === "/" && activeId === link.id;
 
   return (
     <header
@@ -61,7 +93,12 @@ export const Navigation = () => {
               key={link.id}
               href={link.href}
               onClick={link.isPage ? undefined : (e) => handleAnchorClick(e, link.id)}
-              className="px-4 py-2 text-[13px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:outline-none focus-visible:text-foreground"
+              aria-current={isActive(link) ? "page" : undefined}
+              className={`px-4 py-2 text-[13px] font-medium tracking-tight transition-colors duration-200 focus-visible:outline-none focus-visible:text-foreground ${
+                isActive(link)
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {link.name}
             </Link>
