@@ -57,7 +57,7 @@ export const Navigation = () => {
       if (pathname === "/") {
         e.preventDefault();
         setActiveId(id);
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        document.getElementById(id)?.scrollIntoView({ behavior: "instant" });
         window.history.replaceState(null, "", `/#${id}`);
       }
     },
