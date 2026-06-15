@@ -162,7 +162,7 @@ export default async function BlogPostPage({
 
         {/* Content */}
         <section className="container mx-auto px-4 mt-12">
-          <div className="prose mx-auto max-w-2xl">
+          <div className="prose dark:prose-invert mx-auto max-w-2xl">
             <Content />
           </div>
         </section>

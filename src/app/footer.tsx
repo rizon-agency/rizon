@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LogoWithText } from "@/components/logo";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navLinks = [
   { name: "Home", href: "/#home" },
@@ -83,12 +84,15 @@ export const Footer = () => {
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Rizon. All rights reserved.
           </p>
-          <Link
-            href="/legal"
-            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Terms &amp; Services
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/legal"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Terms &amp; Services
+            </Link>
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </footer>
