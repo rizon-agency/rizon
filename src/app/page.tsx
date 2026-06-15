@@ -1,3 +1,4 @@
+import { BlogPreview } from "./blog-preview";
 import { Contact } from "./contact";
 import { Cta } from "./cta";
 import { Faq } from "./faq";
@@ -20,6 +21,7 @@ const Page = () => {
       <Services />
       <Features />
       <Work />
+      <BlogPreview />
       <Cta />
       <Faq />
       <Contact />

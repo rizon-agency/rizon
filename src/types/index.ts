@@ -1,3 +1,12 @@
+export type Post = {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  readTime: string;
+  category: string;
+};
+
 export type Project = {
   slug: string;
   title: string;

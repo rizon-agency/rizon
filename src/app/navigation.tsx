@@ -8,11 +8,12 @@ import { Button } from "@/components/ui/button";
 import { LogoWithText } from "@/components/logo";
 
 const links = [
-  { name: "Home", href: "/#home", id: "home" },
-  { name: "Why us", href: "/#why-us", id: "why-us" },
-  { name: "Process", href: "/#how-we-work", id: "how-we-work" },
-  { name: "Services", href: "/#services", id: "services" },
-  { name: "Work", href: "/#work", id: "work" },
+  { name: "Home", href: "/#home", id: "home", isPage: false },
+  { name: "Why us", href: "/#why-us", id: "why-us", isPage: false },
+  { name: "Process", href: "/#how-we-work", id: "how-we-work", isPage: false },
+  { name: "Services", href: "/#services", id: "services", isPage: false },
+  { name: "Work", href: "/#work", id: "work", isPage: false },
+  { name: "Blog", href: "/blog", id: "blog", isPage: true },
 ];
 
 
@@ -56,15 +57,15 @@ export const Navigation = () => {
   }, []);
 
   // Smooth-scroll to hash target if already on the home page.
-  // Cross-page navigations just use Next.js default (instant).
+  // Page links (isPage: true) let Next.js handle navigation normally.
   const handleAnchorClick = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-      if (pathname === "/") {
+    (e: React.MouseEvent<HTMLAnchorElement>, link: typeof links[0]) => {
+      if (!link.isPage && pathname === "/") {
         e.preventDefault();
-        const target = document.getElementById(id);
+        const target = document.getElementById(link.id);
         if (target) {
           target.scrollIntoView({ behavior: "smooth" });
-          window.history.replaceState(null, "", `/#${id}`);
+          window.history.replaceState(null, "", `/#${link.id}`);
         }
       }
       setOpen(false);
@@ -104,7 +105,14 @@ export const Navigation = () => {
       <div className="container mx-auto flex h-16 items-center justify-between gap-8 px-4">
         <Link
           href="/#home"
-          onClick={(e) => handleAnchorClick(e, "home")}
+          onClick={(e) => {
+            if (pathname === "/") {
+              e.preventDefault();
+              document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
+              window.history.replaceState(null, "", "/#home");
+            }
+            setOpen(false);
+          }}
           className="shrink-0 text-xl font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           <LogoWithText size={70} />
@@ -117,7 +125,9 @@ export const Navigation = () => {
           onMouseLeave={() => setHoverId(null)}
         >
           {links.map((link) => {
-            const isActive = activeId === link.id;
+            const isActive = link.isPage
+              ? pathname.startsWith(link.href)
+              : activeId === link.id;
             return (
               <Link
                 key={link.id}
@@ -125,7 +135,7 @@ export const Navigation = () => {
                 ref={(el) => {
                   itemRefs.current[link.id] = el;
                 }}
-                onClick={(e) => handleAnchorClick(e, link.id)}
+                onClick={(e) => handleAnchorClick(e, link)}
                 onMouseEnter={() => setHoverId(link.id)}
                 aria-current={isActive ? "page" : undefined}
                 className={`px-4 py-2 text-[13px] font-medium tracking-tight transition-colors duration-200 focus-visible:outline-none focus-visible:text-foreground ${
@@ -149,7 +159,7 @@ export const Navigation = () => {
 
         <div className="hidden md:block">
           <Button asChild size="sm">
-            <Link href="/#contact" onClick={(e) => handleAnchorClick(e, "contact")}>
+            <Link href="/#contact" onClick={(e) => handleAnchorClick(e, { name: "Contact", href: "/#contact", id: "contact", isPage: false })}>
               Book a call
             </Link>
           </Button>
@@ -182,13 +192,17 @@ export const Navigation = () => {
               <Link
                 key={link.id}
                 href={link.href}
-                onClick={(e) => handleAnchorClick(e, link.id)}
-                aria-current={activeId === link.id ? "page" : undefined}
+                onClick={(e) => handleAnchorClick(e, link)}
+                aria-current={
+                  (link.isPage ? pathname.startsWith(link.href) : activeId === link.id)
+                    ? "page"
+                    : undefined
+                }
                 className="group flex items-center justify-between border-b border-border py-3.5 text-[15px] font-medium transition-colors last:border-b-0"
               >
                 <span
                   className={
-                    activeId === link.id
+                    (link.isPage ? pathname.startsWith(link.href) : activeId === link.id)
                       ? "text-foreground"
                       : "text-muted-foreground group-hover:text-foreground"
                   }
@@ -198,7 +212,9 @@ export const Navigation = () => {
                 <span
                   aria-hidden
                   className={`h-1.5 w-1.5 rounded-full bg-primary transition-opacity ${
-                    activeId === link.id ? "opacity-100" : "opacity-0"
+                    (link.isPage ? pathname.startsWith(link.href) : activeId === link.id)
+                      ? "opacity-100"
+                      : "opacity-0"
                   }`}
                 />
               </Link>
@@ -206,7 +222,7 @@ export const Navigation = () => {
             <Button asChild className="mt-4 mb-2 w-full">
               <Link
                 href="/#contact"
-                onClick={(e) => handleAnchorClick(e, "contact")}
+                onClick={(e) => handleAnchorClick(e, { name: "Contact", href: "/#contact", id: "contact", isPage: false })}
               >
                 Book a call
               </Link>
