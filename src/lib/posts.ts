@@ -9,6 +9,7 @@ export const posts: Post[] = [
     date: "2026-05-20",
     readTime: "6 min read",
     category: "LMS Development",
+    coverImage: "/general-og.webp",
   },
   {
     slug: "how-to-launch-online-course-without-monthly-fees",
@@ -18,6 +19,7 @@ export const posts: Post[] = [
     date: "2026-04-10",
     readTime: "8 min read",
     category: "Course Creation",
+    coverImage: "/general-og.webp",
   },
 ];
 

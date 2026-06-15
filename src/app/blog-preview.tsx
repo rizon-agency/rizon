@@ -6,14 +6,7 @@ import { posts } from "@/lib/posts";
 import { SectionHeader } from "@/components/section-header";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
-
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
+import { BlogCard } from "@/components/blog-card";
 
 const preview = posts.slice(0, 3);
 
@@ -48,39 +41,7 @@ export const BlogPreview = () => {
       >
         {preview.map((post) => (
           <RevealItem key={post.slug} duration={0.6} y={20}>
-            <Link
-              href={`/blog/${post.slug}`}
-              className="group relative block border-b border-border py-10"
-            >
-              <span
-                className="absolute left-0 -top-px h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100"
-                aria-hidden
-              />
-
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-                {post.category}
-              </span>
-
-              <h3 className="mt-4 text-xl font-medium tracking-tight leading-snug text-balance">
-                {post.title}
-              </h3>
-
-              <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground text-pretty">
-                {post.description}
-              </p>
-
-              <div className="mt-6 flex items-center justify-between gap-4">
-                <span className="font-mono text-xs tabular-nums text-muted-foreground/60">
-                  {formatDate(post.date)} · {post.readTime}
-                </span>
-                <ArrowUpRight
-                  size={18}
-                  strokeWidth={1.5}
-                  aria-hidden
-                  className="shrink-0 -translate-x-1 text-muted-foreground opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100"
-                />
-              </div>
-            </Link>
+            <BlogCard post={post} />
           </RevealItem>
         ))}
       </RevealGroup>

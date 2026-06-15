@@ -5,6 +5,7 @@ export type Post = {
   date: string;
   readTime: string;
   category: string;
+  coverImage: string;
 };
 
 export type Project = {
