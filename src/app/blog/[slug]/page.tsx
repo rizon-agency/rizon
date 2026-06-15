@@ -45,7 +45,7 @@ export async function generateMetadata({
       publishedTime: post.date,
       authors: ["Rizon Agency"],
       tags: [post.category, "e-learning", "LMS"],
-      images: [{ url: `${BASE_URL}${post.coverImage.src}`, width: post.coverImage.width, height: post.coverImage.height, alt: post.title }],
+      images: [{ url: `${BASE_URL}/blog/${slug}/opengraph-image`, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
       card: "summary_large_image",
