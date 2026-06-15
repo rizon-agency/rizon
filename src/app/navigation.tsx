@@ -16,6 +16,7 @@ const links = [
   { name: "Blog", href: "/blog", id: "blog", isPage: true },
 ];
 
+const sectionLinks = links.filter((l) => !l.isPage);
 
 export const Navigation = () => {
   const pathname = usePathname();
@@ -28,7 +29,6 @@ export const Navigation = () => {
   const itemRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
   const [line, setLine] = useState({ left: 0, width: 0, ready: false });
 
-  // Add a hairline + faint surface once the user leaves the top.
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
@@ -36,9 +36,8 @@ export const Navigation = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Scroll-spy: light up the link for whichever section owns the viewport.
   useEffect(() => {
-    const sections = links
+    const sections = sectionLinks
       .map((l) => document.getElementById(l.id))
       .filter((el): el is HTMLElement => el !== null);
     if (sections.length === 0) return;
@@ -56,16 +55,14 @@ export const Navigation = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Smooth-scroll to hash target if already on the home page.
-  // Page links (isPage: true) let Next.js handle navigation normally.
   const handleAnchorClick = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, link: typeof links[0]) => {
-      if (!link.isPage && pathname === "/") {
+    (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+      if (pathname === "/") {
         e.preventDefault();
-        const target = document.getElementById(link.id);
+        const target = document.getElementById(id);
         if (target) {
           target.scrollIntoView({ behavior: "smooth" });
-          window.history.replaceState(null, "", `/#${link.id}`);
+          window.history.replaceState(null, "", `/#${id}`);
         }
       }
       setOpen(false);
@@ -73,8 +70,12 @@ export const Navigation = () => {
     [pathname],
   );
 
-  // Slide the hairline under the hovered link, falling back to the active one.
-  const targetId = hoverId ?? activeId;
+  const isActive = (link: (typeof links)[0]) =>
+    link.isPage ? pathname.startsWith(link.href) : activeId === link.id;
+
+  // Hairline tracks hovered link, falling back to the active one.
+  const targetId = hoverId ?? (pathname.startsWith("/blog") ? "blog" : activeId);
+
   const measure = () => {
     const el = itemRefs.current[targetId];
     const nav = navRef.current;
@@ -105,14 +106,7 @@ export const Navigation = () => {
       <div className="container mx-auto flex h-16 items-center justify-between gap-8 px-4">
         <Link
           href="/#home"
-          onClick={(e) => {
-            if (pathname === "/") {
-              e.preventDefault();
-              document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
-              window.history.replaceState(null, "", "/#home");
-            }
-            setOpen(false);
-          }}
+          onClick={(e) => handleAnchorClick(e, "home")}
           className="shrink-0 text-xl font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           <LogoWithText size={70} />
@@ -124,30 +118,23 @@ export const Navigation = () => {
           aria-label="Primary"
           onMouseLeave={() => setHoverId(null)}
         >
-          {links.map((link) => {
-            const isActive = link.isPage
-              ? pathname.startsWith(link.href)
-              : activeId === link.id;
-            return (
-              <Link
-                key={link.id}
-                href={link.href}
-                ref={(el) => {
-                  itemRefs.current[link.id] = el;
-                }}
-                onClick={(e) => handleAnchorClick(e, link)}
-                onMouseEnter={() => setHoverId(link.id)}
-                aria-current={isActive ? "page" : undefined}
-                className={`px-4 py-2 text-[13px] font-medium tracking-tight transition-colors duration-200 focus-visible:outline-none focus-visible:text-foreground ${
-                  isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
+          {links.map((link) => (
+            <Link
+              key={link.id}
+              href={link.href}
+              ref={(el) => { itemRefs.current[link.id] = el; }}
+              onClick={link.isPage ? () => setOpen(false) : (e) => handleAnchorClick(e, link.id)}
+              onMouseEnter={() => setHoverId(link.id)}
+              aria-current={isActive(link) ? "page" : undefined}
+              className={`px-4 py-2 text-[13px] font-medium tracking-tight transition-colors duration-200 focus-visible:outline-none focus-visible:text-foreground ${
+                isActive(link) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
 
-          {/* Signature hairline — borrowed from the section dividers. */}
+          {/* Signature hairline */}
           <span
             aria-hidden
             className={`absolute -bottom-0.5 h-px bg-primary transition-all duration-300 ease-[cubic-bezier(0.65,0,0.35,1)] ${
@@ -159,7 +146,7 @@ export const Navigation = () => {
 
         <div className="hidden md:block">
           <Button asChild size="sm">
-            <Link href="/#contact" onClick={(e) => handleAnchorClick(e, { name: "Contact", href: "/#contact", id: "contact", isPage: false })}>
+            <Link href="/#contact" onClick={(e) => handleAnchorClick(e, "contact")}>
               Book a call
             </Link>
           </Button>
@@ -192,38 +179,21 @@ export const Navigation = () => {
               <Link
                 key={link.id}
                 href={link.href}
-                onClick={(e) => handleAnchorClick(e, link)}
-                aria-current={
-                  (link.isPage ? pathname.startsWith(link.href) : activeId === link.id)
-                    ? "page"
-                    : undefined
-                }
+                onClick={link.isPage ? () => setOpen(false) : (e) => handleAnchorClick(e, link.id)}
+                aria-current={isActive(link) ? "page" : undefined}
                 className="group flex items-center justify-between border-b border-border py-3.5 text-[15px] font-medium transition-colors last:border-b-0"
               >
-                <span
-                  className={
-                    (link.isPage ? pathname.startsWith(link.href) : activeId === link.id)
-                      ? "text-foreground"
-                      : "text-muted-foreground group-hover:text-foreground"
-                  }
-                >
+                <span className={isActive(link) ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}>
                   {link.name}
                 </span>
                 <span
                   aria-hidden
-                  className={`h-1.5 w-1.5 rounded-full bg-primary transition-opacity ${
-                    (link.isPage ? pathname.startsWith(link.href) : activeId === link.id)
-                      ? "opacity-100"
-                      : "opacity-0"
-                  }`}
+                  className={`h-1.5 w-1.5 rounded-full bg-primary transition-opacity ${isActive(link) ? "opacity-100" : "opacity-0"}`}
                 />
               </Link>
             ))}
             <Button asChild className="mt-4 mb-2 w-full">
-              <Link
-                href="/#contact"
-                onClick={(e) => handleAnchorClick(e, { name: "Contact", href: "/#contact", id: "contact", isPage: false })}
-              >
+              <Link href="/#contact" onClick={(e) => handleAnchorClick(e, "contact")}>
                 Book a call
               </Link>
             </Button>

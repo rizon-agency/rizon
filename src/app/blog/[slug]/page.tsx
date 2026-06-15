@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
-import { Navigation } from "../../navigation";
 import { Footer } from "../../footer";
 import { Cta } from "../../cta";
 import { posts, getPostBySlug } from "@/lib/posts";
@@ -55,7 +54,6 @@ export default async function BlogPostPage({
 
   return (
     <>
-      <Navigation />
 
       <main>
         {/* Header */}

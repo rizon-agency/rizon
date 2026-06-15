@@ -1,13 +1,11 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Navigation } from "../../navigation";
 import { Footer } from "../../footer";
 
 export default function ProjectNotFound() {
   return (
     <>
-      <Navigation />
       <main className="container mx-auto flex min-h-[70vh] flex-col justify-center px-4 pt-32 md:pt-40">
         <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
           <span className="font-mono text-sm tabular-nums">404</span>

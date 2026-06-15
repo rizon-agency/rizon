@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { Navigation } from "../navigation";
 import { Footer } from "../footer";
 
 export const metadata: Metadata = {
@@ -22,7 +21,6 @@ export const metadata: Metadata = {
 export default function LegalPage() {
   return (
     <>
-      <Navigation />
 
       <main className="container mx-auto px-4 pt-32 md:pt-40">
         <div className="mx-auto max-w-3xl">

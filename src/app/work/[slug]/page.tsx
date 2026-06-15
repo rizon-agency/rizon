@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Navigation } from "../../navigation";
 import { Footer } from "../../footer";
 import { projects, getProjectBySlug } from "@/lib/projects";
 
@@ -59,7 +58,6 @@ export default async function ProjectPage({
 
   return (
     <>
-      <Navigation />
 
       <main>
         {/* Header */}

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
-import { Navigation } from "../navigation";
 import { Footer } from "../footer";
 import { Cta } from "../cta";
 import { SectionHeader } from "@/components/section-header";
@@ -24,7 +23,6 @@ function formatDate(dateStr: string) {
 export default function BlogPage() {
   return (
     <>
-      <Navigation />
 
       <main>
         <section className="container mx-auto px-4 pt-32 md:pt-40">
