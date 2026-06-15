@@ -37,40 +37,40 @@ export default async function OgImage({
 
   return new ImageResponse(
     (
-      <div tw="flex w-full h-full bg-[#0f0f0f]">
+      <div tw="flex w-full h-full bg-white">
         {/* Left: card content */}
         <div tw="flex flex-col flex-1 p-14">
           {/* Category */}
           <div tw="flex items-center mb-7">
-            <div tw="w-8 h-px bg-[#5b5bd6] mr-3" />
-            <span tw="text-[#5b5bd6] text-xs font-semibold tracking-widest uppercase">
+            <div tw="w-8 h-px bg-[#003de5] mr-3" />
+            <span tw="text-[#003de5] text-xs font-semibold tracking-widest uppercase">
               {post.category}
             </span>
           </div>
 
           {/* Title */}
-          <div tw="text-[#fafafa] text-4xl font-semibold leading-tight tracking-tight mb-5 max-w-lg">
+          <div tw="text-[#0a0a0a] text-4xl font-semibold leading-tight tracking-tight mb-5 max-w-lg">
             {post.title}
           </div>
 
           {/* Description */}
-          <div tw="text-[#888] text-lg leading-relaxed flex-1 max-w-lg">
+          <div tw="text-[#6b6b6b] text-lg leading-relaxed flex-1 max-w-lg">
             {post.description}
           </div>
 
           {/* Bottom bar */}
-          <div tw="flex items-center justify-between border-t border-[rgba(255,255,255,0.08)] pt-5">
-            <span tw="text-[#555] text-xs tracking-wide">
+          <div tw="flex items-center justify-between border-t border-[#e5e5e5] pt-5">
+            <span tw="text-[#6b6b6b] text-xs tracking-wide">
               {date} · {post.readTime}
             </span>
-            <span tw="text-[#fafafa] text-base font-semibold tracking-tight">
+            <span tw="text-[#0a0a0a] text-base font-semibold tracking-tight">
               .rizon
             </span>
           </div>
         </div>
 
         {/* Right: cover image */}
-        <div tw="flex w-[420px] shrink-0 border-l border-[rgba(255,255,255,0.08)]">
+        <div tw="flex w-[420px] shrink-0 border-l border-[#e5e5e5]">
           <img src={imgSrc} tw="w-full h-full" style={{ objectFit: "cover" }} />
         </div>
       </div>
