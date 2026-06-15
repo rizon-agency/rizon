@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -16,17 +16,9 @@ const links = [
   { name: "Blog", href: "/blog", id: "blog", isPage: true },
 ];
 
-const sectionLinks = links.filter((l) => !l.isPage);
-
 export const Navigation = () => {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [activeId, setActiveId] = useState("home");
-  const [hoverId, setHoverId] = useState<string | null>(null);
-
-  const navRef = useRef<HTMLElement>(null);
-  const itemRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
-  const [line, setLine] = useState({ left: 0, width: 0, ready: false });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -35,62 +27,16 @@ export const Navigation = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    const sections = sectionLinks
-      .map((l) => document.getElementById(l.id))
-      .filter((el): el is HTMLElement => el !== null);
-    if (sections.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]) setActiveId(visible[0].target.id);
-      },
-      { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 1] },
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, []);
-
   const handleAnchorClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
       if (pathname === "/") {
         e.preventDefault();
-        const target = document.getElementById(id);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-          window.history.replaceState(null, "", `/#${id}`);
-        }
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        window.history.replaceState(null, "", `/#${id}`);
       }
     },
     [pathname],
   );
-
-  const isActive = (link: (typeof links)[0]) =>
-    link.isPage ? pathname.startsWith(link.href) : activeId === link.id;
-
-  const targetId = hoverId ?? (pathname.startsWith("/blog") ? "blog" : activeId);
-
-  const measure = () => {
-    const el = itemRefs.current[targetId];
-    const nav = navRef.current;
-    if (!el || !nav) {
-      setLine((l) => ({ ...l, ready: false }));
-      return;
-    }
-    const navBox = nav.getBoundingClientRect();
-    const box = el.getBoundingClientRect();
-    setLine({ left: box.left - navBox.left, width: box.width, ready: true });
-  };
-
-  useLayoutEffect(measure, [targetId]);
-  useEffect(() => {
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [targetId]);
 
   return (
     <header
@@ -109,35 +55,17 @@ export const Navigation = () => {
           <LogoWithText size={70} />
         </Link>
 
-        <nav
-          ref={navRef}
-          className="relative hidden items-center md:flex"
-          aria-label="Primary"
-          onMouseLeave={() => setHoverId(null)}
-        >
+        <nav className="hidden items-center md:flex" aria-label="Primary">
           {links.map((link) => (
             <Link
               key={link.id}
               href={link.href}
-              ref={(el) => { itemRefs.current[link.id] = el; }}
               onClick={link.isPage ? undefined : (e) => handleAnchorClick(e, link.id)}
-              onMouseEnter={() => setHoverId(link.id)}
-              aria-current={isActive(link) ? "page" : undefined}
-              className={`px-4 py-2 text-[13px] font-medium tracking-tight transition-colors duration-200 focus-visible:outline-none focus-visible:text-foreground ${
-                isActive(link) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-              }`}
+              className="px-4 py-2 text-[13px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:outline-none focus-visible:text-foreground"
             >
               {link.name}
             </Link>
           ))}
-
-          <span
-            aria-hidden
-            className={`absolute -bottom-0.5 h-px bg-primary transition-all duration-300 ease-[cubic-bezier(0.65,0,0.35,1)] ${
-              line.ready ? "opacity-100" : "opacity-0"
-            }`}
-            style={{ left: line.left + 16, width: Math.max(line.width - 32, 0) }}
-          />
         </nav>
 
         <div className="hidden md:block">
