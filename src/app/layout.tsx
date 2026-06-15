@@ -45,14 +45,6 @@ export const metadata: Metadata = {
     siteName: "Rizon Agency",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "/general-og.webp",
-        width: 1200,
-        height: 630,
-        alt: "Rizon Agency - Custom E-Learning Platform Development",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -60,7 +52,6 @@ export const metadata: Metadata = {
     description:
       "Launch your online learning platform without monthly fees or vendor lock-in. Own your platform, own your revenue.",
     creator: "@rizon_agency",
-    images: ["/general-og.webp"],
   },
   robots: {
     index: true,
