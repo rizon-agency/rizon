@@ -1,3 +1,5 @@
+import type { StaticImageData } from "next/image";
+
 export type Post = {
   slug: string;
   title: string;
@@ -5,7 +7,7 @@ export type Post = {
   date: string;
   readTime: string;
   category: string;
-  coverImage: string;
+  coverImage: StaticImageData;
 };
 
 export type Project = {

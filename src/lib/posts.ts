@@ -1,25 +1,27 @@
-import { Post } from "@/types";
+import type { Post } from "@/types";
+import cheatingExamsCover from "@/assets/blog/cheating-online-exams-what-actually-works.png";
+import canvasBreachCover from "@/assets/blog/canvas-breach-student-data-security.png";
 
 export const posts: Post[] = [
   {
-    slug: "why-custom-lms-beats-off-the-shelf",
-    title: "Why Custom LMS Beats Off-the-Shelf Solutions",
+    slug: "canvas-breach-student-data-security",
+    title: "The Canvas Breach Should Change How Every Education Company Thinks About Student Data",
     description:
-      "SaaS LMS platforms look affordable until you do the math. Here is what the real cost comparison looks like over five years — and why ownership changes everything.",
-    date: "2026-05-20",
+      "The Canvas breach wasn't a sophisticated attack. It was a basic mistake that scaled. Here's the real lesson for anyone building or running a learning platform.",
+    date: "2026-06-10",
     readTime: "6 min read",
-    category: "LMS Development",
-    coverImage: "/general-og.webp",
+    category: "Security",
+    coverImage: canvasBreachCover,
   },
   {
-    slug: "how-to-launch-online-course-without-monthly-fees",
-    title: "How to Launch an Online Course Without Paying Monthly Platform Fees",
+    slug: "cheating-online-exams-what-actually-works",
+    title: "You Can't Stop Students From Cheating on Online Exams. Here's What Actually Works.",
     description:
-      "Teachable, Thinkific, and Kajabi take a cut of every dollar you earn. There is a better path — and it does not require a million-dollar budget.",
-    date: "2026-04-10",
-    readTime: "8 min read",
-    category: "Course Creation",
-    coverImage: "/general-og.webp",
+      "Surveillance tools feel like control until they get bypassed. The platforms that get assessment right spend their budget on exam design, not monitoring.",
+    date: "2026-06-01",
+    readTime: "7 min read",
+    category: "Assessment Design",
+    coverImage: cheatingExamsCover,
   },
 ];
 

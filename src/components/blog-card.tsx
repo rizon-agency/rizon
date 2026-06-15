@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import type { Post } from "@/types";
+
+const NEW_THRESHOLD_DAYS = 30;
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-US", {
@@ -9,6 +12,11 @@ function formatDate(dateStr: string) {
     month: "long",
     day: "numeric",
   });
+}
+
+function isNew(dateStr: string) {
+  const diff = Date.now() - new Date(dateStr).getTime();
+  return diff < NEW_THRESHOLD_DAYS * 24 * 60 * 60 * 1000;
 }
 
 type BlogCardProps = {
@@ -37,9 +45,12 @@ export const BlogCard = ({ post, sizes = "(max-width: 768px) 100vw, 45vw" }: Blo
         />
       </div>
 
-      <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-        {post.category}
-      </span>
+      <div className="flex items-center gap-2">
+        <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+          {post.category}
+        </span>
+        {isNew(post.date) && <Badge>New</Badge>}
+      </div>
 
       <h2 className="mt-4 text-xl font-medium tracking-tight leading-snug text-balance">
         {post.title}
