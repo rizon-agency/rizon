@@ -3,9 +3,9 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LogoWithText } from "@/components/logo";
+import { MobileNav } from "./mobile-nav";
 
 const links = [
   { name: "Home", href: "/#home", id: "home", isPage: false },
@@ -20,7 +20,6 @@ const sectionLinks = links.filter((l) => !l.isPage);
 
 export const Navigation = () => {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeId, setActiveId] = useState("home");
   const [hoverId, setHoverId] = useState<string | null>(null);
@@ -65,7 +64,6 @@ export const Navigation = () => {
           window.history.replaceState(null, "", `/#${id}`);
         }
       }
-      setOpen(false);
     },
     [pathname],
   );
@@ -73,7 +71,6 @@ export const Navigation = () => {
   const isActive = (link: (typeof links)[0]) =>
     link.isPage ? pathname.startsWith(link.href) : activeId === link.id;
 
-  // Hairline tracks hovered link, falling back to the active one.
   const targetId = hoverId ?? (pathname.startsWith("/blog") ? "blog" : activeId);
 
   const measure = () => {
@@ -123,7 +120,7 @@ export const Navigation = () => {
               key={link.id}
               href={link.href}
               ref={(el) => { itemRefs.current[link.id] = el; }}
-              onClick={link.isPage ? () => setOpen(false) : (e) => handleAnchorClick(e, link.id)}
+              onClick={link.isPage ? undefined : (e) => handleAnchorClick(e, link.id)}
               onMouseEnter={() => setHoverId(link.id)}
               aria-current={isActive(link) ? "page" : undefined}
               className={`px-4 py-2 text-[13px] font-medium tracking-tight transition-colors duration-200 focus-visible:outline-none focus-visible:text-foreground ${
@@ -134,7 +131,6 @@ export const Navigation = () => {
             </Link>
           ))}
 
-          {/* Signature hairline */}
           <span
             aria-hidden
             className={`absolute -bottom-0.5 h-px bg-primary transition-all duration-300 ease-[cubic-bezier(0.65,0,0.35,1)] ${
@@ -152,53 +148,7 @@ export const Navigation = () => {
           </Button>
         </div>
 
-        <button
-          type="button"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          onClick={() => setOpen((v) => !v)}
-          className="flex size-9 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 md:hidden"
-        >
-          {open ? <X size={18} /> : <Menu size={18} />}
-        </button>
-      </div>
-
-      {/* Mobile dropdown */}
-      <div
-        id="mobile-menu"
-        className={`grid overflow-hidden border-border transition-all duration-300 ease-out md:hidden ${
-          open
-            ? "grid-rows-[1fr] border-t bg-background/95 backdrop-blur-md"
-            : "grid-rows-[0fr]"
-        }`}
-      >
-        <div className="overflow-hidden">
-          <nav className="container mx-auto flex flex-col px-4 py-2" aria-label="Mobile">
-            {links.map((link) => (
-              <Link
-                key={link.id}
-                href={link.href}
-                onClick={link.isPage ? () => setOpen(false) : (e) => handleAnchorClick(e, link.id)}
-                aria-current={isActive(link) ? "page" : undefined}
-                className="group flex items-center justify-between border-b border-border py-3.5 text-[15px] font-medium transition-colors last:border-b-0"
-              >
-                <span className={isActive(link) ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}>
-                  {link.name}
-                </span>
-                <span
-                  aria-hidden
-                  className={`h-1.5 w-1.5 rounded-full bg-primary transition-opacity ${isActive(link) ? "opacity-100" : "opacity-0"}`}
-                />
-              </Link>
-            ))}
-            <Button asChild className="mt-4 mb-2 w-full">
-              <Link href="/#contact" onClick={(e) => handleAnchorClick(e, "contact")}>
-                Book a call
-              </Link>
-            </Button>
-          </nav>
-        </div>
+        <MobileNav />
       </div>
     </header>
   );
