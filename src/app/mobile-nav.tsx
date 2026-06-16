@@ -1,13 +1,12 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -24,17 +23,23 @@ const links = [
   { name: "Blog", href: "/blog", id: "blog", isPage: true },
 ];
 
-export const MobileNav = () => {
+type Props = { activeId: string };
+
+export const MobileNav = ({ activeId }: Props) => {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   const isActive = (link: (typeof links)[0]) =>
-    link.isPage ? pathname.startsWith(link.href) : pathname === "/";
+    link.isPage
+      ? pathname.startsWith(link.href)
+      : pathname === "/" && activeId === link.id;
 
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, link: (typeof links)[0]) => {
+      setOpen(false);
       if (!link.isPage && pathname === "/") {
         e.preventDefault();
-        document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" });
+        document.getElementById(link.id)?.scrollIntoView({ behavior: "instant" });
         window.history.replaceState(null, "", `/#${link.id}`);
       }
     },
@@ -42,7 +47,7 @@ export const MobileNav = () => {
   );
 
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <button
           type="button"
@@ -56,11 +61,9 @@ export const MobileNav = () => {
       <SheetContent side="left" className="flex flex-col px-0">
         <SheetHeader className="border-b border-border px-6 pb-4">
           <SheetTitle asChild>
-            <SheetClose asChild>
-              <Link href="/#home" onClick={(e) => handleClick(e, links[0])}>
-                <LogoWithText size={80} />
-              </Link>
-            </SheetClose>
+            <Link href="/#home" onClick={(e) => handleClick(e, links[0])}>
+              <LogoWithText size={80} />
+            </Link>
           </SheetTitle>
         </SheetHeader>
 
@@ -68,37 +71,34 @@ export const MobileNav = () => {
           {links.map((link) => {
             const active = isActive(link);
             return (
-              <SheetClose key={link.id} asChild>
-                <Link
-                  href={link.href}
-                  onClick={(e) => handleClick(e, link)}
-                  aria-current={active ? "page" : undefined}
-                  className="group flex items-center justify-between border-b border-border py-4 text-[15px] font-medium transition-colors last:border-b-0"
-                >
-                  <span className={active ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}>
-                    {link.name}
-                  </span>
-                  <span
-                    aria-hidden
-                    className={`h-1.5 w-1.5 rounded-full bg-primary transition-opacity ${active ? "opacity-100" : "opacity-0"}`}
-                  />
-                </Link>
-              </SheetClose>
+              <Link
+                key={link.id}
+                href={link.href}
+                onClick={(e) => handleClick(e, link)}
+                aria-current={active ? "page" : undefined}
+                className="group flex items-center justify-between border-b border-border py-4 text-[15px] font-medium transition-colors last:border-b-0"
+              >
+                <span className={active ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}>
+                  {link.name}
+                </span>
+                <span
+                  aria-hidden
+                  className={`h-1.5 w-1.5 rounded-full bg-primary transition-opacity ${active ? "opacity-100" : "opacity-0"}`}
+                />
+              </Link>
             );
           })}
         </nav>
 
         <div className="mt-auto border-t border-border px-6 pt-4 pb-6">
-          <SheetClose asChild>
-            <Button asChild className="w-full">
-              <Link
-                href="/#contact"
-                onClick={(e) => handleClick(e, { name: "Contact", href: "/#contact", id: "contact", isPage: false })}
-              >
-                Book a call
-              </Link>
-            </Button>
-          </SheetClose>
+          <Button asChild className="w-full">
+            <Link
+              href="/#contact"
+              onClick={(e) => handleClick(e, { name: "Contact", href: "/#contact", id: "contact", isPage: false })}
+            >
+              Book a call
+            </Link>
+          </Button>
         </div>
       </SheetContent>
     </Sheet>

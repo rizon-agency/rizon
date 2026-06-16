@@ -113,7 +113,7 @@ export const Navigation = () => {
           </Button>
         </div>
 
-        <MobileNav />
+        <MobileNav activeId={activeId} />
       </div>
     </header>
   );
