@@ -21,7 +21,6 @@ export const metadata: Metadata = {
 export default function LegalPage() {
   return (
     <>
-
       <main className="container mx-auto px-4 pt-32 md:pt-40">
         <div className="mx-auto max-w-3xl">
           <header>
@@ -51,7 +50,9 @@ export default function LegalPage() {
                 <dt className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">
                   Entity
                 </dt>
-                <dd className="mt-1.5 text-[15px] text-foreground">Rizon LLC</dd>
+                <dd className="mt-1.5 text-[15px] text-foreground">
+                  Rizon LLC
+                </dd>
               </div>
               <div>
                 <dt className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">
@@ -240,8 +241,8 @@ export default function LegalPage() {
                 agreed SOW
               </li>
               <li>
-                Rizon has the right to enter into this agreement and is not bound
-                by any conflicting obligations
+                Rizon has the right to enter into this agreement and is not
+                bound by any conflicting obligations
               </li>
             </ul>
             <p>
@@ -313,22 +314,23 @@ export default function LegalPage() {
               United States, without regard to conflict of law principles.
             </p>
             <p>
-              Any disputes arising from these Terms or a project engagement shall
-              first be attempted to be resolved through good-faith negotiation.
-              If unresolved after 30 days, disputes shall be submitted to binding
-              arbitration in Wyoming in accordance with the rules of the American
-              Arbitration Association.
+              Any disputes arising from these Terms or a project engagement
+              shall first be attempted to be resolved through good-faith
+              negotiation. If unresolved after 30 days, disputes shall be
+              submitted to binding arbitration in Wyoming in accordance with the
+              rules of the American Arbitration Association.
             </p>
 
             <hr />
 
             <h2>13. Changes to These Terms</h2>
             <p>
-              Rizon reserves the right to update these Terms at any time. Updates
-              will be posted on our website with a revised effective date.
-              Continued engagement with Rizon after such updates constitutes
-              acceptance of the revised Terms. Active projects in progress are
-              governed by the Terms in effect at the time the SOW was signed.
+              Rizon reserves the right to update these Terms at any time.
+              Updates will be posted on our website with a revised effective
+              date. Continued engagement with Rizon after such updates
+              constitutes acceptance of the revised Terms. Active projects in
+              progress are governed by the Terms in effect at the time the SOW
+              was signed.
             </p>
 
             <hr />
@@ -339,18 +341,20 @@ export default function LegalPage() {
               <strong>Rizon LLC</strong>
               <br />
               Email:{" "}
-              <a href="mailto:choaib.m@rizon.agency">choaib.m@rizon.agency</a>
+              <Link href="mailto:choaib.m@rizon.agency">
+                choaib.m@rizon.agency
+              </Link>
               <br />
               Phone: <a href="tel:+212613739291">+212 613 739 291</a>
               <br />
               Website:{" "}
-              <a
+              <Link
                 href="https://rizon.agency"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 rizon.agency
-              </a>
+              </Link>
             </p>
           </div>
         </div>

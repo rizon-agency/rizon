@@ -105,7 +105,7 @@ export const Contact = () => {
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <Button asChild>
-              <a href={MAILTO}>Email us</a>
+              <Link href={MAILTO}>Email us</Link>
             </Button>
             <div className="inline-flex items-center gap-2 rounded-full border border-border py-1 pl-3.5 pr-1">
               <span className="select-all font-mono text-sm text-muted-foreground">
@@ -114,11 +114,18 @@ export const Contact = () => {
               <button
                 type="button"
                 onClick={copyEmail}
-                aria-label={copied ? "Email address copied" : "Copy email address"}
+                aria-label={
+                  copied ? "Email address copied" : "Copy email address"
+                }
                 className="flex size-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
               >
                 {copied ? (
-                  <Check size={15} strokeWidth={2} className="text-primary" aria-hidden />
+                  <Check
+                    size={15}
+                    strokeWidth={2}
+                    className="text-primary"
+                    aria-hidden
+                  />
                 ) : (
                   <Copy size={15} strokeWidth={1.75} aria-hidden />
                 )}
