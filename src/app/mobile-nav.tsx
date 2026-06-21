@@ -62,7 +62,7 @@ export const MobileNav = ({ activeId }: Props) => {
         <SheetHeader className="border-b border-border px-6 pb-4">
           <SheetTitle asChild>
             <Link href="/#home" onClick={(e) => handleClick(e, links[0])}>
-              <LogoWithText size={80} />
+              <LogoWithText size={80} className="text-primary" />
             </Link>
           </SheetTitle>
         </SheetHeader>

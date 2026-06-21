@@ -21,21 +21,21 @@ const socials = [
 
 export const Footer = () => {
   return (
-    <footer className="mt-32 border-t border-border md:mt-40">
+    <footer className="mt-32 bg-primary text-primary-foreground md:mt-40">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 gap-x-12 gap-y-12 py-16 lg:grid-cols-12 md:py-20">
           <div className="lg:col-span-6">
             <Link href="/" className="inline-block">
               <LogoWithText size={120} />
             </Link>
-            <p className="mt-5 max-w-sm text-lg leading-relaxed text-muted-foreground text-pretty">
+            <p className="mt-5 max-w-sm text-lg leading-relaxed text-primary-foreground/80 text-pretty">
               Custom LMS development agency. Building learning platforms people
               actually want to use.
             </p>
           </div>
 
           <nav className="lg:col-span-3" aria-label="Footer">
-            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/50">
               Explore
             </h2>
             <ul className="mt-5 space-y-3">
@@ -43,7 +43,7 @@ export const Footer = () => {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground"
                   >
                     {link.name}
                   </Link>
@@ -53,7 +53,7 @@ export const Footer = () => {
           </nav>
 
           <div className="lg:col-span-3">
-            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/50">
               Follow
             </h2>
             <div className="mt-5 flex items-center gap-2">
@@ -64,7 +64,7 @@ export const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="flex size-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
+                  className="flex size-10 items-center justify-center rounded-full border border-primary-foreground/30 text-primary-foreground/80 transition-colors hover:border-primary-foreground/60 hover:text-primary-foreground"
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -80,14 +80,14 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-start justify-between gap-4 border-t border-border py-6 sm:flex-row sm:items-center">
-          <p className="text-sm text-muted-foreground">
+        <div className="flex flex-col items-start justify-between gap-4 border-t border-primary-foreground/20 py-6 sm:flex-row sm:items-center">
+          <p className="text-sm text-primary-foreground/70">
             © {new Date().getFullYear()} Rizon. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <Link
               href="/legal"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm text-primary-foreground/70 transition-colors hover:text-primary-foreground"
             >
               Terms &amp; Services
             </Link>

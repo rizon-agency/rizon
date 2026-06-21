@@ -17,7 +17,7 @@ export function ThemeToggle() {
       <DropdownMenuTrigger asChild>
         <button
           aria-label="Toggle theme"
-          className="flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
+          className="flex size-9 items-center justify-center rounded-full border border-primary-foreground/30 text-primary-foreground/80 transition-colors hover:border-primary-foreground/60 hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/50"
         >
           <Sun size={15} className="block dark:hidden" aria-hidden />
           <Moon size={15} className="hidden dark:block" aria-hidden />

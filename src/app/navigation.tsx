@@ -84,7 +84,7 @@ export const Navigation = () => {
           onClick={(e) => handleAnchorClick(e, "home")}
           className="shrink-0 text-xl font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
-          <LogoWithText size={70} />
+          <LogoWithText size={70} className="text-primary" />
         </Link>
 
         <nav className="hidden items-center md:flex" aria-label="Primary">
