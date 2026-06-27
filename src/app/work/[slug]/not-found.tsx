@@ -6,7 +6,7 @@ import { Footer } from "../../footer";
 export default function ProjectNotFound() {
   return (
     <>
-      <main className="container mx-auto flex min-h-[70vh] flex-col justify-center px-4 pt-32 md:pt-40">
+      <main className="container flex min-h-[70vh] flex-col justify-center pt-32 md:pt-40">
         <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
           <span className="font-mono text-sm tabular-nums">404</span>
           <span className="h-px w-8 bg-primary" aria-hidden />

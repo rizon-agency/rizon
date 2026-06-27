@@ -9,7 +9,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 
 export const Work = () => {
   return (
-    <section id="work" className="container mx-auto px-4 mt-32 md:mt-40">
+    <section id="work" className="container mt-32 md:mt-40">
       <Reveal>
         <SectionHeader
           label="Selected work"

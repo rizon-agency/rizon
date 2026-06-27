@@ -52,7 +52,7 @@ export const Faq = () => {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="container mx-auto px-4 mt-32 md:mt-40">
+    <section id="faq" className="container mt-32 md:mt-40">
       <div className="grid grid-cols-1 gap-x-16 gap-y-10 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-24">

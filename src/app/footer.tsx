@@ -22,7 +22,7 @@ const socials = [
 export const Footer = () => {
   return (
     <footer className="mt-32 bg-primary text-primary-foreground md:mt-40">
-      <div className="container mx-auto px-4">
+      <div className="container">
         <div className="grid grid-cols-1 gap-x-12 gap-y-12 py-16 lg:grid-cols-12 md:py-20">
           <div className="lg:col-span-6">
             <Link href="/" className="inline-block">

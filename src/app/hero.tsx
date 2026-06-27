@@ -19,7 +19,7 @@ export const Hero = () => {
         };
 
   return (
-    <section id="home" className="container mx-auto px-4 pt-32 md:pt-40">
+    <section id="home" className="container pt-32 md:pt-40">
       <div className="grid grid-cols-1 items-end gap-x-12 gap-y-10 lg:grid-cols-12">
         <div className="lg:col-span-8">
           <motion.span

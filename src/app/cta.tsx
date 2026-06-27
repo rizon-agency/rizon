@@ -6,7 +6,7 @@ import { Reveal } from "@/components/reveal";
 
 export const Cta = () => {
   return (
-    <section className="container mx-auto px-4 mt-32 md:mt-40">
+    <section className="container mt-32 md:mt-40">
       <Reveal duration={0.7}>
         <div className="rounded-lg bg-primary px-6 py-16 text-primary-foreground sm:px-10 md:px-16 md:py-24">
           <div className="grid grid-cols-1 items-end gap-x-12 gap-y-10 lg:grid-cols-12">

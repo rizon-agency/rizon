@@ -78,7 +78,7 @@ export const Navigation = () => {
           : "border-b border-transparent"
       }`}
     >
-      <div className="container mx-auto flex h-16 items-center justify-between gap-8 px-4">
+      <div className="container flex h-16 items-center justify-between gap-8">
         <Link
           href="/#home"
           onClick={(e) => handleAnchorClick(e, "home")}

@@ -25,7 +25,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="container mx-auto px-4 mt-32 md:mt-40">
+    <section id="contact" className="container mt-32 md:mt-40">
       <Reveal>
         <SectionHeader
           label="Get in touch"

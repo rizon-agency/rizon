@@ -32,14 +32,14 @@ export default function BlogPage() {
   return (
     <>
       <main>
-        <section className="container mx-auto px-4 pt-32 md:pt-40">
+        <section className="container pt-32 md:pt-40">
           <SectionHeader
             label="From the blog"
             title="Thinking on LMS, learning platforms, and the business of online education"
           />
         </section>
 
-        <section className="container mx-auto px-4 mt-16">
+        <section className="container mt-16">
           <div className="grid grid-cols-1 border-t border-border md:grid-cols-2 md:gap-x-12">
             {posts.map((post) => (
               <BlogCard key={post.slug} post={post} />

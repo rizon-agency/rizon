@@ -52,7 +52,7 @@ const steps: Step[] = [
 
 export const HowWeWork = () => {
   return (
-    <section id="how-we-work" className="container mx-auto px-4 mt-32 md:mt-40">
+    <section id="how-we-work" className="container mt-32 md:mt-40">
       <Reveal>
         <SectionHeader
           label="How we work"

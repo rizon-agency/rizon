@@ -91,7 +91,7 @@ const features: Feature[] = [
 export const Features = () => {
   return (
     <section id="features" className="bg-primary text-primary-foreground mt-32 md:mt-40">
-      <div className="container mx-auto px-4 py-20 md:py-28">
+      <div className="container py-20 md:py-28">
         <Reveal>
           <SectionHeader
             variant="primary"

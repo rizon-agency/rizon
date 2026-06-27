@@ -61,7 +61,7 @@ export default async function ProjectPage({
 
       <main>
         {/* Header */}
-        <section className="container mx-auto px-4 pt-24 md:pt-28">
+        <section className="container pt-24 md:pt-28">
           <Link
             href="/#work"
             className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -127,7 +127,7 @@ export default async function ProjectPage({
         </section>
 
         {/* Lead image */}
-        <section className="container mx-auto px-4 mt-12 md:mt-16">
+        <section className="container mt-12 md:mt-16">
           <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-muted md:aspect-[21/9]">
             <Image
               src={project.preview}
@@ -141,7 +141,7 @@ export default async function ProjectPage({
         </section>
 
         {/* Problem / Solution */}
-        <section className="container mx-auto px-4 mt-32 md:mt-40">
+        <section className="container mt-32 md:mt-40">
           <div className="grid grid-cols-1 border-t border-border md:grid-cols-2">
             <article className="border-b border-border py-10 md:border-b-0 md:border-r md:py-12 md:pr-12">
               <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground/70">
@@ -168,7 +168,7 @@ export default async function ProjectPage({
         </section>
 
         {/* Gallery */}
-        <section className="container mx-auto px-4 mt-32 md:mt-40">
+        <section className="container mt-32 md:mt-40">
           <div className="flex items-end justify-between gap-6 border-b border-border pb-6">
             <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
               <span className="h-px w-8 bg-primary" aria-hidden />
@@ -206,7 +206,7 @@ export default async function ProjectPage({
         </section>
 
         {/* CTA */}
-        <section className="container mx-auto px-4 mt-32 md:mt-40">
+        <section className="container mt-32 md:mt-40">
           <div className="grid grid-cols-1 items-end gap-x-12 gap-y-8 border-t border-border pt-14 lg:grid-cols-12">
             <h2 className="text-3xl font-semibold tracking-tight leading-[1.05] text-balance lg:col-span-8 md:text-4xl">
               Want a platform like this, built around how you actually work?
@@ -227,7 +227,7 @@ export default async function ProjectPage({
         </section>
 
         {/* Next project */}
-        <section className="container mx-auto px-4 mt-20">
+        <section className="container mt-20">
           <Link
             href={`/work/${next.slug}`}
             className="group relative block border-t border-border py-10"

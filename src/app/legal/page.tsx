@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function LegalPage() {
   return (
     <>
-      <main className="container mx-auto px-4 pt-32 md:pt-40">
+      <main className="container pt-32 md:pt-40">
         <div className="mx-auto max-w-3xl">
           <header>
             <Link

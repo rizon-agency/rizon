@@ -5,6 +5,20 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* shadcn container: centered with always-on inline padding so it never
+   sits edge-to-edge at any breakpoint, capped on large screens.
+   https://ui.shadcn.com/docs/tailwind-v4 */
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= --theme(--breakpoint-sm)) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

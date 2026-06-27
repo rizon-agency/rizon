@@ -45,7 +45,7 @@ const reasons: Reason[] = [
 
 export const WhyUs = () => {
   return (
-    <section id="why-us" className="container mx-auto px-4 mt-32 md:mt-40">
+    <section id="why-us" className="container mt-32 md:mt-40">
       <Reveal>
         <SectionHeader
           label="Why us"

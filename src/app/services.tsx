@@ -80,7 +80,7 @@ export const Services = () => {
   const current = services[active];
 
   return (
-    <section id="services" className="container mx-auto px-4 mt-32 md:mt-40">
+    <section id="services" className="container mt-32 md:mt-40">
       <div className="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-12">
         {/* Left — selector */}
         <div className="lg:col-span-5">

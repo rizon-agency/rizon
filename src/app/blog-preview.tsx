@@ -12,7 +12,7 @@ const preview = posts.slice(0, 3);
 
 export const BlogPreview = () => {
   return (
-    <section id="blog" className="container mx-auto px-4 mt-32 md:mt-40">
+    <section id="blog" className="container mt-32 md:mt-40">
       <Reveal>
         <div className="flex items-end justify-between gap-6">
           <SectionHeader

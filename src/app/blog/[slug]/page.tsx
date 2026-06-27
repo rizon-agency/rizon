@@ -112,7 +112,7 @@ export default async function BlogPostPage({
 
       <main>
         {/* Header */}
-        <section className="container mx-auto px-4 pt-24 md:pt-28">
+        <section className="container pt-24 md:pt-28">
           <div className="mx-auto max-w-2xl">
             <Link
               href="/blog"
@@ -145,7 +145,7 @@ export default async function BlogPostPage({
         </section>
 
         {/* Cover image */}
-        <section className="container mx-auto px-4 mt-10">
+        <section className="container mt-10">
           <div className="mx-auto max-w-2xl">
             <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-border bg-muted">
               <Image
@@ -161,14 +161,14 @@ export default async function BlogPostPage({
         </section>
 
         {/* Content */}
-        <section className="container mx-auto px-4 mt-12">
+        <section className="container mt-12">
           <div className="prose dark:prose-invert mx-auto max-w-2xl">
             <Content />
           </div>
         </section>
 
         {/* Next post */}
-        <section className="container mx-auto px-4 mt-20">
+        <section className="container mt-20">
           <div className="mx-auto max-w-2xl">
             <Link
               href={`/blog/${next.slug}`}
