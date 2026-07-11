@@ -32,13 +32,10 @@ export const Hero = () => {
           className="-z-10 object-cover"
         />
         {/* Dark overlay for legibility of the white nav + copy */}
+        <div aria-hidden className="absolute inset-0 -z-10 bg-black/55" />
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-black/55"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/25 to-black/60"
+          className="absolute inset-0 -z-10 bg-linear-to-b from-black/60 via-black/25 to-black/60"
         />
 
         {/* Centered hero content, cleared below the overlaid navigation */}
@@ -79,8 +76,8 @@ export const Hero = () => {
       </div>
 
       {/* Stats row below the card */}
-      <motion.div {...fade(0.7)} className="container mt-10 md:mt-14">
-        <dl className="grid grid-cols-1 border-t border-border sm:grid-cols-3">
+      <motion.div {...fade(0.7)} className="container mt-10">
+        <dl className="grid grid-cols-1 border-border sm:grid-cols-3">
           {[
             {
               value: (
