@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/ui/button";
@@ -19,55 +20,67 @@ export const Hero = () => {
         };
 
   return (
-    <section id="home" className="container pt-32 md:pt-40">
-      <div className="grid grid-cols-1 items-end gap-x-12 gap-y-10 lg:grid-cols-12">
-        <div className="lg:col-span-8">
-          <motion.span
-            {...fade(0.2)}
-            className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary"
-          >
-            <span className="h-px w-8 bg-primary" aria-hidden />
-            Custom LMS development
-          </motion.span>
+    <section id="home" className="px-3 pt-3 sm:px-4 sm:pt-4 lg:px-6">
+      {/* Inset, rounded hero card with full-bleed background image */}
+      <div className="relative isolate flex min-h-[580px] flex-col overflow-hidden rounded-[28px] sm:min-h-[640px] lg:min-h-[720px] lg:rounded-[36px]">
+        <Image
+          src="/hero.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="-z-10 object-cover"
+        />
+        {/* Dark overlay for legibility of the white nav + copy */}
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-black/55"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/25 to-black/60"
+        />
+
+        {/* Centered hero content, cleared below the overlaid navigation */}
+        <div className="flex flex-1 flex-col items-center justify-center px-6 pt-24 pb-16 text-center sm:px-10">
           <motion.h1
-            {...fade(0.35)}
-            className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance sm:text-6xl md:text-7xl"
+            {...fade(0.25)}
+            className="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-balance text-white sm:text-6xl md:text-7xl"
           >
             The platform behind your learning product, built from scratch.
           </motion.h1>
-        </div>
 
-        <motion.div
-          {...fade(0.5)}
-          className="lg:col-span-4"
-        >
-          <p className="text-lg leading-relaxed text-muted-foreground text-pretty">
+          <motion.p
+            {...fade(0.5)}
+            className="mt-6 max-w-2xl text-lg leading-relaxed text-pretty text-white/75"
+          >
             We build custom e-learning platforms designed around how you teach,
-            not how a template thinks you should. No monthly fees eating your
-            revenue. No feature ceilings. A platform that is fully yours, code
-            and all.
-          </p>
+            not how a template thinks you should. No monthly fees, no feature
+            ceilings — a platform that is fully yours, code and all.
+          </motion.p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <motion.div
+            {...fade(0.62)}
+            className="mt-10 flex flex-wrap items-center justify-center gap-3"
+          >
             <Button size="lg" asChild>
-              <Link href="/#contact">
-                Get in touch
-              </Link>
+              <Link href="/#contact">Get in touch</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href="/#work">
-                See our work
-              </Link>
+            <Button
+              size="lg"
+              variant="outline"
+              asChild
+              className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"
+            >
+              <Link href="/#work">See our work</Link>
             </Button>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
 
-      <motion.div
-        {...fade(0.7)}
-        className="mt-16 border-t border-border md:mt-20"
-      >
-        <dl className="grid grid-cols-1 sm:grid-cols-3">
+      {/* Stats row below the card */}
+      <motion.div {...fade(0.7)} className="container mt-10 md:mt-14">
+        <dl className="grid grid-cols-1 border-t border-border sm:grid-cols-3">
           {[
             {
               value: (
@@ -98,14 +111,14 @@ export const Hero = () => {
               key={i}
               className={`py-8 sm:py-10 md:py-12 ${
                 i > 0
-                  ? "border-t sm:border-t-0 sm:border-l border-border sm:pl-6 md:pl-8"
+                  ? "border-t border-border sm:border-t-0 sm:border-l sm:pl-6 md:pl-8"
                   : "sm:pr-6 md:pr-8"
               } ${i === 2 ? "sm:pr-0" : ""}`}
             >
               <dt className="text-4xl font-light tracking-tight sm:text-5xl md:text-7xl">
                 {stat.value}
               </dt>
-              <dd className="mt-3 sm:mt-4 max-w-[18ch] text-[15px] leading-snug text-muted-foreground">
+              <dd className="mt-3 max-w-[18ch] text-[15px] leading-snug text-muted-foreground sm:mt-4">
                 {stat.label}
               </dd>
             </div>

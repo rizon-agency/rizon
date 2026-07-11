@@ -23,9 +23,9 @@ const links = [
   { name: "Blog", href: "/blog", id: "blog", isPage: true },
 ];
 
-type Props = { activeId: string };
+type Props = { activeId: string; overHero?: boolean };
 
-export const MobileNav = ({ activeId }: Props) => {
+export const MobileNav = ({ activeId, overHero }: Props) => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -52,7 +52,11 @@ export const MobileNav = ({ activeId }: Props) => {
         <button
           type="button"
           aria-label="Open menu"
-          className="flex size-9 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 md:hidden"
+          className={`flex size-9 items-center justify-center rounded-full border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 md:hidden ${
+            overHero
+              ? "border-white/40 text-white hover:bg-white/10"
+              : "border-border text-foreground hover:bg-muted"
+          }`}
         >
           <Menu size={18} />
         </button>

@@ -70,21 +70,33 @@ export const Navigation = () => {
       ? pathname.startsWith(link.href)
       : pathname === "/" && activeId === link.id;
 
+  // Transparent, white-on-image state while sitting over the hero card.
+  const overHero = pathname === "/" && !scrolled;
+
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "border-b border-border bg-background/85 backdrop-blur-md"
           : "border-b border-transparent"
-      }`}
+      } ${overHero ? "pt-3 sm:pt-5" : ""}`}
     >
-      <div className="container flex h-16 items-center justify-between gap-8">
+      <div
+        className={`flex h-16 items-center justify-between gap-8 ${
+          overHero
+            ? "mx-auto w-full max-w-[110rem] px-7 sm:px-9 lg:px-14"
+            : "container"
+        }`}
+      >
         <Link
           href="/#home"
           onClick={(e) => handleAnchorClick(e, "home")}
           className="shrink-0 text-xl font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
-          <LogoWithText size={70} className="text-primary" />
+          <LogoWithText
+            size={70}
+            className={overHero ? "text-white" : "text-primary"}
+          />
         </Link>
 
         <nav className="hidden items-center md:flex" aria-label="Primary">
@@ -94,10 +106,14 @@ export const Navigation = () => {
               href={link.href}
               onClick={link.isPage ? undefined : (e) => handleAnchorClick(e, link.id)}
               aria-current={isActive(link) ? "page" : undefined}
-              className={`px-4 py-2 text-[13px] font-medium tracking-tight transition-colors duration-200 focus-visible:outline-none focus-visible:text-foreground ${
-                isActive(link)
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+              className={`px-4 py-2 text-[13px] font-medium tracking-tight transition-colors duration-200 focus-visible:outline-none ${
+                overHero
+                  ? isActive(link)
+                    ? "text-white"
+                    : "text-white/70 hover:text-white focus-visible:text-white"
+                  : isActive(link)
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground focus-visible:text-foreground"
               }`}
             >
               {link.name}
@@ -113,7 +129,7 @@ export const Navigation = () => {
           </Button>
         </div>
 
-        <MobileNav activeId={activeId} />
+        <MobileNav activeId={activeId} overHero={overHero} />
       </div>
     </header>
   );
