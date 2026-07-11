@@ -23,7 +23,7 @@ export const Hero = () => {
   return (
     <section id="home" className="px-3 pt-3 sm:px-4 sm:pt-4 lg:px-6">
       {/* Inset, rounded hero card with full-bleed background image */}
-      <div className="relative isolate flex min-h-[520px] flex-col overflow-hidden rounded-[28px] bg-neutral-950 sm:min-h-[640px] lg:min-h-[720px] lg:rounded-[36px]">
+      <div className="relative isolate flex min-h-130 flex-col overflow-hidden rounded-[28px] bg-neutral-950 sm:min-h-160 lg:min-h-[720px] lg:rounded-[36px]">
         {/* Image only on sm+; mobile falls back to the solid dark card */}
         <Image
           src={heroImage}
@@ -32,7 +32,7 @@ export const Hero = () => {
           priority
           placeholder="blur"
           sizes="100vw"
-          className="-z-10 hidden object-cover sm:block"
+          className="-z-10 object-cover"
         />
         {/* Dark overlay for legibility of the white nav + copy */}
         <div aria-hidden className="absolute inset-0 -z-10 bg-black/55" />
