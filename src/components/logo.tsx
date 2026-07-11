@@ -37,7 +37,7 @@ export const LogoWithText: React.FC<LogoWithTextProps> = ({
   size = 200,
   className,
 }) => {
-  const viewBoxWidth = 220;
+  const viewBoxWidth = 186;
   const viewBoxHeight = 81;
   const aspectRatio = viewBoxHeight / viewBoxWidth;
   const numericSize =
@@ -55,9 +55,11 @@ export const LogoWithText: React.FC<LogoWithTextProps> = ({
       role="img"
       aria-label="Rizon"
     >
-      <path d={R_PATH} fill="currentColor" />
+      <g transform="translate(0, 5.7) scale(0.7)">
+        <path d={R_PATH} fill="currentColor" />
+      </g>
       <text
-        x="80"
+        x="57"
         y="62"
         fill="currentColor"
         fontFamily={WORDMARK_FONT}
