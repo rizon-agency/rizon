@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/hero.jpg";
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
@@ -24,10 +25,11 @@ export const Hero = () => {
       {/* Inset, rounded hero card with full-bleed background image */}
       <div className="relative isolate flex min-h-[580px] flex-col overflow-hidden rounded-[28px] sm:min-h-[640px] lg:min-h-[720px] lg:rounded-[36px]">
         <Image
-          src="/hero.jpg"
+          src={heroImage}
           alt=""
           fill
           priority
+          placeholder="blur"
           sizes="100vw"
           className="-z-10 object-cover"
         />
