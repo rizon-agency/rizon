@@ -5,11 +5,11 @@ export const projects: Project[] = [
     "slug": "kaiser-math-platform",
     "title": "Kaiser Math Platform",
     "link": "http://kaiser.rizon.agency",
-    "description": "Interactive math learning platform for elementary and middle school students. Adaptive problem sets, animated step-by-step solutions, gamified progress tracking, and real-time teacher dashboards.",
-    "problem": "Students were falling behind in math because practice felt boring and repetitive. Teachers couldn't see who was struggling until test day. Parents had no way to help their kids at home. Schools needed a platform that made math engaging, gave teachers visibility into progress, and let parents support learning.",
-    "solution": "We built an interactive math platform where students solve problems with instant feedback and animated walkthroughs when they get stuck. Each kid gets personalized problem sequences that adapt to their level. Teachers see real-time dashboards showing who needs help. Parents can log in to see progress, cheer on wins, and practice with their kids. Math becomes less scary and more rewarding.",
+    "description": "Gamified math learning platform built around structured courses, lessons, and quizzes. Students earn points, climb ranks, and compete on leaderboards while admins build courses, manage question banks, and grade attempts from a single dashboard.",
+    "problem": "Math practice felt like a chore, so students disengaged and progress stalled. Instructors had no easy way to organize material into courses, build quizzes, or see how each student was performing until it was too late. The team needed one platform that made learning rewarding for students and gave admins full control over content and grading.",
+    "solution": "We built a math platform with two connected experiences. Students move through courses broken into chapters and lessons, take quizzes with instant scoring and tiered feedback, and stay motivated by earning points, ranking up, and appearing on leaderboards. Admins get a full course builder to create chapters, lessons, and quiz question banks, plus dashboards to track students, review quiz attempts, and grade submissions. Learning becomes engaging while instructors keep complete visibility and control.",
     "year": "2025",
-    "preview": "/kaiser/header.webp",
+    "preview": "/kaiser/landing-page.png",
     "tech": [
       "React",
       "TypeScript",
@@ -18,94 +18,84 @@ export const projects: Project[] = [
     ],
     "images": [
       {
-        "src": "/kaiser/localhost_5173_admin_dashboard.webp",
+        "src": "/kaiser/student-dashboard.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_dashboard (1).webp",
+        "src": "/kaiser/student-courses.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_dashboard (2).webp",
+        "src": "/kaiser/student-course-detail.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_dashboard (3).webp",
+        "src": "/kaiser/student-lesson.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_dashboard (4).webp",
+        "src": "/kaiser/student-quiz-taking.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_dashboard (5).webp",
+        "src": "/kaiser/student-quiz-result.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_lessons_14526_quizzes_14515_attempts.webp",
+        "src": "/kaiser/student-profile.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_lessons_14526_quizzes_14515_attempts (1).webp",
+        "src": "/kaiser/admin-dashboard.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_lessons_14526_quizzes_14515_attempts (2).webp",
+        "src": "/kaiser/admin-courses.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_lessons_14526_quizzes_14515_attempts (3).webp",
+        "src": "/kaiser/admin-course-detail.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_lessons_14526_quizzes_14515_attempts (4).webp",
+        "src": "/kaiser/admin-lesson-detail.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_lessons_14526_quizzes_14515_attempts (5).webp",
+        "src": "/kaiser/admin-quiz-questions.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_lessons_14526_quizzes_14515_attempts (6).webp",
+        "src": "/kaiser/admin-quiz-attempts.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_lessons_14526_quizzes_14515_attempts (7).webp",
+        "src": "/kaiser/admin-attempt-grading.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_lessons_14526_quizzes_14515_attempts (8).webp",
+        "src": "/kaiser/admin-new-question.png",
         "width": 2880,
-        "height": 1550
+        "height": 1800
       },
       {
-        "src": "/kaiser/localhost_5173_admin_lessons_14526_quizzes_14515_attempts (9).webp",
+        "src": "/kaiser/admin-students.png",
         "width": 2880,
-        "height": 1550
-      },
-      {
-        "src": "/kaiser/localhost_5173_admin_lessons_14526_quizzes_14515_attempts (10).webp",
-        "width": 2880,
-        "height": 1550
-      },
-      {
-        "src": "/kaiser/localhost_5173_admin_lessons_14526_quizzes_14515_attempts (11).webp",
-        "width": 2880,
-        "height": 1550
+        "height": 1800
       }
     ]
   },
