@@ -134,6 +134,7 @@ export default async function ProjectPage({
               alt={`${project.title} — overview`}
               fill
               priority
+              quality={90}
               sizes="100vw"
               className="object-cover object-top"
             />
@@ -189,6 +190,7 @@ export default async function ProjectPage({
                     width={image.width}
                     height={image.height}
                     loading={i === 0 ? "eager" : "lazy"}
+                    quality={90}
                     sizes="(max-width: 1024px) 100vw, 1024px"
                     className="h-auto w-full"
                   />

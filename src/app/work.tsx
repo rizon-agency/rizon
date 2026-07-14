@@ -40,6 +40,7 @@ export const Work = () => {
                   src={preview}
                   alt={title}
                   fill
+                  quality={90}
                   sizes="(max-width: 768px) 100vw, 45vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
