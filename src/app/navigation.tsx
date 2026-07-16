@@ -81,14 +81,13 @@ export const Navigation = () => {
           : "border-b border-transparent"
       } ${overHero ? "pt-3 sm:pt-5" : ""}`}
     >
-      <div
-        className={`flex h-16 items-center justify-between gap-8 ${
-          overHero
-            ? "mx-auto w-full max-w-[110rem] px-7 sm:px-9 lg:px-14"
-            : "container"
-        }`}
-      >
-        <Link
+      <div className="container">
+        <div
+          className={`flex h-16 items-center justify-between gap-8 ${
+            overHero ? "px-4 sm:px-5 lg:px-6" : ""
+          }`}
+        >
+          <Link
           href="/#home"
           onClick={(e) => handleAnchorClick(e, "home")}
           className="shrink-0 text-xl font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
@@ -129,7 +128,8 @@ export const Navigation = () => {
           </Button>
         </div>
 
-        <MobileNav activeId={activeId} overHero={overHero} />
+          <MobileNav activeId={activeId} overHero={overHero} />
+        </div>
       </div>
     </header>
   );
