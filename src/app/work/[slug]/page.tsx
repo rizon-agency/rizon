@@ -23,13 +23,26 @@ export async function generateMetadata({
     return { title: "Project not found — Rizon" };
   }
 
+  const url = `https://rizon.agency/work/${slug}`;
+
   return {
-    title: `${project.title} — Rizon`,
+    title: `${project.title} — Rizon Agency`,
     description: project.description,
+    alternates: { canonical: url },
     openGraph: {
       title: project.title,
       description: project.description,
-      images: [{ url: project.preview }],
+      url,
+      siteName: "Rizon Agency",
+      locale: "en_US",
+      type: "website",
+      images: [{ url: project.preview, width: 1200, height: 630, alt: project.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.description,
+      creator: "@rizon_agency",
     },
   };
 }
@@ -56,8 +69,26 @@ export default async function ProjectPage({
     { label: "Stack", value: project.tech.join(", ") },
   ];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.description,
+    dateCreated: project.year,
+    creator: {
+      "@type": "Organization",
+      name: "Rizon Agency",
+      url: "https://rizon.agency",
+    },
+    url: `https://rizon.agency/work/${slug}`,
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <main>
         {/* Header */}
