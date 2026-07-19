@@ -351,11 +351,11 @@ Write ≥5 MDX posts, each with a real number or scenario, interlinked, all poin
 - [x] "What a smooth LMS migration actually looks like (timeline + gotchas)"
 - **Accept:** ≥5 posts, each links to its matching alternatives page.
 
-### [ ] 3.4 — Technical authority cluster (E-E-A-T + AI citations; extend existing 3 posts)
-- [ ] "LTI 1.3 Advantage, explained without the spec-speak"
-- [ ] "A student-data security checklist for edtech teams"
-- [ ] "SSO options for learning platforms (and which to pick)"
-- [ ] "Designing assessments that resist cheating" (expand the existing angle)
+### [x] 3.4 — Technical authority cluster (E-E-A-T + AI citations; extend existing 3 posts) — done 2026-07-19
+- [x] "LTI 1.3 Advantage, explained without the spec-speak"
+- [x] "A student-data security checklist for edtech teams"
+- [x] "SSO options for learning platforms (and which to pick)"
+- [x] "Designing assessments that resist cheating" (expand the existing angle)
 - **Accept:** cluster reaches ~8–10 posts total (existing + new), interlinked.
 
 ### [ ] 3.5 — Internal-linking audit

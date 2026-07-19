@@ -12,6 +12,10 @@ import canvasImsccCover from "@/assets/blog/canvas-imscc-export.svg";
 import leavingTeachableCover from "@/assets/blog/leaving-teachable.svg";
 import scormVsXapiCover from "@/assets/blog/scorm-vs-xapi.svg";
 import smoothMigrationCover from "@/assets/blog/smooth-lms-migration.svg";
+import lti13AdvantageCover from "@/assets/blog/lti-13-advantage.svg";
+import studentDataSecurityCover from "@/assets/blog/student-data-security-checklist.svg";
+import ssoLearningPlatformsCover from "@/assets/blog/sso-learning-platforms.svg";
+import assessmentsCheatingCover from "@/assets/blog/assessments-resist-cheating.svg";
 
 export const posts: Post[] = [
   {
@@ -155,6 +159,62 @@ export const posts: Post[] = [
     authorSlug: "choaib-mouhrach",
   },
   {
+    slug: "lti-1-3-advantage-explained-without-the-spec-speak",
+    title: "LTI 1.3 Advantage, Explained Without the Spec-Speak",
+    description:
+      "LTI 1.3 lets a tool launch securely from an LMS, then talk back through three services: rosters, grades, and content. Understand it by following one grade from a quiz home to the gradebook.",
+    date: "2026-07-09",
+    readTime: "6 min read",
+    category: "LTI",
+    coverImage: lti13AdvantageCover,
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle", "canvas"],
+    relatedPostSlugs: ["migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders", "sso-options-for-learning-platforms"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "student-data-security-checklist-for-edtech-teams",
+    title: "A Student-Data Security Checklist for Edtech Teams",
+    description:
+      "The damage in education data rarely comes from a clever hack. It comes from the wrong person seeing the wrong record. Start your security work with access design, not firewalls.",
+    date: "2026-07-08",
+    readTime: "6 min read",
+    category: "Security",
+    coverImage: studentDataSecurityCover,
+    relatedServiceSlug: "school-student-portal-development",
+    relatedAlternativeSlugs: ["canvas", "blackboard"],
+    relatedPostSlugs: ["canvas-breach-student-data-security", "sso-options-for-learning-platforms"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "sso-options-for-learning-platforms",
+    title: "SSO Options for Learning Platforms (and Which to Pick)",
+    description:
+      "Most SSO decisions obsess over the login and forget provisioning and clean offboarding, the two moments that cause incidents. SAML, OIDC, and SCIM, compared for how people join and leave.",
+    date: "2026-07-07",
+    readTime: "6 min read",
+    category: "Identity",
+    coverImage: ssoLearningPlatformsCover,
+    relatedServiceSlug: "corporate-training-platform",
+    relatedAlternativeSlugs: ["docebo", "talentlms"],
+    relatedPostSlugs: ["student-data-security-checklist-for-edtech-teams", "lti-1-3-advantage-explained-without-the-spec-speak"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "designing-assessments-that-resist-cheating",
+    title: "Designing Assessments That Resist Cheating",
+    description:
+      "The most cheating-resistant assessment isn't the one with the most surveillance. It's the one where copying an answer doesn't help. Redesign the task before you reach for a proctoring tool.",
+    date: "2026-07-06",
+    readTime: "6 min read",
+    category: "Assessment Design",
+    coverImage: assessmentsCheatingCover,
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle", "canvas"],
+    relatedPostSlugs: ["cheating-online-exams-what-actually-works", "student-data-security-checklist-for-edtech-teams"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
     slug: "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders",
     title:
       "Migrating From LTI 1.1 to LTI 1.3: A Practical Guide for Tool Builders",
@@ -166,7 +226,7 @@ export const posts: Post[] = [
     coverImage: ltiMigrationBreachCover,
     relatedServiceSlug: "custom-lms-development",
     relatedAlternativeSlugs: ["moodle", "canvas"],
-    relatedPostSlugs: ["canvas-breach-student-data-security", "cheating-online-exams-what-actually-works"],
+    relatedPostSlugs: ["lti-1-3-advantage-explained-without-the-spec-speak", "canvas-breach-student-data-security", "cheating-online-exams-what-actually-works"],
     authorSlug: "choaib-mouhrach",
   },
   {
@@ -181,7 +241,7 @@ export const posts: Post[] = [
     coverImage: canvasBreachCover,
     relatedServiceSlug: "school-student-portal-development",
     relatedAlternativeSlugs: ["canvas", "blackboard"],
-    relatedPostSlugs: ["migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders", "cheating-online-exams-what-actually-works"],
+    relatedPostSlugs: ["student-data-security-checklist-for-edtech-teams", "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders", "cheating-online-exams-what-actually-works"],
     authorSlug: "choaib-mouhrach",
   },
   {
@@ -196,7 +256,7 @@ export const posts: Post[] = [
     coverImage: cheatingExamsCover,
     relatedServiceSlug: "custom-lms-development",
     relatedAlternativeSlugs: ["moodle", "canvas"],
-    relatedPostSlugs: ["migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders", "canvas-breach-student-data-security"],
+    relatedPostSlugs: ["designing-assessments-that-resist-cheating", "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders", "canvas-breach-student-data-security"],
     authorSlug: "choaib-mouhrach",
   },
 ];
