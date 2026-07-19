@@ -102,7 +102,7 @@ export const alternatives: Alternative[] = [
     faqs: moodleFaqs,
     keywords: ["Moodle alternative", "custom Moodle alternative", "Moodle migration", "custom LMS"],
     relatedServiceSlug: "school-student-portal-development",
-    relatedPostSlugs: ["migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders"],
+    relatedPostSlugs: ["how-to-migrate-off-moodle-without-losing-course-data", "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders"],
   },
   {
     slug: "canvas",
@@ -143,7 +143,7 @@ export const alternatives: Alternative[] = [
     ],
     keywords: ["Canvas alternative", "custom school LMS", "Canvas migration", "student portal development"],
     relatedServiceSlug: "school-student-portal-development",
-    relatedPostSlugs: ["canvas-breach-student-data-security"],
+    relatedPostSlugs: ["exporting-courses-from-canvas-imscc-step-by-step", "canvas-breach-student-data-security"],
   },
   {
     slug: "teachable",
@@ -159,7 +159,7 @@ export const alternatives: Alternative[] = [
     whereTheyWin: [{ title: "You need to launch a conventional course quickly", body: "Teachable is faster and cheaper for a straightforward course catalogue." }, { title: "You do not want to own software operations", body: "A hosted platform removes the work of running an application." }],
     comparison: [...commonRows("Vendor-operated platform; you manage your school within it.", "Hosted product with platform-managed operations.", "Platform support under your plan."), { dimension: "Commerce", rizon: "Checkout and payments designed around your offer and provider.", them: "Built-in commerce and plan-dependent payment options." }, { dimension: "Cost model", rizon: "Build cost plus services you choose.", them: "Subscription and payment fees according to the current plan and processor." }],
     migration: "We export course assets and customer records that are available, then rebuild the learning and checkout flows that matter. Before cutover, we test purchase, enrolment, access, refund, and support handoff with real-looking data.",
-    faqs: teachableFaqs, keywords: ["Teachable alternative", "custom course platform", "course platform development"], relatedServiceSlug: "course-platform-for-creators",
+    faqs: teachableFaqs, keywords: ["Teachable alternative", "custom course platform", "course platform development"], relatedServiceSlug: "course-platform-for-creators", relatedPostSlugs: ["leaving-teachable-a-migration-checklist", "hidden-cost-of-revenue-share-course-platforms"],
   },
   {
     slug: "thinkific",

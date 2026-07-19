@@ -7,6 +7,11 @@ import buildVsBuyCover from "@/assets/blog/build-vs-buy-lms.svg";
 import revenueShareCover from "@/assets/blog/revenue-share-course-platforms.svg";
 import threeYearTcoCover from "@/assets/blog/lms-three-year-tco.svg";
 import buildCostDriversCover from "@/assets/blog/elearning-build-cost-drivers.svg";
+import migrateOffMoodleCover from "@/assets/blog/migrate-off-moodle.svg";
+import canvasImsccCover from "@/assets/blog/canvas-imscc-export.svg";
+import leavingTeachableCover from "@/assets/blog/leaving-teachable.svg";
+import scormVsXapiCover from "@/assets/blog/scorm-vs-xapi.svg";
+import smoothMigrationCover from "@/assets/blog/smooth-lms-migration.svg";
 
 export const posts: Post[] = [
   {
@@ -77,6 +82,76 @@ export const posts: Post[] = [
     relatedServiceSlug: "custom-lms-development",
     relatedAlternativeSlugs: ["moodle", "canvas"],
     relatedPostSlugs: ["how-much-does-a-custom-lms-cost-in-2026", "build-vs-buy-an-lms-the-honest-math", "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "how-to-migrate-off-moodle-without-losing-course-data",
+    title: "How to Migrate Off Moodle Without Losing Course Data",
+    description:
+      "You don't lose Moodle data by exporting it wrong. You lose it by exporting before you know which plugins own a business rule. Inventory those first, then move the content.",
+    date: "2026-07-18",
+    readTime: "6 min read",
+    category: "Migration",
+    coverImage: migrateOffMoodleCover,
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle"],
+    relatedPostSlugs: ["scorm-vs-xapi-keeping-your-content-portable", "what-a-smooth-lms-migration-actually-looks-like"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "exporting-courses-from-canvas-imscc-step-by-step",
+    title: "Exporting Your Courses From Canvas (IMSCC), Step by Step",
+    description:
+      "A Canvas IMSCC export moves your course content well. It does not carry grades, student submissions, or every external-tool setting. Here is the step-by-step and the gaps at each step.",
+    date: "2026-07-16",
+    readTime: "6 min read",
+    category: "Migration",
+    coverImage: canvasImsccCover,
+    relatedServiceSlug: "school-student-portal-development",
+    relatedAlternativeSlugs: ["canvas"],
+    relatedPostSlugs: ["what-a-smooth-lms-migration-actually-looks-like", "scorm-vs-xapi-keeping-your-content-portable", "canvas-breach-student-data-security"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "leaving-teachable-a-migration-checklist",
+    title: "Leaving Teachable: A Migration Checklist",
+    description:
+      "The announcement email is the last step, not the first. Before it goes out, a paying customer should log into the new platform and find everything they own. Here is the checklist that gets you there.",
+    date: "2026-07-14",
+    readTime: "5 min read",
+    category: "Migration",
+    coverImage: leavingTeachableCover,
+    relatedServiceSlug: "course-platform-for-creators",
+    relatedAlternativeSlugs: ["teachable"],
+    relatedPostSlugs: ["hidden-cost-of-revenue-share-course-platforms", "what-a-smooth-lms-migration-actually-looks-like"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "scorm-vs-xapi-keeping-your-content-portable",
+    title: "SCORM vs xAPI: Keeping Your Content Portable",
+    description:
+      "SCORM makes your content portable between systems. xAPI makes your records portable, because they live in a store you can own. If you only move the ZIP, you've moved the least valuable half.",
+    date: "2026-07-13",
+    readTime: "6 min read",
+    category: "Standards",
+    coverImage: scormVsXapiCover,
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle", "canvas"],
+    relatedPostSlugs: ["how-to-migrate-off-moodle-without-losing-course-data", "exporting-courses-from-canvas-imscc-step-by-step"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "what-a-smooth-lms-migration-actually-looks-like",
+    title: "What a Smooth LMS Migration Actually Looks Like",
+    description:
+      "A smooth migration is boring on purpose: staged, risk-first, one real audience before everyone. The war stories come from the single-weekend switch that bet nothing was hiding in the data.",
+    date: "2026-07-11",
+    readTime: "6 min read",
+    category: "Migration",
+    coverImage: smoothMigrationCover,
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle", "canvas"],
+    relatedPostSlugs: ["how-to-migrate-off-moodle-without-losing-course-data", "leaving-teachable-a-migration-checklist"],
     authorSlug: "choaib-mouhrach",
   },
   {

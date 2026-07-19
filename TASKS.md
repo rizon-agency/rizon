@@ -343,12 +343,12 @@ Write ≥5 MDX posts, each with a real number or scenario, interlinked, all poin
 - [x] "What actually drives the price of an e-learning build"
 - **Accept:** ≥5 posts, each linked to a pillar + ≥2 siblings.
 
-### [ ] 3.3 — Migration / "switching away" cluster (feeds the alternatives pages)
-- [ ] "How to migrate off Moodle without losing course data"
-- [ ] "Exporting your courses from Canvas (IMSCC), step by step"
-- [ ] "Leaving Teachable: a migration checklist"
-- [ ] "SCORM vs xAPI: keeping your content portable"
-- [ ] "What a smooth LMS migration actually looks like (timeline + gotchas)"
+### [x] 3.3 — Migration / "switching away" cluster (feeds the alternatives pages) — done 2026-07-19
+- [x] "How to migrate off Moodle without losing course data"
+- [x] "Exporting your courses from Canvas (IMSCC), step by step"
+- [x] "Leaving Teachable: a migration checklist"
+- [x] "SCORM vs xAPI: keeping your content portable"
+- [x] "What a smooth LMS migration actually looks like (timeline + gotchas)"
 - **Accept:** ≥5 posts, each links to its matching alternatives page.
 
 ### [ ] 3.4 — Technical authority cluster (E-E-A-T + AI citations; extend existing 3 posts)
