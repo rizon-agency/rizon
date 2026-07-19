@@ -9,6 +9,8 @@ import { HowWeWork } from "./how-we-work";
 import { Services } from "./services";
 import { WhyUs } from "./why-us";
 import { Work } from "./work";
+import { AlternativesPreview } from "./alternatives-preview";
+import { Trust } from "./trust";
 import { faqs } from "@/lib/faq";
 
 const BASE_URL = "https://rizon.agency";
@@ -22,7 +24,7 @@ const jsonLd = {
       name: "Rizon Agency",
       url: BASE_URL,
       logo: `${BASE_URL}/android-chrome-512x512.png`,
-      email: "choaib.m@rizon.agency",
+      email: "contact@rizon.agency",
       sameAs: [
         "https://www.linkedin.com/in/choaib-mouhrach",
         "https://x.com/rizon_agency",
@@ -30,7 +32,7 @@ const jsonLd = {
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "sales",
-        email: "choaib.m@rizon.agency",
+        email: "contact@rizon.agency",
       },
     },
     {
@@ -86,7 +88,9 @@ const Page = () => {
         <HowWeWork />
         <Services />
         <Features />
+        <AlternativesPreview />
         <Work />
+        <Trust />
         <BlogPreview />
         <Cta />
         <Faq />

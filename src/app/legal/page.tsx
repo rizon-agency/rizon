@@ -341,8 +341,8 @@ export default function LegalPage() {
               <strong>Rizon LLC</strong>
               <br />
               Email:{" "}
-              <Link href="mailto:choaib.m@rizon.agency">
-                choaib.m@rizon.agency
+              <Link href="mailto:contact@rizon.agency">
+                contact@rizon.agency
               </Link>
               <br />
               Phone: <a href="tel:+212613739291">+212 613 739 291</a>

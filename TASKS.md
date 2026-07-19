@@ -128,7 +128,7 @@ code-ownership pitch is literally why they leave. Build as a data-driven templat
 > builds E-E-A-T trust, and Google rewards balanced content over one-sided sales pages.
 > No false or disparaging statements. Ever.
 
-### [ ] 1.1 — Alternatives data model + type (FOUNDATION — unblocks all of Phase 1)
+### [x] 1.1 — Alternatives data model + type (FOUNDATION — unblocks all of Phase 1) — done 2026-07-19
 - **Steps:**
   1. Add to `src/types/index.ts`:
      ```ts
@@ -161,7 +161,7 @@ code-ownership pitch is literally why they leave. Build as a data-driven templat
      routes, fall back to `/alternatives/[slug]`. Pick one, write down why.
 - **Accept:** types compile; file exports ≥ the 2 seed entries from 1.2.
 
-### [ ] 1.2 — Write the Moodle & Canvas entries (worked examples — follow the blueprint exactly)
+### [x] 1.2 — Write the Moodle & Canvas entries (worked examples — follow the blueprint exactly) — done 2026-07-19
 
 **Persona to write as:** Choaib — engineer who has actually migrated clients off these
 platforms. **Reader:** a training lead / course-business owner / school IT director who is
@@ -216,7 +216,7 @@ frustrated with their current LMS and pricing it out. Apply `human-writing.skill
 - **Accept:** two complete, accurate, non-defamatory entries filling every field, written
   per `human-writing.skill` (persona voice, varied rhythm, no AI tells, honest tradeoffs).
 
-### [ ] 1.3 — Build the alternatives route/template component
+### [x] 1.3 — Build the alternatives route/template component — done 2026-07-19
 - **Steps:** Create the route (per 1.1 URL decision) that renders the 8-section blueprint
   from `Alternative` data. Reuse existing section/heading components + styling for brand
   consistency. Include:
@@ -231,14 +231,14 @@ frustrated with their current LMS and pricing it out. Apply `human-writing.skill
 - **Accept:** `/moodle-alternative` + `/canvas-alternative` render, static-generate, pass
   Rich Results Test, look on-brand, and the table is a semantic table.
 
-### [ ] 1.4 — Wire alternatives into sitemap + internal links
+### [x] 1.4 — Wire alternatives into sitemap + internal links — done 2026-07-19
 - **Steps:** Add all alternatives URLs to `src/app/sitemap.ts` (priority 0.8, monthly). Add
   a "Compare" / "Alternatives" column to `src/app/footer.tsx`. Add a homepage section
   (near Work or Services) linking the top 3 alternatives. Cross-link each alternatives page
   to its `relatedServiceSlug` once Phase 2 exists.
 - **Accept:** every alternatives URL in sitemap + reachable via internal links (no orphans).
 
-### [ ] 1.5 — Expand the competitor set (reuse template, data-only)
+### [x] 1.5 — Expand the competitor set (reuse template, data-only) — done 2026-07-19
 - **Add entries** (same blueprint + guardrail, verify facts): **Teachable**, **Thinkific**,
   **Kajabi**, **TalentLMS**, **LearnDash / WordPress LMS**, **Docebo** (corporate),
   **Blackboard** (higher-ed).
@@ -254,7 +254,7 @@ frustrated with their current LMS and pricing it out. Apply `human-writing.skill
 *Turn the keywords already sitting in homepage metadata into standalone rankable pages.
 Each is a pillar that Phase-3 clusters link back to.*
 
-### [ ] 2.1 — Services data model + `/services/[slug]` route (FOUNDATION for Phase 2)
+### [x] 2.1 — Services data model + `/services/[slug]` route (FOUNDATION for Phase 2) — done 2026-07-19
 - **Steps:**
   1. Add `Service` type to `src/types/index.ts`:
      ```ts
@@ -282,34 +282,34 @@ Each is a pillar that Phase-3 clusters link back to.*
      `FAQPage` + `BreadcrumbList`.
 - **Accept:** route renders one seed service, static-generated, schema valid.
 
-### [ ] 2.2 — Write the four pillar service pages
+### [x] 2.2 — Write the four pillar service pages — done 2026-07-19
 *Each ≥1,500 words, written per `human-writing.skill`. Persona: Choaib. Reader named below.*
 *Every page must: hit `targetKeyword` in H1 + URL + first paragraph + one H2; front-load
 the answer; include the `costBand`; link down to cluster posts and across to alternatives.*
 
-- [ ] **2.2a `/services/custom-lms-development`** — primary money page.
+- [x] **2.2a `/services/custom-lms-development`** — primary money page. — done 2026-07-19
   - Target keyword: "custom LMS development". Reader: a founder/ops lead who's outgrown an
     off-the-shelf LMS and wants something built around their model.
   - Sections: what a custom LMS actually is vs off-the-shelf; when it's worth it (and when
     it isn't — honesty); what we build (auth/SSO, course builder, assessments, payments,
     analytics, admin); the weekly-sprint process (mirror the FAQ); cost band + drivers;
     ownership/no-lock-in; FAQ; CTA. Link to Moodle/Canvas alternatives + cost cluster.
-- [ ] **2.2b `/services/corporate-training-platform`**
+- [x] **2.2b `/services/corporate-training-platform`** — done 2026-07-19
   - Keyword: "corporate training platform development". Reader: L&D / HR lead rolling out
     training to employees. Emphasize SSO, roles/teams, reporting, compliance/SCORM-xAPI,
     scale. Link to Docebo/TalentLMS alternatives.
-- [ ] **2.2c `/services/course-platform-for-creators`**
+- [x] **2.2c `/services/course-platform-for-creators`** — done 2026-07-19
   - Keyword: "custom course platform" / "Teachable alternative for creators". Reader: a
     course creator tired of revenue-share SaaS. Emphasize owning payments/revenue, branding,
     no per-sale cut. Link to Teachable/Thinkific/Kajabi alternatives + the cost cluster.
-- [ ] **2.2d `/services/school-student-portal-development`**
+- [x] **2.2d `/services/school-student-portal-development`** — done 2026-07-19
   - Keyword: "school portal development" / "student portal development". Reader: school/
     institution IT director. Emphasize student/parent/teacher roles, gradebook, data
     security (link the Canvas-breach post), LTI. Link to Moodle/Canvas/Blackboard alts.
 - **Accept per page:** ≥1,500 words, unique metadata, `Service`+`FAQPage` schema, internal
   links in+out, added to `sitemap.ts`, linked from nav/footer.
 
-### [ ] 2.3 — Services index/hub page + nav
+### [x] 2.3 — Services index/hub page + nav — done 2026-07-19
 - **Steps:** `/services` listing all four pillars with a curiosity-driven blurb each; add to
   main nav (`src/app/navigation.tsx` + `src/app/mobile-nav.tsx`) and footer. Optional
   `CollectionPage`/`ItemList` schema.
@@ -326,7 +326,7 @@ sideways to siblings. This is the volume Google needs to read topical competence
 > in `src/lib/posts.ts` + cover in `src/assets/blog/`. Add `Article` schema already exists in
 > the template. Front-load the answer (GEO). Add ≥1 cited statistic + ≥1 extractable table/list.
 
-### [ ] 3.1 — Keyword research + cluster map (deliverable: `content-plan.md`)
+### [x] 3.1 — Keyword research + cluster map (deliverable: `content-plan.md`) — done 2026-07-19
 - **Do (no code):** For each pillar, map ~10 long-tail target keywords → working title →
   search intent (informational/commercial) → which pillar it links to → primary "only-we-
   know" angle. Prioritize low-difficulty, high-intent. Anchor on the 3 existing posts.
@@ -368,21 +368,21 @@ Write ≥5 MDX posts, each with a real number or scenario, interlinked, all poin
 # PHASE 4 — E-E-A-T (author identity & trust)
 *March 2026 core update made this primary; 73% of top pages show real author credentials.*
 
-### [ ] 4.1 — About page
+### [x] 4.1 — About page — done 2026-07-19
 - **Steps:** `/about` — real founder/team story, track record, how Rizon works, why-own-it
   stance. Written per `human-writing.skill` (this page especially needs a real voice + a
   concrete origin story, not boilerplate). `AboutPage` + `Person` (founder) schema. Link
   from nav + footer + sitemap.
 - **Accept:** `/about` live, in nav/footer/sitemap, `Person` schema for the founder.
 
-### [ ] 4.2 — Real author identity on the blog
+### [x] 4.2 — Real author identity on the blog — done 2026-07-19
 - **Steps:** Add `src/lib/authors.ts` (`Person`: name, role, bio, avatar, LinkedIn). Add
   `authorSlug` to `Post`. Render a byline + bio block on posts. Update the `Article` JSON-LD
   `author` from `Organization` → `Person` (with `url`, `sameAs`, `jobTitle`). Optional
   `/authors/[slug]` pages.
 - **Accept:** posts show a bylined author + bio; `Article` schema uses `Person`.
 
-### [ ] 4.3 — Trust signals sitewide
+### [x] 4.3 — Trust signals sitewide — done 2026-07-19
 - **Steps:** Add real testimonials (with `Review`/`AggregateRating` schema **only if
   genuine**), named client results/logos, clear business identity in footer, links to
   third-party profiles (Clutch etc. from Phase 6). Written honestly per the skill.
@@ -394,7 +394,7 @@ Write ≥5 MDX posts, each with a real number or scenario, interlinked, all poin
 *900M+ weekly ChatGPT users; being cited beats being ranked. Mostly an editorial layer over
 Phases 1–4.*
 
-### [ ] 5.1 — House style: front-loaded answers + Q&A structure
+### [x] 5.1 — House style: front-loaded answers + Q&A structure — done 2026-07-19
 - **Steps:** Document in `content-plan.md`: every page opens with a 1–2 sentence direct
   answer to its core question; H2s phrased as real questions where natural. Apply to all
   Phase 1–2 pages + new posts.
@@ -405,7 +405,7 @@ Phases 1–4.*
   comparison table/stat block to each cornerstone page + post.
 - **Accept:** each cornerstone page has ≥1 cited statistic + ≥1 extractable table/list.
 
-### [ ] 5.3 — AI-crawler policy + optional `llms.txt`
+### [x] 5.3 — AI-crawler policy + optional `llms.txt` — done 2026-07-19
 - **Steps:** Confirm `robots.ts` doesn't block GPTBot / OAI-SearchBot / PerplexityBot /
   Google-Extended (recommend allow, for visibility). Optionally add `public/llms.txt`
   summarizing the site + key pages for LLMs.
@@ -432,7 +432,7 @@ Phases 1–4.*
 ---
 
 # PHASE 7 — Measurement & iteration (ongoing)
-- [ ] **7.1** Baseline recorded (2026-07-19: 29 clicks / 232 impr / 12.5% CTR / pos 6 / 3mo).
+- [x] **7.1** Baseline recorded (2026-07-19: 29 clicks / 232 impr / 12.5% CTR / pos 6 / 3mo) — done 2026-07-19.
 - [ ] **7.2** Monthly GSC review: impressions, clicks, position, indexed pages, keyword
   coverage. Track which alternatives/service pages gain traction.
 - [ ] **7.3** Refresh winners, expand moving clusters, prune/merge dead pages; re-run Rich

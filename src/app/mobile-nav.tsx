@@ -18,7 +18,8 @@ const links = [
   { name: "Home", href: "/#home", id: "home", isPage: false },
   { name: "Why us", href: "/#why-us", id: "why-us", isPage: false },
   { name: "Process", href: "/#how-we-work", id: "how-we-work", isPage: false },
-  { name: "Services", href: "/#services", id: "services", isPage: false },
+  { name: "Services", href: "/services", id: "services", isPage: true },
+  { name: "About", href: "/about", id: "about", isPage: true },
   { name: "Work", href: "/#work", id: "work", isPage: false },
   { name: "Blog", href: "/blog", id: "blog", isPage: true },
 ];

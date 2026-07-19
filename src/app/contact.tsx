@@ -8,7 +8,7 @@ import { SectionHeader } from "@/components/section-header";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 
 const CAL_LINK = "https://cal.com/rizon.agency-cvbkll/30min";
-const EMAIL = "choaib.m@rizon.agency";
+const EMAIL = "contact@rizon.agency";
 const MAILTO = `mailto:${EMAIL}?subject=Question about a custom platform`;
 
 export const Contact = () => {

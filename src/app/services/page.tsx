@@ -1,0 +1,14 @@
+import Link from "next/link";
+import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
+import { Footer } from "../footer";
+import { services } from "@/lib/services";
+
+const BASE_URL = "https://rizon.agency";
+
+export const metadata: Metadata = { title: "Custom Learning Platform Services | Rizon", description: "Custom LMS, corporate training, course platform, and school portal development for teams that need learning software built around their operation.", alternates: { canonical: `${BASE_URL}/services` }, openGraph: { title: "Custom Learning Platform Services | Rizon", description: "Four ways Rizon builds learning products around the work they need to do.", url: `${BASE_URL}/services`, siteName: "Rizon Agency", locale: "en_US", type: "website" }, twitter: { card: "summary_large_image", title: "Custom Learning Platform Services | Rizon", description: "Four ways Rizon builds learning products around the work they need to do.", creator: "@rizon_agency" } };
+
+export default function ServicesPage() {
+  const jsonLd = { "@context": "https://schema.org", "@type": "CollectionPage", name: "Rizon services", url: `${BASE_URL}/services`, mainEntity: { "@type": "ItemList", itemListElement: services.map((service, index) => ({ "@type": "ListItem", position: index + 1, name: service.title, url: `${BASE_URL}/services/${service.slug}` })) } };
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} /><main><section className="container pt-32 md:pt-40"><div className="max-w-4xl"><span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary"><span className="h-px w-8 bg-primary" aria-hidden />Services</span><h1 className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance md:text-6xl">Learning platforms built for the work you need them to do.</h1><p className="mt-7 max-w-3xl text-xl leading-relaxed text-muted-foreground">Some teams need a better LMS. Others need a product, a portal, or a training system that does not exist in a catalogue. Start with the job.</p></div></section><section className="container mt-24 md:mt-32"><div className="border-t border-border">{services.map((service, index) => <Link key={service.slug} href={`/services/${service.slug}`} className="group grid grid-cols-1 gap-6 border-b border-border py-10 md:grid-cols-12 md:items-end"><span className="font-mono text-sm text-primary md:col-span-1">0{index + 1}</span><div className="md:col-span-7"><h2 className="text-3xl font-medium tracking-tight md:text-4xl">{service.title}</h2><p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">{service.heroSub}</p></div><ArrowRight size={26} className="transition-transform md:col-span-1 md:col-start-12 md:justify-self-end group-hover:translate-x-1" aria-hidden /></Link>)}</div></section></main><Footer /></>;
+}

@@ -14,6 +14,10 @@ export const posts: Post[] = [
     readTime: "7 min read",
     category: "LTI",
     coverImage: ltiMigrationBreachCover,
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle", "canvas"],
+    relatedPostSlugs: ["canvas-breach-student-data-security", "cheating-online-exams-what-actually-works"],
+    authorSlug: "choaib-mouhrach",
   },
   {
     slug: "canvas-breach-student-data-security",
@@ -25,6 +29,10 @@ export const posts: Post[] = [
     readTime: "6 min read",
     category: "Security",
     coverImage: canvasBreachCover,
+    relatedServiceSlug: "school-student-portal-development",
+    relatedAlternativeSlugs: ["canvas", "blackboard"],
+    relatedPostSlugs: ["migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders", "cheating-online-exams-what-actually-works"],
+    authorSlug: "choaib-mouhrach",
   },
   {
     slug: "cheating-online-exams-what-actually-works",
@@ -36,6 +44,10 @@ export const posts: Post[] = [
     readTime: "7 min read",
     category: "Assessment Design",
     coverImage: cheatingExamsCover,
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle", "canvas"],
+    relatedPostSlugs: ["migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders", "canvas-breach-student-data-security"],
+    authorSlug: "choaib-mouhrach",
   },
 ];
 

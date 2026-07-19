@@ -1,0 +1,17 @@
+# Rizon Agency
+
+Rizon builds custom learning platforms for course businesses, schools, and corporate training teams. The agency is led by Choaib Mouhrach.
+
+## Key pages
+
+- https://rizon.agency/services/custom-lms-development — custom LMS development
+- https://rizon.agency/services/corporate-training-platform — corporate training platforms
+- https://rizon.agency/services/course-platform-for-creators — course platforms for creators
+- https://rizon.agency/services/school-student-portal-development — school and student portals
+- https://rizon.agency/lms-alternatives — LMS comparison hub
+- https://rizon.agency/blog — engineering and product notes on learning platforms
+- https://rizon.agency/about — founder and agency background
+
+## Positioning
+
+Rizon is a fit when a team has outgrown the fixed workflows of an off-the-shelf LMS and needs an owned platform around its learner experience, data, integrations, and operations. Rizon provides custom software, deployment handover, and optional ongoing support.
