@@ -21,10 +21,9 @@ export const Hero = () => {
         };
 
   return (
-    <section id="home" className="pt-3 sm:pt-4">
-      {/* The hero image shares the site's content container. */}
-      <div className="container">
-        <div className="relative isolate flex min-h-130 flex-col overflow-hidden rounded-[28px] bg-neutral-950 sm:min-h-160 lg:min-h-[720px] lg:rounded-[36px]">
+    <section id="home">
+      {/* Full-bleed media, with navigation and copy held to the site grid. */}
+      <div className="relative isolate flex min-h-[680px] flex-col overflow-hidden bg-neutral-950 sm:min-h-[760px] lg:min-h-[82vh]">
           {/* Image only on sm+; mobile falls back to the solid dark card */}
           <Image
             src={heroImage}
@@ -32,7 +31,7 @@ export const Hero = () => {
             fill
             priority
             placeholder="blur"
-            sizes="(max-width: 1280px) 100vw, 1280px"
+            sizes="100vw"
             className="-z-10 object-cover"
           />
           {/* Dark overlay for legibility of the white nav + copy */}
@@ -43,7 +42,7 @@ export const Hero = () => {
           />
 
           {/* Centered hero content, cleared below the overlaid navigation */}
-          <div className="flex flex-1 flex-col items-center justify-center px-6 pt-24 pb-16 text-center sm:px-10 lg:px-16">
+          <div className="container flex flex-1 flex-col items-center justify-center px-6 pt-28 pb-16 text-center sm:px-10 sm:pt-32 lg:px-16">
             <motion.h1
               {...fade(0.25)}
               className="max-w-3xl text-[2rem] font-semibold leading-[1.08] tracking-tight text-balance text-white sm:max-w-2xl sm:text-5xl sm:leading-[1.05] md:max-w-3xl md:text-6xl lg:max-w-4xl lg:text-7xl lg:leading-[1.02]"
@@ -77,7 +76,6 @@ export const Hero = () => {
             </motion.div>
           </div>
         </div>
-      </div>
 
       {/* Stats row below the card */}
       <motion.div {...fade(0.7)} className="container mt-10">

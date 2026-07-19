@@ -86,11 +86,7 @@ export const Navigation = () => {
       } ${overHero ? "pt-3 sm:pt-5" : ""}`}
     >
       <div className="container">
-        <div
-          className={`flex h-16 items-center justify-between gap-8 ${
-            overHero ? "px-4 sm:px-5 lg:px-6" : ""
-          }`}
-        >
+        <div className="flex h-16 items-center justify-between gap-8">
           <Link
           href="/#home"
           onClick={(e) => handleAnchorClick(e, "home")}

@@ -48,7 +48,7 @@ export default function AboutPage() {
         description:
           "Founder of Rizon. Builds custom learning platforms for course businesses, schools, and training teams, with deep experience in LMS work, LTI, Moodle, and Canvas.",
         url: `${BASE_URL}/about`,
-        image: `${BASE_URL}/choaib-mouhrach.svg`,
+        image: `${BASE_URL}/choaib-mouhrach-pic.png`,
         knowsAbout: [
           "Learning Management Systems",
           "Custom LMS development",
@@ -68,14 +68,14 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <main>
-        <section className="container pt-32 md:pt-40">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+        <section className="container pt-28 md:pt-32">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-end lg:gap-16">
             <div className="lg:col-span-7">
               <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
                 <span className="h-px w-8 bg-primary" aria-hidden />
                 About Rizon
               </span>
-              <h1 className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance md:text-6xl">
+              <h1 className="mt-6 max-w-[12ch] text-5xl font-semibold tracking-tight leading-[1.02] text-balance md:text-6xl">
                 I build the learning platform, so it stops being the thing your team works around.
               </h1>
               <p className="mt-7 max-w-2xl text-xl leading-relaxed text-muted-foreground">
@@ -84,14 +84,21 @@ export default function AboutPage() {
                 whose software no longer matches how they actually teach.
               </p>
             </div>
-            <div className="lg:col-span-4 lg:col-start-9">
-              <Image
-                src="/choaib-mouhrach.svg"
-                alt="Choaib Mouhrach monogram"
-                width={160}
-                height={160}
-                className="size-40 rounded-full"
-              />
+            <div className="w-full max-w-sm lg:col-span-4 lg:col-start-9 lg:ml-auto">
+              <div className="relative aspect-square overflow-hidden rounded-2xl bg-muted">
+                <Image
+                  src="/choaib-mouhrach-pic.png"
+                  alt="Choaib Mouhrach"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) min(100vw - 2rem, 384px), 384px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="mt-4 flex items-baseline justify-between border-t border-border pt-3 text-sm">
+                <span className="font-medium">Choaib Mouhrach</span>
+                <span className="text-muted-foreground">Founder, Rizon</span>
+              </div>
             </div>
           </div>
         </section>
