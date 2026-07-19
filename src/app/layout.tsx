@@ -67,10 +67,6 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: "icon",
-      url: "/favicon.ico",
-    },
-    {
-      rel: "icon",
       type: "image/png",
       sizes: "16x16",
       url: "/favicon-16x16.png",
@@ -82,19 +78,9 @@ export const metadata: Metadata = {
       url: "/favicon-32x32.png",
     },
     {
-      rel: "icon",
-      type: "image/png",
-      sizes: "48x48",
-      url: "/favicon-48x48.png",
-    },
-    {
       rel: "apple-touch-icon",
       sizes: "180x180",
       url: "/apple-touch-icon.png",
-    },
-    {
-      rel: "manifest",
-      url: "/manifest.json",
     },
   ],
 };

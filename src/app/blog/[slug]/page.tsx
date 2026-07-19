@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Footer } from "../../footer";
 import { Cta } from "../../cta";
 import { posts, getPostBySlug } from "@/lib/posts";
+import { Breadcrumb, breadcrumbJsonLd, type Crumb } from "@/components/breadcrumb";
 
 const BASE_URL = "https://rizon.agency";
 
@@ -103,20 +104,32 @@ export default async function BlogPostPage({
     },
   };
 
+  const crumbs: Crumb[] = [
+    { name: "Home", href: "/" },
+    { name: "Blog", href: "/blog" },
+    { name: post.title, href: `/blog/${slug}` },
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(crumbs)) }}
+      />
 
       <main>
         {/* Header */}
         <section className="container pt-24 md:pt-28">
           <div className="mx-auto max-w-2xl">
+            <Breadcrumb items={crumbs} />
+
             <Link
               href="/blog"
-              className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="group mt-6 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               <ArrowLeft
                 size={15}
