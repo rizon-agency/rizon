@@ -11,12 +11,61 @@ const commonRows = (them: string, hosting: string, support: string) => [
   { dimension: "Support model", rizon: "Work directly with the team responsible for the build.", them: support },
 ];
 
-const standardFaqs = (name: string): Alternative["faqs"] => [
-  { question: `Is a custom platform more expensive than ${name}?`, answer: "It costs more up front than subscribing or installing software yourself. It earns its place when the product, workflow, or ownership requirement is specific enough that recurring workarounds are already expensive." },
-  { question: `Can Rizon migrate our ${name} content and user data?`, answer: "We begin with an inventory and a test export. Course files, assets, enrolments, and selected records can move in many cases; integrations, assessment logic, and historical reporting need a separate mapping plan." },
-  { question: "Will we still support SCORM, LTI, or SSO?", answer: "Yes when those standards fit the brief. We define the required versions, identity provider, and content packages before implementation rather than assuming every legacy behavior should be copied." },
-  { question: "How long does a rebuild take?", answer: "A focused first release commonly takes 8 to 12 weeks. A large migration, custom reporting, or several integrations extends that schedule; you see working software in weekly demos." },
-  { question: "Who hosts the platform after launch?", answer: "That is your choice. Rizon can run and support the hosting, or hand over documented infrastructure to your team or provider." },
+const moodleFaqs: Alternative["faqs"] = [
+  { question: "Is a custom platform more expensive than running Moodle?", answer: "Up front, yes. Moodle's code is free; a build is not. The fair comparison is against what Moodle already costs you: hosting, someone who understands the install, plugin upkeep, and the upgrade you keep postponing because you're not sure what it will break. Put real numbers on those and a platform you own can win over a few years." },
+  { question: "Can you migrate our Moodle courses and user data?", answer: "Usually a good part of it. Course content, files, users, and enrolments tend to export cleanly. SCORM packages, gradebook history, and anything a plugin owns each need their own mapping and a test import before I promise a thing." },
+  { question: "Do we keep SCORM and LTI support?", answer: "If you actually use them, yes. I pin the exact versions you depend on and rebuild those launches on purpose, instead of assuming every legacy behavior should carry over." },
+  { question: "How long does moving off Moodle take?", answer: "A focused first release is usually 8 to 12 weeks. A large course library, custom reporting, or several integrations stretches it. You see working software every week rather than waiting months for a reveal." },
+  { question: "Who hosts it once we leave Moodle?", answer: "Your call. I can run and maintain the hosting, or hand you documented infrastructure so your own team or provider takes it. You are not stuck with me to keep the lights on." },
+];
+
+const teachableFaqs: Alternative["faqs"] = [
+  { question: "Isn't a custom platform far more expensive than Teachable?", answer: "The subscription is cheaper than a build, always. What Teachable doesn't put on the invoice is the sale you lose to a checkout you can't change and the support hours spent explaining a flow the platform won't bend. When your courses are real revenue, that gap is the number that matters." },
+  { question: "Do I keep my payment processor and revenue?", answer: "Yes. A custom platform connects to the payment provider you choose, and the money lands in your account without a platform cut on top of the processor fee. Owning the checkout is usually the main reason creators leave." },
+  { question: "Can you move my existing courses and students over?", answer: "We export what Teachable makes available, course content, media, and customer records, then rebuild the learning and purchase flows that matter. Before anyone switches, we test buying, enrolment, access, and refunds with real-looking data." },
+  { question: "How long until I can sell on the new platform?", answer: "A focused first release usually takes 8 to 12 weeks, built in weekly slices so you can sell as soon as the purchase and delivery paths are proven, not after every feature is polished." },
+];
+
+const thinkificFaqs: Alternative["faqs"] = [
+  { question: "Is leaving Thinkific worth the cost of a build?", answer: "Only when the platform is costing you sales or hours. If a cohort launch, partner access, or a returning-learner flow keeps turning into a spreadsheet, that spreadsheet is the recurring cost a build is meant to remove. A single self-paced catalogue rarely justifies it." },
+  { question: "Will I still control pricing, bundles, and payments?", answer: "More than before. The commerce is built around your pricing rules and your payment provider, so a bundle or a partner deal is a product decision rather than a plan limitation." },
+  { question: "Can you migrate courses, learners, and purchase history?", answer: "We inventory courses, media, learners, and purchases first, migrate a sample programme, then test the access rules that make your offer different before asking real learners to move." },
+  { question: "How long does the switch take?", answer: "A focused first release is usually 8 to 12 weeks. You review a live build every week, so a bad assumption gets caught while it is still cheap to change." },
+];
+
+const kajabiFaqs: Alternative["faqs"] = [
+  { question: "Kajabi does everything in one place. Why rebuild?", answer: "The all-in-one is the appeal and eventually the constraint. You rebuild when your learning experience is distinct enough that one suite is deciding too much, or when a permanent workaround sits in the middle of selling or delivering the programme. Not because a button is in the wrong place." },
+  { question: "Can I still run email, pages, and payments my way?", answer: "Yes, and you pick the specialist tools instead of inheriting them. Payments, CRM, analytics, and email get chosen for the job and connected, rather than coming bundled with one subscription." },
+  { question: "What happens to my members and products in a move?", answer: "We map products, offers, members, media, and the automations that earn their keep. The first release covers the critical learner and purchase journeys; low-value automations get reviewed rather than copied by reflex." },
+  { question: "How long does a Kajabi replacement take to launch?", answer: "Usually 8 to 12 weeks for a focused first release, shown to you weekly so the member experience is right before cutover." },
+];
+
+const talentlmsFaqs: Alternative["faqs"] = [
+  { question: "Is a custom LMS overkill compared with TalentLMS?", answer: "For conventional employee training, TalentLMS is the faster, cheaper move and I'll say so. A build earns its cost when your org chart, compliance evidence, or systems no longer fit a generic group-and-course model, and reporting has become a monthly manual chore." },
+  { question: "Can you match our roles, teams, and compliance reporting?", answer: "That's usually the point of the project. We design roles and reporting around your actual departments, managers, contractors, and regulated roles, so the completion evidence comes out of the system instead of a Friday-afternoon CSV join." },
+  { question: "Will it connect to our SSO and HR systems?", answer: "Yes, where the API or standard supports it. We confirm the identity provider, the systems of record, and the exact SSO flow during discovery rather than assuming an integration is trivial." },
+  { question: "How do you handle historic training records?", answer: "Carefully. Some records should migrate into the new platform; others belong in a retained archive with a clear audit path. We decide which is which before cutover, not after someone goes looking for last year's certificate." },
+];
+
+const learndashFaqs: Alternative["faqs"] = [
+  { question: "Why leave LearnDash if WordPress already works?", answer: "Keep it while it works. The trigger to leave is when every LMS change starts with a plugin-compatibility check, and a small checkout update means testing the theme, membership plugin, cache layer, and four add-ons. A dedicated application shrinks that surface." },
+  { question: "Can we keep WordPress for our marketing site?", answer: "Often the best split. Editorial content can stay in WordPress while the operational LMS moves to a product built for its own workload. We draw that boundary deliberately instead of forcing everything into one system." },
+  { question: "Will my courses and purchases survive the migration?", answer: "We audit WordPress content, LearnDash courses, users, purchases, and add-ons before touching production. The aim is to keep the learner experience worth keeping and leave the technical debt behind rather than copy it forward." },
+  { question: "How long does a LearnDash rebuild take?", answer: "A focused first release is typically 8 to 12 weeks, delivered in weekly builds so you see the learner journey working before launch." },
+];
+
+const doceboFaqs: Alternative["faqs"] = [
+  { question: "Docebo is enterprise-grade. When is custom actually better?", answer: "When your training is part of the product, not an internal tool. Customer education, partner enablement, or a proprietary certification model that has to join account health, entitlement, or renewal data outgrows a periodic dashboard export. If your needs match an enterprise LMS, keeping Docebo is the cheaper answer." },
+  { question: "Can a build join learning data with our core systems?", answer: "Yes, and that integration is usually the reason to build. We treat it as a real system integration, with an owner and a test for identity, entitlement, and the learning signals that feed the rest of the business." },
+  { question: "How do you approach migrating an enterprise LMS?", answer: "The same way you'd run a system integration: identity, content, enrolment rules, completion records, integrations, and reporting each get an owner and an acceptance test. The goal is a controlled cutover, not a heroic weekend." },
+  { question: "What does an enterprise build cost and take?", answer: "More than a subscription up front, and it needs active product ownership. A first release still targets 8 to 12 weeks for the core; larger scope extends from there, always shown to you in weekly builds." },
+];
+
+const blackboardFaqs: Alternative["faqs"] = [
+  { question: "Is replacing Blackboard Learn realistic for an institution?", answer: "Only with a precise case and the people who run those workflows on board. Blackboard remains a practical option when you want an established LMS and its services. Custom makes sense when the student portal has to carry admissions, parent, or programme logic an LMS was never meant to hold." },
+  { question: "Will a custom portal support SSO, SIS, and LTI?", answer: "Yes, those are first-class in the build. We confirm the identity provider, the student information system, the required LTI version, and the launch flows during discovery, then build and validate the high-volume paths first." },
+  { question: "Who owns student data on a custom platform?", answer: "Your institution controls the application environment and the data-access model. We document roles, exports, retention, and operational responsibilities before launch so governance isn't an afterthought." },
+  { question: "How do you migrate off Blackboard without losing records?", answer: "We start with a system map, not a content dump: courses, identities, SIS data, tools, roles, and student-service journeys. High-volume paths migrate and get validated first; the long tail is scheduled with the institution's owners." },
 ];
 
 export const alternatives: Alternative[] = [
@@ -27,7 +76,7 @@ export const alternatives: Alternative[] = [
     metaTitle: "Moodle Alternative: A Custom LMS You Own | Rizon",
     metaDescription: "A Moodle alternative for teams tired of plugin upkeep and rigid learner flows. Build a custom LMS around your teaching, data, and roadmap, on your terms.",
     heroHeadline: "A Moodle alternative built around how you teach.",
-    heroSub: "For the training lead or school IT director who has outgrown Moodle maintenance, Rizon builds the learning product you actually need and hand it over.",
+    heroSub: "For the training lead or school IT director who has outgrown Moodle maintenance, Rizon builds the learning product you actually need and hands it over.",
     intro: [
       "If you're leaving Moodle, there are three real paths: keep maintaining it, move to a hosted LMS, or build the platform around your own teaching model. The third path makes sense when the workarounds have become part of the job.",
       "I have seen the moment it tips: a course team needs one reporting flow, an engineer asks which of 14 plugins owns it, and nobody can say with confidence what the next upgrade will change. Moodle is capable software. It is also software you have to operate.",
@@ -50,7 +99,7 @@ export const alternatives: Alternative[] = [
       { dimension: "Upgrade risk", rizon: "Changes are planned against your codebase and release process.", them: "Core and plugin upgrades need compatibility checks and testing." },
     ],
     migration: "We start by cataloguing courses, files, users, enrolments, plugins, and integrations. Then we test exports, move a representative course, and agree which historical records should be retained. SCORM packages and LTI integrations get their own acceptance checks; they are not assumed to survive a copy unchanged.",
-    faqs: standardFaqs("Moodle"),
+    faqs: moodleFaqs,
     keywords: ["Moodle alternative", "custom Moodle alternative", "Moodle migration", "custom LMS"],
     relatedServiceSlug: "school-student-portal-development",
     relatedPostSlugs: ["migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders"],
@@ -89,7 +138,8 @@ export const alternatives: Alternative[] = [
       { question: "Can you migrate Canvas courses from IMSCC exports?", answer: "Yes, after a sample import. Canvas packages course exports as IMSCC files, while grades, student interactions, and some external-tool configurations need separate handling." },
       { question: "Will a custom platform support SSO and LTI?", answer: "Yes when specified in the build. We confirm the identity provider, required LTI version, launch flows, and existing tools during discovery." },
       { question: "Who owns student data on a custom platform?", answer: "Your organisation controls the application environment and data-access model. We document roles, exports, retention, and operational responsibilities before launch." },
-      ...standardFaqs("Canvas").slice(0, 2),
+      { question: "Is a custom platform more expensive than Canvas?", answer: "Canvas is priced per seat, so its cost scales with enrolment whether or not you use more of the product. A build costs more on day one and then stops charging you to grow. The comparison worth running is your three-year Canvas spend against a platform you own." },
+      { question: "How long does a move off Canvas take?", answer: "A focused first release is usually 8 to 12 weeks. A full institutional migration with SIS data, several LTI tools, and historic records extends that, and we schedule it path by path rather than in one risky cutover." },
     ],
     keywords: ["Canvas alternative", "custom school LMS", "Canvas migration", "student portal development"],
     relatedServiceSlug: "school-student-portal-development",
@@ -109,7 +159,7 @@ export const alternatives: Alternative[] = [
     whereTheyWin: [{ title: "You need to launch a conventional course quickly", body: "Teachable is faster and cheaper for a straightforward course catalogue." }, { title: "You do not want to own software operations", body: "A hosted platform removes the work of running an application." }],
     comparison: [...commonRows("Vendor-operated platform; you manage your school within it.", "Hosted product with platform-managed operations.", "Platform support under your plan."), { dimension: "Commerce", rizon: "Checkout and payments designed around your offer and provider.", them: "Built-in commerce and plan-dependent payment options." }, { dimension: "Cost model", rizon: "Build cost plus services you choose.", them: "Subscription and payment fees according to the current plan and processor." }],
     migration: "We export course assets and customer records that are available, then rebuild the learning and checkout flows that matter. Before cutover, we test purchase, enrolment, access, refund, and support handoff with real-looking data.",
-    faqs: standardFaqs("Teachable"), keywords: ["Teachable alternative", "custom course platform", "course platform development"], relatedServiceSlug: "course-platform-for-creators",
+    faqs: teachableFaqs, keywords: ["Teachable alternative", "custom course platform", "course platform development"], relatedServiceSlug: "course-platform-for-creators",
   },
   {
     slug: "thinkific",
@@ -124,7 +174,7 @@ export const alternatives: Alternative[] = [
     whyLeave: [{ title: "Your learner paths need to differ", body: "A single course catalogue is simple. Returning buyers, cohorts, employer-paid learners, and partners introduce rules that deserve product design." }, { title: "Reporting needs to answer your questions", body: "When the decision sits in a dashboard you cannot change, teams export data and rebuild the report elsewhere." }, { title: "The roadmap belongs to somebody else", body: "A hosted platform may ship what you need. It may not. A custom build makes the roadmap a commercial decision you control." }],
     whereTheyWin: [{ title: "Your programme fits a standard course platform", body: "Thinkific can be the right answer when its built-in course, payment, and community features cover the job." }, { title: "You value managed hosting above custom product work", body: "A custom application asks for decisions and ongoing ownership. Hosted software avoids much of that." }],
     comparison: [...commonRows("Vendor-operated platform; your school runs inside it.", "Hosted product with vendor-managed releases.", "Platform support and published help resources."), { dimension: "Commerce", rizon: "Built around your pricing, purchase rules, and payment provider.", them: "Platform commerce features and plan-specific capabilities." }, { dimension: "Product roadmap", rizon: "Your priorities determine what is built next.", them: "Shared product roadmap and available settings." }],
-    migration: "We inventory courses, media, learners, purchases, and integrations first. Then we migrate a sample programme and test the access rules that make your offer different before asking learners to switch.", faqs: standardFaqs("Thinkific"), keywords: ["Thinkific alternative", "custom course platform", "online course platform development"], relatedServiceSlug: "course-platform-for-creators",
+    migration: "We inventory courses, media, learners, purchases, and integrations first. Then we migrate a sample programme and test the access rules that make your offer different before asking learners to switch.", faqs: thinkificFaqs, keywords: ["Thinkific alternative", "custom course platform", "online course platform development"], relatedServiceSlug: "course-platform-for-creators",
   },
   {
     slug: "kajabi",
@@ -139,7 +189,7 @@ export const alternatives: Alternative[] = [
     whyLeave: [{ title: "One suite becomes one constraint", body: "An all-in-one platform reduces integration work. It can also make it hard to choose a specialist tool or build a distinct member experience." }, { title: "Your product needs its own interface", body: "A custom platform makes the course, account, and community flow part of your product instead of a skin on a general-purpose suite." }, { title: "You want choices in the stack", body: "Payments, CRM, analytics, and email can be selected for the job rather than inherited as part of one subscription." }],
     whereTheyWin: [{ title: "You want a single hosted suite", body: "Kajabi is practical for teams that want products, marketing pages, and email in one managed service." }, { title: "Your offer is still simple", body: "For a small catalogue, replacing a working tool with custom software is often unnecessary." }],
     comparison: [...commonRows("Vendor-operated all-in-one platform.", "Hosted subscription product with vendor-managed updates.", "Platform support and account resources."), { dimension: "Stack choices", rizon: "Pick services around your business requirements.", them: "Uses Kajabi's product suite and supported connections." }, { dimension: "Member experience", rizon: "Designed for your programme and brand.", them: "Configured within Kajabi's existing product patterns." }],
-    migration: "We map products, offers, members, media, automations, and third-party connections. The first release covers the critical learner and purchase journeys; lower-value automations are reviewed rather than copied by reflex.", faqs: standardFaqs("Kajabi"), keywords: ["Kajabi alternative", "custom membership platform", "custom course platform"], relatedServiceSlug: "course-platform-for-creators",
+    migration: "We map products, offers, members, media, automations, and third-party connections. The first release covers the critical learner and purchase journeys; lower-value automations are reviewed rather than copied by reflex.", faqs: kajabiFaqs, keywords: ["Kajabi alternative", "custom membership platform", "custom course platform"], relatedServiceSlug: "course-platform-for-creators",
   },
   {
     slug: "talentlms",
@@ -154,7 +204,7 @@ export const alternatives: Alternative[] = [
     whyLeave: [{ title: "Your organisation chart is more complicated than groups", body: "Departments, franchises, contractors, managers, and regulated roles can need different training rules and evidence." }, { title: "Reporting lives outside the LMS", body: "Exports are useful. Persistent manual reporting is a sign the data model needs to match the business." }, { title: "Employee experience needs to feel internal", body: "A learning tool can be functional and still feel disconnected from the systems employees use every day." }],
     whereTheyWin: [{ title: "You need a standard corporate LMS quickly", body: "TalentLMS is a better first move for conventional employee training with limited custom requirements." }, { title: "You want the vendor to run the product", body: "Hosted software reduces the operational responsibility of owning an application." }],
     comparison: [...commonRows("Rizon delivers the code and deployment handover.", "Hosted corporate LMS run by the vendor.", "Vendor support under the subscribed plan."), { dimension: "Roles & reporting", rizon: "Designed around your teams, managers, and compliance evidence.", them: "Configured within the platform's organisation and reporting model." }, { dimension: "SSO & systems", rizon: "Specified integrations are built into the product plan.", them: "Available integrations and SSO depend on plan and product support." }],
-    migration: "We map users, groups, courses, completion records, certificates, and identity-provider rules. Historic records are treated carefully: some should migrate, others belong in a retained archive with a clear audit path.", faqs: standardFaqs("TalentLMS"), keywords: ["TalentLMS alternative", "corporate training platform", "custom corporate LMS"], relatedServiceSlug: "corporate-training-platform",
+    migration: "We map users, groups, courses, completion records, certificates, and identity-provider rules. Historic records are treated carefully: some should migrate, others belong in a retained archive with a clear audit path.", faqs: talentlmsFaqs, keywords: ["TalentLMS alternative", "corporate training platform", "custom corporate LMS"], relatedServiceSlug: "corporate-training-platform",
   },
   {
     slug: "learndash",
@@ -169,7 +219,7 @@ export const alternatives: Alternative[] = [
     whyLeave: [{ title: "The plugin chain gets long", body: "A WordPress LMS often relies on themes, commerce, membership, page-builder, and add-on decisions that interact in ways no single vendor owns." }, { title: "Performance work has too many moving parts", body: "A dedicated application narrows the technical surface area around the learner journey." }, { title: "Your learning product needs a clearer boundary", body: "Keeping marketing content in WordPress can still make sense. The operational LMS can live in a product built for its own workload." }],
     whereTheyWin: [{ title: "Your site is already a well-managed WordPress property", body: "A small course catalogue may be best served by improving what you have." }, { title: "You need WordPress publishing first", body: "LearnDash is a practical fit when editorial workflows and courses should remain tightly coupled." }],
     comparison: [...commonRows("Dedicated codebase and deployment owned by you.", "WordPress site plus LearnDash and any selected plugins.", "LearnDash, WordPress, host, and plugin vendors share the support surface."), { dimension: "Release risk", rizon: "One application release process tailored to the platform.", them: "Updates can involve WordPress core, theme, LearnDash, and third-party plugins." }, { dimension: "Commerce", rizon: "Built to your chosen payment and access rules.", them: "Usually connected through WordPress commerce or membership tooling." }],
-    migration: "We audit WordPress content, LearnDash courses, users, purchases, and add-ons before touching production. The goal is to preserve the learner experience worth keeping and stop copying technical debt into the new build.", faqs: standardFaqs("LearnDash"), keywords: ["LearnDash alternative", "WordPress LMS alternative", "custom LMS development"], relatedServiceSlug: "custom-lms-development",
+    migration: "We audit WordPress content, LearnDash courses, users, purchases, and add-ons before touching production. The goal is to preserve the learner experience worth keeping and stop copying technical debt into the new build.", faqs: learndashFaqs, keywords: ["LearnDash alternative", "WordPress LMS alternative", "custom LMS development"], relatedServiceSlug: "custom-lms-development",
   },
   {
     slug: "docebo",
@@ -184,7 +234,7 @@ export const alternatives: Alternative[] = [
     whyLeave: [{ title: "Your training is part of the product", body: "Customer education, partner enablement, and certification can need workflows that look closer to a product than an internal LMS." }, { title: "The data needs to join your core systems", body: "When learning signals affect account health, entitlement, or renewal work, the integration deserves more than a periodic export." }, { title: "You want to choose what gets built", body: "A vendor roadmap has to serve many customers. A custom roadmap serves the business case you can justify." }],
     whereTheyWin: [{ title: "You need established enterprise LMS capability", body: "Docebo is a credible choice for organisations whose requirements match an enterprise LMS and who want vendor-managed delivery." }, { title: "You do not need a differentiated learner product", body: "A custom build has a higher initial cost and needs active product ownership." }],
     comparison: [...commonRows("Application code and deployment decisions are handed to your organisation.", "Vendor-operated enterprise LMS.", "Vendor support and services under your agreement."), { dimension: "Enterprise workflow", rizon: "Purpose-built around your customers, partners, and internal processes.", them: "Configured within the platform's enterprise LMS capabilities." }, { dimension: "Roadmap", rizon: "Priorities are set by your business case.", them: "Shared vendor roadmap plus available configuration and services." }],
-    migration: "We plan the migration with the same care as a system integration: identity, content, enrolment rules, completion records, integrations, and reporting each get an owner and a test. The objective is a controlled cutover, not a heroic weekend.", faqs: standardFaqs("Docebo"), keywords: ["Docebo alternative", "custom enterprise LMS", "training platform development"], relatedServiceSlug: "corporate-training-platform",
+    migration: "We plan the migration with the same care as a system integration: identity, content, enrolment rules, completion records, integrations, and reporting each get an owner and a test. The objective is a controlled cutover, not a heroic weekend.", faqs: doceboFaqs, keywords: ["Docebo alternative", "custom enterprise LMS", "training platform development"], relatedServiceSlug: "corporate-training-platform",
   },
   {
     slug: "blackboard",
@@ -199,7 +249,7 @@ export const alternatives: Alternative[] = [
     whyLeave: [{ title: "The portal has more jobs than the LMS", body: "Student, parent, instructor, and administrative work can need a shared front door that an LMS alone was never intended to provide." }, { title: "Institution-specific flows matter", body: "Programme requirements, services, and data rules are often local. A custom platform can make those first-class rather than peripheral." }, { title: "You need direct design control", body: "A branded theme does not always solve the interaction and information-architecture problems students face." }],
     whereTheyWin: [{ title: "You need a full conventional LMS now", body: "Blackboard Learn remains a practical option for institutions that want an established product and associated services." }, { title: "Your programme depends on its current workflows", body: "Replacement only makes sense with a precise migration case and commitment from the people who run those workflows." }],
     comparison: [...commonRows("Institution-owned application code and deployment handover.", "Vendor-operated LMS configured for the institution.", "Vendor support and institutional administrators."), { dimension: "Student portal scope", rizon: "Can combine learning with the portal workflows your school chooses.", them: "Centres on Blackboard Learn's LMS product model and integrations." }, { dimension: "Integrations", rizon: "Built around required SSO, SIS, LTI, and service connections.", them: "Uses supported integrations and institutional configuration." }],
-    migration: "We start with a system map, not a content dump: courses, identities, SIS data, tools, roles, and student-service journeys. We migrate and validate the high-volume paths first, then schedule the long tail with the institution's owners.", faqs: standardFaqs("Blackboard Learn"), keywords: ["Blackboard alternative", "custom student portal", "school portal development"], relatedServiceSlug: "school-student-portal-development",
+    migration: "We start with a system map, not a content dump: courses, identities, SIS data, tools, roles, and student-service journeys. We migrate and validate the high-volume paths first, then schedule the long tail with the institution's owners.", faqs: blackboardFaqs, keywords: ["Blackboard alternative", "custom student portal", "school portal development"], relatedServiceSlug: "school-student-portal-development",
   },
 ];
 

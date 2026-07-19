@@ -1,10 +1,31 @@
 import type { ServicePage } from "@/types";
 
-const buildFaqs = (subject: string): ServicePage["faqs"] => [
-  { question: `How much does ${subject} cost?`, answer: "A focused first release usually sits between $25,000 and $80,000. The number moves with the hard parts: integrations, migration volume, roles, reporting, and the number of distinct learner flows." },
-  { question: "How long will the first release take?", answer: "Most focused platforms reach a usable first release in 8 to 12 weeks. We work in weekly slices, so you see the real thing early instead of receiving a polished slide deck after months of silence." },
-  { question: "Will we own the code?", answer: "Yes. At handover, you receive the application code, deployment documentation, and the infrastructure access agreed in the project plan." },
-  { question: "Can you work with our existing systems?", answer: "Yes, where the relevant API or standard supports the job. We confirm identity, payments, content packages, reporting, and data ownership during the technical discovery rather than assuming an integration is simple." },
+const customLmsFaqs: ServicePage["faqs"] = [
+  { question: "How much does custom LMS development cost?", answer: "A focused first release usually lands between $25,000 and $80,000. The number moves with the hard parts: how many distinct learner flows, how much data you're migrating, the integrations, and the reporting. I'd rather quote a narrow first release with a clear second step than a big number that hides its assumptions." },
+  { question: "How long until the first release?", answer: "Most focused platforms are usable in 8 to 12 weeks. We work in weekly slices, so you're clicking through the real thing early instead of waiting months for a slide deck." },
+  { question: "Do we own the code?", answer: "Yes. At handover you get the application code, deployment docs, and the infrastructure access we agreed in the plan. Ongoing support is available, never required." },
+  { question: "Can it work with the systems we already run?", answer: "Where the API or standard supports it, yes. We confirm identity, payments, content packages, and reporting during technical discovery rather than assuming an integration is simple." },
+];
+
+const corporateFaqs: ServicePage["faqs"] = [
+  { question: "How much does a corporate training platform cost?", answer: "A focused first release usually runs $30,000 to $90,000. SSO, HRIS connections, compliance evidence, partner training, and migrating historic records push it up. We scope the reporting questions before quoting, because that's where vague requirements get expensive." },
+  { question: "How long does it take to launch?", answer: "Around 8 to 12 weeks for the core, in weekly builds. Identity and role data get proven first, because a polished dashboard with the wrong access model is expensive wallpaper." },
+  { question: "Will it connect to our SSO and HR systems?", answer: "That's usually the point. We confirm the identity provider, the systems of record, and the exact sign-in flow during discovery, then place people into the right roles automatically instead of asking a manager to update a group by hand." },
+  { question: "How do you handle compliance evidence and old records?", answer: "We record attempts, acknowledgement, expiry, certificates, and the version of the material a learner saw, so an audit is a report rather than a scramble. Historic records either migrate or move to a retained archive with a clear audit path, decided before cutover." },
+];
+
+const creatorFaqs: ServicePage["faqs"] = [
+  { question: "How much does a custom course platform cost?", answer: "A focused first release usually costs $25,000 to $75,000. Custom checkout logic, memberships, team purchasing, a catalogue migration, or a built-in community push it up. We build the offer that makes money now, not the hypothetical one three years out." },
+  { question: "How soon can I start selling on it?", answer: "Usually 8 to 12 weeks, built in weekly slices. You can start selling once the purchase-and-delivery path is proven, before every feature is polished." },
+  { question: "Do I keep my payment processor and revenue?", answer: "Yes. The platform connects to the payment provider you choose and takes no cut on top of the processor fee. Owning the checkout is usually the whole reason to build." },
+  { question: "Can you migrate my existing courses and students?", answer: "We export what your current tool allows, courses, media, and customer records, rebuild the flows that matter, and test buying, access, and refunds with real-looking data before anyone switches." },
+];
+
+const schoolFaqs: ServicePage["faqs"] = [
+  { question: "How much does a school student portal cost?", answer: "A focused first release usually costs $35,000 to $100,000. SIS integration, the number of roles, parent access, gradebook needs, and legacy data migration move the range most. We usually start with the student service causing the most friction, then expand from a stable base." },
+  { question: "How long does it take to launch?", answer: "About 8 to 12 weeks for a focused first release. The high-volume paths, sign-in, timetable, assignments, get built and validated first." },
+  { question: "Who owns and protects the student data?", answer: "Your institution controls the environment and the data-access model. We design permissions, audit needs, retention, and incident responsibilities with you, and document them before launch rather than after." },
+  { question: "Do we have to replace our SIS and LMS?", answer: "No, and replacing everything is often the riskiest first move. The SIS can stay the source of truth for enrolment and the LMS can keep course content, while the portal gives students, parents, and staff one front door through tested integrations." },
 ];
 
 export const services: ServicePage[] = [
@@ -39,7 +60,7 @@ export const services: ServicePage[] = [
     included: ["Discovery and product map", "UX and interface design", "Learner and admin application", "Identity and required integrations", "Testing, deployment, and handover documentation"],
     costBand: "A focused custom LMS first release usually costs $25,000 to $80,000. A platform with several roles, a large migration, complex reporting, payments, or LTI/SSO integrations can exceed that range. We would rather give you a smaller first release with a clear second step than pretend every possible feature belongs in version one.",
     outcomes: "The result is a platform your team can explain without apologising for its limits. Learners see a coherent product. Administrators spend less time stitching systems together. And when a new revenue model or teaching idea arrives, you have a codebase that can change with it.",
-    faqs: buildFaqs("custom LMS development"),
+    faqs: customLmsFaqs,
     relatedAlternativeSlugs: ["moodle", "canvas"],
     relatedPostSlugs: ["how-much-does-a-custom-lms-cost-in-2026", "build-vs-buy-an-lms-the-honest-math", "hidden-cost-of-revenue-share-course-platforms", "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years", "what-actually-drives-the-price-of-an-e-learning-build"],
     keywords: ["custom LMS development", "custom learning management system", "LMS development agency"],
@@ -75,7 +96,7 @@ export const services: ServicePage[] = [
     included: ["Role and access model", "SSO and HR-system integration planning", "Training assignment and completion evidence", "Manager reporting", "Deployment and handover"],
     costBand: "A focused corporate training platform first release usually costs $30,000 to $90,000. SSO, HRIS connections, compliance evidence, multi-tenant partner training, and migration of historic records drive the figure upward. We scope the reporting questions before estimating, because reporting is where vague requirements become expensive.",
     outcomes: "Managers get an answer they can act on. Learners receive the training that applies to them. The L&D team stops spending the last afternoon of the month turning exports into evidence.",
-    faqs: buildFaqs("corporate training platform development"),
+    faqs: corporateFaqs,
     relatedAlternativeSlugs: ["docebo", "talentlms"],
     keywords: ["corporate training platform development", "custom corporate LMS", "L&D platform development"],
   },
@@ -110,7 +131,7 @@ export const services: ServicePage[] = [
     included: ["Commercial and access-rule design", "Custom checkout and account flows", "Course and cohort experience", "Payments and selected integrations", "Admin tooling, launch support, and handover"],
     costBand: "A focused creator platform usually costs $25,000 to $75,000 for its first release. Custom checkout logic, memberships, team purchasing, a migration from an existing catalogue, or a built-in community push the cost up. We protect the first release by choosing the offer that makes money now, not the hypothetical offer three years away.",
     outcomes: "You control the commercial rules, the member experience, and the pace of product changes. More importantly, your support team stops being asked to manually bridge gaps the software should handle.",
-    faqs: buildFaqs("a custom course platform"),
+    faqs: creatorFaqs,
     relatedAlternativeSlugs: ["teachable", "thinkific", "kajabi"],
     keywords: ["custom course platform", "Teachable alternative for creators", "creator platform development"],
   },
@@ -145,7 +166,7 @@ export const services: ServicePage[] = [
     included: ["Portal and role design", "Student, parent, teacher, and staff flows", "SSO/SIS/LTI integration planning", "Assignments, gradebook, and reporting where scoped", "Security review, testing, and handover"],
     costBand: "A focused school portal first release usually costs $35,000 to $100,000. The range changes sharply with SIS integration, number of roles, parent access, gradebook requirements, legacy data migration, and whether the portal also replaces an LMS. We recommend beginning with the student service that causes the most friction, then expanding from a stable base.",
     outcomes: "Students get a clearer path through school life. Teachers and staff spend less time translating between systems. The institution gains a portal it can shape around its own policies instead of asking every department to adapt to a generic product.",
-    faqs: buildFaqs("school portal development"),
+    faqs: schoolFaqs,
     relatedAlternativeSlugs: ["moodle", "canvas", "blackboard"],
     relatedPostSlugs: ["canvas-breach-student-data-security", "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders"],
     keywords: ["school portal development", "student portal development", "custom school LMS"],
