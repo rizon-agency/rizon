@@ -98,6 +98,7 @@ export const services: ServicePage[] = [
     outcomes: "Managers get an answer they can act on. Learners receive the training that applies to them. The L&D team stops spending the last afternoon of the month turning exports into evidence.",
     faqs: corporateFaqs,
     relatedAlternativeSlugs: ["docebo", "talentlms"],
+    relatedPostSlugs: ["sso-options-for-learning-platforms", "student-data-security-checklist-for-edtech-teams", "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years"],
     keywords: ["corporate training platform development", "custom corporate LMS", "L&D platform development"],
   },
   {
@@ -133,6 +134,7 @@ export const services: ServicePage[] = [
     outcomes: "You control the commercial rules, the member experience, and the pace of product changes. More importantly, your support team stops being asked to manually bridge gaps the software should handle.",
     faqs: creatorFaqs,
     relatedAlternativeSlugs: ["teachable", "thinkific", "kajabi"],
+    relatedPostSlugs: ["hidden-cost-of-revenue-share-course-platforms", "leaving-teachable-a-migration-checklist"],
     keywords: ["custom course platform", "Teachable alternative for creators", "creator platform development"],
   },
   {

@@ -56,3 +56,18 @@ Persona: Idriss, an edtech product or IT lead responsible for a dependable learn
 | learning-platform API design | API decisions that make LMS integrations survivable | Informational | Custom LMS service | Version contracts before partners depend on them. |
 | gradebook integration testing | How to test a gradebook integration before term starts | Informational | School portal service | Run a real instructor workflow, not only an API request. |
 | learner identity matching | Preventing duplicate learner records across systems | Informational | Custom LMS service | Define the canonical ID before an import creates a mess. |
+
+## Internal-linking map (3.5 audit — verified 2026-07-19)
+
+Rule: every post links **up** to a service pillar (`relatedServiceSlug`) and **sideways** to ≥2 sibling posts (`relatedPostSlugs`); every pillar links **down** to its cluster (`relatedPostSlugs`) and **across** to relevant alternatives (`relatedAlternativeSlugs`); every alternatives page links to its matching post. All render as real on-page links via the `blog/[slug]`, `services/[slug]`, and `alternatives/[slug]` "related" blocks.
+
+**Pillars → clusters (down-links):**
+- `/services/custom-lms-development` → the 5 cost posts (3.2)
+- `/services/corporate-training-platform` → SSO options, student-data security, three-year TCO
+- `/services/course-platform-for-creators` → revenue-share cost, leaving Teachable
+- `/services/school-student-portal-development` → Canvas breach, LTI 1.1→1.3 migration
+
+**Cluster ↔ alternatives (feeds the money pages):**
+- Migration posts pair with their competitor page and link both ways: Moodle post ↔ `/alternatives/moodle`, Canvas IMSCC post ↔ `/alternatives/canvas`, Teachable checklist ↔ `/alternatives/teachable`.
+
+**Orphan check:** none. Every post is reachable from `/blog` plus the related blocks; every alternatives page from `/lms-alternatives`, the homepage `AlternativesPreview`, and service cross-links; every service from `/services`, the nav, the footer, and related blocks. Audit method: for each post, confirm `relatedServiceSlug` present and `relatedPostSlugs.length >= 2`; for each pillar, confirm `relatedPostSlugs` present. All 17 posts and 4 pillars pass.

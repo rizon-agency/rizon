@@ -358,7 +358,7 @@ Write ≥5 MDX posts, each with a real number or scenario, interlinked, all poin
 - [x] "Designing assessments that resist cheating" (expand the existing angle)
 - **Accept:** cluster reaches ~8–10 posts total (existing + new), interlinked.
 
-### [ ] 3.5 — Internal-linking audit
+### [x] 3.5 — Internal-linking audit — done 2026-07-19 (link map in content-plan.md; all 17 posts + 4 pillars pass, no orphans)
 - **Steps:** Every post links UP to a pillar + SIDEWAYS to ≥2 siblings; every pillar links
   DOWN to its cluster. Add a "Related posts" block to `blog/[slug]/page.tsx`. No orphans.
 - **Accept:** documented link map; zero orphaned content pages.
