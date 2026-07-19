@@ -2,8 +2,83 @@ import type { Post } from "@/types";
 import cheatingExamsCover from "@/assets/blog/cheating-online-exams-what-actually-works.png";
 import canvasBreachCover from "@/assets/blog/canvas-breach-student-data-security.png";
 import ltiMigrationBreachCover from "@/assets/blog/migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders.png";
+import customLmsCostCover from "@/assets/blog/custom-lms-cost-2026.svg";
+import buildVsBuyCover from "@/assets/blog/build-vs-buy-lms.svg";
+import revenueShareCover from "@/assets/blog/revenue-share-course-platforms.svg";
+import threeYearTcoCover from "@/assets/blog/lms-three-year-tco.svg";
+import buildCostDriversCover from "@/assets/blog/elearning-build-cost-drivers.svg";
 
 export const posts: Post[] = [
+  {
+    slug: "how-much-does-a-custom-lms-cost-in-2026",
+    title: "How Much Does a Custom LMS Cost in 2026?",
+    description:
+      "A focused custom LMS first release usually costs $25,000 to $80,000. Here is what moves the number, what a useful first release includes, and what to ask before you accept a quote.",
+    date: "2026-07-19",
+    readTime: "6 min read",
+    category: "Platform Strategy",
+    coverImage: customLmsCostCover,
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle", "canvas"],
+    relatedPostSlugs: ["build-vs-buy-an-lms-the-honest-math", "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years", "what-actually-drives-the-price-of-an-e-learning-build"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "build-vs-buy-an-lms-the-honest-math",
+    title: "Build vs. Buy an LMS: The Honest Math",
+    description:
+      "The right comparison is not a monthly licence against a one-time build. It is three years of subscriptions, staff workarounds, integrations, revenue constraints, and ownership.",
+    date: "2026-07-17",
+    readTime: "7 min read",
+    category: "Platform Strategy",
+    coverImage: buildVsBuyCover,
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle", "canvas"],
+    relatedPostSlugs: ["how-much-does-a-custom-lms-cost-in-2026", "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years", "what-actually-drives-the-price-of-an-e-learning-build"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "hidden-cost-of-revenue-share-course-platforms",
+    title: "The Hidden Cost of Revenue-Share Course Platforms",
+    description:
+      "Revenue share can be a sensible way to launch. Follow a $500 sale through platform and processing fees, then add the operational exceptions before deciding whether the model still fits.",
+    date: "2026-07-15",
+    readTime: "6 min read",
+    category: "Creator Economics",
+    coverImage: revenueShareCover,
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["teachable", "thinkific"],
+    relatedPostSlugs: ["build-vs-buy-an-lms-the-honest-math", "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years", "what-actually-drives-the-price-of-an-e-learning-build"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years",
+    title: "Custom LMS vs. Off-the-Shelf: Total Cost of Ownership Over Three Years",
+    description:
+      "Hosted software usually costs less in year one. This three-year model counts the licence, setup, staff workarounds, integrations, migration, and the rules that affect revenue.",
+    date: "2026-07-12",
+    readTime: "7 min read",
+    category: "Platform Strategy",
+    coverImage: threeYearTcoCover,
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle", "canvas"],
+    relatedPostSlugs: ["how-much-does-a-custom-lms-cost-in-2026", "build-vs-buy-an-lms-the-honest-math", "what-actually-drives-the-price-of-an-e-learning-build"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "what-actually-drives-the-price-of-an-e-learning-build",
+    title: "What Actually Drives the Price of an E-Learning Build",
+    description:
+      "Roles, migration, integrations, business rules, and launch quality move an e-learning estimate far more than a polished lesson screen. Here is how to scope the first release honestly.",
+    date: "2026-07-10",
+    readTime: "6 min read",
+    category: "Platform Strategy",
+    coverImage: buildCostDriversCover,
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle", "canvas"],
+    relatedPostSlugs: ["how-much-does-a-custom-lms-cost-in-2026", "build-vs-buy-an-lms-the-honest-math", "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years"],
+    authorSlug: "choaib-mouhrach",
+  },
   {
     slug: "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders",
     title:

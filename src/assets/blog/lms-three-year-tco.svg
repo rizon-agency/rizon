@@ -1,0 +1,14 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" fill="#171717"/>
+  <rect x="54" y="54" width="1092" height="567" rx="28" stroke="#404040" stroke-width="2"/>
+  <text x="94" y="144" fill="#A3A3A3" font-family="Arial, sans-serif" font-size="26" letter-spacing="5">RIZON / DECISION NOTES</text>
+  <text x="94" y="258" fill="white" font-family="Arial, sans-serif" font-size="62" font-weight="700">Three years,</text>
+  <text x="94" y="334" fill="white" font-family="Arial, sans-serif" font-size="62" font-weight="700">not month one.</text>
+  <path d="M104 518H1095" stroke="#525252" stroke-width="2"/>
+  <path d="M245 518V411" stroke="#E5E5E5" stroke-width="28" stroke-linecap="round"/>
+  <path d="M519 518V326" stroke="#F97316" stroke-width="28" stroke-linecap="round"/>
+  <path d="M793 518V247" stroke="#E5E5E5" stroke-width="28" stroke-linecap="round"/>
+  <text x="196" y="580" fill="#A3A3A3" font-family="Arial, sans-serif" font-size="24">YEAR 1</text>
+  <text x="470" y="580" fill="#A3A3A3" font-family="Arial, sans-serif" font-size="24">YEAR 2</text>
+  <text x="744" y="580" fill="#A3A3A3" font-family="Arial, sans-serif" font-size="24">YEAR 3</text>
+</svg>

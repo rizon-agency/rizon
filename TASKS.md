@@ -333,14 +333,14 @@ sideways to siblings. This is the volume Google needs to read topical competence
 - **Accept:** `content-plan.md` covering ≥3 pillars × ~10 topics, with the human-writing
   persona + reader noted per cluster.
 
-### [ ] 3.2 — Cost / decision cluster (highest-converting; reader: a buyer pricing it out)
+### [x] 3.2 — Cost / decision cluster (highest-converting; reader: a buyer pricing it out) — completed 2026-07-19
 Write ≥5 MDX posts, each with a real number or scenario, interlinked, all pointing to
 `/services/custom-lms-development` and relevant alternatives pages:
-- [ ] "How much does a custom LMS cost in 2026?" (ranges + the factors that move price)
-- [ ] "Build vs buy an LMS: the honest math"
-- [ ] "The hidden cost of revenue-share course platforms" (ties to creator service)
-- [ ] "Custom LMS vs off-the-shelf: total cost of ownership over 3 years"
-- [ ] "What actually drives the price of an e-learning build"
+- [x] "How much does a custom LMS cost in 2026?" (ranges + the factors that move price)
+- [x] "Build vs buy an LMS: the honest math"
+- [x] "The hidden cost of revenue-share course platforms" (ties to creator service)
+- [x] "Custom LMS vs off-the-shelf: total cost of ownership over 3 years"
+- [x] "What actually drives the price of an e-learning build"
 - **Accept:** ≥5 posts, each linked to a pillar + ≥2 siblings.
 
 ### [ ] 3.3 — Migration / "switching away" cluster (feeds the alternatives pages)

@@ -41,7 +41,7 @@ export const services: ServicePage[] = [
     outcomes: "The result is a platform your team can explain without apologising for its limits. Learners see a coherent product. Administrators spend less time stitching systems together. And when a new revenue model or teaching idea arrives, you have a codebase that can change with it.",
     faqs: buildFaqs("custom LMS development"),
     relatedAlternativeSlugs: ["moodle", "canvas"],
-    relatedPostSlugs: ["migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders"],
+    relatedPostSlugs: ["how-much-does-a-custom-lms-cost-in-2026", "build-vs-buy-an-lms-the-honest-math", "hidden-cost-of-revenue-share-course-platforms", "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years", "what-actually-drives-the-price-of-an-e-learning-build"],
     keywords: ["custom LMS development", "custom learning management system", "LMS development agency"],
   },
   {
