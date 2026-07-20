@@ -23,19 +23,14 @@ export const Work = () => {
         />
       </Reveal>
 
-      <RevealGroup stagger={0.12} className="mt-16 grid grid-cols-1 border-t border-border md:grid-cols-2 md:gap-x-12">
+      <RevealGroup stagger={0.12} className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
         {projects.map(({ slug, title, tech, description, preview }, index) => (
           <RevealItem key={slug} duration={0.6} y={20}>
             <Link
               href={`/work/${slug}`}
-              className="group relative block border-b border-border py-10"
+              className="surface surface-hover group flex h-full flex-col overflow-hidden"
             >
-              <span
-                className="absolute left-0 -top-px h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100"
-                aria-hidden
-              />
-
-              <div className="relative mb-8 aspect-video overflow-hidden rounded-lg border border-border bg-muted">
+              <div className="relative aspect-video overflow-hidden bg-muted">
                 <Image
                   src={preview}
                   alt={title}
@@ -46,36 +41,38 @@ export const Work = () => {
                 />
               </div>
 
-              <div className="flex items-start justify-between gap-4">
-                <span className="font-mono text-2xl font-normal tabular-nums leading-none text-muted-foreground/60 transition-colors duration-300 group-hover:text-primary">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <ArrowUpRight
-                  size={22}
-                  strokeWidth={1.5}
-                  aria-hidden
-                  className="shrink-0 -translate-x-1 text-muted-foreground opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100"
-                />
+              <div className="flex flex-1 flex-col p-6 md:p-7">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-sm tabular-nums text-primary">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <ArrowUpRight
+                    size={20}
+                    strokeWidth={1.5}
+                    aria-hidden
+                    className="shrink-0 text-muted-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  />
+                </div>
+
+                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-balance">
+                  {title}
+                </h3>
+
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {tech.map((t) => (
+                    <li
+                      key={t}
+                      className="rounded-full bg-secondary px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wider text-muted-foreground"
+                    >
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
+                  {description}
+                </p>
               </div>
-
-              <h3 className="mt-7 text-2xl font-medium tracking-tight text-balance">
-                {title}
-              </h3>
-
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {tech.map((t) => (
-                  <li
-                    key={t}
-                    className="rounded-full border border-border px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wider text-muted-foreground"
-                  >
-                    {t}
-                  </li>
-                ))}
-              </ul>
-
-              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-                {description}
-              </p>
             </Link>
           </RevealItem>
         ))}

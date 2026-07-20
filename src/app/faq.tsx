@@ -30,11 +30,14 @@ export const Faq = () => {
         </div>
 
         <div className="lg:col-span-7">
-          <RevealGroup stagger={0.08} className="border-t border-border">
+          <RevealGroup
+            stagger={0.08}
+            className="surface divide-y divide-border overflow-hidden"
+          >
             {faqs.map(({ question, answer }, index) => {
               const isOpen = index === open;
               return (
-                <RevealItem key={question} className="border-b border-border">
+                <RevealItem key={question} className="px-6 md:px-8">
                   <dt>
                     <button
                       type="button"
