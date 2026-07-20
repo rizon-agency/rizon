@@ -76,7 +76,8 @@ export default function AboutPage() {
                 About Rizon
               </span>
               <h1 className="mt-6 max-w-[12ch] text-5xl font-semibold tracking-tight leading-[1.02] text-balance md:text-6xl">
-                I build the learning platform, so it stops being the thing your team works around.
+                I build the learning platform, so it stops being the thing your team{" "}
+                <span className="mark">works around</span>.
               </h1>
               <p className="mt-7 max-w-2xl text-xl leading-relaxed text-muted-foreground">
                 I&apos;m Choaib Mouhrach. I started Rizon to build learning
