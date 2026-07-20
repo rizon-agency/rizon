@@ -66,31 +66,31 @@ export const HowWeWork = () => {
         />
       </Reveal>
 
-      <RevealGroup stagger={0.1} as="ol" className="mt-16 border-t border-border">
+      <RevealGroup
+        stagger={0.08}
+        as="ol"
+        className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+      >
         {steps.map(({ title, description }, index) => (
           <RevealItem
             key={title}
             as="li"
-            className="grid grid-cols-[auto_1fr] items-start gap-x-8 border-b border-border py-10 md:gap-x-14 md:py-14 lg:gap-x-20"
+            className="surface surface-hover flex flex-col p-7 md:p-8"
           >
-            <span
-              className="row-span-2 select-none font-light text-6xl tabular-nums leading-none tracking-tight text-muted-foreground/25 md:text-7xl lg:text-8xl"
-              aria-hidden
-            >
-              {String(index + 1).padStart(2, "0")}
-            </span>
-
-            <div>
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+            <div className="flex items-baseline gap-3">
+              <span className="font-mono text-lg font-medium tabular-nums text-primary">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground/60">
                 Step {stepLabels[index]}
               </span>
-              <h3 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl lg:text-4xl">
-                {title}
-              </h3>
-              <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground md:text-base">
-                {description}
-              </p>
             </div>
+            <h3 className="mt-5 text-xl font-semibold tracking-tight md:text-2xl">
+              {title}
+            </h3>
+            <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+              {description}
+            </p>
           </RevealItem>
         ))}
       </RevealGroup>

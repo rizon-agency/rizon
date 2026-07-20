@@ -59,30 +59,23 @@ export const WhyUs = () => {
         />
       </Reveal>
 
-      <RevealGroup stagger={0.1} className="mt-16 grid grid-cols-1 md:grid-cols-2 border-t border-border">
+      <RevealGroup stagger={0.1} className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
         {reasons.map(({ title, description, icon: Icon }, index) => (
           <RevealItem
             key={title}
             as="article"
-            className="group relative border-b border-border md:odd:border-r py-10 md:py-12 md:even:pl-12 md:odd:pr-12"
+            className="surface surface-hover flex flex-col p-7 md:p-8"
           >
-            <span
-              className="absolute left-0 -top-px h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100"
-              aria-hidden
-            />
             <div className="flex items-center justify-between">
-              <span className="font-mono text-2xl font-normal tabular-nums leading-none text-muted-foreground/60 transition-colors duration-300 group-hover:text-primary">
+              <span className="inline-flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Icon size={20} strokeWidth={1.75} aria-hidden />
+              </span>
+              <span className="font-mono text-sm tabular-nums text-muted-foreground/50">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <Icon
-                size={22}
-                strokeWidth={1.5}
-                className="text-muted-foreground transition-colors duration-300 group-hover:text-foreground"
-                aria-hidden
-              />
             </div>
-            <h3 className="mt-8 text-xl font-medium tracking-tight">{title}</h3>
-            <p className="mt-3 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+            <h3 className="mt-6 text-xl font-semibold tracking-tight">{title}</h3>
+            <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
               {description}
             </p>
           </RevealItem>

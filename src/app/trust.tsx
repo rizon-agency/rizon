@@ -16,4 +16,48 @@ const clients = [
   { name: "Arkon Agency", href: "https://arkon.agency" },
 ];
 
-export const Trust = () => <section className="container mt-32 md:mt-40"><SectionHeader label="Client feedback" title="The work has to hold up after the handoff." description="From clients who brought Rizon in when the learning-platform work got hard." /><div className="mt-12 grid grid-cols-1 border-t border-border md:grid-cols-2">{testimonials.map(({ quote, author }) => <blockquote key={quote} className="border-b border-border py-8 md:pr-10 md:odd:border-r md:odd:pr-12 md:even:pl-12"><p className="text-xl leading-relaxed tracking-tight">&ldquo;{quote}&rdquo;</p><footer className="mt-5 text-sm font-medium text-muted-foreground">{author}</footer></blockquote>)}</div><div className="mt-12 border-t border-border pt-8"><p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Selected client organisations</p><div className="mt-5 flex flex-wrap gap-x-7 gap-y-3">{clients.map((client) => <Link key={client.href} href={client.href} target="_blank" rel="noopener noreferrer" className="text-lg font-medium text-muted-foreground hover:text-foreground">{client.name}</Link>)}</div></div></section>;
+export const Trust = () => (
+  <section className="container mt-32 md:mt-40">
+    <SectionHeader
+      label="Client feedback"
+      title="The work has to hold up after the handoff."
+      description="From clients who brought Rizon in when the learning-platform work got hard."
+    />
+    <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
+      {testimonials.map(({ quote, author }) => (
+        <blockquote key={quote} className="surface flex flex-col p-7 md:p-8">
+          <p className="text-lg leading-relaxed tracking-tight text-foreground/90">
+            &ldquo;{quote}&rdquo;
+          </p>
+          <footer className="mt-6 flex items-center gap-3">
+            <span
+              className="inline-flex size-9 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary"
+              aria-hidden
+            >
+              {author.charAt(0)}
+            </span>
+            <span className="text-sm font-medium">{author}</span>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+    <div className="surface mt-6 flex flex-col gap-4 p-7 md:flex-row md:items-center md:justify-between md:p-8">
+      <p className="text-sm font-medium text-muted-foreground">
+        Selected client organisations
+      </p>
+      <div className="flex flex-wrap gap-x-7 gap-y-3">
+        {clients.map((client) => (
+          <Link
+            key={client.href}
+            href={client.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-lg font-medium text-foreground/80 hover:text-primary"
+          >
+            {client.name}
+          </Link>
+        ))}
+      </div>
+    </div>
+  </section>
+);
