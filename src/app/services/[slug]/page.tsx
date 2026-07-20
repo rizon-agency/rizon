@@ -28,7 +28,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const service = getServiceBySlug((await params).slug);
-  if (!service) return { title: "Service not found — Rizon" };
+  if (!service) return { title: "Service not found | Rizon" };
   const url = `${BASE_URL}/services/${service.slug}`;
   return {
     title: service.metaTitle,
@@ -139,57 +139,63 @@ export default async function ServiceDetailPage({
           <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-                The direct answer
+                Who we work with
               </span>
               <h2 className="mt-5 text-3xl font-semibold tracking-tight">
-                Who this is for
+                Buyers who need the platform to fit their operation.
               </h2>
             </div>
-            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground lg:col-span-7 lg:col-start-6">
-              <p>{service.intro}</p>
-              <p className="border-l-2 border-primary pl-5 text-foreground">
-                {service.forWho}
-              </p>
+            <div className="lg:col-span-7 lg:col-start-6">
+              <ul className="space-y-6">
+                {service.whoWeWorkWith.map((item) => (
+                  <li
+                    key={item.audience}
+                    className="border-l-2 border-primary pl-5"
+                  >
+                    <h3 className="text-lg font-semibold tracking-tight">
+                      {item.audience}
+                    </h3>
+                    <p className="mt-2 leading-relaxed text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
         <section className="container mt-24 md:mt-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-              The problem underneath
+              Problems we solve
             </span>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight text-balance md:text-5xl">
-              The work your current platform leaves behind
+              The specific work your current platform leaves behind.
             </h2>
-            <p className="mt-7 text-lg leading-relaxed text-muted-foreground">
-              {service.problem}
-            </p>
           </div>
-        </section>
-        <section className="container mt-24 md:mt-32">
-          <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
-            <div className="lg:col-span-4">
-              <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-                Before you build
-              </span>
-              <h2 className="mt-5 text-3xl font-semibold tracking-tight">
-                Find the costly exception
-              </h2>
-            </div>
-            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground lg:col-span-7 lg:col-start-6">
-              {service.decisionGuide.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
+          <div className="surface mt-12 divide-y divide-border overflow-hidden">
+            {service.problemsWeSolve.map((item) => (
+              <article
+                key={item.problem}
+                className="grid grid-cols-1 gap-4 px-6 py-7 md:grid-cols-12 md:gap-10 md:px-8"
+              >
+                <h3 className="text-lg font-medium tracking-tight md:col-span-5">
+                  {item.problem}
+                </h3>
+                <p className="leading-relaxed text-muted-foreground md:col-span-7">
+                  {item.solution}
+                </p>
+              </article>
+            ))}
           </div>
         </section>
         <section className="container mt-24 md:mt-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-              What we build
+              Capabilities
             </span>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight text-balance md:text-5xl">
-              What {service.targetKeyword} looks like in practice
+              What we build inside {service.targetKeyword}.
             </h2>
           </div>
           <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -212,78 +218,12 @@ export default async function ServiceDetailPage({
           </div>
         </section>
         <section className="container mt-24 md:mt-32">
-          <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
-            <div className="lg:col-span-4">
-              <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-                How we make decisions
-              </span>
-              <h2 className="mt-5 text-3xl font-semibold tracking-tight">
-                Build the part that people use under pressure.
-              </h2>
-            </div>
-            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground lg:col-span-7 lg:col-start-6">
-              <p>
-                Most platform projects look tidy in a planning document. The
-                real test comes later: a new member cannot log in ten minutes
-                before a live session, a manager needs evidence for an audit, or
-                an administrator has to reverse a mistaken enrolment while the
-                learner is waiting on chat. We design and test those moments
-                early. Happy-path screenshots are easy. Recovery paths tell you
-                whether the product is ready.
-              </p>
-              <p>
-                We use real acceptance tests: a learner loses access after a role
-                change, an administrator corrects an import, a manager finds the
-                right record without seeing private data, and a support request
-                arrives after an unusual purchase. If a proposed feature does not
-                improve one of those moments, it can wait. This keeps the build
-                tied to the people who have to operate it after launch.
-              </p>
-              <p>
-                We also keep a written decision log. If we choose an identity
-                flow, a payment rule, or a source of truth for data, the reason
-                sits beside the work. Six months later, when a new stakeholder
-                asks why a screen behaves that way, your team has an answer that
-                is more useful than a Slack search and somebody&apos;s memory.
-              </p>
-              <p>
-                The first release stays intentionally narrow. It should solve a
-                complete, important job for real people and leave room for
-                evidence to change the next priority. A platform that launches
-                with fewer features but a clean operating model is easier to
-                extend than a bloated first version built around guesses. That
-                restraint saves money. It also saves everyone from defending
-                decisions nobody remembers making.
-              </p>
-            </div>
-          </div>
-        </section>
-        <section className="container mt-24 md:mt-32">
-          <div className="rounded-2xl bg-tint px-6 py-10 md:px-10 md:py-14">
-            <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-              A practical boundary
-            </span>
-            <h2 className="mt-5 max-w-3xl text-3xl font-semibold tracking-tight md:text-4xl">
-              A custom platform should earn its place.
-            </h2>
-            <p className="mt-6 max-w-3xl leading-relaxed text-muted-foreground">
-              We will tell you if a configured LMS is the more sensible answer.
-              Custom software earns its cost when the learner experience,
-              operating model, or integration work is central to how you teach
-              and sell. If the requirement is a standard catalogue with
-              conventional enrolment and reporting, buying software is usually
-              faster. The point is to remove recurring friction, not to turn a
-              normal software choice into an engineering project.
-            </p>
-          </div>
-        </section>
-        <section className="container mt-24 md:mt-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-              How the build moves
+              How projects work
             </span>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight md:text-5xl">
-              Working software every week
+              From first call to handover.
             </h2>
           </div>
           <div className="surface mt-12 divide-y divide-border overflow-hidden">
@@ -309,25 +249,25 @@ export default async function ServiceDetailPage({
           <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-                What is included
+                Deliverables
               </span>
               <h2 className="mt-5 text-3xl font-semibold tracking-tight">
-                The first release, clearly scoped
+                What you receive at handover.
               </h2>
             </div>
             <div className="lg:col-span-7 lg:col-start-6">
-              <ul className="space-y-4">
+              <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {service.included.map((item) => (
                   <li
                     key={item}
-                    className="flex gap-3 text-lg text-muted-foreground"
+                    className="flex gap-3 text-muted-foreground"
                   >
                     <Check
                       size={19}
                       className="mt-1 shrink-0 text-primary"
                       aria-hidden
                     />
-                    {item}
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>

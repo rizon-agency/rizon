@@ -22,7 +22,7 @@ export const posts: Post[] = [
     slug: "how-much-does-a-custom-lms-cost-in-2026",
     title: "How Much Does a Custom LMS Cost in 2026?",
     description:
-      "A focused custom LMS first release usually costs $25,000 to $80,000. Here is what moves the number, what a useful first release includes, and what to ask before you accept a quote.",
+      "Custom LMS pricing moves with the hard parts: distinct learner flows, migration, integrations, and how far reporting has to go. Here is what actually moves the number, what a useful first release includes, and what to ask before you accept a quote.",
     date: "2026-07-19",
     readTime: "6 min read",
     category: "Platform Strategy",

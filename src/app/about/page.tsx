@@ -1,7 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowRight, CalendarDays, MessagesSquare, KeyRound } from "lucide-react";
+import {
+  ArrowRight,
+  CalendarDays,
+  MessagesSquare,
+  KeyRound,
+  Check,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Footer } from "../footer";
 
@@ -10,12 +16,12 @@ const BASE_URL = "https://rizon.agency";
 export const metadata: Metadata = {
   title: "About Rizon & Choaib Mouhrach",
   description:
-    "How Rizon started: Choaib Mouhrach went from a barely-usable school system, to years inside a learning-development agency, to building custom learning platforms teams actually own.",
+    "Rizon is a software studio focused exclusively on learning platforms — custom LMS products, Moodle and Canvas development, LTI integrations, and internal training portals.",
   alternates: { canonical: `${BASE_URL}/about` },
   openGraph: {
     title: "About Rizon & Choaib Mouhrach",
     description:
-      "The engineer behind Rizon's custom learning platforms, and the road that got him here.",
+      "A software studio focused exclusively on learning platforms. Custom LMS, Moodle, Canvas, and LTI work led by Choaib Mouhrach.",
     url: `${BASE_URL}/about`,
     siteName: "Rizon Agency",
     locale: "en_US",
@@ -24,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "About Rizon & Choaib Mouhrach",
-    description: "The engineer behind Rizon's custom learning platforms.",
+    description: "A software studio focused exclusively on learning platforms.",
     creator: "@rizon_agency",
   },
 };
@@ -38,37 +44,46 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-const beats = [
-  {
-    tag: "The public school",
-    body: "My first job out of university was at a public school. Its learning system looked fine in a demo and fell apart in daily use, so teachers kept a parallel spreadsheet they trusted more than the software.",
-  },
-  {
-    tag: "The agency",
-    body: "Then I joined a learning-development agency and went deep on LMS work: LTI, Moodle, Canvas, and the specific places they break. Platforms fail at the exception nobody planned for, not the headline feature.",
-  },
-  {
-    tag: "Rizon",
-    body: "When I left, I couldn't unsee the pattern. Creators, schools, and training teams were all fighting the same gap between how they teach and what their platform allows. The Kaiser math platform was one of the first builds that closed it.",
-  },
-];
-
 const principles = [
   {
     icon: CalendarDays,
     title: "Small releases",
-    body: "Weekly slices with live reviews, so you catch the awkward paths before they turn into expensive assumptions.",
+    body: "Every project is delivered in small milestones so feedback happens early, not after months of development.",
   },
   {
     icon: MessagesSquare,
     title: "Direct conversations",
-    body: "You talk to the person building it. No account manager relaying a game of telephone back to the code.",
+    body: "You work directly with the engineer building your platform. No account managers, no communication chain, and no information lost between meetings and implementation.",
   },
   {
     icon: KeyRound,
     title: "Code you keep",
-    body: "At handover the code and deployment docs are yours. Rizon isn't built to trap anyone in a retainer.",
+    body: "Every project includes full source code, documentation, and deployment instructions. You own the platform and can continue developing it with any team.",
   },
+];
+
+const proofPoints = [
+  "Focused exclusively on learning platforms",
+  "Moodle & Canvas specialists",
+  "LTI integrations",
+  "Custom LMS development",
+  "End-to-end ownership",
+  "Clients across multiple countries",
+];
+
+const capabilities = [
+  "Custom LMS platforms",
+  "Moodle development",
+  "Canvas development",
+  "LTI 1.3 integrations",
+  "Student dashboards",
+  "Instructor portals",
+  "Assessment systems",
+  "Certificates",
+  "Learning analytics",
+  "Gamification",
+  "Course commerce",
+  "Internal training portals",
 ];
 
 export default function AboutPage() {
@@ -80,15 +95,15 @@ export default function AboutPage() {
         url: `${BASE_URL}/about`,
         name: "About Rizon",
         description:
-          "The story behind Rizon and how Choaib Mouhrach builds custom learning platforms.",
+          "Rizon is a software studio focused exclusively on learning platforms, led by Choaib Mouhrach.",
       },
       {
         "@type": "Person",
         "@id": `${BASE_URL}/about#choaib`,
         name: "Choaib Mouhrach",
-        jobTitle: "Founder & learning-platform engineer",
+        jobTitle: "Founder & Learning Platform Engineer",
         description:
-          "Founder of Rizon. Builds custom learning platforms for course businesses, schools, and training teams, with deep experience in LMS work, LTI, Moodle, and Canvas.",
+          "Founder of Rizon and a software engineer specializing in learning technology. Custom LMS, Moodle, Canvas, and LTI.",
         url: `${BASE_URL}/about`,
         image: `${BASE_URL}/choaib-mouhrach-pic.png`,
         knowsAbout: [
@@ -116,13 +131,20 @@ export default function AboutPage() {
             <div className="lg:col-span-7">
               <Eyebrow>About Rizon</Eyebrow>
               <h1 className="mt-6 text-[2.7rem] font-semibold leading-[1.03] tracking-tight text-balance sm:text-6xl md:text-[4.1rem]">
-                I build the learning platform, so it stops being the thing your
-                team <span className="mark">works around</span>.
+                A software studio focused exclusively on{" "}
+                <span className="mark">learning platforms</span>.
               </h1>
               <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                I&apos;m Choaib Mouhrach. I started Rizon to build learning
-                platforms for course businesses, schools, and training teams
-                whose software no longer matches how they actually teach.
+                I&apos;m Choaib Mouhrach, founder of Rizon and a software
+                engineer specializing in learning technology. For the past
+                several years I&apos;ve worked almost exclusively on LMS
+                development, building custom learning platforms and integrating
+                systems like Moodle, Canvas, and LTI for education businesses
+                and training organizations.
+              </p>
+              <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">
+                I started Rizon to give organizations an alternative to forcing
+                their workflows into off-the-shelf platforms.
               </p>
               <div className="mt-8 flex flex-wrap gap-2.5">
                 {["Custom LMS", "LTI", "Moodle", "Canvas", "Course platforms"].map(
@@ -149,10 +171,10 @@ export default function AboutPage() {
                     className="object-cover"
                   />
                 </div>
-                <figcaption className="flex items-baseline justify-between px-2.5 pt-3.5 pb-1.5">
+                <figcaption className="flex items-baseline justify-between gap-3 px-2.5 pt-3.5 pb-1.5">
                   <span className="font-medium">Choaib Mouhrach</span>
                   <span className="text-sm text-muted-foreground">
-                    Founder, Rizon
+                    Founder &amp; Learning Platform Engineer
                   </span>
                 </figcaption>
               </figure>
@@ -160,47 +182,59 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Origin story — a real chronological sequence, on a warm tinted band */}
+        {/* About Rizon */}
         <section className="mt-24 md:mt-32">
           <div className="bg-tint py-20 md:py-28">
             <div className="container">
-              <div className="max-w-2xl">
-                <Eyebrow>How Rizon started</Eyebrow>
+              <div className="max-w-3xl">
+                <Eyebrow>About Rizon</Eyebrow>
                 <h2 className="mt-6 text-4xl font-semibold tracking-tight text-balance md:text-5xl">
-                  Three rooms, one problem that kept following me.
+                  Learning platforms built around how your organization already
+                  operates.
                 </h2>
+                <p className="mt-8 text-lg leading-relaxed text-foreground/80">
+                  Rizon is a software studio focused exclusively on learning
+                  platforms. We design and build custom LMS products for
+                  education businesses, training companies, schools, and
+                  organizations whose current platform no longer fits how they
+                  operate.
+                </p>
+                <p className="mt-5 text-lg leading-relaxed text-foreground/80">
+                  That includes everything from complete learning platforms to
+                  Moodle and Canvas development, LTI integrations, assessment
+                  systems, reporting, course commerce, and internal training
+                  portals.
+                </p>
+                <p className="mt-5 text-lg leading-relaxed text-foreground/80">
+                  Every project starts with understanding how your organization
+                  teaches and operates, then building software around that
+                  instead of forcing your team to adapt to generic LMS software.
+                </p>
               </div>
-              <ol className="mt-14 grid gap-6 md:grid-cols-3">
-                {beats.map((beat, index) => (
+
+              <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {proofPoints.map((point) => (
                   <li
-                    key={beat.tag}
-                    className="surface surface-hover flex flex-col p-7 md:p-8"
+                    key={point}
+                    className="flex items-start gap-3 text-foreground/85"
                   >
-                    <span className="font-mono text-sm font-medium text-primary">
-                      0{index + 1}
-                    </span>
-                    <h3 className="mt-4 text-xl font-semibold tracking-tight">
-                      {beat.tag}
-                    </h3>
-                    <p className="mt-3 leading-relaxed text-muted-foreground">
-                      {beat.body}
-                    </p>
+                    <Check
+                      size={19}
+                      className="mt-1 shrink-0 text-primary"
+                      aria-hidden
+                    />
+                    <span className="font-medium">{point}</span>
                   </li>
                 ))}
-              </ol>
-              <p className="mt-12 max-w-2xl text-lg leading-relaxed text-foreground/80">
-                That work is less glamorous than a launch video. It&apos;s also
-                where a platform either earns its keep or becomes the next thing
-                people route around.
-              </p>
+              </ul>
             </div>
           </div>
         </section>
 
-        {/* The way I work */}
+        {/* How we build */}
         <section className="container mt-24 md:mt-32">
           <div className="max-w-2xl">
-            <Eyebrow>The way I work</Eyebrow>
+            <Eyebrow>How we build</Eyebrow>
             <h2 className="mt-6 text-4xl font-semibold tracking-tight text-balance md:text-5xl">
               Small releases. Direct conversations.{" "}
               <span className="mark">Code you keep.</span>
@@ -223,6 +257,31 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* What we've built */}
+        <section className="container mt-24 md:mt-32">
+          <div className="max-w-2xl">
+            <Eyebrow>What we&apos;ve built</Eyebrow>
+            <h2 className="mt-6 text-4xl font-semibold tracking-tight text-balance md:text-5xl">
+              The specific work we do inside learning platforms.
+            </h2>
+          </div>
+          <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {capabilities.map((item) => (
+              <li
+                key={item}
+                className="surface flex items-center gap-3 p-5"
+              >
+                <Check
+                  size={19}
+                  className="shrink-0 text-primary"
+                  aria-hidden
+                />
+                <span className="font-medium">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         {/* CTA */}
         <section className="container mt-24 md:mt-32">
           <div className="relative overflow-hidden rounded-3xl bg-primary px-6 py-16 text-primary-foreground md:px-14 md:py-20">
@@ -232,12 +291,14 @@ export default function AboutPage() {
             />
             <div className="relative max-w-2xl">
               <h2 className="text-4xl font-semibold tracking-tight text-balance md:text-5xl">
-                Bring the part of the platform that&apos;s making the work harder.
+                Let&apos;s evaluate your platform.
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-primary-foreground/80">
-                We&apos;ll separate a solvable configuration problem from a
-                product problem worth building, before you spend a cent on
-                either.
+                Whether you&apos;re extending Moodle, integrating Canvas,
+                replacing an existing LMS, or building a learning platform from
+                scratch, we&apos;ll help you determine whether the problem is
+                configuration, integration, or custom software — and recommend
+                the most practical path forward.
               </p>
               <Button
                 size="lg"
@@ -249,7 +310,7 @@ export default function AboutPage() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Talk through it <ArrowRight size={16} aria-hidden />
+                  Book a discovery call <ArrowRight size={16} aria-hidden />
                 </Link>
               </Button>
             </div>

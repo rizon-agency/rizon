@@ -46,7 +46,7 @@ export type Faq = {
 
 // A quotable, extractable figure with a primary-source citation (GEO / AI-search).
 export type CitedStat = {
-  value: string; // the headline figure or term, e.g. "$133,080" or "IMSCC"
+  value: string; // the headline figure or term, e.g. "SCORM 1.2" or "IMSCC"
   label: string; // what it means, in one sentence
   source: string; // the primary source's name
   sourceUrl: string; // outbound link to that primary source
@@ -83,10 +83,8 @@ export type ServicePage = {
   h1: string;
   heroSub: string;
   targetKeyword: string;
-  intro: string;
-  forWho: string;
-  problem: string;
-  decisionGuide: string[];
+  whoWeWorkWith: { audience: string; description: string }[];
+  problemsWeSolve: { problem: string; solution: string }[];
   whatWeBuild: ServiceSection[];
   process: { step: string; detail: string }[];
   included: string[];

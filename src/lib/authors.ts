@@ -12,8 +12,8 @@ export const authors: Author[] = [
   {
     slug: "choaib-mouhrach",
     name: "Choaib Mouhrach",
-    role: "Founder & learning-platform engineer",
-    bio: "Choaib builds custom learning products for teams that have outgrown an off-the-shelf LMS. He cares about the awkward parts: identity, learner access, data, and the admin work that gets ignored in a shiny demo.",
+    role: "Founder & Sr. Software engineer",
+    bio: "I design and build custom learning platforms for organizations with complex training and certification workflows. Instead of stitching together plugins and third-party tools, I create systems tailored to how each business operates, reducing administrative overhead while improving the learner experience.",
     avatar: "/choaib-mouhrach-pic.png",
     url: "https://rizon.agency/about",
     sameAs: ["https://www.linkedin.com/in/choaib-mouhrach"],
