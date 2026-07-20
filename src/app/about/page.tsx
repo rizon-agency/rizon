@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarDays, MessagesSquare, KeyRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Footer } from "../footer";
 
@@ -28,6 +28,48 @@ export const metadata: Metadata = {
     creator: "@rizon_agency",
   },
 };
+
+function Eyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
+      <span className="size-1.5 rounded-full bg-primary" aria-hidden />
+      {children}
+    </span>
+  );
+}
+
+const beats = [
+  {
+    tag: "The public school",
+    body: "My first job out of university was at a public school. Its learning system looked fine in a demo and fell apart in daily use, so teachers kept a parallel spreadsheet they trusted more than the software.",
+  },
+  {
+    tag: "The agency",
+    body: "Then I joined a learning-development agency and went deep on LMS work: LTI, Moodle, Canvas, and the specific places they break. Platforms fail at the exception nobody planned for, not the headline feature.",
+  },
+  {
+    tag: "Rizon",
+    body: "When I left, I couldn't unsee the pattern. Creators, schools, and training teams were all fighting the same gap between how they teach and what their platform allows. The Kaiser math platform was one of the first builds that closed it.",
+  },
+];
+
+const principles = [
+  {
+    icon: CalendarDays,
+    title: "Small releases",
+    body: "Weekly slices with live reviews, so you catch the awkward paths before they turn into expensive assumptions.",
+  },
+  {
+    icon: MessagesSquare,
+    title: "Direct conversations",
+    body: "You talk to the person building it. No account manager relaying a game of telephone back to the code.",
+  },
+  {
+    icon: KeyRound,
+    title: "Code you keep",
+    body: "At handover the code and deployment docs are yours. Rizon isn't built to trap anyone in a retainer.",
+  },
+];
 
 export default function AboutPage() {
   const jsonLd = {
@@ -67,79 +109,86 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main>
-        <section className="container pt-28 md:pt-32">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-end lg:gap-16">
+      <main className="pb-24 md:pb-32">
+        {/* Hero */}
+        <section className="container pt-28 md:pt-36">
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
-              <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
-                <span className="h-px w-8 bg-primary" aria-hidden />
-                About Rizon
-              </span>
-              <h1 className="mt-6 max-w-[12ch] text-5xl font-semibold tracking-tight leading-[1.02] text-balance md:text-6xl">
-                I build the learning platform, so it stops being the thing your team{" "}
-                <span className="mark">works around</span>.
+              <Eyebrow>About Rizon</Eyebrow>
+              <h1 className="mt-6 text-[2.7rem] font-semibold leading-[1.03] tracking-tight text-balance sm:text-6xl md:text-[4.1rem]">
+                I build the learning platform, so it stops being the thing your
+                team <span className="mark">works around</span>.
               </h1>
-              <p className="mt-7 max-w-2xl text-xl leading-relaxed text-muted-foreground">
+              <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">
                 I&apos;m Choaib Mouhrach. I started Rizon to build learning
                 platforms for course businesses, schools, and training teams
                 whose software no longer matches how they actually teach.
               </p>
+              <div className="mt-8 flex flex-wrap gap-2.5">
+                {["Custom LMS", "LTI", "Moodle", "Canvas", "Course platforms"].map(
+                  (tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-border bg-card px-3.5 py-1.5 text-sm text-muted-foreground"
+                    >
+                      {tag}
+                    </span>
+                  ),
+                )}
+              </div>
             </div>
-            <div className="w-full max-w-sm lg:col-span-4 lg:col-start-9 lg:ml-auto">
-              <div className="relative aspect-square overflow-hidden rounded-2xl bg-muted">
-                <Image
-                  src="/choaib-mouhrach-pic.png"
-                  alt="Choaib Mouhrach"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) min(100vw - 2rem, 384px), 384px"
-                  className="object-cover"
-                />
-              </div>
-              <div className="mt-4 flex items-baseline justify-between border-t border-border pt-3 text-sm">
-                <span className="font-medium">Choaib Mouhrach</span>
-                <span className="text-muted-foreground">Founder, Rizon</span>
-              </div>
+            <div className="lg:col-span-5">
+              <figure className="surface mx-auto max-w-sm overflow-hidden p-2.5 lg:ml-auto">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[1.15rem] bg-muted">
+                  <Image
+                    src="/choaib-mouhrach-pic.png"
+                    alt="Choaib Mouhrach"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="flex items-baseline justify-between px-2.5 pt-3.5 pb-1.5">
+                  <span className="font-medium">Choaib Mouhrach</span>
+                  <span className="text-sm text-muted-foreground">
+                    Founder, Rizon
+                  </span>
+                </figcaption>
+              </figure>
             </div>
           </div>
         </section>
 
-        <section className="container mt-24 md:mt-32">
-          <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
-            <div className="lg:col-span-4">
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-                How Rizon started
-              </span>
-            </div>
-            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground lg:col-span-7 lg:col-start-6">
-              <p>
-                My first job out of university was at a public school. The
-                learning system they&apos;d been handed looked fine in a demo and
-                fell apart in daily use. Teachers kept a parallel spreadsheet
-                because they trusted it more than the software. The tool that was
-                supposed to save time had quietly become another thing to manage.
-              </p>
-              <p>
-                Around then I joined a learning-development agency, and the LMS
-                work pulled me in deeper than I expected. LTI, Moodle, Canvas,
-                the standards that hold these systems together and the specific
-                places they break. I spent a few years learning where learning
-                software actually fails: not the headline feature, but the
-                exception nobody planned for. The cohort that needs a different
-                rule. The parent who needs a view. The completion record someone
-                has to trust a year later.
-              </p>
-              <p>
-                When I left, I couldn&apos;t unsee the pattern. It wasn&apos;t
-                one bad product. Course creators, schools, and training teams
-                were all fighting the same gap between how they teach and what
-                their platform allows. So I started Rizon to close it, by
-                building the platform around the teaching instead of the other
-                way round. The Kaiser math platform is one of those builds:
-                courses, quizzes, points, and an admin side, made for one team&apos;s
-                way of teaching rather than bent out of a template.
-              </p>
-              <p>
+        {/* Origin story — a real chronological sequence, on a warm tinted band */}
+        <section className="mt-24 md:mt-32">
+          <div className="bg-tint py-20 md:py-28">
+            <div className="container">
+              <div className="max-w-2xl">
+                <Eyebrow>How Rizon started</Eyebrow>
+                <h2 className="mt-6 text-4xl font-semibold tracking-tight text-balance md:text-5xl">
+                  Three rooms, one problem that kept following me.
+                </h2>
+              </div>
+              <ol className="mt-14 grid gap-6 md:grid-cols-3">
+                {beats.map((beat, index) => (
+                  <li
+                    key={beat.tag}
+                    className="surface surface-hover flex flex-col p-7 md:p-8"
+                  >
+                    <span className="font-mono text-sm font-medium text-primary">
+                      0{index + 1}
+                    </span>
+                    <h3 className="mt-4 text-xl font-semibold tracking-tight">
+                      {beat.tag}
+                    </h3>
+                    <p className="mt-3 leading-relaxed text-muted-foreground">
+                      {beat.body}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-12 max-w-2xl text-lg leading-relaxed text-foreground/80">
                 That work is less glamorous than a launch video. It&apos;s also
                 where a platform either earns its keep or becomes the next thing
                 people route around.
@@ -148,47 +197,62 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* The way I work */}
         <section className="container mt-24 md:mt-32">
-          <div className="max-w-3xl">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-              The way I work
-            </span>
-            <h2 className="mt-5 text-4xl font-semibold tracking-tight md:text-5xl">
-              Small releases. Direct conversations. Code you keep.
+          <div className="max-w-2xl">
+            <Eyebrow>The way I work</Eyebrow>
+            <h2 className="mt-6 text-4xl font-semibold tracking-tight text-balance md:text-5xl">
+              Small releases. Direct conversations.{" "}
+              <span className="mark">Code you keep.</span>
             </h2>
-            <p className="mt-7 text-lg leading-relaxed text-muted-foreground">
-              Projects move in weekly slices with live reviews, so you catch the
-              awkward paths before they turn into expensive assumptions. At
-              handover, the code and the deployment docs are yours. I&apos;ll
-              stay on for support when it helps, but Rizon isn&apos;t built to
-              trap anyone in a retainer, and I&apos;ll tell you when a problem is
-              really a configuration fix, not a build.
-            </p>
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {principles.map((principle) => (
+              <div key={principle.title} className="surface p-7 md:p-8">
+                <span className="inline-flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <principle.icon size={20} strokeWidth={1.75} aria-hidden />
+                </span>
+                <h3 className="mt-6 text-xl font-semibold tracking-tight">
+                  {principle.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-muted-foreground">
+                  {principle.body}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 
+        {/* CTA */}
         <section className="container mt-24 md:mt-32">
-          <div className="rounded-xl bg-primary px-6 py-14 text-primary-foreground md:px-12 md:py-20">
-            <h2 className="max-w-3xl text-4xl font-semibold tracking-tight md:text-5xl">
-              Bring the part of the platform that&apos;s making the work harder.
-            </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
-              We&apos;ll separate a solvable configuration problem from a product
-              problem worth building, before you spend a cent on either.
-            </p>
-            <Button
-              size="lg"
-              asChild
-              className="mt-8 bg-background text-foreground hover:bg-background/90"
-            >
-              <Link
-                href="https://cal.com/rizon.agency-cvbkll/30min"
-                target="_blank"
-                rel="noreferrer"
+          <div className="relative overflow-hidden rounded-3xl bg-primary px-6 py-16 text-primary-foreground md:px-14 md:py-20">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-16 -top-20 size-64 rounded-full bg-highlight/25 blur-3xl"
+            />
+            <div className="relative max-w-2xl">
+              <h2 className="text-4xl font-semibold tracking-tight text-balance md:text-5xl">
+                Bring the part of the platform that&apos;s making the work harder.
+              </h2>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-primary-foreground/80">
+                We&apos;ll separate a solvable configuration problem from a
+                product problem worth building, before you spend a cent on
+                either.
+              </p>
+              <Button
+                size="lg"
+                asChild
+                className="mt-8 bg-background text-foreground hover:bg-background/90"
               >
-                Talk through it <ArrowRight size={16} aria-hidden />
-              </Link>
-            </Button>
+                <Link
+                  href="https://cal.com/rizon.agency-cvbkll/30min"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Talk through it <ArrowRight size={16} aria-hidden />
+                </Link>
+              </Button>
+            </div>
           </div>
         </section>
       </main>
