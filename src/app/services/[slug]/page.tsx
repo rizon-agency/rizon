@@ -138,7 +138,7 @@ export default async function ServiceDetailPage({
         <section className="container mt-24 md:mt-32">
           <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+              <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
                 The direct answer
               </span>
               <h2 className="mt-5 text-3xl font-semibold tracking-tight">
@@ -155,7 +155,7 @@ export default async function ServiceDetailPage({
         </section>
         <section className="container mt-24 md:mt-32">
           <div className="max-w-3xl">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
               The problem underneath
             </span>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight text-balance md:text-5xl">
@@ -169,7 +169,7 @@ export default async function ServiceDetailPage({
         <section className="container mt-24 md:mt-32">
           <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+              <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
                 Before you build
               </span>
               <h2 className="mt-5 text-3xl font-semibold tracking-tight">
@@ -185,20 +185,20 @@ export default async function ServiceDetailPage({
         </section>
         <section className="container mt-24 md:mt-32">
           <div className="max-w-3xl">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
               What we build
             </span>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight text-balance md:text-5xl">
               What {service.targetKeyword} looks like in practice
             </h2>
           </div>
-          <div className="mt-12 grid grid-cols-1 border-t border-border md:grid-cols-2">
+          <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
             {service.whatWeBuild.map((section, index) => (
               <article
                 key={section.heading}
-                className="border-b border-border py-9 md:pr-10 md:odd:border-r md:odd:pr-12 md:even:pl-12"
+                className="surface surface-hover p-7 md:p-8"
               >
-                <span className="font-mono text-sm text-primary">
+                <span className="font-mono text-sm font-medium text-primary">
                   0{index + 1}
                 </span>
                 <h3 className="mt-5 text-2xl font-medium tracking-tight">
@@ -214,7 +214,7 @@ export default async function ServiceDetailPage({
         <section className="container mt-24 md:mt-32">
           <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+              <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
                 How we make decisions
               </span>
               <h2 className="mt-5 text-3xl font-semibold tracking-tight">
@@ -259,8 +259,8 @@ export default async function ServiceDetailPage({
           </div>
         </section>
         <section className="container mt-24 md:mt-32">
-          <div className="rounded-xl bg-muted px-6 py-10 md:px-10 md:py-14">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+          <div className="rounded-2xl bg-tint px-6 py-10 md:px-10 md:py-14">
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
               A practical boundary
             </span>
             <h2 className="mt-5 max-w-3xl text-3xl font-semibold tracking-tight md:text-4xl">
@@ -279,18 +279,18 @@ export default async function ServiceDetailPage({
         </section>
         <section className="container mt-24 md:mt-32">
           <div className="max-w-3xl">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
               How the build moves
             </span>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight md:text-5xl">
               Working software every week
             </h2>
           </div>
-          <div className="mt-12 divide-y divide-border border-y border-border">
+          <div className="surface mt-12 divide-y divide-border overflow-hidden">
             {service.process.map((item, index) => (
               <article
                 key={item.step}
-                className="grid grid-cols-1 gap-5 py-8 md:grid-cols-12 md:gap-10"
+                className="grid grid-cols-1 gap-5 px-6 py-7 md:grid-cols-12 md:gap-10 md:px-8"
               >
                 <span className="font-mono text-sm text-primary md:col-span-1">
                   0{index + 1}
@@ -308,7 +308,7 @@ export default async function ServiceDetailPage({
         <section className="container mt-24 md:mt-32">
           <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+              <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
                 What is included
               </span>
               <h2 className="mt-5 text-3xl font-semibold tracking-tight">
@@ -335,8 +335,8 @@ export default async function ServiceDetailPage({
           </div>
         </section>
         <section className="container mt-24 md:mt-32">
-          <div className="rounded-xl border border-border px-6 py-10 md:px-10 md:py-14">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+          <div className="surface px-6 py-10 md:px-10 md:py-14">
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
               Budget and tradeoffs
             </span>
             <h2 className="mt-5 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
@@ -359,7 +359,7 @@ export default async function ServiceDetailPage({
         </section>
         <section className="container mt-24 md:mt-32">
           <div className="max-w-3xl">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
               After launch
             </span>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight md:text-5xl">
@@ -374,7 +374,7 @@ export default async function ServiceDetailPage({
           <section className="container mt-24 md:mt-32">
             <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
               <div className="lg:col-span-4">
-                <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+                <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
                   Useful next reading
                 </span>
                 <h2 className="mt-5 text-3xl font-semibold tracking-tight">
@@ -416,18 +416,18 @@ export default async function ServiceDetailPage({
         )}
         <section className="container mt-24 md:mt-32">
           <div className="max-w-3xl">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
               Questions before a build
             </span>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight md:text-5xl">
               The questions worth asking now
             </h2>
           </div>
-          <div className="mt-12 divide-y divide-border border-y border-border">
+          <div className="surface mt-12 divide-y divide-border overflow-hidden">
             {service.faqs.map((faq) => (
               <article
                 key={faq.question}
-                className="grid grid-cols-1 gap-5 py-7 md:grid-cols-12 md:gap-10"
+                className="grid grid-cols-1 gap-5 px-6 py-7 md:grid-cols-12 md:gap-10 md:px-8"
               >
                 <h3 className="text-lg font-medium tracking-tight md:col-span-5">
                   {faq.question}
@@ -440,7 +440,7 @@ export default async function ServiceDetailPage({
           </div>
         </section>
         <section className="container mt-24 md:mt-32">
-          <div className="rounded-xl bg-primary px-6 py-14 text-primary-foreground md:px-12 md:py-20">
+          <div className="rounded-3xl bg-primary px-6 py-14 text-primary-foreground md:px-12 md:py-20">
             <h2 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance md:text-5xl">
               Bring the awkward part of the current setup.
             </h2>

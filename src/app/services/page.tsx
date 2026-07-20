@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { Footer } from "../footer";
+import { Eyebrow } from "@/components/eyebrow";
 import { services } from "@/lib/services";
 
 const BASE_URL = "https://rizon.agency";
@@ -10,5 +11,56 @@ export const metadata: Metadata = { title: "Custom Learning Platform Services | 
 
 export default function ServicesPage() {
   const jsonLd = { "@context": "https://schema.org", "@type": "CollectionPage", name: "Rizon services", url: `${BASE_URL}/services`, mainEntity: { "@type": "ItemList", itemListElement: services.map((service, index) => ({ "@type": "ListItem", position: index + 1, name: service.title, url: `${BASE_URL}/services/${service.slug}` })) } };
-  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} /><main><section className="container pt-32 md:pt-40"><div className="max-w-4xl"><span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary"><span className="h-px w-8 bg-primary" aria-hidden />Services</span><h1 className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance md:text-6xl">Learning platforms built for the work you need them to do.</h1><p className="mt-7 max-w-3xl text-xl leading-relaxed text-muted-foreground">Some teams need a better LMS. Others need a product, a portal, or a training system that does not exist in a catalogue. Start with the job.</p></div></section><section className="container mt-24 md:mt-32"><div className="border-t border-border">{services.map((service, index) => <Link key={service.slug} href={`/services/${service.slug}`} className="group grid grid-cols-1 gap-6 border-b border-border py-10 md:grid-cols-12 md:items-end"><span className="font-mono text-sm text-primary md:col-span-1">0{index + 1}</span><div className="md:col-span-7"><h2 className="text-3xl font-medium tracking-tight md:text-4xl">{service.title}</h2><p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">{service.heroSub}</p></div><ArrowRight size={26} className="transition-transform md:col-span-1 md:col-start-12 md:justify-self-end group-hover:translate-x-1" aria-hidden /></Link>)}</div></section></main><Footer /></>;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <main className="pb-24 md:pb-32">
+        <section className="container pt-32 md:pt-40">
+          <div className="max-w-4xl">
+            <Eyebrow>Services</Eyebrow>
+            <h1 className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance md:text-6xl">
+              Learning platforms built for the work you need them to do.
+            </h1>
+            <p className="mt-7 max-w-3xl text-xl leading-relaxed text-muted-foreground">
+              Some teams need a better LMS. Others need a product, a portal, or
+              a training system that does not exist in a catalogue. Start with
+              the job.
+            </p>
+          </div>
+        </section>
+        <section className="container mt-16 md:mt-20">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {services.map((service, index) => (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className="surface surface-hover group flex flex-col p-8 md:p-9"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-sm font-medium text-primary">
+                    0{index + 1}
+                  </span>
+                  <ArrowRight
+                    size={22}
+                    className="text-muted-foreground transition-transform group-hover:translate-x-1"
+                    aria-hidden
+                  />
+                </div>
+                <h2 className="mt-6 text-2xl font-semibold tracking-tight md:text-3xl">
+                  {service.title}
+                </h2>
+                <p className="mt-4 leading-relaxed text-muted-foreground">
+                  {service.heroSub}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
 }
