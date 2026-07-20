@@ -63,46 +63,41 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/*
-  Rizon warm system.
-  Paper-neutral background (grey-ivory, deliberately not cream-yellow), warm ink,
-  brand blue kept as the single accent, honey highlighter as the signature mark.
-*/
 :root {
   --radius: 0.85rem;
-  --background: oklch(0.973 0.008 92); /* airy warm white (#FAF9F3) — Headspace-bright */
-  --foreground: oklch(0.23 0.008 75); /* warm near-black ink (#1D1C18) */
-  --card: oklch(0.995 0.004 95); /* near-white card (#FEFEFC) */
-  --card-foreground: oklch(0.23 0.008 75);
-  --popover: oklch(0.995 0.004 95);
-  --popover-foreground: oklch(0.23 0.008 75);
-  --primary: oklch(0.488 0.243 264.376); /* brand blue #1447E6, unchanged (ours) */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.488 0.243 264.376); /* brand blue #1447E6 */
   --primary-foreground: oklch(0.98 0.01 250);
-  --secondary: oklch(0.945 0.008 90);
-  --secondary-foreground: oklch(0.31 0.01 72);
-  --muted: oklch(0.945 0.008 90);
-  --muted-foreground: oklch(0.52 0.012 76);
-  --accent: oklch(0.945 0.008 90);
-  --accent-foreground: oklch(0.31 0.01 72);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0.008 88);
-  --input: oklch(0.9 0.008 88);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
   --ring: oklch(0.488 0.243 264.376);
-  --highlight: oklch(0.86 0.165 90); /* sunny yellow #FFC63A — playful accent (Headspace) */
-  --tint: oklch(0.955 0.03 95); /* pale butter tint for alternating sections (#F8F1DE) */
-  --shadow-color: 40 32 18; /* warm shadow base (rgb) */
+  --highlight: oklch(0.86 0.165 90);
+  --tint: oklch(0.97 0 0);
+  --shadow-color: 0 0 0;
   --chart-1: oklch(0.809 0.105 251.813);
   --chart-2: oklch(0.623 0.214 259.815);
   --chart-3: oklch(0.546 0.245 262.881);
   --chart-4: oklch(0.488 0.243 264.376);
   --chart-5: oklch(0.85 0.15 88);
-  --sidebar: oklch(0.968 0.014 88);
-  --sidebar-foreground: oklch(0.238 0.015 62);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.98 0.01 250);
-  --sidebar-accent: oklch(0.94 0.012 86);
-  --sidebar-accent-foreground: oklch(0.32 0.014 64);
-  --sidebar-border: oklch(0.902 0.012 85);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.488 0.243 264.376);
 }
 
