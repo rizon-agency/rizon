@@ -61,6 +61,14 @@ export const services: ServicePage[] = [
     costBand: "A focused custom LMS first release usually costs $25,000 to $80,000. A platform with several roles, a large migration, complex reporting, payments, or LTI/SSO integrations can exceed that range. We would rather give you a smaller first release with a clear second step than pretend every possible feature belongs in version one.",
     outcomes: "The result is a platform your team can explain without apologising for its limits. Learners see a coherent product. Administrators spend less time stitching systems together. And when a new revenue model or teaching idea arrives, you have a codebase that can change with it.",
     faqs: customLmsFaqs,
+    stat: {
+      value: "$133,080",
+      label:
+        "the U.S. median software-developer wage in May 2024. The real cost of a custom build is skilled engineering time, not a licence key, which is why a credible estimate funds design, build, and testing rather than screens.",
+      source: "U.S. Bureau of Labor Statistics",
+      sourceUrl:
+        "https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm",
+    },
     relatedAlternativeSlugs: ["moodle", "canvas"],
     relatedPostSlugs: ["how-much-does-a-custom-lms-cost-in-2026", "build-vs-buy-an-lms-the-honest-math", "hidden-cost-of-revenue-share-course-platforms", "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years", "what-actually-drives-the-price-of-an-e-learning-build"],
     keywords: ["custom LMS development", "custom learning management system", "LMS development agency"],
@@ -97,6 +105,13 @@ export const services: ServicePage[] = [
     costBand: "A focused corporate training platform first release usually costs $30,000 to $90,000. SSO, HRIS connections, compliance evidence, multi-tenant partner training, and migration of historic records drive the figure upward. We scope the reporting questions before estimating, because reporting is where vague requirements become expensive.",
     outcomes: "Managers get an answer they can act on. Learners receive the training that applies to them. The L&D team stops spending the last afternoon of the month turning exports into evidence.",
     faqs: corporateFaqs,
+    stat: {
+      value: "xAPI",
+      label:
+        "the open Experience API standard. It lets a training record follow a learner across systems into a store you own, instead of dying inside one vendor's LMS. That portability is the whole point of building rather than renting.",
+      source: "xAPI Spec (ADL)",
+      sourceUrl: "https://github.com/adlnet/xAPI-Spec",
+    },
     relatedAlternativeSlugs: ["docebo", "talentlms"],
     relatedPostSlugs: ["sso-options-for-learning-platforms", "student-data-security-checklist-for-edtech-teams", "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years"],
     keywords: ["corporate training platform development", "custom corporate LMS", "L&D platform development"],
@@ -133,6 +148,13 @@ export const services: ServicePage[] = [
     costBand: "A focused creator platform usually costs $25,000 to $75,000 for its first release. Custom checkout logic, memberships, team purchasing, a migration from an existing catalogue, or a built-in community push the cost up. We protect the first release by choosing the offer that makes money now, not the hypothetical offer three years away.",
     outcomes: "You control the commercial rules, the member experience, and the pace of product changes. More importantly, your support team stops being asked to manually bridge gaps the software should handle.",
     faqs: creatorFaqs,
+    stat: {
+      value: "2.9% + 30¢",
+      label:
+        "Stripe's standard US online card fee. That is the real cost of owning your checkout. A revenue-share platform takes a slice of every sale on top of processing like this, which is why the maths turns once your volume is real.",
+      source: "Stripe",
+      sourceUrl: "https://stripe.com/pricing",
+    },
     relatedAlternativeSlugs: ["teachable", "thinkific", "kajabi"],
     relatedPostSlugs: ["hidden-cost-of-revenue-share-course-platforms", "leaving-teachable-a-migration-checklist"],
     keywords: ["custom course platform", "Teachable alternative for creators", "creator platform development"],
@@ -169,6 +191,13 @@ export const services: ServicePage[] = [
     costBand: "A focused school portal first release usually costs $35,000 to $100,000. The range changes sharply with SIS integration, number of roles, parent access, gradebook requirements, legacy data migration, and whether the portal also replaces an LMS. We recommend beginning with the student service that causes the most friction, then expanding from a stable base.",
     outcomes: "Students get a clearer path through school life. Teachers and staff spend less time translating between systems. The institution gains a portal it can shape around its own policies instead of asking every department to adapt to a generic product.",
     faqs: schoolFaqs,
+    stat: {
+      value: "FERPA",
+      label:
+        "the U.S. law governing who may see a student's education records. A portal has to enforce that in its permission model, by design, not by asking staff to remember a policy. Get the guardian-relationship rules wrong and you have a compliance problem, not a bug.",
+      source: "U.S. Dept. of Education",
+      sourceUrl: "https://studentprivacy.ed.gov/faq/what-ferpa",
+    },
     relatedAlternativeSlugs: ["moodle", "canvas", "blackboard"],
     relatedPostSlugs: ["canvas-breach-student-data-security", "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders"],
     keywords: ["school portal development", "student portal development", "custom school LMS"],

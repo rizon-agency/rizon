@@ -7,6 +7,7 @@ import { Breadcrumb, breadcrumbJsonLd, type Crumb } from "@/components/breadcrum
 import { alternatives, getAlternativeBySlug } from "@/lib/alternatives";
 import { posts } from "@/lib/posts";
 import { getServiceBySlug } from "@/lib/services";
+import { StatBlock } from "@/components/stat-block";
 import { Footer } from "../../footer";
 
 const BASE_URL = "https://rizon.agency";
@@ -136,6 +137,8 @@ export default async function AlternativePage({
             </div>
           </div>
         </section>
+
+        {alternative.stat && <section className="container mt-16"><StatBlock stat={alternative.stat} /></section>}
 
         <section className="container mt-24 md:mt-32">
           <div className="max-w-3xl"><span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Where the friction starts</span><h2 className="mt-5 text-4xl font-semibold tracking-tight text-balance md:text-5xl">Why teams leave {alternative.competitor}</h2></div>

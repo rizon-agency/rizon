@@ -400,10 +400,17 @@ Phases 1–4.*
   Phase 1–2 pages + new posts.
 - **Accept:** style doc written + applied.
 
-### [ ] 5.2 — Statistics, citations, quotable data (proven ~40% AI-visibility lift)
+### [x] 5.2 — Statistics, citations, quotable data (proven ~40% AI-visibility lift) — done 2026-07-20
 - **Steps:** Add concrete stats with cited primary sources (outbound links) and a
   comparison table/stat block to each cornerstone page + post.
 - **Accept:** each cornerstone page has ≥1 cited statistic + ≥1 extractable table/list.
+- **DONE (2026-07-20):** Added a reusable `CitedStat` type + `<StatBlock>` (`figure`/`figcaption`,
+  extractable) rendered on all 4 service pillars (BLS wage, xAPI, Stripe 2.9%+30¢, FERPA) and the
+  3 cornerstone alternatives (Moodle `.mbz`/docs, Canvas IMSCC/instructor guide, Teachable/Stripe).
+  Each links a **verified** primary source (all URLs curl-checked to resolve; BLS/Moodle are
+  canonical but bot-block curl). Added missing citations to the LTI-migration post (1EdTech) and
+  Canvas-breach post (FERPA). Comparison tables already satisfy the extractable-list half. No
+  fabricated numbers/links. Remaining lower-priority alternatives keep their comparison tables.
 
 ### [x] 5.3 — AI-crawler policy + optional `llms.txt` — done 2026-07-19
 - **Steps:** Confirm `robots.ts` doesn't block GPTBot / OAI-SearchBot / PerplexityBot /

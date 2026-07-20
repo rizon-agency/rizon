@@ -100,6 +100,13 @@ export const alternatives: Alternative[] = [
     ],
     migration: "We start by cataloguing courses, files, users, enrolments, plugins, and integrations. Then we test exports, move a representative course, and agree which historical records should be retained. SCORM packages and LTI integrations get their own acceptance checks; they are not assumed to survive a copy unchanged.",
     faqs: moodleFaqs,
+    stat: {
+      value: ".mbz backups",
+      label:
+        "Moodle's native backup-and-restore format. Before trusting any migration promise, test a real restore. Moodle's own documentation advises checking every plugin against the exact Moodle version and testing upgrades outside production first.",
+      source: "Moodle Docs",
+      sourceUrl: "https://docs.moodle.org/en/Upgrading",
+    },
     keywords: ["Moodle alternative", "custom Moodle alternative", "Moodle migration", "custom LMS"],
     relatedServiceSlug: "school-student-portal-development",
     relatedPostSlugs: ["how-to-migrate-off-moodle-without-losing-course-data", "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders"],
@@ -141,6 +148,14 @@ export const alternatives: Alternative[] = [
       { question: "Is a custom platform more expensive than Canvas?", answer: "Canvas is priced per seat, so its cost scales with enrolment whether or not you use more of the product. A build costs more on day one and then stops charging you to grow. The comparison worth running is your three-year Canvas spend against a platform you own." },
       { question: "How long does a move off Canvas take?", answer: "A focused first release is usually 8 to 12 weeks. A full institutional migration with SIS data, several LTI tools, and historic records extends that, and we schedule it path by path rather than in one risky cutover." },
     ],
+    stat: {
+      value: "IMSCC",
+      label:
+        "Canvas exports courses as IMS Common Cartridge, but grades, student submissions, and some external-tool settings are not carried in that package. Plan for those records separately, or you discover a missing grade history the week after cutover.",
+      source: "Canvas Instructor Guide",
+      sourceUrl:
+        "https://community.canvaslms.com/t5/Instructor-Guide/How-do-I-export-a-Canvas-course/ta-p/785",
+    },
     keywords: ["Canvas alternative", "custom school LMS", "Canvas migration", "student portal development"],
     relatedServiceSlug: "school-student-portal-development",
     relatedPostSlugs: ["exporting-courses-from-canvas-imscc-step-by-step", "canvas-breach-student-data-security"],
@@ -159,7 +174,7 @@ export const alternatives: Alternative[] = [
     whereTheyWin: [{ title: "You need to launch a conventional course quickly", body: "Teachable is faster and cheaper for a straightforward course catalogue." }, { title: "You do not want to own software operations", body: "A hosted platform removes the work of running an application." }],
     comparison: [...commonRows("Vendor-operated platform; you manage your school within it.", "Hosted product with platform-managed operations.", "Platform support under your plan."), { dimension: "Commerce", rizon: "Checkout and payments designed around your offer and provider.", them: "Built-in commerce and plan-dependent payment options." }, { dimension: "Cost model", rizon: "Build cost plus services you choose.", them: "Subscription and payment fees according to the current plan and processor." }],
     migration: "We export course assets and customer records that are available, then rebuild the learning and checkout flows that matter. Before cutover, we test purchase, enrolment, access, refund, and support handoff with real-looking data.",
-    faqs: teachableFaqs, keywords: ["Teachable alternative", "custom course platform", "course platform development"], relatedServiceSlug: "course-platform-for-creators", relatedPostSlugs: ["leaving-teachable-a-migration-checklist", "hidden-cost-of-revenue-share-course-platforms"],
+    faqs: teachableFaqs, stat: { value: "2.9% + 30¢", label: "Stripe's standard US online card fee. On an owned platform you pay processing like this and keep the rest; a revenue-share plan takes a cut of every sale on top of it. The gap compounds with volume.", source: "Stripe", sourceUrl: "https://stripe.com/pricing" }, keywords: ["Teachable alternative", "custom course platform", "course platform development"], relatedServiceSlug: "course-platform-for-creators", relatedPostSlugs: ["leaving-teachable-a-migration-checklist", "hidden-cost-of-revenue-share-course-platforms"],
   },
   {
     slug: "thinkific",

@@ -10,6 +10,7 @@ import {
 } from "@/components/breadcrumb";
 import { alternatives } from "@/lib/alternatives";
 import { posts } from "@/lib/posts";
+import { StatBlock } from "@/components/stat-block";
 import { getServiceBySlug, services } from "@/lib/services";
 import { Footer } from "../../footer";
 
@@ -349,6 +350,11 @@ export default async function ServiceDetailPage({
               and what would change the estimate. A fixed price without those
               details is only a delayed surprise.
             </p>
+            {service.stat && (
+              <div className="mt-10">
+                <StatBlock stat={service.stat} />
+              </div>
+            )}
           </div>
         </section>
         <section className="container mt-24 md:mt-32">
