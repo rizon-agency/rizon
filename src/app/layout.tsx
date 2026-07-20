@@ -1,13 +1,18 @@
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Navigation } from "./navigation";
 import { Providers } from "@/components/providers";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-bricolage",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -67,10 +72,6 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: "icon",
-      url: "/favicon.ico",
-    },
-    {
-      rel: "icon",
       type: "image/png",
       sizes: "16x16",
       url: "/favicon-16x16.png",
@@ -82,19 +83,9 @@ export const metadata: Metadata = {
       url: "/favicon-32x32.png",
     },
     {
-      rel: "icon",
-      type: "image/png",
-      sizes: "48x48",
-      url: "/favicon-48x48.png",
-    },
-    {
       rel: "apple-touch-icon",
       sizes: "180x180",
       url: "/apple-touch-icon.png",
-    },
-    {
-      rel: "manifest",
-      url: "/manifest.json",
     },
   ],
 };
@@ -115,6 +106,7 @@ export default function RootLayout({
         geistMono.variable,
         "font-sans",
         inter.variable,
+        bricolage.variable,
       )}
     >
       <body className="min-h-full flex flex-col">

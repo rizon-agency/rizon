@@ -1,0 +1,14 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" fill="#0C4A6E"/>
+  <rect x="54" y="54" width="1092" height="567" rx="28" stroke="#0EA5E9" stroke-width="2"/>
+  <circle cx="237" cy="335" r="92" fill="#FDE047"/>
+  <circle cx="485" cy="335" r="92" fill="#38BDF8"/>
+  <circle cx="733" cy="335" r="92" fill="#A7F3D0"/>
+  <circle cx="981" cy="335" r="92" fill="#FCA5A5"/>
+  <text x="192" y="347" fill="#0C4A6E" font-family="Arial, sans-serif" font-size="39" font-weight="700">UX</text>
+  <text x="416" y="347" fill="#0C4A6E" font-family="Arial, sans-serif" font-size="39" font-weight="700">DATA</text>
+  <text x="647" y="347" fill="#0C4A6E" font-family="Arial, sans-serif" font-size="39" font-weight="700">API</text>
+  <text x="895" y="347" fill="#0C4A6E" font-family="Arial, sans-serif" font-size="39" font-weight="700">QA</text>
+  <text x="94" y="144" fill="#BAE6FD" font-family="Arial, sans-serif" font-size="26" letter-spacing="5">RIZON / BUILD PLANNING</text>
+  <text x="94" y="558" fill="white" font-family="Arial, sans-serif" font-size="52" font-weight="700">The parts that change the estimate.</text>
+</svg>

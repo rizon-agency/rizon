@@ -141,7 +141,7 @@ export const Services = () => {
             key={active}
             className="animate-in fade-in-0 duration-500 ease-out"
           >
-            <div className="relative aspect-video overflow-hidden rounded-xl border border-border bg-muted">
+            <div className="surface relative aspect-video overflow-hidden">
               <Image
                 src={current.image}
                 alt={current.title}

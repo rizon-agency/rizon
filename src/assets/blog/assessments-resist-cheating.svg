@@ -1,0 +1,12 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" fill="#101827"/>
+  <rect x="54" y="54" width="1092" height="567" rx="28" stroke="#334155" stroke-width="2"/>
+  <rect x="852" y="180" width="200" height="250" rx="16" stroke="#60A5FA" stroke-width="12"/>
+  <path d="M892 250H1012" stroke="#334155" stroke-width="10" stroke-linecap="round"/>
+  <path d="M892 300H1012" stroke="#334155" stroke-width="10" stroke-linecap="round"/>
+  <path d="M892 350H962" stroke="#60A5FA" stroke-width="10" stroke-linecap="round"/>
+  <text x="94" y="164" fill="#93C5FD" font-family="Arial, sans-serif" font-size="26" letter-spacing="5">RIZON / ASSESSMENT DESIGN</text>
+  <text x="94" y="290" fill="white" font-family="Arial, sans-serif" font-size="64" font-weight="700">Assessments that</text>
+  <text x="94" y="366" fill="white" font-family="Arial, sans-serif" font-size="64" font-weight="700">resist cheating</text>
+  <text x="94" y="560" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="26">Change the task before you buy the camera.</text>
+</svg>

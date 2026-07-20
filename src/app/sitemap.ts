@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/lib/projects";
 import { posts } from "@/lib/posts";
+import { alternatives } from "@/lib/alternatives";
+import { services } from "@/lib/services";
 
 const BASE_URL = "https://rizon.agency";
 
@@ -19,6 +21,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const alternativeUrls: MetadataRoute.Sitemap = alternatives.map((alternative) => ({
+    url: `${BASE_URL}/alternatives/${alternative.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  const serviceUrls: MetadataRoute.Sitemap = services.map((service) => ({
+    url: `${BASE_URL}/services/${service.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   return [
     {
       url: BASE_URL,
@@ -33,6 +49,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${BASE_URL}/services`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/lms-alternatives`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/legal`,
       lastModified: new Date(),
       changeFrequency: "yearly",
@@ -40,5 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...projectUrls,
     ...postUrls,
+    ...alternativeUrls,
+    ...serviceUrls,
   ];
 }

@@ -28,14 +28,9 @@ export const BlogCard = ({ post, sizes = "(max-width: 768px) 100vw, 45vw" }: Blo
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group relative block border-b border-border py-10"
+      className="surface surface-hover group flex h-full flex-col overflow-hidden"
     >
-      <span
-        className="absolute left-0 -top-px h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100"
-        aria-hidden
-      />
-
-      <div className="relative mb-6 aspect-[16/9] overflow-hidden rounded-lg border border-border bg-muted">
+      <div className="relative aspect-[16/9] overflow-hidden bg-muted">
         <Image
           src={post.coverImage}
           alt={post.title}
@@ -45,31 +40,33 @@ export const BlogCard = ({ post, sizes = "(max-width: 768px) 100vw, 45vw" }: Blo
         />
       </div>
 
-      <div className="flex items-center gap-2">
-        <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-          {post.category}
-        </span>
-        {isNew(post.date) && <Badge>New</Badge>}
-      </div>
+      <div className="flex flex-1 flex-col p-6 md:p-7">
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-medium text-primary">
+            {post.category}
+          </span>
+          {isNew(post.date) && <Badge>New</Badge>}
+        </div>
 
-      <h2 className="mt-4 text-xl font-medium tracking-tight leading-snug text-balance">
-        {post.title}
-      </h2>
+        <h2 className="mt-3 text-xl font-semibold tracking-tight leading-snug text-balance">
+          {post.title}
+        </h2>
 
-      <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground text-pretty">
-        {post.description}
-      </p>
+        <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground text-pretty">
+          {post.description}
+        </p>
 
-      <div className="mt-6 flex items-center justify-between gap-4">
-        <span className="font-mono text-xs tabular-nums text-muted-foreground/60">
-          {formatDate(post.date)} · {post.readTime}
-        </span>
-        <ArrowUpRight
-          size={18}
-          strokeWidth={1.5}
-          aria-hidden
-          className="shrink-0 -translate-x-1 text-muted-foreground opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100"
-        />
+        <div className="mt-auto flex items-center justify-between gap-4 pt-6">
+          <span className="font-mono text-xs tabular-nums text-muted-foreground/60">
+            {formatDate(post.date)} · {post.readTime}
+          </span>
+          <ArrowUpRight
+            size={18}
+            strokeWidth={1.5}
+            aria-hidden
+            className="shrink-0 text-muted-foreground opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100"
+          />
+        </div>
       </div>
     </Link>
   );

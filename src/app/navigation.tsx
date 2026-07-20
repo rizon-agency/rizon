@@ -11,7 +11,8 @@ const links = [
   { name: "Home", href: "/#home", id: "home", isPage: false },
   { name: "Why us", href: "/#why-us", id: "why-us", isPage: false },
   { name: "Process", href: "/#how-we-work", id: "how-we-work", isPage: false },
-  { name: "Services", href: "/#services", id: "services", isPage: false },
+  { name: "Services", href: "/services", id: "services", isPage: true },
+  { name: "About", href: "/about", id: "about", isPage: true },
   { name: "Work", href: "/#work", id: "work", isPage: false },
   { name: "Blog", href: "/blog", id: "blog", isPage: true },
 ];
@@ -22,12 +23,15 @@ export const Navigation = () => {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
 
-  // Seed from URL hash so the correct section is active immediately on refresh.
-  const [activeId, setActiveId] = useState(() => {
-    if (typeof window === "undefined") return "home";
+  // Start from a deterministic value so server and client hydrate identically;
+  // the URL hash is read after mount (below) to avoid a hydration mismatch.
+  const [activeId, setActiveId] = useState("home");
+
+  // After mount, seed from the URL hash so a refresh on /#work highlights Work.
+  useEffect(() => {
     const hash = window.location.hash.replace("#", "");
-    return sectionLinks.some((l) => l.id === hash) ? hash : "home";
-  });
+    if (sectionLinks.some((l) => l.id === hash)) setActiveId(hash);
+  }, []);
 
   // Single scroll listener: frosted header + scroll-spy in one pass.
   useEffect(() => {
@@ -82,11 +86,7 @@ export const Navigation = () => {
       } ${overHero ? "pt-3 sm:pt-5" : ""}`}
     >
       <div className="container">
-        <div
-          className={`flex h-16 items-center justify-between gap-8 ${
-            overHero ? "px-4 sm:px-5 lg:px-6" : ""
-          }`}
-        >
+        <div className="flex h-16 items-center justify-between gap-8">
           <Link
           href="/#home"
           onClick={(e) => handleAnchorClick(e, "home")}

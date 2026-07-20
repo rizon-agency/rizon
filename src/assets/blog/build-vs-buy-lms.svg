@@ -1,0 +1,12 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" fill="#1C1917"/>
+  <rect x="54" y="54" width="1092" height="567" rx="28" stroke="#57534E" stroke-width="2"/>
+  <rect x="95" y="193" width="390" height="300" rx="22" fill="#292524"/>
+  <rect x="715" y="193" width="390" height="300" rx="22" fill="#F97316"/>
+  <path d="M535 342H665" stroke="#F5F5F4" stroke-width="4" stroke-linecap="round"/>
+  <path d="M628 305L665 342L628 379" stroke="#F5F5F4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="94" y="144" fill="#FDBA74" font-family="Arial, sans-serif" font-size="26" letter-spacing="5">RIZON / DECISION NOTES</text>
+  <text x="138" y="344" fill="#F5F5F4" font-family="Arial, sans-serif" font-size="55" font-weight="700">BUY</text>
+  <text x="754" y="344" fill="#1C1917" font-family="Arial, sans-serif" font-size="55" font-weight="700">BUILD</text>
+  <text x="94" y="559" fill="#D6D3D1" font-family="Arial, sans-serif" font-size="28">The subscription is only one line in the spreadsheet.</text>
+</svg>

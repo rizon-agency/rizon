@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Footer } from "../../footer";
 import { projects, getProjectBySlug } from "@/lib/projects";
+import { Breadcrumb, breadcrumbJsonLd, type Crumb } from "@/components/breadcrumb";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -83,19 +84,31 @@ export default async function ProjectPage({
     url: `https://rizon.agency/work/${slug}`,
   };
 
+  const crumbs: Crumb[] = [
+    { name: "Home", href: "/" },
+    { name: "Work", href: "/#work" },
+    { name: project.title, href: `/work/${slug}` },
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(crumbs)) }}
+      />
 
       <main>
         {/* Header */}
         <section className="container pt-24 md:pt-28">
+          <Breadcrumb items={crumbs} />
+
           <Link
             href="/#work"
-            className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            className="group mt-6 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <ArrowLeft
               size={15}

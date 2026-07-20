@@ -106,20 +106,17 @@ export const Features = () => {
           />
         </Reveal>
 
-        <RevealGroup stagger={0.1} className="mt-16 grid grid-cols-1 border-t border-l border-primary-foreground/20 sm:grid-cols-2 lg:grid-cols-3">
+        <RevealGroup stagger={0.1} className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {features.map(({ title, items, icon: Icon }) => (
             <RevealItem
               key={title}
               as="article"
-              className="group border-b border-r border-primary-foreground/20 p-8 transition-colors duration-300 hover:bg-primary-foreground/10"
+              className="rounded-2xl bg-primary-foreground/10 p-7 ring-1 ring-inset ring-primary-foreground/15 md:p-8"
             >
-              <Icon
-                size={24}
-                strokeWidth={1.5}
-                aria-hidden
-                className="text-primary-foreground/60 transition-colors duration-300 group-hover:text-primary-foreground"
-              />
-              <h3 className="mt-6 text-xl font-medium tracking-tight">{title}</h3>
+              <span className="inline-flex size-11 items-center justify-center rounded-xl bg-primary-foreground/15 text-primary-foreground">
+                <Icon size={20} strokeWidth={1.75} aria-hidden />
+              </span>
+              <h3 className="mt-6 text-xl font-semibold tracking-tight">{title}</h3>
               <ul className="mt-5 space-y-2.5">
                 {items.map((item) => (
                   <li
@@ -127,7 +124,7 @@ export const Features = () => {
                     className="flex items-center gap-2.5 text-[15px] text-primary-foreground/80"
                   >
                     <span
-                      className="h-px w-3 shrink-0 bg-primary-foreground/30 transition-colors duration-300 group-hover:bg-primary-foreground/60"
+                      className="size-1 shrink-0 rounded-full bg-primary-foreground/50"
                       aria-hidden
                     />
                     {item}

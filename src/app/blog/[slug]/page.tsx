@@ -6,6 +6,10 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Footer } from "../../footer";
 import { Cta } from "../../cta";
 import { posts, getPostBySlug } from "@/lib/posts";
+import { alternatives } from "@/lib/alternatives";
+import { getServiceBySlug } from "@/lib/services";
+import { getAuthorBySlug } from "@/lib/authors";
+import { Breadcrumb, breadcrumbJsonLd, type Crumb } from "@/components/breadcrumb";
 
 const BASE_URL = "https://rizon.agency";
 
@@ -80,6 +84,10 @@ export default async function BlogPostPage({
 
   const index = posts.findIndex((p) => p.slug === slug);
   const next = posts[(index + 1) % posts.length];
+  const relatedPosts = posts.filter((item) => post.relatedPostSlugs?.includes(item.slug));
+  const relatedAlternatives = alternatives.filter((item) => post.relatedAlternativeSlugs?.includes(item.slug));
+  const relatedService = post.relatedServiceSlug ? getServiceBySlug(post.relatedServiceSlug) : undefined;
+  const author = getAuthorBySlug(post.authorSlug ?? "choaib-mouhrach");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -87,11 +95,7 @@ export default async function BlogPostPage({
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    author: {
-      "@type": "Organization",
-      name: "Rizon Agency",
-      url: BASE_URL,
-    },
+    author: author ? { "@type": "Person", name: author.name, url: author.url, sameAs: author.sameAs, jobTitle: author.role } : undefined,
     publisher: {
       "@type": "Organization",
       name: "Rizon Agency",
@@ -103,20 +107,32 @@ export default async function BlogPostPage({
     },
   };
 
+  const crumbs: Crumb[] = [
+    { name: "Home", href: "/" },
+    { name: "Blog", href: "/blog" },
+    { name: post.title, href: `/blog/${slug}` },
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(crumbs)) }}
+      />
 
       <main>
         {/* Header */}
         <section className="container pt-24 md:pt-28">
           <div className="mx-auto max-w-2xl">
+            <Breadcrumb items={crumbs} />
+
             <Link
               href="/blog"
-              className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="group mt-6 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               <ArrowLeft
                 size={15}
@@ -166,6 +182,22 @@ export default async function BlogPostPage({
             <Content />
           </div>
         </section>
+
+        {author && <section className="container mt-16"><div className="mx-auto flex max-w-2xl gap-5 border-y border-border py-8"><Image src={author.avatar} alt="" width={56} height={56} className="size-14 rounded-full" /><div><p className="text-sm font-medium">Written by {author.name}</p><p className="mt-1 text-sm text-muted-foreground">{author.role}</p><p className="mt-3 leading-relaxed text-muted-foreground">{author.bio}</p></div></div></section>}
+
+        {(relatedService || relatedAlternatives.length > 0 || relatedPosts.length > 0) && (
+          <section className="container mt-20">
+            <div className="mx-auto max-w-2xl border-t border-border pt-10">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Keep reading</span>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight">The useful next links</h2>
+              <div className="mt-7 divide-y divide-border border-y border-border">
+                {relatedService && <Link href={`/services/${relatedService.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{relatedService.title}</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>}
+                {relatedAlternatives.map((item) => <Link key={item.slug} href={`/alternatives/${item.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{item.competitor} alternative</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>)}
+                {relatedPosts.map((item) => <Link key={item.slug} href={`/blog/${item.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{item.title}</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>)}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Next post */}
         <section className="container mt-20">

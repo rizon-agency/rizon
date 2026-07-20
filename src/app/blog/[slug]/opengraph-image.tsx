@@ -30,8 +30,13 @@ export default async function OgImage({
   if (!post) return new Response("Not found", { status: 404 });
 
   const imgPath = path.join(process.cwd(), "src/assets/blog", `${slug}.png`);
-  const imgData = fs.readFileSync(imgPath);
-  const imgSrc = `data:image/png;base64,${imgData.toString("base64")}`;
+  let imgSrc: string | null = null;
+  try {
+    const imgData = fs.readFileSync(imgPath);
+    imgSrc = `data:image/png;base64,${imgData.toString("base64")}`;
+  } catch {
+    imgSrc = null;
+  }
 
   const date = formatDate(post.date);
 
@@ -69,9 +74,23 @@ export default async function OgImage({
           </div>
         </div>
 
-        {/* Right: cover image */}
+        {/* Right: cover image (or themed fallback) */}
         <div tw="flex w-[420px] shrink-0 border-l border-[#e5e5e5]">
-          <img src={imgSrc} tw="w-full h-full" style={{ objectFit: "cover" }} />
+          {imgSrc ? (
+            <img src={imgSrc} tw="w-full h-full" style={{ objectFit: "cover" }} />
+          ) : (
+            <div tw="flex flex-col justify-between w-full h-full bg-[#f5f5f5] p-12">
+              <div tw="flex items-center">
+                <div tw="w-8 h-px bg-[#003de5] mr-3" />
+                <span tw="text-[#003de5] text-xs font-semibold tracking-widest uppercase">
+                  {post.category}
+                </span>
+              </div>
+              <span tw="text-[#0a0a0a] text-6xl font-semibold tracking-tight">
+                .rizon
+              </span>
+            </div>
+          )}
         </div>
       </div>
     ),

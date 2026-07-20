@@ -37,7 +37,7 @@ export const BlogPreview = () => {
 
       <RevealGroup
         stagger={0.12}
-        className="mt-16 grid grid-cols-1 border-t border-border md:grid-cols-2 md:gap-x-12"
+        className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3"
       >
         {preview.map((post) => (
           <RevealItem key={post.slug} duration={0.6} y={20}>

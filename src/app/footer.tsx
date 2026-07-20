@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { LogoWithText } from "@/components/logo";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { alternatives } from "@/lib/alternatives";
 
 const navLinks = [
   { name: "Home", href: "/#home" },
   { name: "Why Us", href: "/#why-us" },
   { name: "How We Work", href: "/#how-we-work" },
-  { name: "Services", href: "/#services" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
   { name: "Blog", href: "/blog" },
   { name: "Get In Touch", href: "/#contact" },
 ];
@@ -24,7 +26,7 @@ export const Footer = () => {
     <footer className="mt-32 bg-primary text-primary-foreground md:mt-40">
       <div className="container">
         <div className="grid grid-cols-1 gap-x-12 gap-y-12 py-16 lg:grid-cols-12 md:py-20">
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-5">
             <Link href="/" className="inline-block">
               <LogoWithText size={120} />
             </Link>
@@ -34,7 +36,7 @@ export const Footer = () => {
             </p>
           </div>
 
-          <nav className="lg:col-span-3" aria-label="Footer">
+          <nav className="lg:col-span-2" aria-label="Footer">
             <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/50">
               Explore
             </h2>
@@ -49,6 +51,14 @@ export const Footer = () => {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </nav>
+
+          <nav className="lg:col-span-2" aria-label="Alternatives">
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/50">Compare</h2>
+            <ul className="mt-5 space-y-3">
+              {alternatives.slice(0, 4).map((alternative) => <li key={alternative.slug}><Link href={`/alternatives/${alternative.slug}`} className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground">{alternative.competitor}</Link></li>)}
+              <li><Link href="/lms-alternatives" className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground">All alternatives</Link></li>
             </ul>
           </nav>
 
@@ -77,6 +87,7 @@ export const Footer = () => {
                 </Link>
               ))}
             </div>
+            <a href="mailto:contact@rizon.agency" className="mt-5 inline-block text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground">contact@rizon.agency</a>
           </div>
         </div>
 

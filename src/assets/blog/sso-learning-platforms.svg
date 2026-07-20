@@ -1,0 +1,12 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" fill="#101827"/>
+  <rect x="54" y="54" width="1092" height="567" rx="28" stroke="#334155" stroke-width="2"/>
+  <circle cx="890" cy="285" r="52" stroke="#60A5FA" stroke-width="12"/>
+  <path d="M942 285H1030" stroke="#60A5FA" stroke-width="10" stroke-linecap="round"/>
+  <rect x="1030" y="240" width="90" height="90" rx="14" stroke="#334155" stroke-width="10"/>
+  <path d="M1055 285L1072 302L1100 268" stroke="#60A5FA" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="94" y="164" fill="#93C5FD" font-family="Arial, sans-serif" font-size="26" letter-spacing="5">RIZON / IDENTITY</text>
+  <text x="94" y="290" fill="white" font-family="Arial, sans-serif" font-size="66" font-weight="700">SSO options for</text>
+  <text x="94" y="368" fill="white" font-family="Arial, sans-serif" font-size="66" font-weight="700">learning platforms</text>
+  <text x="94" y="560" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="26">Choose for how people leave, not just how they log in.</text>
+</svg>

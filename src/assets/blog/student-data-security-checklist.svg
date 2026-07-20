@@ -1,0 +1,10 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" fill="#101827"/>
+  <rect x="54" y="54" width="1092" height="567" rx="28" stroke="#334155" stroke-width="2"/>
+  <path d="M950 180L1030 210V300C1030 350 990 380 950 400C910 380 870 350 870 300V210L950 180Z" stroke="#60A5FA" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M922 292L944 314L984 268" stroke="#60A5FA" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="94" y="164" fill="#93C5FD" font-family="Arial, sans-serif" font-size="26" letter-spacing="5">RIZON / SECURITY</text>
+  <text x="94" y="290" fill="white" font-family="Arial, sans-serif" font-size="64" font-weight="700">A student-data</text>
+  <text x="94" y="366" fill="white" font-family="Arial, sans-serif" font-size="64" font-weight="700">security checklist</text>
+  <text x="94" y="560" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="26">Start with who can see a guardian relationship.</text>
+</svg>
