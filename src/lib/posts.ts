@@ -16,8 +16,23 @@ import lti13AdvantageCover from "@/assets/blog/lti-13-advantage.svg";
 import studentDataSecurityCover from "@/assets/blog/student-data-security-checklist.svg";
 import ssoLearningPlatformsCover from "@/assets/blog/sso-learning-platforms.svg";
 import assessmentsCheatingCover from "@/assets/blog/assessments-resist-cheating.svg";
+import whatsImsccCover from "@/assets/blog/whats-an-imscc-file.png";
 
 export const posts: Post[] = [
+  {
+    slug: "whats-an-imscc-file",
+    title: "What's an IMSCC File?",
+    description:
+      "An IMSCC file is a course, packaged: pages, assignments, quiz questions, and a manifest that maps the structure. Here is what the Common Cartridge carries, what it deliberately leaves behind, and when you'll run into one.",
+    date: "2026-07-22",
+    readTime: "5 min read",
+    category: "Standards",
+    coverImage: whatsImsccCover,
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["canvas", "moodle"],
+    relatedPostSlugs: ["exporting-courses-from-canvas-imscc-step-by-step", "scorm-vs-xapi-keeping-your-content-portable", "what-a-smooth-lms-migration-actually-looks-like"],
+    authorSlug: "choaib-mouhrach",
+  },
   {
     slug: "how-much-does-a-custom-lms-cost-in-2026",
     title: "How Much Does a Custom LMS Cost in 2026?",

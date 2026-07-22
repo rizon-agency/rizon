@@ -64,7 +64,9 @@ export const WhyUs = () => {
           <RevealItem
             key={title}
             as="article"
-            className="surface surface-hover flex flex-col p-7 md:p-8"
+            className={`surface surface-hover flex flex-col p-7 md:p-8${
+              index === reasons.length - 1 ? " md:col-span-2" : ""
+            }`}
           >
             <div className="flex items-center justify-between">
               <span className="inline-flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
