@@ -1,0 +1,44 @@
+## The short answer
+
+An IMSCC file is a course, packaged. The extension stands for IMS Common Cartridge, a standard format for bundling course content so it can move from one learning platform to another. Open one up (it's really just a ZIP you can rename) and you'll find the raw materials of a course: pages, assignment definitions, quiz questions, files, and a manifest that describes how it all fits together.
+
+That last part is the important one. A Common Cartridge isn't a folder of loose files. It's a folder plus a map, an XML manifest called `imsmanifest.xml` that tells the receiving platform what each item is and where it sits in the course structure. That map is why a module you built in Canvas can show up as the same module, in the same order, after you import it somewhere else.
+
+## What's actually inside
+
+If you unzip a `.imscc` file, the contents are more legible than you'd expect:
+
+| Part | What it holds |
+| --- | --- |
+| `imsmanifest.xml` | The map: every resource, its type, and the course's module structure |
+| Web content | Pages and rich text, stored as HTML |
+| Assessment XML | Quiz and question definitions in a QTI-style format |
+| Files | PDFs, images, and other uploads, referenced by the manifest |
+| LTI links | Pointers to external tools, as definitions rather than live connections |
+
+The format is maintained by 1EdTech (formerly IMS Global), and the manifest structure follows their Common Cartridge specification. ([1EdTech's Common Cartridge specification](https://www.imsglobal.org/cc/index.html)) Because it's a published standard, most major platforms can both export and import it: Canvas, Moodle, Blackboard, and D2L all speak Common Cartridge to some degree, which is the whole point of having a portable format in the first place.
+
+## What an IMSCC file is not
+
+Here's where people get burned. An IMSCC file is a copy of the course *design*, not a record of the course *as it was taught*. That distinction is invisible until the moment you need something that isn't there.
+
+The cartridge does not carry:
+
+- **Grades.** The gradebook is a separate export, usually a CSV.
+- **Student submissions.** Uploaded assignments, essays, and file responses stay behind.
+- **Discussion posts and quiz attempts.** The questions travel; the answers people gave don't.
+- **Working external-tool connections.** LTI tools come across as definitions, not authenticated links with live keys.
+
+None of this is a defect. It's the design of the format. A Common Cartridge is meant to be the reusable template of a course, the thing an instructor might share or an institution might archive, not a full backup of one specific run of that course with real students in it. If you treat it as a backup, you find out it wasn't one at the worst possible time.
+
+## When you'll run into one
+
+Most people meet an IMSCC file during a migration. You're leaving one platform for another, you export your courses, and out comes a `.imscc` per course. That's the moment to remember what's missing and plan the separate exports for grades and submissions before you flip the switch. The step-by-step for exactly that, using Canvas as the example, is in [exporting your courses from Canvas](/blog/exporting-courses-from-canvas-imscc-step-by-step), and the wider timeline lives in [what a smooth LMS migration actually looks like](/blog/what-a-smooth-lms-migration-actually-looks-like).
+
+The other place it shows up is reuse. An instructor exports a course as a cartridge and imports it into a fresh shell for next term, or shares it with a colleague who teaches the same subject. Here the missing student data is a feature, not a gap. You want the design without last year's answers baked in.
+
+## Where it sits next to SCORM and xAPI
+
+Common Cartridge is often confused with SCORM, and they solve related but different problems. SCORM packages a single piece of interactive content, one course module or one lesson, so it can play inside any compliant player. Common Cartridge packages a whole course's worth of materials and structure. You can even wrap SCORM content inside a cartridge. If you're weighing how portable your content and records really are, [SCORM vs xAPI](/blog/scorm-vs-xapi-keeping-your-content-portable) covers the part that matters most: moving the ZIP is the easy half, and it's rarely the valuable one.
+
+If the reason you're looking this up is that you're moving off a platform you don't control, the cleanest version of this problem is landing somewhere you own outright. That's the throughline of [custom LMS development](/services/custom-lms-development) and of the [Canvas alternative you actually control](/alternatives/canvas): the cartridge gets your content out, and a platform you own decides what happens to it next.

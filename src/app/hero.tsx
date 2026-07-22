@@ -55,7 +55,7 @@ export const Hero = () => {
             className="mt-6 max-w-2xl text-lg leading-relaxed text-pretty text-white/75"
           >
             Custom e-learning platforms built around how you teach. No monthly
-            fees, no limits — you own all the code.
+            fees, no limits. You own all the code.
           </motion.p>
 
           <motion.div

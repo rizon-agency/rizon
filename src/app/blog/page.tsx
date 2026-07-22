@@ -40,7 +40,7 @@ export default function BlogPage() {
         </section>
 
         <section className="container mt-16">
-          <div className="grid grid-cols-1 border-t border-border md:grid-cols-2 md:gap-x-12">
+          <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:gap-x-12">
             {posts.map((post) => (
               <BlogCard key={post.slug} post={post} />
             ))}
