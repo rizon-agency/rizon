@@ -39,7 +39,7 @@ export async function generateMetadata({
       title: service.metaTitle,
       description: service.metaDescription,
       url,
-      siteName: "Rizon Agency",
+      siteName: "Rizon",
       locale: "en_US",
       type: "website",
       images: [

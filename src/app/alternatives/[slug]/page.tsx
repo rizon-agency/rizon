@@ -39,7 +39,7 @@ export async function generateMetadata({
       title: alternative.metaTitle,
       description: alternative.metaDescription,
       url,
-      siteName: "Rizon Agency",
+      siteName: "Rizon",
       locale: "en_US",
       type: "website",
       images: [{ url: `${BASE_URL}/opengraph-image`, width: 1200, height: 630, alt: alternative.heroHeadline }],

@@ -34,20 +34,20 @@ export async function generateMetadata({
   const url = `${BASE_URL}/blog/${slug}`;
 
   return {
-    title: `${post.title} — Rizon Agency`,
+    title: `${post.title} — Rizon`,
     description: post.description,
-    authors: [{ name: "Rizon Agency", url: BASE_URL }],
+    authors: [{ name: "Rizon", url: BASE_URL }],
     keywords: [post.category, "e-learning", "LMS development", "online learning platform", "custom LMS"],
     alternates: { canonical: url },
     openGraph: {
       title: post.title,
       description: post.description,
       url,
-      siteName: "Rizon Agency",
+      siteName: "Rizon",
       locale: "en_US",
       type: "article",
       publishedTime: post.date,
-      authors: ["Rizon Agency"],
+      authors: ["Rizon"],
       tags: [post.category, "e-learning", "LMS"],
       images: [{ url: `${BASE_URL}/blog/${slug}/opengraph-image`, width: 1200, height: 630, alt: post.title }],
     },
@@ -98,7 +98,7 @@ export default async function BlogPostPage({
     author: author ? { "@type": "Person", name: author.name, url: author.url, sameAs: author.sameAs, jobTitle: author.role } : undefined,
     publisher: {
       "@type": "Organization",
-      name: "Rizon Agency",
+      name: "Rizon",
       url: BASE_URL,
     },
     mainEntityOfPage: {

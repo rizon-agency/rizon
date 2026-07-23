@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description:
       "A software studio focused exclusively on learning platforms. Custom LMS, Moodle, Canvas, and LTI work led by Choaib Mouhrach.",
     url: `${BASE_URL}/about`,
-    siteName: "Rizon Agency",
+    siteName: "Rizon",
     locale: "en_US",
     type: "profile",
   },

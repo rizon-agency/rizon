@@ -6,22 +6,22 @@ import { BlogCard } from "@/components/blog-card";
 import { posts } from "@/lib/posts";
 
 export const metadata: Metadata = {
-  title: "Blog — Rizon Agency",
+  title: "Blog — Rizon",
   description:
     "Insights on custom LMS development, e-learning platform architecture, and building online learning products that last.",
   alternates: { canonical: "https://rizon.agency/blog" },
   openGraph: {
-    title: "Blog — Rizon Agency",
+    title: "Blog — Rizon",
     description:
       "Insights on custom LMS development, e-learning platform architecture, and building online learning products that last.",
     url: "https://rizon.agency/blog",
-    siteName: "Rizon Agency",
+    siteName: "Rizon",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog — Rizon Agency",
+    title: "Blog — Rizon",
     description:
       "Insights on custom LMS development, e-learning platform architecture, and building online learning products that last.",
     creator: "@rizon_agency",

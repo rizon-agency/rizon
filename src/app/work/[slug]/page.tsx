@@ -27,14 +27,14 @@ export async function generateMetadata({
   const url = `https://rizon.agency/work/${slug}`;
 
   return {
-    title: `${project.title} — Rizon Agency`,
+    title: `${project.title} — Rizon`,
     description: project.description,
     alternates: { canonical: url },
     openGraph: {
       title: project.title,
       description: project.description,
       url,
-      siteName: "Rizon Agency",
+      siteName: "Rizon",
       locale: "en_US",
       type: "website",
       images: [{ url: project.preview, width: 1200, height: 630, alt: project.title }],
@@ -78,7 +78,7 @@ export default async function ProjectPage({
     dateCreated: project.year,
     creator: {
       "@type": "Organization",
-      name: "Rizon Agency",
+      name: "Rizon",
       url: "https://rizon.agency",
     },
     url: `https://rizon.agency/work/${slug}`,

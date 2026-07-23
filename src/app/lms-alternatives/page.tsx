@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "LMS Alternatives: When a Custom Build Makes Sense | Rizon",
   description: "Compare leading LMS and course-platform alternatives, then decide whether a custom learning platform is worth the work for your business or institution.",
   alternates: { canonical: `${BASE_URL}/lms-alternatives` },
-  openGraph: { title: "LMS Alternatives | Rizon", description: "An honest guide to choosing between an LMS and a custom learning platform.", url: `${BASE_URL}/lms-alternatives`, siteName: "Rizon Agency", locale: "en_US", type: "website", images: [{ url: `${BASE_URL}/opengraph-image`, width: 1200, height: 630, alt: "LMS alternatives" }] },
+  openGraph: { title: "LMS Alternatives | Rizon", description: "An honest guide to choosing between an LMS and a custom learning platform.", url: `${BASE_URL}/lms-alternatives`, siteName: "Rizon", locale: "en_US", type: "website", images: [{ url: `${BASE_URL}/opengraph-image`, width: 1200, height: 630, alt: "LMS alternatives" }] },
   twitter: { card: "summary_large_image", title: "LMS Alternatives | Rizon", description: "An honest guide to choosing between an LMS and a custom learning platform.", creator: "@rizon_agency" },
 };
 

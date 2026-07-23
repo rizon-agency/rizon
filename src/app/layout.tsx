@@ -25,14 +25,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rizon Agency - Custom E-Learning",
+  title: "Rizon - Custom E-Learning",
   description:
     "Launch your online learning platform without vendor lock-in. We build custom e-learning solutions for course creators, schools, and companies. Own 100% of your code, no templates, no revenue sharing.",
   keywords:
     "custom e-learning platform, online learning platform development, course platform development, custom LMS, school portal development, corporate training platform, Moodle alternative, Canvas alternative, educational platform development",
-  authors: [{ name: "Rizon Agency" }],
-  creator: "Rizon Agency",
-  publisher: "Rizon Agency",
+  authors: [{ name: "Rizon" }],
+  creator: "Rizon",
+  publisher: "Rizon",
   formatDetection: {
     email: false,
     address: false,
@@ -43,17 +43,17 @@ export const metadata: Metadata = {
     canonical: "https://rizon.agency",
   },
   openGraph: {
-    title: "Rizon Agency - Build Your Own Online Learning Platform",
+    title: "Rizon - Build Your Own Online Learning Platform",
     description:
       "Custom e-learning platforms designed around how you teach. No monthly fees, no feature limits, no vendor lock-in. Built for course creators, schools, and companies.",
     url: "https://rizon.agency",
-    siteName: "Rizon Agency",
+    siteName: "Rizon",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rizon Agency - Custom E-Learning Platform Development",
+    title: "Rizon - Custom E-Learning Platform Development",
     description:
       "Launch your online learning platform without monthly fees or vendor lock-in. Own your platform, own your revenue.",
     creator: "@rizon_agency",

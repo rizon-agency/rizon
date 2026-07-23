@@ -68,7 +68,7 @@ compounder) → (4) E-E-A-T → (5) GEO/AI-search → (6) off-site → (7) measu
   exist → 404 every page load; kills installability/PWA signals.
 - **Steps:**
   1. Create `src/app/manifest.ts` returning `MetadataRoute.Manifest`:
-     `name: "Rizon Agency"`, `short_name: "Rizon"`, `description` (reuse homepage
+     `name: "Rizon"`, `short_name: "Rizon"`, `description` (reuse homepage
      description), `start_url: "/"`, `display: "standalone"`, `background_color` +
      `theme_color` (pull the real brand hex from `globals.css`), `icons` → existing
      `/public/android-chrome-192x192.png` (192, `any maskable`) and

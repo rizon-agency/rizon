@@ -21,7 +21,7 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": `${BASE_URL}/#org`,
-      name: "Rizon Agency",
+      name: "Rizon",
       url: BASE_URL,
       logo: `${BASE_URL}/android-chrome-512x512.png`,
       email: "contact@rizon.agency",
@@ -39,13 +39,13 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": `${BASE_URL}/#website`,
       url: BASE_URL,
-      name: "Rizon Agency",
+      name: "Rizon",
       publisher: { "@id": `${BASE_URL}/#org` },
     },
     {
       "@type": "ProfessionalService",
       "@id": `${BASE_URL}/#service`,
-      name: "Rizon Agency",
+      name: "Rizon",
       url: BASE_URL,
       description:
         "Custom e-learning platform development for course creators, schools, and companies. No vendor lock-in, no monthly fees, 100% code ownership.",
