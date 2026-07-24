@@ -1,4 +1,5 @@
 import type { StaticImageData } from "next/image";
+import type { MaybeLocalized } from "@/lib/l10n";
 
 export type Post = {
   slug: string;
@@ -56,8 +57,8 @@ export type Alternative = {
   slug: string;
   competitor: string;
   category: string;
-  metaTitle: string;
-  metaDescription: string;
+  metaTitle: MaybeLocalized<string>;
+  metaDescription: MaybeLocalized<string>;
   heroHeadline: string;
   heroSub: string;
   intro: string[];
@@ -78,8 +79,8 @@ export type ServiceSection = { heading: string; body: string };
 export type ServicePage = {
   slug: string;
   title: string;
-  metaTitle: string;
-  metaDescription: string;
+  metaTitle: MaybeLocalized<string>;
+  metaDescription: MaybeLocalized<string>;
   h1: string;
   heroSub: string;
   targetKeyword: string;

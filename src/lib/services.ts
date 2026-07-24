@@ -32,8 +32,18 @@ export const services: ServicePage[] = [
   {
     slug: "custom-lms-development",
     title: "Custom LMS Development",
-    metaTitle: "Custom LMS Development for Learning Products | Rizon",
-    metaDescription: "Custom LMS development for teams that have outgrown off-the-shelf software and need a learning platform built around their learners, data, and business.",
+    metaTitle: {
+      en: "Custom LMS Development for Learning Products | Rizon",
+      fr: "Développement de LMS sur mesure pour produits d'apprentissage | Rizon",
+      es: "Desarrollo de LMS a medida para productos de aprendizaje | Rizon",
+      de: "Maßgeschneiderte LMS-Entwicklung für Lernprodukte | Rizon",
+    },
+    metaDescription: {
+      en: "Custom LMS development for teams that have outgrown off-the-shelf software and need a learning platform built around their learners, data, and business.",
+      fr: "Développement de LMS sur mesure pour les équipes qui ont dépassé les logiciels standard et ont besoin d'une plateforme d'apprentissage bâtie autour de leurs apprenants, de leurs données et de leur activité.",
+      es: "Desarrollo de LMS a medida para equipos que han superado el software estándar y necesitan una plataforma de aprendizaje construida en torno a sus aprendices, sus datos y su negocio.",
+      de: "Maßgeschneiderte LMS-Entwicklung für Teams, die Standardsoftware entwachsen sind und eine Lernplattform brauchen, die auf ihre Lernenden, ihre Daten und ihr Geschäft zugeschnitten ist.",
+    },
     h1: "Custom LMS development for the way your learning business actually works.",
     heroSub: "For founders and operations leads who have outgrown their LMS, we build an owned platform around the learner journey, commercial model, and systems you already run.",
     targetKeyword: "custom LMS development",
@@ -93,8 +103,18 @@ export const services: ServicePage[] = [
   {
     slug: "corporate-training-platform",
     title: "Corporate Training Platform Development",
-    metaTitle: "Corporate Training Platform Development | Rizon",
-    metaDescription: "Corporate training platform development for L&D teams that need training tied to their own roles, SSO, compliance evidence, reporting, and employee systems.",
+    metaTitle: {
+      en: "Corporate Training Platform Development | Rizon",
+      fr: "Développement de plateforme de formation en entreprise | Rizon",
+      es: "Desarrollo de plataforma de formación corporativa | Rizon",
+      de: "Entwicklung von Unternehmensschulungsplattformen | Rizon",
+    },
+    metaDescription: {
+      en: "Corporate training platform development for L&D teams that need training tied to their own roles, SSO, compliance evidence, reporting, and employee systems.",
+      fr: "Développement de plateforme de formation en entreprise pour les équipes L&D qui ont besoin de formations liées à leurs rôles, au SSO, aux preuves de conformité, au reporting et à leurs systèmes RH.",
+      es: "Desarrollo de plataforma de formación corporativa para equipos de L&D que necesitan formaciones ligadas a sus roles, SSO, evidencia de cumplimiento, reporting y sistemas de RRHH.",
+      de: "Entwicklung von Unternehmensschulungsplattformen für L&D-Teams, die Schulungen brauchen, die an Rollen, SSO, Compliance-Nachweise, Reporting und HR-Systeme gebunden sind.",
+    },
     h1: "Corporate training platform development that works with the company you actually run.",
     heroSub: "For L&D and HR leads who need training records, role-based access, and reporting connected to their organisation, we build the platform around the work.",
     targetKeyword: "corporate training platform development",
@@ -159,8 +179,18 @@ export const services: ServicePage[] = [
   {
     slug: "course-platform-for-creators",
     title: "Custom Course Platform for Creators",
-    metaTitle: "Custom Course Platform for Creators | Rizon",
-    metaDescription: "A custom course platform for creators who have outgrown template course software and need full control of payments, learner experience, branding, and product roadmap.",
+    metaTitle: {
+      en: "Custom Course Platform for Creators | Rizon",
+      fr: "Plateforme de cours sur mesure pour créateurs | Rizon",
+      es: "Plataforma de cursos a medida para creadores | Rizon",
+      de: "Maßgeschneiderte Kursplattform für Kursanbieter | Rizon",
+    },
+    metaDescription: {
+      en: "A custom course platform for creators who have outgrown template course software and need full control of payments, learner experience, branding, and product roadmap.",
+      fr: "Une plateforme de cours sur mesure pour les créateurs qui ont dépassé les logiciels de cours standard et veulent le contrôle total des paiements, de l'expérience apprenant, de la marque et de la roadmap produit.",
+      es: "Una plataforma de cursos a medida para creadores que han superado el software de cursos estándar y necesitan control total de pagos, experiencia del alumno, marca y roadmap del producto.",
+      de: "Eine maßgeschneiderte Kursplattform für Kursanbieter, die Template-Kurssoftware entwachsen sind und volle Kontrolle über Zahlungen, Lernerlebnis, Branding und Produkt-Roadmap brauchen.",
+    },
     h1: "A custom course platform for creators who have outgrown the template.",
     heroSub: "For established course creators who need their checkout, member experience, and learning flow to match the business they have built, we make the platform yours.",
     targetKeyword: "custom course platform",
@@ -221,8 +251,18 @@ export const services: ServicePage[] = [
   {
     slug: "school-student-portal-development",
     title: "School & Student Portal Development",
-    metaTitle: "School Student Portal Development | Rizon",
-    metaDescription: "School student portal development for institutions that need one tailored place for students, parents, teachers, learning, grades, data, and essential services.",
+    metaTitle: {
+      en: "School Student Portal Development | Rizon",
+      fr: "Développement de portails scolaires pour élèves | Rizon",
+      es: "Desarrollo de portal escolar para estudiantes | Rizon",
+      de: "Entwicklung von Schulportalen für Schüler | Rizon",
+    },
+    metaDescription: {
+      en: "School student portal development for institutions that need one tailored place for students, parents, teachers, learning, grades, data, and essential services.",
+      fr: "Développement de portails scolaires pour les établissements qui ont besoin d'un espace unique et sur mesure pour les élèves, les parents, les enseignants, l'apprentissage, les notes, les données et les services essentiels.",
+      es: "Desarrollo de portal escolar para instituciones que necesitan un único espacio a medida para estudiantes, padres, profesores, aprendizaje, notas, datos y servicios esenciales.",
+      de: "Entwicklung von Schulportalen für Einrichtungen, die einen maßgeschneiderten Ort für Schüler, Eltern, Lehrer, Lernen, Noten, Daten und wichtige Dienste brauchen.",
+    },
     h1: "School student portal development for an institution that wants one front door.",
     heroSub: "For school and university IT leaders whose learners, parents, teachers, and staff keep crossing between disconnected systems, we build the portal around the institution.",
     targetKeyword: "school portal development",

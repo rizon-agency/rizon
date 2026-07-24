@@ -13,8 +13,9 @@ import { Footer } from "../../footer";
 
 import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
-import { routing } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
 import { languagesFor, localizedUrl, OG_LOCALE } from "@/i18n/hreflang";
+import { l } from "@/lib/l10n";
 
 const BASE_URL = "https://rizon.agency";
 
@@ -37,17 +38,19 @@ export async function generateMetadata({
   if (!alternative) return { title: "Alternative not found — Rizon" };
 
   const path = `/alternatives/${slug}`;
+  const metaTitle = l(alternative.metaTitle, locale as Locale);
+  const metaDescription = l(alternative.metaDescription, locale as Locale);
   return {
-    title: alternative.metaTitle,
-    description: alternative.metaDescription,
+    title: metaTitle,
+    description: metaDescription,
     keywords: alternative.keywords,
     alternates: {
       canonical: localizedUrl(path, locale),
       languages: languagesFor(path),
     },
     openGraph: {
-      title: alternative.metaTitle,
-      description: alternative.metaDescription,
+      title: metaTitle,
+      description: metaDescription,
       url: localizedUrl(path, locale),
       siteName: "Rizon",
       locale: OG_LOCALE[locale as keyof typeof OG_LOCALE] ?? "en_US",
@@ -56,8 +59,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: alternative.metaTitle,
-      description: alternative.metaDescription,
+      title: metaTitle,
+      description: metaDescription,
       creator: "@rizon_agency",
     },
   };
