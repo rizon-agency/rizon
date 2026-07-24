@@ -1,25 +1,27 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { LogoWithText } from "@/components/logo";
 import { MobileNav } from "./mobile-nav";
 import { LocaleSwitcher } from "./locale-switcher";
 
-const links = [
-  { name: "Home", href: "/#home", id: "home", isPage: false },
-  { name: "Why us", href: "/#why-us", id: "why-us", isPage: false },
-  { name: "Process", href: "/#how-we-work", id: "how-we-work", isPage: false },
-  { name: "Services", href: "/services", id: "services", isPage: true },
-  { name: "About", href: "/about", id: "about", isPage: true },
-  { name: "Work", href: "/#work", id: "work", isPage: false },
-  { name: "Blog", href: "/blog", id: "blog", isPage: true },
-];
+const linkDefs = [
+  { key: "home", href: "/#home", id: "home", isPage: false },
+  { key: "whyUs", href: "/#why-us", id: "why-us", isPage: false },
+  { key: "process", href: "/#how-we-work", id: "how-we-work", isPage: false },
+  { key: "services", href: "/services", id: "services", isPage: true },
+  { key: "about", href: "/about", id: "about", isPage: true },
+  { key: "work", href: "/#work", id: "work", isPage: false },
+  { key: "blog", href: "/blog", id: "blog", isPage: true },
+] as const;
 
-const sectionLinks = links.filter((l) => !l.isPage);
+const sectionLinkDefs = linkDefs.filter((l) => !l.isPage);
 
 export const Navigation = () => {
+  const t = useTranslations("nav");
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
 
@@ -30,7 +32,7 @@ export const Navigation = () => {
   // After mount, seed from the URL hash so a refresh on /#work highlights Work.
   useEffect(() => {
     const hash = window.location.hash.replace("#", "");
-    if (sectionLinks.some((l) => l.id === hash)) setActiveId(hash);
+    if (sectionLinkDefs.some((l) => l.id === hash)) setActiveId(hash);
   }, []);
 
   // Single scroll listener: frosted header + scroll-spy in one pass.
@@ -42,8 +44,8 @@ export const Navigation = () => {
       if (pathname !== "/") return;
 
       const mid = window.scrollY + window.innerHeight * 0.4;
-      const current = sectionLinks
-        .map((l) => ({ id: l.id, el: document.getElementById(l.id) }))
+      const current = sectionLinkDefs
+        .map((l) => ({ id: l.id as string, el: document.getElementById(l.id) }))
         .filter((s): s is { id: string; el: HTMLElement } => s.el !== null)
         .filter((s) => s.el.offsetTop <= mid)
         .pop();
@@ -69,7 +71,7 @@ export const Navigation = () => {
   );
 
   // Blog uses pathname; section links use scroll-spy (only meaningful on "/").
-  const isActive = (link: (typeof links)[0]) =>
+  const isActive = (link: (typeof linkDefs)[number]) =>
     link.isPage
       ? pathname.startsWith(link.href)
       : pathname === "/" && activeId === link.id;
@@ -98,8 +100,8 @@ export const Navigation = () => {
           />
         </Link>
 
-        <nav className="hidden items-center md:flex" aria-label="Primary">
-          {links.map((link) => (
+        <nav className="hidden items-center md:flex" aria-label={t("primary")}>
+          {linkDefs.map((link) => (
             <Link
               key={link.id}
               href={link.href}
@@ -115,7 +117,7 @@ export const Navigation = () => {
                     : "text-muted-foreground hover:text-foreground focus-visible:text-foreground"
               }`}
             >
-              {link.name}
+              {t(link.key)}
             </Link>
           ))}
         </nav>
@@ -124,7 +126,7 @@ export const Navigation = () => {
           <LocaleSwitcher overHero={overHero} />
           <Button asChild size="sm">
             <Link href="/#contact" onClick={(e) => handleAnchorClick(e, "contact")}>
-              Book a call
+              {t("bookACall")}
             </Link>
           </Button>
         </div>

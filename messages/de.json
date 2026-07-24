@@ -1,4 +1,110 @@
 {
+  "nav": {
+    "home": "Startseite",
+    "whyUs": "Warum wir",
+    "process": "Vorgehen",
+    "services": "Leistungen",
+    "about": "Über uns",
+    "work": "Projekte",
+    "blog": "Blog",
+    "bookACall": "Termin buchen",
+    "primary": "Hauptnavigation",
+    "mobile": "Mobil",
+    "openMenu": "Menü öffnen"
+  },
+  "footer": {
+    "tagline": "Agentur für maßgeschneiderte LMS-Entwicklung. Wir bauen Lernplattformen, die Menschen wirklich nutzen wollen.",
+    "explore": "Entdecken",
+    "compare": "Vergleichen",
+    "follow": "Folgen",
+    "allAlternatives": "Alle Alternativen",
+    "getInTouch": "Kontakt",
+    "howWeWork": "Vorgehen",
+    "whyUsShort": "Warum wir",
+    "terms": "AGB",
+    "copyright": "© {year} Rizon. Alle Rechte vorbehalten."
+  },
+  "home": {
+    "hero": {
+      "headline": "Die Plattform hinter Ihrem Lernprodukt, von Grund auf gebaut.",
+      "sub": "Maßgeschneiderte E-Learning-Plattformen, gebaut rund um Ihre Lehrmethodik. Keine monatlichen Gebühren, keine Grenzen. Der gesamte Code gehört Ihnen.",
+      "ctaContact": "Kontakt aufnehmen",
+      "ctaWork": "Unsere Arbeit ansehen",
+      "statFees": "Plattformgebühren. Sie behalten jeden Euro, den Sie verdienen.",
+      "statOwnership": "Code-Eigentum. Die Plattform gehört Ihnen.",
+      "statLiveDay": "Tag",
+      "statLiveLabel": "Ihre Plattform geht live und bleibt live"
+    },
+    "whyUs": {
+      "label": "Warum wir",
+      "titlePrefix": "Warum",
+      "titleHighlight": "mit uns arbeiten",
+      "description": "Die meisten Agenturen optimieren für ihre eigene Bequemlichkeit und stellen es Ihnen in Rechnung. So haben wir uns entschieden zu arbeiten, schriftlich.",
+      "reasons": {
+        "tech": {
+          "title": "Die richtige Technik für Ihre Bedürfnisse, nicht unsere",
+          "description": "Wir wählen den Stack, der zu Ihrem Projekt und den Menschen passt, die ihn warten werden, nicht den, mit dem wir am schnellsten sind. Sie zahlen nie für unsere Gewohnheiten."
+        },
+        "demos": {
+          "title": "Wöchentliche Live-Demos und Updates",
+          "description": "Jede Woche erhalten Sie eine funktionsfähige Version zum Ausprobieren und eine klare Zusammenfassung der Änderungen. Keine wochenlangen Funkstillen. Keine überraschenden Rechnungen."
+        },
+        "live": {
+          "title": "Live-Plattform vom ersten Tag an",
+          "description": "Ihre Plattform geht mit der ersten Version in Produktion. Sie sehen sie Funktion für Funktion wachsen, anstatt auf eine große Enthüllung am Ende zu warten."
+        },
+        "lean": {
+          "title": "Nur das bauen, was Sie nutzen",
+          "description": "Wir schneiden alles heraus, was seinen Platz nicht verdient. Keine aufgeblähten Funktionslisten, die Sie nie öffnen werden, nur das, wonach Ihre Nutzer wirklich greifen."
+        },
+        "feedback": {
+          "title": "Ihr Feedback formt alles",
+          "description": "Ihre Meinung leitet jede Entscheidung. Wir verschwinden nicht monatelang. Sie sind vom ersten Tag an Teil des Prozesses."
+        }
+      }
+    },
+    "howWeWork": {
+      "label": "Vorgehen",
+      "titlePrefix": "Wie wir wirklich",
+      "titleHighlight": "mit Ihnen arbeiten",
+      "description": "Kein verwirrender Prozess, kein Projektmanagement-Jargon. Einfach geradeaus.",
+      "stepLabel": "Schritt",
+      "stepNumbers": {
+        "1": "eins",
+        "2": "zwei",
+        "3": "drei",
+        "4": "vier",
+        "5": "fünf",
+        "6": "sechs"
+      },
+      "steps": {
+        "first": {
+          "title": "Erster Anruf",
+          "description": "Erzählen Sie uns von Ihrer Vision. Was bauen Sie? Für wen ist es? Was hält Sie gerade zurück? Wir hören zuerst zu."
+        },
+        "plan": {
+          "title": "Nächste Funktion planen",
+          "description": "Wir entscheiden gemeinsam mit Ihnen, was als Nächstes gebaut wird. Was ist am wichtigsten? Was macht den größten Unterschied für Ihre Lernenden?"
+        },
+        "design": {
+          "title": "Sie gestalten",
+          "description": "Wir gestalten, wie sie aussieht und funktioniert. Sie sehen genau, wie sie wird, bevor wir eine einzige Zeile Code schreiben."
+        },
+        "build": {
+          "title": "Sie bauen",
+          "description": "Wir erwecken sie zum Leben. Wir übernehmen die schwere Arbeit und sorgen dafür, dass alles wie vorgesehen funktioniert."
+        },
+        "demo": {
+          "title": "Sie demonstrieren",
+          "description": "Wir geben Ihnen eine Live-Version zum Ausprobieren. Testen Sie sie, brechen Sie sie, sagen Sie uns, was sich richtig anfühlt und was nicht."
+        },
+        "launch": {
+          "title": "Sie starten",
+          "description": "Wir stellen sie auf Ihrer Plattform bereit. Ihre Nutzer bekommen sie."
+        }
+      }
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Maßgeschneiderte E-Learning-Plattform",

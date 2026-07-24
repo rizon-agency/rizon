@@ -61,7 +61,7 @@ export async function generateMetadata({
           url: `${BASE_URL}/opengraph-image`,
           width: 1200,
           height: 630,
-          alt: service.h1,
+          alt: l(service.h1, locale as Locale),
         },
       ],
     },
@@ -136,10 +136,10 @@ export default async function ServiceDetailPage({
               Rizon services
             </span>
             <h1 className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance md:text-6xl">
-              {service.h1}
+              {l(service.h1, locale as Locale)}
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-relaxed text-muted-foreground text-pretty">
-              {service.heroSub}
+              {l(service.heroSub, locale as Locale)}
             </p>
             <Button asChild size="lg" className="mt-9">
               <Link

@@ -44,8 +44,18 @@ export const services: ServicePage[] = [
       es: "Desarrollo de LMS a medida para equipos que han superado el software estándar y necesitan una plataforma de aprendizaje construida en torno a sus aprendices, sus datos y su negocio.",
       de: "Maßgeschneiderte LMS-Entwicklung für Teams, die Standardsoftware entwachsen sind und eine Lernplattform brauchen, die auf ihre Lernenden, ihre Daten und ihr Geschäft zugeschnitten ist.",
     },
-    h1: "Custom LMS development for the way your learning business actually works.",
-    heroSub: "For founders and operations leads who have outgrown their LMS, we build an owned platform around the learner journey, commercial model, and systems you already run.",
+    h1: {
+      en: "Custom LMS development for the way your learning business actually works.",
+      fr: "Développement de LMS sur mesure adapté à la façon dont votre activité de formation fonctionne vraiment.",
+      es: "Desarrollo de LMS a medida para la forma en que tu negocio de formación realmente funciona.",
+      de: "Maßgeschneiderte LMS-Entwicklung, die zu Ihrem Bildungsgeschäft wirklich passt.",
+    },
+    heroSub: {
+      en: "For founders and operations leads who have outgrown their LMS, we build an owned platform around the learner journey, commercial model, and systems you already run.",
+      fr: "Pour les fondateurs et responsables opérationnels qui ont dépassé leur LMS, nous construisons une plateforme dont vous êtes propriétaire, autour du parcours apprenant, du modèle commercial et des systèmes que vous exploitez déjà.",
+      es: "Para fundadores y responsables de operaciones que han superado su LMS, construimos una plataforma propia en torno al recorrido del alumno, el modelo comercial y los sistemas que ya utilizas.",
+      de: "Für Gründer und Operations-Leads, die ihrem LMS entwachsen sind, bauen wir eine eigene Plattform rund um die Lernreise, das Geschäftsmodell und die Systeme, die Sie bereits nutzen.",
+    },
     targetKeyword: "custom LMS development",
     whoWeWorkWith: [
       { audience: "Education businesses", description: "Companies whose product is the learning platform: cohort programmes, professional courses, certification bodies. The LMS decides how the offer can be sold and delivered, which is why it stops being someone else's job to fix." },
@@ -115,8 +125,18 @@ export const services: ServicePage[] = [
       es: "Desarrollo de plataforma de formación corporativa para equipos de L&D que necesitan formaciones ligadas a sus roles, SSO, evidencia de cumplimiento, reporting y sistemas de RRHH.",
       de: "Entwicklung von Unternehmensschulungsplattformen für L&D-Teams, die Schulungen brauchen, die an Rollen, SSO, Compliance-Nachweise, Reporting und HR-Systeme gebunden sind.",
     },
-    h1: "Corporate training platform development that works with the company you actually run.",
-    heroSub: "For L&D and HR leads who need training records, role-based access, and reporting connected to their organisation, we build the platform around the work.",
+    h1: {
+      en: "Corporate training platform development that works with the company you actually run.",
+      fr: "Développement de plateforme de formation en entreprise qui fonctionne avec la société que vous dirigez vraiment.",
+      es: "Desarrollo de plataforma de formación corporativa que funciona con la empresa que realmente diriges.",
+      de: "Entwicklung von Unternehmensschulungsplattformen, die zu dem Unternehmen passen, das Sie tatsächlich führen.",
+    },
+    heroSub: {
+      en: "For L&D and HR leads who need training records, role-based access, and reporting connected to their organisation, we build the platform around the work.",
+      fr: "Pour les responsables L&D et RH qui ont besoin d'historiques de formation, d'accès basés sur les rôles et de reporting connectés à leur organisation, nous construisons la plateforme autour du travail réel.",
+      es: "Para responsables de L&D y RRHH que necesitan registros de formación, acceso basado en roles y reporting conectados a su organización, construimos la plataforma en torno al trabajo real.",
+      de: "Für L&D- und HR-Verantwortliche, die Schulungsnachweise, rollenbasierten Zugriff und Reporting brauchen, das mit ihrer Organisation verbunden ist, bauen wir die Plattform rund um die tatsächliche Arbeit.",
+    },
     targetKeyword: "corporate training platform development",
     whoWeWorkWith: [
       { audience: "L&D leaders at mid-market and enterprise organisations", description: "Teams responsible for training completion, role clearance, and manager visibility across employees, contractors, and partners. The platform has to fit the organisation chart, not the other way around." },
@@ -191,8 +211,18 @@ export const services: ServicePage[] = [
       es: "Una plataforma de cursos a medida para creadores que han superado el software de cursos estándar y necesitan control total de pagos, experiencia del alumno, marca y roadmap del producto.",
       de: "Eine maßgeschneiderte Kursplattform für Kursanbieter, die Template-Kurssoftware entwachsen sind und volle Kontrolle über Zahlungen, Lernerlebnis, Branding und Produkt-Roadmap brauchen.",
     },
-    h1: "A custom course platform for creators who have outgrown the template.",
-    heroSub: "For established course creators who need their checkout, member experience, and learning flow to match the business they have built, we make the platform yours.",
+    h1: {
+      en: "A custom course platform for creators who have outgrown the template.",
+      fr: "Une plateforme de cours sur mesure pour les créateurs qui ont dépassé les modèles standard.",
+      es: "Una plataforma de cursos a medida para creadores que han superado la plantilla.",
+      de: "Eine maßgeschneiderte Kursplattform für Kursanbieter, die Templates entwachsen sind.",
+    },
+    heroSub: {
+      en: "For established course creators who need their checkout, member experience, and learning flow to match the business they have built, we make the platform yours.",
+      fr: "Pour les créateurs de cours établis qui veulent que leur checkout, leur expérience membre et leur parcours d'apprentissage correspondent à l'activité qu'ils ont construite, nous faisons de la plateforme la vôtre.",
+      es: "Para creadores de cursos consolidados que necesitan que su checkout, experiencia del miembro y flujo de aprendizaje se ajusten al negocio que han construido, hacemos que la plataforma sea tuya.",
+      de: "Für etablierte Kursanbieter, die möchten, dass ihr Checkout, ihr Mitgliedererlebnis und ihr Lernfluss zu ihrem aufgebauten Geschäft passen, machen wir die Plattform zu Ihrer eigenen.",
+    },
     targetKeyword: "custom course platform",
     whoWeWorkWith: [
       { audience: "Established course creators", description: "Founders with a proven offer and repeat customers whose current hosted platform has become the reason support keeps explaining exceptions to buyers." },
@@ -263,8 +293,18 @@ export const services: ServicePage[] = [
       es: "Desarrollo de portal escolar para instituciones que necesitan un único espacio a medida para estudiantes, padres, profesores, aprendizaje, notas, datos y servicios esenciales.",
       de: "Entwicklung von Schulportalen für Einrichtungen, die einen maßgeschneiderten Ort für Schüler, Eltern, Lehrer, Lernen, Noten, Daten und wichtige Dienste brauchen.",
     },
-    h1: "School student portal development for an institution that wants one front door.",
-    heroSub: "For school and university IT leaders whose learners, parents, teachers, and staff keep crossing between disconnected systems, we build the portal around the institution.",
+    h1: {
+      en: "School student portal development for an institution that wants one front door.",
+      fr: "Développement de portail scolaire pour une institution qui veut une porte d'entrée unique.",
+      es: "Desarrollo de portal escolar para una institución que quiere una única puerta de entrada.",
+      de: "Entwicklung eines Schulportals für eine Einrichtung, die eine einzige Anlaufstelle möchte.",
+    },
+    heroSub: {
+      en: "For school and university IT leaders whose learners, parents, teachers, and staff keep crossing between disconnected systems, we build the portal around the institution.",
+      fr: "Pour les responsables IT d'écoles et d'universités dont les élèves, parents, enseignants et personnels naviguent constamment entre des systèmes déconnectés, nous construisons le portail autour de l'établissement.",
+      es: "Para responsables de TI en escuelas y universidades cuyos alumnos, padres, profesores y personal navegan constantemente entre sistemas desconectados, construimos el portal en torno a la institución.",
+      de: "Für IT-Verantwortliche in Schulen und Universitäten, deren Schüler, Eltern, Lehrer und Personal ständig zwischen getrennten Systemen wechseln, bauen wir das Portal rund um die Einrichtung.",
+    },
     targetKeyword: "school portal development",
     whoWeWorkWith: [
       { audience: "K-12 schools and multi-school districts", description: "Institutions needing one front door for students, parents, and teachers, where the SIS, LMS, and communication tools currently live in separate logins." },

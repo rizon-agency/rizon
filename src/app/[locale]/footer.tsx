@@ -1,17 +1,18 @@
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { LogoWithText } from "@/components/logo";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { alternatives } from "@/lib/alternatives";
 
-const navLinks = [
-  { name: "Home", href: "/#home" },
-  { name: "Why Us", href: "/#why-us" },
-  { name: "How We Work", href: "/#how-we-work" },
-  { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
-  { name: "Blog", href: "/blog" },
-  { name: "Get In Touch", href: "/#contact" },
-];
+const navLinkDefs = [
+  { key: "home", href: "/#home" },
+  { key: "whyUsShort", href: "/#why-us" },
+  { key: "howWeWork", href: "/#how-we-work" },
+  { key: "services", href: "/services" },
+  { key: "about", href: "/about" },
+  { key: "blog", href: "/blog" },
+  { key: "getInTouch", href: "/#contact" },
+] as const;
 
 const socials = [
   {
@@ -21,7 +22,9 @@ const socials = [
   },
 ];
 
-export const Footer = () => {
+export const Footer = async () => {
+  const tNav = await getTranslations("nav");
+  const tFooter = await getTranslations("footer");
   return (
     <footer className="mt-32 bg-primary text-primary-foreground md:mt-40">
       <div className="container">
@@ -31,40 +34,41 @@ export const Footer = () => {
               <LogoWithText size={120} />
             </Link>
             <p className="mt-5 max-w-sm text-lg leading-relaxed text-primary-foreground/80 text-pretty">
-              Custom LMS development agency. Building learning platforms people
-              actually want to use.
+              {tFooter("tagline")}
             </p>
           </div>
 
-          <nav className="lg:col-span-2" aria-label="Footer">
+          <nav className="lg:col-span-2" aria-label={tFooter("explore")}>
             <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/50">
-              Explore
+              {tFooter("explore")}
             </h2>
             <ul className="mt-5 space-y-3">
-              {navLinks.map((link) => (
-                <li key={link.name}>
+              {navLinkDefs.map((link) => (
+                <li key={link.key}>
                   <Link
                     href={link.href}
                     className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground"
                   >
-                    {link.name}
+                    {link.key === "getInTouch" || link.key === "howWeWork" || link.key === "whyUsShort"
+                      ? tFooter(link.key)
+                      : tNav(link.key)}
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          <nav className="lg:col-span-2" aria-label="Alternatives">
-            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/50">Compare</h2>
+          <nav className="lg:col-span-2" aria-label={tFooter("compare")}>
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/50">{tFooter("compare")}</h2>
             <ul className="mt-5 space-y-3">
               {alternatives.slice(0, 4).map((alternative) => <li key={alternative.slug}><Link href={`/alternatives/${alternative.slug}`} className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground">{alternative.competitor}</Link></li>)}
-              <li><Link href="/lms-alternatives" className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground">All alternatives</Link></li>
+              <li><Link href="/lms-alternatives" className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground">{tFooter("allAlternatives")}</Link></li>
             </ul>
           </nav>
 
           <div className="lg:col-span-3">
             <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/50">
-              Follow
+              {tFooter("follow")}
             </h2>
             <div className="mt-5 flex items-center gap-2">
               {socials.map((social) => (
@@ -93,14 +97,14 @@ export const Footer = () => {
 
         <div className="flex flex-col items-start justify-between gap-4 border-t border-primary-foreground/20 py-6 sm:flex-row sm:items-center">
           <p className="text-sm text-primary-foreground/70">
-            © {new Date().getFullYear()} Rizon. All rights reserved.
+            {tFooter("copyright", { year: new Date().getFullYear() })}
           </p>
           <div className="flex items-center gap-4">
             <Link
               href="/legal"
               className="text-sm text-primary-foreground/70 transition-colors hover:text-primary-foreground"
             >
-              Terms &amp; Services
+              {tFooter("terms")}
             </Link>
             <ThemeToggle />
           </div>

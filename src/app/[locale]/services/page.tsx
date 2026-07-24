@@ -8,7 +8,8 @@ import { Footer } from "../footer";
 import { Eyebrow } from "@/components/eyebrow";
 import { services } from "@/lib/services";
 import { languagesFor, localizedUrl, OG_LOCALE } from "@/i18n/hreflang";
-import { routing } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
+import { l } from "@/lib/l10n";
 
 const BASE_URL = "https://rizon.agency";
 
@@ -97,7 +98,7 @@ export default async function ServicesPage({
                   {service.title}
                 </h2>
                 <p className="mt-4 leading-relaxed text-muted-foreground">
-                  {service.heroSub}
+                  {l(service.heroSub, locale as Locale)}
                 </p>
               </Link>
             ))}

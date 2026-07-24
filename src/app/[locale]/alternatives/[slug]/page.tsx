@@ -55,7 +55,7 @@ export async function generateMetadata({
       siteName: "Rizon",
       locale: OG_LOCALE[locale as keyof typeof OG_LOCALE] ?? "en_US",
       type: "website",
-      images: [{ url: `${BASE_URL}/opengraph-image`, width: 1200, height: 630, alt: alternative.heroHeadline }],
+      images: [{ url: `${BASE_URL}/opengraph-image`, width: 1200, height: 630, alt: l(alternative.heroHeadline, locale as Locale) }],
     },
     twitter: {
       card: "summary_large_image",
@@ -129,10 +129,10 @@ export default async function AlternativePage({
           <div className="mt-10 max-w-4xl">
             <Eyebrow>{alternative.category}</Eyebrow>
             <h1 className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance md:text-6xl">
-              {alternative.heroHeadline}
+              {l(alternative.heroHeadline, locale as Locale)}
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-relaxed text-muted-foreground text-pretty">
-              {alternative.heroSub}
+              {l(alternative.heroSub, locale as Locale)}
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild size="lg"><Link href="https://cal.com/rizon.agency-cvbkll/30min" target="_blank" rel="noreferrer">Book a call <ArrowRight size={16} aria-hidden /></Link></Button>

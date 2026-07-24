@@ -59,8 +59,8 @@ export type Alternative = {
   category: string;
   metaTitle: MaybeLocalized<string>;
   metaDescription: MaybeLocalized<string>;
-  heroHeadline: string;
-  heroSub: string;
+  heroHeadline: MaybeLocalized<string>;
+  heroSub: MaybeLocalized<string>;
   intro: string[];
   whoThisIsFor: string;
   whyLeave: { title: string; body: string }[];
@@ -81,8 +81,8 @@ export type ServicePage = {
   title: string;
   metaTitle: MaybeLocalized<string>;
   metaDescription: MaybeLocalized<string>;
-  h1: string;
-  heroSub: string;
+  h1: MaybeLocalized<string>;
+  heroSub: MaybeLocalized<string>;
   targetKeyword: string;
   whoWeWorkWith: { audience: string; description: string }[];
   problemsWeSolve: { problem: string; solution: string }[];

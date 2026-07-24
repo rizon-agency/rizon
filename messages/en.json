@@ -1,4 +1,110 @@
 {
+  "nav": {
+    "home": "Home",
+    "whyUs": "Why us",
+    "process": "Process",
+    "services": "Services",
+    "about": "About",
+    "work": "Work",
+    "blog": "Blog",
+    "bookACall": "Book a call",
+    "primary": "Primary",
+    "mobile": "Mobile",
+    "openMenu": "Open menu"
+  },
+  "footer": {
+    "tagline": "Custom LMS development agency. Building learning platforms people actually want to use.",
+    "explore": "Explore",
+    "compare": "Compare",
+    "follow": "Follow",
+    "allAlternatives": "All alternatives",
+    "getInTouch": "Get In Touch",
+    "howWeWork": "How We Work",
+    "whyUsShort": "Why Us",
+    "terms": "Terms & Services",
+    "copyright": "© {year} Rizon. All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "headline": "The platform behind your learning product, built from scratch.",
+      "sub": "Custom e-learning platforms built around how you teach. No monthly fees, no limits. You own all the code.",
+      "ctaContact": "Get in touch",
+      "ctaWork": "See our work",
+      "statFees": "Platform fees. You keep every dollar you earn.",
+      "statOwnership": "Code ownership. The platform is yours to keep.",
+      "statLiveDay": "Day",
+      "statLiveLabel": "Your platform goes live and stays live"
+    },
+    "whyUs": {
+      "label": "Why us",
+      "titlePrefix": "Why",
+      "titleHighlight": "work with us",
+      "description": "Most agencies optimize for their own convenience and bill you for it. Here is how we have decided to work instead, in writing.",
+      "reasons": {
+        "tech": {
+          "title": "Best tech for your needs, not ours",
+          "description": "We pick the stack that fits your project and the people who will maintain it, not the one we happen to be fastest at. You never pay for our habits."
+        },
+        "demos": {
+          "title": "Weekly live demos and updates",
+          "description": "Every week you get a working build to click through and a plain-English rundown of what changed. No month-long silences. No surprise invoices."
+        },
+        "live": {
+          "title": "Live platform from day one",
+          "description": "Your platform ships to production with the first build. You watch it grow feature by feature instead of waiting for one big reveal at the end."
+        },
+        "lean": {
+          "title": "Build only what you will use",
+          "description": "We cut anything that does not earn its place. No bloated feature lists you will never open, just the things your users actually reach for."
+        },
+        "feedback": {
+          "title": "Your feedback shapes everything",
+          "description": "Your input drives every decision. We do not disappear for months. You are part of the process from day one."
+        }
+      }
+    },
+    "howWeWork": {
+      "label": "How we work",
+      "titlePrefix": "How we actually",
+      "titleHighlight": "work with you",
+      "description": "No confusing process, no project-management jargon. Just straightforward.",
+      "stepLabel": "Step",
+      "stepNumbers": {
+        "1": "one",
+        "2": "two",
+        "3": "three",
+        "4": "four",
+        "5": "five",
+        "6": "six"
+      },
+      "steps": {
+        "first": {
+          "title": "First call",
+          "description": "Tell us about your vision. What are you building? Who is it for? What is holding you back right now? We listen first."
+        },
+        "plan": {
+          "title": "Plan the next feature",
+          "description": "We work with you to decide what to build next. What matters most? What will make the biggest difference for your learners?"
+        },
+        "design": {
+          "title": "Design it",
+          "description": "We design how it looks and how it works. You see exactly what it will be before we write a single line of code."
+        },
+        "build": {
+          "title": "Build it",
+          "description": "We bring it to life. We handle the heavy lifting and make sure everything works the way it should."
+        },
+        "demo": {
+          "title": "Demo it",
+          "description": "We give you a live version to play with. Test it, break it, tell us what feels right and what does not."
+        },
+        "launch": {
+          "title": "Launch it",
+          "description": "We ship it to your platform. Your users get it."
+        }
+      }
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Custom E-Learning",

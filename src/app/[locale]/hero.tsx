@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import heroImage from "@/assets/hero.jpg";
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
 export const Hero = () => {
+  const t = useTranslations("home.hero");
   const reduced = useReducedMotion();
 
   const fade = (delay: number) =>
@@ -47,15 +49,14 @@ export const Hero = () => {
             {...fade(0.25)}
             className="max-w-3xl text-[2rem] font-semibold leading-[1.08] tracking-tight text-balance text-white sm:max-w-2xl sm:text-5xl sm:leading-[1.05] md:max-w-3xl md:text-6xl lg:max-w-4xl lg:text-7xl lg:leading-[1.02]"
           >
-            The platform behind your learning product, built from scratch.
+            {t("headline")}
           </motion.h1>
 
           <motion.p
             {...fade(0.5)}
             className="mt-6 max-w-2xl text-lg leading-relaxed text-pretty text-white/75"
           >
-            Custom e-learning platforms built around how you teach. No monthly
-            fees, no limits. You own all the code.
+            {t("sub")}
           </motion.p>
 
           <motion.div
@@ -63,7 +64,7 @@ export const Hero = () => {
             className="mt-10 flex flex-wrap items-center justify-center gap-3"
           >
             <Button size="lg" asChild>
-              <Link href="/#contact">Get in touch</Link>
+              <Link href="/#contact">{t("ctaContact")}</Link>
             </Button>
             <Button
               size="lg"
@@ -71,7 +72,7 @@ export const Hero = () => {
               asChild
               className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"
             >
-              <Link href="/#work">See our work</Link>
+              <Link href="/#work">{t("ctaWork")}</Link>
             </Button>
           </motion.div>
         </div>
@@ -87,7 +88,7 @@ export const Hero = () => {
                   <span className="text-primary">0</span>%
                 </>
               ),
-              label: "Platform fees. You keep every dollar you earn.",
+              label: t("statFees"),
             },
             {
               value: (
@@ -95,15 +96,15 @@ export const Hero = () => {
                   <span className="text-primary">100</span>%
                 </>
               ),
-              label: "Code ownership. The platform is yours to keep.",
+              label: t("statOwnership"),
             },
             {
               value: (
                 <>
-                  Day <span className="text-primary">1</span>
+                  {t("statLiveDay")} <span className="text-primary">1</span>
                 </>
               ),
-              label: "Your platform goes live and stays live",
+              label: t("statLiveLabel"),
             },
           ].map((stat, i) => (
             <div

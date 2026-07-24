@@ -1,9 +1,13 @@
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
+import { getLocale } from "next-intl/server";
 import { alternatives } from "@/lib/alternatives";
 import { SectionHeader } from "@/components/section-header";
+import { l } from "@/lib/l10n";
+import type { Locale } from "@/i18n/routing";
 
-export const AlternativesPreview = () => {
+export const AlternativesPreview = async () => {
+  const locale = (await getLocale()) as Locale;
   const featured = alternatives.slice(0, 3);
   return (
     <section className="container mt-32 md:mt-40">
@@ -25,7 +29,7 @@ export const AlternativesPreview = () => {
               {alternative.competitor} alternative
             </h3>
             <p className="mt-3 leading-relaxed text-muted-foreground">
-              {alternative.heroSub}
+              {l(alternative.heroSub, locale)}
             </p>
             <Link
               href={`/alternatives/${alternative.slug}`}

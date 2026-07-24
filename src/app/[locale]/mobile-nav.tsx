@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,29 +15,35 @@ import {
 } from "@/components/ui/sheet";
 import { LogoWithText } from "@/components/logo";
 
-const links = [
-  { name: "Home", href: "/#home", id: "home", isPage: false },
-  { name: "Why us", href: "/#why-us", id: "why-us", isPage: false },
-  { name: "Process", href: "/#how-we-work", id: "how-we-work", isPage: false },
-  { name: "Services", href: "/services", id: "services", isPage: true },
-  { name: "About", href: "/about", id: "about", isPage: true },
-  { name: "Work", href: "/#work", id: "work", isPage: false },
-  { name: "Blog", href: "/blog", id: "blog", isPage: true },
-];
+const linkDefs = [
+  { key: "home", href: "/#home", id: "home", isPage: false },
+  { key: "whyUs", href: "/#why-us", id: "why-us", isPage: false },
+  { key: "process", href: "/#how-we-work", id: "how-we-work", isPage: false },
+  { key: "services", href: "/services", id: "services", isPage: true },
+  { key: "about", href: "/about", id: "about", isPage: true },
+  { key: "work", href: "/#work", id: "work", isPage: false },
+  { key: "blog", href: "/blog", id: "blog", isPage: true },
+] as const;
+
+type LinkDef = (typeof linkDefs)[number];
 
 type Props = { activeId: string; overHero?: boolean };
 
 export const MobileNav = ({ activeId, overHero }: Props) => {
+  const t = useTranslations("nav");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const isActive = (link: (typeof links)[0]) =>
+  const isActive = (link: LinkDef) =>
     link.isPage
       ? pathname.startsWith(link.href)
       : pathname === "/" && activeId === link.id;
 
   const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, link: (typeof links)[0]) => {
+    (
+      e: React.MouseEvent<HTMLAnchorElement>,
+      link: { id: string; isPage: boolean },
+    ) => {
       setOpen(false);
       if (!link.isPage && pathname === "/") {
         e.preventDefault();
@@ -52,7 +59,7 @@ export const MobileNav = ({ activeId, overHero }: Props) => {
       <SheetTrigger asChild>
         <button
           type="button"
-          aria-label="Open menu"
+          aria-label={t("openMenu")}
           className={`flex size-9 items-center justify-center rounded-full border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 md:hidden ${
             overHero
               ? "border-white/40 text-white hover:bg-white/10"
@@ -66,14 +73,14 @@ export const MobileNav = ({ activeId, overHero }: Props) => {
       <SheetContent side="left" className="flex flex-col px-0">
         <SheetHeader className="border-b border-border px-6 pb-4">
           <SheetTitle asChild>
-            <Link href="/#home" onClick={(e) => handleClick(e, links[0])}>
+            <Link href="/#home" onClick={(e) => handleClick(e, linkDefs[0])}>
               <LogoWithText size={80} className="text-primary" />
             </Link>
           </SheetTitle>
         </SheetHeader>
 
-        <nav className="flex flex-col px-6 py-4" aria-label="Mobile">
-          {links.map((link) => {
+        <nav className="flex flex-col px-6 py-4" aria-label={t("mobile")}>
+          {linkDefs.map((link) => {
             const active = isActive(link);
             return (
               <Link
@@ -84,7 +91,7 @@ export const MobileNav = ({ activeId, overHero }: Props) => {
                 className="group flex items-center justify-between border-b border-border py-4 text-[15px] font-medium transition-colors last:border-b-0"
               >
                 <span className={active ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}>
-                  {link.name}
+                  {t(link.key)}
                 </span>
                 <span
                   aria-hidden
@@ -100,9 +107,9 @@ export const MobileNav = ({ activeId, overHero }: Props) => {
           <Button asChild className="flex-1">
             <Link
               href="/#contact"
-              onClick={(e) => handleClick(e, { name: "Contact", href: "/#contact", id: "contact", isPage: false })}
+              onClick={(e) => handleClick(e, { id: "contact", isPage: false })}
             >
-              Book a call
+              {t("bookACall")}
             </Link>
           </Button>
         </div>
