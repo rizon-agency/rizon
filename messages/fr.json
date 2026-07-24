@@ -402,6 +402,41 @@
       "exploreServicePrefix": "Découvrir"
     }
   },
+  "lmsAlternativesPage": {
+    "eyebrow": "Guide de décision",
+    "h1": "Alternatives aux LMS, sans prétendre que toutes les équipes ont besoin d'un développement sur mesure.",
+    "sub": "Un LMS hébergé ou open-source est souvent le bon choix. Construisez un logiciel sur mesure lorsque la plateforme elle-même fait partie de votre offre, de vos opérations ou de votre avantage.",
+    "table": {
+      "platform": "Plateforme",
+      "bestFit": "Cas d'usage idéal",
+      "whyCustom": "Pourquoi les équipes envisagent le sur mesure"
+    },
+    "readComparison": "Lire la comparaison",
+    "alternativeSuffix": "alternative",
+    "faq": {
+      "eyebrow": "Avant de décider",
+      "title": "Trois questions qui valent la peine d'être posées d'abord",
+      "items": {
+        "worthIt": {
+          "question": "Quand un LMS sur mesure en vaut-il la peine ?",
+          "answer": "Quand votre expérience d'apprentissage, vos règles métier, vos données ou vos intégrations sont assez importantes pour que les réglages fixes du produit créent un travail manuel récurrent ou des opportunités manquées."
+        },
+        "replaceWorking": {
+          "question": "Devrions-nous remplacer un LMS qui fonctionne déjà ?",
+          "answer": "En général, non. Gardez un LMS qui fonctionne quand ses contraintes sont tolérables et que son modèle opérationnel convient à votre équipe. Remplacez-le lorsque les contraintes affectent une partie centrale de votre programme ou produit."
+        },
+        "stages": {
+          "question": "Pouvons-nous migrer par étapes ?",
+          "answer": "Oui. Une migration progressive peut d'abord déplacer un programme, un public ou un flux de travail. Cela réduit le risque et rend les leçons de la première version utiles avant une bascule plus large."
+        }
+      }
+    },
+    "bottomCta": {
+      "title": "Amenez le flux de travail inconfortable à l'appel.",
+      "description": "Nous vous aiderons à distinguer une amélioration pratique d'un remplacement de plateforme. Parfois, la bonne réponse est de garder ce que vous avez.",
+      "button": "Réserver un appel de 30 minutes"
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Plateforme e-learning sur mesure",

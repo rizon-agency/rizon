@@ -402,6 +402,41 @@
       "exploreServicePrefix": "Erkunden"
     }
   },
+  "lmsAlternativesPage": {
+    "eyebrow": "Entscheidungshilfe",
+    "h1": "LMS-Alternativen, ohne so zu tun, als bräuchte jedes Team eine maßgeschneiderte Entwicklung.",
+    "sub": "Ein gehostetes oder Open-Source-LMS ist oft die richtige Wahl. Bauen Sie maßgeschneiderte Software, wenn die Plattform selbst Teil Ihres Angebots, Ihrer Abläufe oder Ihres Vorteils ist.",
+    "table": {
+      "platform": "Plattform",
+      "bestFit": "Ideal für",
+      "whyCustom": "Warum Teams über eine Eigenentwicklung nachdenken"
+    },
+    "readComparison": "Vergleich lesen",
+    "alternativeSuffix": "Alternative",
+    "faq": {
+      "eyebrow": "Vor der Entscheidung",
+      "title": "Drei Fragen, die es wert sind, zuerst beantwortet zu werden",
+      "items": {
+        "worthIt": {
+          "question": "Wann lohnt sich ein maßgeschneidertes LMS?",
+          "answer": "Wenn Ihre Lernerfahrung, Ihre Geschäftsregeln, Ihre Daten oder Ihre Integrationen wichtig genug sind, dass fixe Produkteinstellungen wiederkehrende manuelle Arbeit oder verpasste Chancen erzeugen."
+        },
+        "replaceWorking": {
+          "question": "Sollten wir ein LMS ersetzen, das bereits funktioniert?",
+          "answer": "Meistens nicht. Behalten Sie ein funktionierendes LMS, solange seine Einschränkungen tolerierbar sind und sein Betriebsmodell zu Ihrem Team passt. Ersetzen Sie es, wenn die Einschränkungen einen zentralen Teil Ihres Programms oder Produkts betreffen."
+        },
+        "stages": {
+          "question": "Können wir in Etappen migrieren?",
+          "answer": "Ja. Eine schrittweise Migration kann zuerst ein Programm, eine Zielgruppe oder einen Workflow verschieben. Das reduziert das Risiko und macht die Erfahrungen aus der ersten Version nutzbar, bevor ein breiterer Wechsel erfolgt."
+        }
+      }
+    },
+    "bottomCta": {
+      "title": "Bringen Sie den unbequemen Workflow ins Gespräch.",
+      "description": "Wir helfen Ihnen, ein praktisches Upgrade von einem Plattform-Wechsel zu unterscheiden. Manchmal ist die richtige Antwort, bei dem zu bleiben, was Sie haben.",
+      "button": "30-minütigen Termin buchen"
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Maßgeschneiderte E-Learning-Plattform",

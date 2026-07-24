@@ -402,6 +402,41 @@
       "exploreServicePrefix": "Explorar"
     }
   },
+  "lmsAlternativesPage": {
+    "eyebrow": "Guía de decisión",
+    "h1": "Alternativas a LMS, sin fingir que todos los equipos necesitan un desarrollo a medida.",
+    "sub": "Un LMS alojado o de código abierto suele ser la elección correcta. Construye software a medida cuando la plataforma en sí forma parte de tu oferta, de tus operaciones o de tu ventaja.",
+    "table": {
+      "platform": "Plataforma",
+      "bestFit": "Encaje ideal",
+      "whyCustom": "Por qué los equipos consideran lo a medida"
+    },
+    "readComparison": "Leer la comparación",
+    "alternativeSuffix": "alternativa",
+    "faq": {
+      "eyebrow": "Antes de decidir",
+      "title": "Tres preguntas que vale la pena responder primero",
+      "items": {
+        "worthIt": {
+          "question": "¿Cuándo merece la pena un LMS a medida?",
+          "answer": "Cuando tu experiencia de aprendizaje, reglas de negocio, datos o integraciones son lo bastante importantes como para que los ajustes fijos del producto generen trabajo manual recurrente u oportunidades perdidas."
+        },
+        "replaceWorking": {
+          "question": "¿Deberíamos reemplazar un LMS que ya funciona?",
+          "answer": "Normalmente no. Mantén un LMS que funciona cuando sus restricciones son tolerables y su modelo operativo encaja con tu equipo. Reemplázalo cuando las restricciones afectan a una parte central de tu programa o producto."
+        },
+        "stages": {
+          "question": "¿Podemos migrar por etapas?",
+          "answer": "Sí. Una migración por etapas puede mover primero un programa, un público o un flujo de trabajo. Reduce el riesgo y hace que las lecciones de la primera versión sean útiles antes de un cambio más amplio."
+        }
+      }
+    },
+    "bottomCta": {
+      "title": "Trae el flujo de trabajo incómodo a la llamada.",
+      "description": "Te ayudaremos a distinguir una mejora práctica de un reemplazo de plataforma. A veces la respuesta correcta es quedarse con lo que tienes.",
+      "button": "Reservar una llamada de 30 minutos"
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Plataforma de e-learning a medida",

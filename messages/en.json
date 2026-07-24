@@ -402,6 +402,41 @@
       "exploreServicePrefix": "Explore"
     }
   },
+  "lmsAlternativesPage": {
+    "eyebrow": "Decision guide",
+    "h1": "LMS alternatives, without pretending every team needs a custom build.",
+    "sub": "A hosted or open-source LMS is often the right choice. Build custom software when the platform itself is part of your offer, your operations, or your edge.",
+    "table": {
+      "platform": "Platform",
+      "bestFit": "Best fit",
+      "whyCustom": "Why teams consider custom"
+    },
+    "readComparison": "Read the comparison",
+    "alternativeSuffix": "alternative",
+    "faq": {
+      "eyebrow": "Before deciding",
+      "title": "Three questions worth answering first",
+      "items": {
+        "worthIt": {
+          "question": "When is a custom LMS worth it?",
+          "answer": "When your learning experience, business rules, data, or integrations are important enough that fixed product settings create recurring manual work or lost opportunities."
+        },
+        "replaceWorking": {
+          "question": "Should we replace an LMS that already works?",
+          "answer": "Usually no. Keep a working LMS when its constraints are tolerable and its operating model suits your team. Replace it when the constraints affect a core part of your programme or product."
+        },
+        "stages": {
+          "question": "Can we migrate in stages?",
+          "answer": "Yes. A staged migration can move one programme, audience, or workflow first. It reduces risk and makes the lessons from the first release useful before a broader cutover."
+        }
+      }
+    },
+    "bottomCta": {
+      "title": "Bring the awkward workflow to the call.",
+      "description": "We will help you sort a practical upgrade from a platform replacement. Sometimes the right answer is to keep what you have.",
+      "button": "Book a 30-minute call"
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Custom E-Learning",
