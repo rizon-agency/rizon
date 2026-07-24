@@ -361,6 +361,47 @@
     },
     "alternativeSuffix": "alternativa"
   },
+  "alternativeDetail": {
+    "heroBookCall": "Reservar una llamada",
+    "heroSeeComparison": "Ver la comparación",
+    "intro": {
+      "label": "La respuesta directa",
+      "whoThisIsFor": "Para quién es esto:"
+    },
+    "whyLeave": {
+      "label": "Donde empieza la fricción",
+      "titleTemplate": "Por qué los equipos dejan {competitor}"
+    },
+    "comparison": {
+      "label": "Codo a codo",
+      "titleTemplate": "Desarrollo a medida vs {competitor}",
+      "dimension": "Dimensión",
+      "rizon": "Rizon (a medida)"
+    },
+    "whereTheyWin": {
+      "label": "La lectura honesta",
+      "titleTemplate": "Donde {competitor} es realmente la mejor opción"
+    },
+    "migration": {
+      "label": "Migración, sin teatro",
+      "title": "Mueve las partes que importan. Prueba el resto.",
+      "readPrefix": "Leer"
+    },
+    "faq": {
+      "label": "Preguntas que hacen los compradores",
+      "title": "Antes de cambiar"
+    },
+    "bottomCta": {
+      "eyebrow": "Tu siguiente paso",
+      "title": "Descubre si una plataforma a medida es realmente la decisión sensata.",
+      "description": "Trae las partes de tu configuración actual que duelen. Te diremos qué merece la pena reconstruir, qué debe quedarse, y dónde el software a medida sería un desperdicio.",
+      "button": "Reservar una llamada de 30 minutos"
+    },
+    "footerLinks": {
+      "browseAll": "Ver todas las alternativas de LMS",
+      "exploreServicePrefix": "Explorar"
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Plataforma de e-learning a medida",

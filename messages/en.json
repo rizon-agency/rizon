@@ -361,6 +361,47 @@
     },
     "alternativeSuffix": "alternative"
   },
+  "alternativeDetail": {
+    "heroBookCall": "Book a call",
+    "heroSeeComparison": "See the comparison",
+    "intro": {
+      "label": "The direct answer",
+      "whoThisIsFor": "Who this is for:"
+    },
+    "whyLeave": {
+      "label": "Where the friction starts",
+      "titleTemplate": "Why teams leave {competitor}"
+    },
+    "comparison": {
+      "label": "Side by side",
+      "titleTemplate": "Custom build vs {competitor}",
+      "dimension": "Dimension",
+      "rizon": "Rizon (custom build)"
+    },
+    "whereTheyWin": {
+      "label": "The honest case",
+      "titleTemplate": "Where {competitor} is genuinely the better choice"
+    },
+    "migration": {
+      "label": "Migration, without theatre",
+      "title": "Move the parts that matter. Test the rest.",
+      "readPrefix": "Read"
+    },
+    "faq": {
+      "label": "Questions buyers ask",
+      "title": "Before you switch"
+    },
+    "bottomCta": {
+      "eyebrow": "Your next step",
+      "title": "Find out if a custom platform is actually the sensible move.",
+      "description": "Bring the parts of your current setup that hurt. We will tell you what is worth rebuilding, what should stay, and where custom software would be a waste.",
+      "button": "Book a 30-minute call"
+    },
+    "footerLinks": {
+      "browseAll": "Browse all LMS alternatives",
+      "exploreServicePrefix": "Explore"
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Custom E-Learning",

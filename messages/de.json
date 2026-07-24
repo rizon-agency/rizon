@@ -361,6 +361,47 @@
     },
     "alternativeSuffix": "Alternative"
   },
+  "alternativeDetail": {
+    "heroBookCall": "Termin buchen",
+    "heroSeeComparison": "Vergleich ansehen",
+    "intro": {
+      "label": "Die direkte Antwort",
+      "whoThisIsFor": "Für wen das ist:"
+    },
+    "whyLeave": {
+      "label": "Wo die Reibung beginnt",
+      "titleTemplate": "Warum Teams {competitor} verlassen"
+    },
+    "comparison": {
+      "label": "Seite an Seite",
+      "titleTemplate": "Maßgeschneiderte Entwicklung vs. {competitor}",
+      "dimension": "Dimension",
+      "rizon": "Rizon (maßgeschneidert)"
+    },
+    "whereTheyWin": {
+      "label": "Die ehrliche Einschätzung",
+      "titleTemplate": "Wo {competitor} wirklich die bessere Wahl ist"
+    },
+    "migration": {
+      "label": "Migration, ohne Theater",
+      "title": "Verschieben Sie die Teile, die zählen. Testen Sie den Rest.",
+      "readPrefix": "Lesen"
+    },
+    "faq": {
+      "label": "Fragen von Käufern",
+      "title": "Bevor Sie wechseln"
+    },
+    "bottomCta": {
+      "eyebrow": "Ihr nächster Schritt",
+      "title": "Finden Sie heraus, ob eine maßgeschneiderte Plattform wirklich die vernünftige Entscheidung ist.",
+      "description": "Bringen Sie die Teile Ihres aktuellen Setups mit, die schmerzen. Wir sagen Ihnen, was neu gebaut werden sollte, was bleiben sollte und wo maßgeschneiderte Software Verschwendung wäre.",
+      "button": "30-minütigen Termin buchen"
+    },
+    "footerLinks": {
+      "browseAll": "Alle LMS-Alternativen ansehen",
+      "exploreServicePrefix": "Erkunden"
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Maßgeschneiderte E-Learning-Plattform",

@@ -361,6 +361,47 @@
     },
     "alternativeSuffix": "alternative"
   },
+  "alternativeDetail": {
+    "heroBookCall": "Réserver un appel",
+    "heroSeeComparison": "Voir la comparaison",
+    "intro": {
+      "label": "La réponse directe",
+      "whoThisIsFor": "Pour qui c'est fait :"
+    },
+    "whyLeave": {
+      "label": "Là où les frictions commencent",
+      "titleTemplate": "Pourquoi les équipes quittent {competitor}"
+    },
+    "comparison": {
+      "label": "Côte à côte",
+      "titleTemplate": "Développement sur mesure vs {competitor}",
+      "dimension": "Dimension",
+      "rizon": "Rizon (sur mesure)"
+    },
+    "whereTheyWin": {
+      "label": "La lecture honnête",
+      "titleTemplate": "Là où {competitor} est réellement le meilleur choix"
+    },
+    "migration": {
+      "label": "Migration, sans théâtre",
+      "title": "Déplacez les parties qui comptent. Testez le reste.",
+      "readPrefix": "Lire"
+    },
+    "faq": {
+      "label": "Questions que posent les acheteurs",
+      "title": "Avant de changer"
+    },
+    "bottomCta": {
+      "eyebrow": "Votre prochaine étape",
+      "title": "Découvrez si une plateforme sur mesure est vraiment la bonne décision.",
+      "description": "Amenez les parties de votre configuration actuelle qui vous font mal. Nous vous dirons ce qui mérite d'être reconstruit, ce qui doit rester, et où un logiciel sur mesure serait du gaspillage.",
+      "button": "Réserver un appel de 30 minutes"
+    },
+    "footerLinks": {
+      "browseAll": "Parcourir toutes les alternatives LMS",
+      "exploreServicePrefix": "Découvrir"
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Plateforme e-learning sur mesure",
