@@ -437,6 +437,73 @@
       "button": "Book a 30-minute call"
     }
   },
+  "aboutPage": {
+    "hero": {
+      "eyebrow": "About Rizon",
+      "titlePrefix": "A software studio focused exclusively on",
+      "titleHighlight": "learning platforms",
+      "intro1": "I'm Choaib Mouhrach, founder of Rizon and a software engineer specializing in learning technology. For the past several years I've worked almost exclusively on LMS development, building custom learning platforms and integrating systems like Moodle, Canvas, and LTI for education businesses and training organizations.",
+      "intro2": "I started Rizon to give organizations an alternative to forcing their workflows into off-the-shelf platforms.",
+      "founderRole": "Founder & Learning Platform Engineer"
+    },
+    "aboutRizon": {
+      "eyebrow": "About Rizon",
+      "title": "Learning platforms built around how your organization already operates.",
+      "p1": "Rizon is a software studio focused exclusively on learning platforms. We design and build custom LMS products for education businesses, training companies, schools, and organizations whose current platform no longer fits how they operate.",
+      "p2": "That includes everything from complete learning platforms to Moodle and Canvas development, LTI integrations, assessment systems, reporting, course commerce, and internal training portals.",
+      "p3": "Every project starts with understanding how your organization teaches and operates, then building software around that instead of forcing your team to adapt to generic LMS software."
+    },
+    "proofPoints": {
+      "focus": "Focused exclusively on learning platforms",
+      "specialists": "Moodle & Canvas specialists",
+      "lti": "LTI integrations",
+      "customLms": "Custom LMS development",
+      "ownership": "End-to-end ownership",
+      "global": "Clients across multiple countries"
+    },
+    "howWeBuild": {
+      "eyebrow": "How we build",
+      "titlePrefix": "Small releases. Direct conversations.",
+      "titleHighlight": "Code you keep.",
+      "principles": {
+        "small": {
+          "title": "Small releases",
+          "body": "Every project is delivered in small milestones so feedback happens early, not after months of development."
+        },
+        "direct": {
+          "title": "Direct conversations",
+          "body": "You work directly with the engineer building your platform. No account managers, no communication chain, and no information lost between meetings and implementation."
+        },
+        "code": {
+          "title": "Code you keep",
+          "body": "Every project includes full source code, documentation, and deployment instructions. You own the platform and can continue developing it with any team."
+        }
+      }
+    },
+    "capabilitiesSection": {
+      "eyebrow": "What we've built",
+      "title": "The specific work we do inside learning platforms.",
+      "items": {
+        "0": "Custom LMS platforms",
+        "1": "Moodle development",
+        "2": "Canvas development",
+        "3": "LTI 1.3 integrations",
+        "4": "Student dashboards",
+        "5": "Instructor portals",
+        "6": "Assessment systems",
+        "7": "Certificates",
+        "8": "Learning analytics",
+        "9": "Gamification",
+        "10": "Course commerce",
+        "11": "Internal training portals"
+      }
+    },
+    "cta": {
+      "title": "Let's evaluate your platform.",
+      "description": "Whether you're extending Moodle, integrating Canvas, replacing an existing LMS, or building a learning platform from scratch, we'll help you determine whether the problem is configuration, integration, or custom software — and recommend the most practical path forward.",
+      "button": "Book a discovery call"
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Custom E-Learning",

@@ -437,6 +437,73 @@
       "button": "Reservar una llamada de 30 minutos"
     }
   },
+  "aboutPage": {
+    "hero": {
+      "eyebrow": "Acerca de Rizon",
+      "titlePrefix": "Un estudio de software dedicado exclusivamente a",
+      "titleHighlight": "plataformas de aprendizaje",
+      "intro1": "Soy Choaib Mouhrach, fundador de Rizon e ingeniero de software especializado en tecnología educativa. Durante los últimos años he trabajado casi exclusivamente en el desarrollo de LMS, construyendo plataformas de aprendizaje a medida e integrando sistemas como Moodle, Canvas y LTI para negocios de formación y organizaciones educativas.",
+      "intro2": "Fundé Rizon para dar a las organizaciones una alternativa a forzar sus flujos de trabajo en plataformas estándar.",
+      "founderRole": "Fundador & Ingeniero de plataformas de aprendizaje"
+    },
+    "aboutRizon": {
+      "eyebrow": "Acerca de Rizon",
+      "title": "Plataformas de aprendizaje construidas en torno a cómo tu organización realmente funciona.",
+      "p1": "Rizon es un estudio de software dedicado exclusivamente a plataformas de aprendizaje. Diseñamos y construimos productos LMS a medida para negocios educativos, empresas de formación, escuelas y organizaciones cuya plataforma actual ya no encaja con su forma de trabajar.",
+      "p2": "Esto incluye desde plataformas de aprendizaje completas hasta desarrollo Moodle y Canvas, integraciones LTI, sistemas de evaluación, reporting, comercio de cursos y portales de formación interna.",
+      "p3": "Cada proyecto empieza entendiendo cómo tu organización enseña y opera, para luego construir software en torno a eso en vez de forzar a tu equipo a adaptarse a un LMS genérico."
+    },
+    "proofPoints": {
+      "focus": "Dedicado exclusivamente a plataformas de aprendizaje",
+      "specialists": "Especialistas en Moodle y Canvas",
+      "lti": "Integraciones LTI",
+      "customLms": "Desarrollo de LMS a medida",
+      "ownership": "Propiedad de extremo a extremo",
+      "global": "Clientes en varios países"
+    },
+    "howWeBuild": {
+      "eyebrow": "Cómo construimos",
+      "titlePrefix": "Entregas pequeñas. Conversaciones directas.",
+      "titleHighlight": "Código que es tuyo.",
+      "principles": {
+        "small": {
+          "title": "Entregas pequeñas",
+          "body": "Cada proyecto se entrega en pequeños hitos para que el feedback llegue pronto, no después de meses de desarrollo."
+        },
+        "direct": {
+          "title": "Conversaciones directas",
+          "body": "Trabajas directamente con el ingeniero que construye tu plataforma. Sin gestores de cuenta, sin cadena de comunicación, sin información perdida entre reuniones y desarrollo."
+        },
+        "code": {
+          "title": "Código que es tuyo",
+          "body": "Cada proyecto incluye el código fuente completo, documentación e instrucciones de despliegue. Eres dueño de la plataforma y puedes seguir desarrollándola con cualquier equipo."
+        }
+      }
+    },
+    "capabilitiesSection": {
+      "eyebrow": "Lo que hemos construido",
+      "title": "El trabajo concreto que hacemos dentro de las plataformas de aprendizaje.",
+      "items": {
+        "0": "Plataformas LMS a medida",
+        "1": "Desarrollo Moodle",
+        "2": "Desarrollo Canvas",
+        "3": "Integraciones LTI 1.3",
+        "4": "Paneles de estudiantes",
+        "5": "Portales de instructores",
+        "6": "Sistemas de evaluación",
+        "7": "Certificados",
+        "8": "Analítica de aprendizaje",
+        "9": "Gamificación",
+        "10": "Comercio de cursos",
+        "11": "Portales de formación interna"
+      }
+    },
+    "cta": {
+      "title": "Evaluemos tu plataforma.",
+      "description": "Ya sea que estés extendiendo Moodle, integrando Canvas, reemplazando un LMS existente o construyendo una plataforma de aprendizaje desde cero, te ayudaremos a determinar si el problema es de configuración, integración o software a medida — y te recomendaremos el camino más práctico.",
+      "button": "Reservar una llamada de descubrimiento"
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Plataforma de e-learning a medida",

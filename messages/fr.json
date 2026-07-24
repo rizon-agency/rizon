@@ -437,6 +437,73 @@
       "button": "Réserver un appel de 30 minutes"
     }
   },
+  "aboutPage": {
+    "hero": {
+      "eyebrow": "À propos de Rizon",
+      "titlePrefix": "Un studio logiciel dédié exclusivement aux",
+      "titleHighlight": "plateformes d'apprentissage",
+      "intro1": "Je suis Choaib Mouhrach, fondateur de Rizon et ingénieur logiciel spécialisé en technologie éducative. Depuis plusieurs années, je travaille presque exclusivement sur le développement de LMS, en construisant des plateformes d'apprentissage sur mesure et en intégrant des systèmes comme Moodle, Canvas et LTI pour des entreprises de formation et des organisations éducatives.",
+      "intro2": "J'ai créé Rizon pour offrir aux organisations une alternative à l'obligation d'adapter leurs flux de travail à des plateformes standard.",
+      "founderRole": "Fondateur & Ingénieur de plateformes d'apprentissage"
+    },
+    "aboutRizon": {
+      "eyebrow": "À propos de Rizon",
+      "title": "Des plateformes d'apprentissage construites autour du fonctionnement réel de votre organisation.",
+      "p1": "Rizon est un studio logiciel dédié exclusivement aux plateformes d'apprentissage. Nous concevons et construisons des LMS sur mesure pour des entreprises de formation, des sociétés de formation, des écoles et des organisations dont la plateforme actuelle ne correspond plus à leur fonctionnement.",
+      "p2": "Cela inclut aussi bien des plateformes d'apprentissage complètes que du développement Moodle et Canvas, des intégrations LTI, des systèmes d'évaluation, du reporting, du commerce de cours et des portails de formation interne.",
+      "p3": "Chaque projet commence par la compréhension de la façon dont votre organisation enseigne et opère, puis la construction du logiciel autour de cela plutôt que de forcer votre équipe à s'adapter à un LMS générique."
+    },
+    "proofPoints": {
+      "focus": "Dédié exclusivement aux plateformes d'apprentissage",
+      "specialists": "Spécialistes Moodle et Canvas",
+      "lti": "Intégrations LTI",
+      "customLms": "Développement de LMS sur mesure",
+      "ownership": "Propriété de bout en bout",
+      "global": "Clients dans plusieurs pays"
+    },
+    "howWeBuild": {
+      "eyebrow": "Notre méthode",
+      "titlePrefix": "Petites livraisons. Conversations directes.",
+      "titleHighlight": "Un code qui vous appartient.",
+      "principles": {
+        "small": {
+          "title": "Petites livraisons",
+          "body": "Chaque projet est livré en petits jalons pour que les retours arrivent tôt, pas après des mois de développement."
+        },
+        "direct": {
+          "title": "Conversations directes",
+          "body": "Vous travaillez directement avec l'ingénieur qui construit votre plateforme. Pas de responsable de compte, pas de chaîne de communication, pas d'information perdue entre les réunions et la mise en œuvre."
+        },
+        "code": {
+          "title": "Un code qui vous appartient",
+          "body": "Chaque projet inclut le code source complet, la documentation et les instructions de déploiement. Vous êtes propriétaire de la plateforme et pouvez continuer à la développer avec n'importe quelle équipe."
+        }
+      }
+    },
+    "capabilitiesSection": {
+      "eyebrow": "Ce que nous avons construit",
+      "title": "Le travail concret que nous faisons dans les plateformes d'apprentissage.",
+      "items": {
+        "0": "Plateformes LMS sur mesure",
+        "1": "Développement Moodle",
+        "2": "Développement Canvas",
+        "3": "Intégrations LTI 1.3",
+        "4": "Tableaux de bord étudiants",
+        "5": "Portails instructeurs",
+        "6": "Systèmes d'évaluation",
+        "7": "Certificats",
+        "8": "Analyses d'apprentissage",
+        "9": "Gamification",
+        "10": "Commerce de cours",
+        "11": "Portails de formation interne"
+      }
+    },
+    "cta": {
+      "title": "Évaluons votre plateforme.",
+      "description": "Que vous étendiez Moodle, intégriez Canvas, remplaciez un LMS existant, ou construisiez une plateforme d'apprentissage à partir de zéro, nous vous aiderons à déterminer si le problème est de configuration, d'intégration ou de logiciel sur mesure — et nous vous recommanderons la voie la plus pratique.",
+      "button": "Réserver un appel de découverte"
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Plateforme e-learning sur mesure",

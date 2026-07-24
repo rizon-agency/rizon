@@ -437,6 +437,73 @@
       "button": "30-minütigen Termin buchen"
     }
   },
+  "aboutPage": {
+    "hero": {
+      "eyebrow": "Über Rizon",
+      "titlePrefix": "Ein Softwarestudio, das sich ausschließlich auf",
+      "titleHighlight": "Lernplattformen",
+      "intro1": "Ich bin Choaib Mouhrach, Gründer von Rizon und Softwareingenieur mit Spezialisierung auf Lerntechnologie. In den letzten Jahren habe ich fast ausschließlich an LMS-Entwicklung gearbeitet, maßgeschneiderte Lernplattformen gebaut und Systeme wie Moodle, Canvas und LTI für Bildungsunternehmen und Trainingsorganisationen integriert.",
+      "intro2": "Ich habe Rizon gegründet, um Organisationen eine Alternative zu bieten, ihre Arbeitsabläufe in Standard-Plattformen zu zwängen.",
+      "founderRole": "Gründer & Lernplattform-Ingenieur"
+    },
+    "aboutRizon": {
+      "eyebrow": "Über Rizon",
+      "title": "Lernplattformen, die sich an der tatsächlichen Arbeitsweise Ihrer Organisation orientieren.",
+      "p1": "Rizon ist ein Softwarestudio, das sich ausschließlich auf Lernplattformen konzentriert. Wir entwerfen und bauen maßgeschneiderte LMS-Produkte für Bildungsunternehmen, Trainingsanbieter, Schulen und Organisationen, deren aktuelle Plattform nicht mehr zu ihrer Arbeitsweise passt.",
+      "p2": "Das umfasst alles von kompletten Lernplattformen über Moodle- und Canvas-Entwicklung, LTI-Integrationen, Prüfungssysteme, Reporting, Kurscommerce bis hin zu internen Schulungsportalen.",
+      "p3": "Jedes Projekt beginnt damit, zu verstehen, wie Ihre Organisation lehrt und arbeitet, und dann Software darum herum zu bauen, statt Ihr Team zu zwingen, sich an generische LMS-Software anzupassen."
+    },
+    "proofPoints": {
+      "focus": "Ausschließlich auf Lernplattformen fokussiert",
+      "specialists": "Moodle- und Canvas-Spezialisten",
+      "lti": "LTI-Integrationen",
+      "customLms": "Maßgeschneiderte LMS-Entwicklung",
+      "ownership": "Ende-zu-Ende-Eigentum",
+      "global": "Kunden in mehreren Ländern"
+    },
+    "howWeBuild": {
+      "eyebrow": "Wie wir bauen",
+      "titlePrefix": "Kleine Releases. Direkte Gespräche.",
+      "titleHighlight": "Code, der Ihnen gehört.",
+      "principles": {
+        "small": {
+          "title": "Kleine Releases",
+          "body": "Jedes Projekt wird in kleinen Meilensteinen ausgeliefert, damit Feedback früh kommt, nicht nach Monaten der Entwicklung."
+        },
+        "direct": {
+          "title": "Direkte Gespräche",
+          "body": "Sie arbeiten direkt mit dem Ingenieur zusammen, der Ihre Plattform baut. Keine Account Manager, keine Kommunikationskette, keine Information, die zwischen Meetings und Umsetzung verloren geht."
+        },
+        "code": {
+          "title": "Code, der Ihnen gehört",
+          "body": "Jedes Projekt umfasst den vollständigen Quellcode, Dokumentation und Deployment-Anweisungen. Sie sind Eigentümer der Plattform und können sie mit jedem Team weiterentwickeln."
+        }
+      }
+    },
+    "capabilitiesSection": {
+      "eyebrow": "Was wir gebaut haben",
+      "title": "Die konkrete Arbeit, die wir innerhalb von Lernplattformen leisten.",
+      "items": {
+        "0": "Maßgeschneiderte LMS-Plattformen",
+        "1": "Moodle-Entwicklung",
+        "2": "Canvas-Entwicklung",
+        "3": "LTI-1.3-Integrationen",
+        "4": "Schüler-Dashboards",
+        "5": "Dozentenportale",
+        "6": "Prüfungssysteme",
+        "7": "Zertifikate",
+        "8": "Lern-Analysen",
+        "9": "Gamification",
+        "10": "Kurscommerce",
+        "11": "Interne Schulungsportale"
+      }
+    },
+    "cta": {
+      "title": "Bewerten wir Ihre Plattform.",
+      "description": "Ob Sie Moodle erweitern, Canvas integrieren, ein bestehendes LMS ersetzen oder eine Lernplattform von Grund auf bauen — wir helfen Ihnen herauszufinden, ob das Problem in der Konfiguration, der Integration oder in maßgeschneiderter Software liegt, und empfehlen den praktischsten Weg nach vorn.",
+      "button": "Discovery-Call buchen"
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Maßgeschneiderte E-Learning-Plattform",
