@@ -314,6 +314,53 @@
       }
     }
   },
+  "serviceDetail": {
+    "eyebrow": "Services Rizon",
+    "heroCta": "Parlons de votre plateforme",
+    "whoWeWorkWith": {
+      "label": "Avec qui nous travaillons",
+      "title": "Les acheteurs qui ont besoin d'une plateforme adaptée à leur activité."
+    },
+    "problemsWeSolve": {
+      "label": "Problèmes que nous résolvons",
+      "title": "Le travail spécifique que votre plateforme actuelle laisse de côté."
+    },
+    "capabilities": {
+      "label": "Capacités",
+      "titleTemplate": "Ce que nous construisons dans le cadre du {keyword}."
+    },
+    "process": {
+      "label": "Comment se déroulent les projets",
+      "title": "Du premier appel à la remise."
+    },
+    "deliverables": {
+      "label": "Livrables",
+      "title": "Ce que vous recevez à la livraison."
+    },
+    "budget": {
+      "label": "Budget et arbitrages",
+      "title": "Ce qui fait bouger le prix",
+      "note": "Nous cadrons à ciel ouvert. Vous voyez les hypothèses, ce qui est exclu et ce qui ferait varier l'estimation. Un prix fixe sans ces détails n'est qu'une surprise différée."
+    },
+    "afterLaunch": {
+      "label": "Après le lancement",
+      "title": "La plateforme doit rendre la décision suivante plus simple."
+    },
+    "related": {
+      "label": "Lecture utile pour la suite",
+      "title": "Faire la comparaison honnêtement"
+    },
+    "faq": {
+      "label": "Questions avant de construire",
+      "title": "Les questions qui valent la peine d'être posées maintenant"
+    },
+    "bottomCta": {
+      "title": "Amenez la partie inconfortable de votre configuration actuelle.",
+      "description": "Nous cartographierons la vraie contrainte, vous dirons si un développement sur mesure a du sens, et esquisserons une première version qui ne prétend pas résoudre tous les problèmes futurs.",
+      "button": "Réserver un appel de 30 minutes"
+    },
+    "alternativeSuffix": "alternative"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Plateforme e-learning sur mesure",

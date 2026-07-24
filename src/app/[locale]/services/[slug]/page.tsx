@@ -15,7 +15,7 @@ import { getServiceBySlug, services } from "@/lib/services";
 import { Footer } from "../../footer";
 
 import { hasLocale } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing, type Locale } from "@/i18n/routing";
 import { languagesFor, localizedUrl, OG_LOCALE } from "@/i18n/hreflang";
 import { l } from "@/lib/l10n";
@@ -82,6 +82,7 @@ export default async function ServiceDetailPage({
   const { locale, slug } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
+  const t = await getTranslations("serviceDetail");
   const service = getServiceBySlug(slug);
   if (!service) notFound();
   const url = `${BASE_URL}/services/${service.slug}`;
@@ -133,7 +134,7 @@ export default async function ServiceDetailPage({
           <div className="mt-10 max-w-4xl">
             <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
               <span className="h-px w-8 bg-primary" aria-hidden />
-              Rizon services
+              {t("eyebrow")}
             </span>
             <h1 className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance md:text-6xl">
               {l(service.h1, locale as Locale)}
@@ -147,7 +148,7 @@ export default async function ServiceDetailPage({
                 target="_blank"
                 rel="noreferrer"
               >
-                Discuss your platform <ArrowRight size={16} aria-hidden />
+                {t("heroCta")} <ArrowRight size={16} aria-hidden />
               </Link>
             </Button>
           </div>
@@ -156,10 +157,10 @@ export default async function ServiceDetailPage({
           <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-                Who we work with
+                {t("whoWeWorkWith.label")}
               </span>
               <h2 className="mt-5 text-3xl font-semibold tracking-tight">
-                Buyers who need the platform to fit their operation.
+                {t("whoWeWorkWith.title")}
               </h2>
             </div>
             <div className="lg:col-span-7 lg:col-start-6">
@@ -184,10 +185,10 @@ export default async function ServiceDetailPage({
         <section className="container mt-24 md:mt-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-              Problems we solve
+              {t("problemsWeSolve.label")}
             </span>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight text-balance md:text-5xl">
-              The specific work your current platform leaves behind.
+              {t("problemsWeSolve.title")}
             </h2>
           </div>
           <div className="surface mt-12 divide-y divide-border overflow-hidden">
@@ -209,10 +210,10 @@ export default async function ServiceDetailPage({
         <section className="container mt-24 md:mt-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-              Capabilities
+              {t("capabilities.label")}
             </span>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight text-balance md:text-5xl">
-              What we build inside {service.targetKeyword}.
+              {t("capabilities.titleTemplate", { keyword: service.targetKeyword })}
             </h2>
           </div>
           <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -237,10 +238,10 @@ export default async function ServiceDetailPage({
         <section className="container mt-24 md:mt-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-              How projects work
+              {t("process.label")}
             </span>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight md:text-5xl">
-              From first call to handover.
+              {t("process.title")}
             </h2>
           </div>
           <div className="surface mt-12 divide-y divide-border overflow-hidden">
@@ -266,10 +267,10 @@ export default async function ServiceDetailPage({
           <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-                Deliverables
+                {t("deliverables.label")}
               </span>
               <h2 className="mt-5 text-3xl font-semibold tracking-tight">
-                What you receive at handover.
+                {t("deliverables.title")}
               </h2>
             </div>
             <div className="lg:col-span-7 lg:col-start-6">
@@ -294,18 +295,16 @@ export default async function ServiceDetailPage({
         <section className="container mt-24 md:mt-32">
           <div className="surface px-6 py-10 md:px-10 md:py-14">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-              Budget and tradeoffs
+              {t("budget.label")}
             </span>
             <h2 className="mt-5 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
-              What moves the price
+              {t("budget.title")}
             </h2>
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
               {service.costBand}
             </p>
             <p className="mt-5 max-w-3xl leading-relaxed text-muted-foreground">
-              We scope in the open. You see the assumptions, what is excluded,
-              and what would change the estimate. A fixed price without those
-              details is only a delayed surprise.
+              {t("budget.note")}
             </p>
             {service.stat && (
               <div className="mt-10">
@@ -317,10 +316,10 @@ export default async function ServiceDetailPage({
         <section className="container mt-24 md:mt-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-              After launch
+              {t("afterLaunch.label")}
             </span>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight md:text-5xl">
-              The platform should make the next decision easier.
+              {t("afterLaunch.title")}
             </h2>
             <p className="mt-7 text-lg leading-relaxed text-muted-foreground">
               {service.outcomes}
@@ -332,10 +331,10 @@ export default async function ServiceDetailPage({
             <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
               <div className="lg:col-span-4">
                 <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-                  Useful next reading
+                  {t("related.label")}
                 </span>
                 <h2 className="mt-5 text-3xl font-semibold tracking-tight">
-                  Make the comparison honestly
+                  {t("related.title")}
                 </h2>
               </div>
               <div className="space-y-4 lg:col-span-7 lg:col-start-6">
@@ -345,7 +344,9 @@ export default async function ServiceDetailPage({
                     href={`/alternatives/${item.slug}`}
                     className="group flex items-center justify-between border-b border-border pb-4 text-lg font-medium"
                   >
-                    <span>{item.competitor} alternative</span>
+                    <span>
+                      {item.competitor} {t("alternativeSuffix")}
+                    </span>
                     <ArrowRight
                       size={18}
                       className="transition-transform group-hover:translate-x-1"
@@ -374,10 +375,10 @@ export default async function ServiceDetailPage({
         <section className="container mt-24 md:mt-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
-              Questions before a build
+              {t("faq.label")}
             </span>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight md:text-5xl">
-              The questions worth asking now
+              {t("faq.title")}
             </h2>
           </div>
           <div className="surface mt-12 divide-y divide-border overflow-hidden">
@@ -399,12 +400,10 @@ export default async function ServiceDetailPage({
         <section className="container mt-24 md:mt-32">
           <div className="rounded-3xl bg-primary px-6 py-14 text-primary-foreground md:px-12 md:py-20">
             <h2 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance md:text-5xl">
-              Bring the awkward part of the current setup.
+              {t("bottomCta.title")}
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
-              We will map the real constraint, tell you whether a custom build
-              makes sense, and outline a first release that does not pretend to
-              solve every future problem.
+              {t("bottomCta.description")}
             </p>
             <Button
               asChild
@@ -416,7 +415,7 @@ export default async function ServiceDetailPage({
                 target="_blank"
                 rel="noreferrer"
               >
-                Book a 30-minute call <ArrowRight size={16} aria-hidden />
+                {t("bottomCta.button")} <ArrowRight size={16} aria-hidden />
               </Link>
             </Button>
           </div>

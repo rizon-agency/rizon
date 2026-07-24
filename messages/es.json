@@ -314,6 +314,53 @@
       }
     }
   },
+  "serviceDetail": {
+    "eyebrow": "Servicios Rizon",
+    "heroCta": "Hablemos de tu plataforma",
+    "whoWeWorkWith": {
+      "label": "Con quién trabajamos",
+      "title": "Compradores que necesitan una plataforma que encaje con su operación."
+    },
+    "problemsWeSolve": {
+      "label": "Problemas que resolvemos",
+      "title": "El trabajo específico que tu plataforma actual deja atrás."
+    },
+    "capabilities": {
+      "label": "Capacidades",
+      "titleTemplate": "Lo que construimos dentro del {keyword}."
+    },
+    "process": {
+      "label": "Cómo funcionan los proyectos",
+      "title": "Desde la primera llamada hasta la entrega."
+    },
+    "deliverables": {
+      "label": "Entregables",
+      "title": "Lo que recibes en la entrega."
+    },
+    "budget": {
+      "label": "Presupuesto y compensaciones",
+      "title": "Qué mueve el precio",
+      "note": "Definimos el alcance abiertamente. Ves las suposiciones, lo que queda fuera y lo que cambiaría la estimación. Un precio fijo sin esos detalles es solo una sorpresa aplazada."
+    },
+    "afterLaunch": {
+      "label": "Después del lanzamiento",
+      "title": "La plataforma debe hacer que la siguiente decisión sea más fácil."
+    },
+    "related": {
+      "label": "Lectura útil a continuación",
+      "title": "Hacer la comparación con honestidad"
+    },
+    "faq": {
+      "label": "Preguntas antes de construir",
+      "title": "Las preguntas que vale la pena hacerse ahora"
+    },
+    "bottomCta": {
+      "title": "Trae la parte incómoda de tu configuración actual.",
+      "description": "Trazaremos la restricción real, te diremos si un desarrollo a medida tiene sentido y esbozaremos una primera versión que no pretenda resolver todos los problemas futuros.",
+      "button": "Reservar una llamada de 30 minutos"
+    },
+    "alternativeSuffix": "alternativa"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Plataforma de e-learning a medida",

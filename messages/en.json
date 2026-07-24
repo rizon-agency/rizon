@@ -314,6 +314,53 @@
       }
     }
   },
+  "serviceDetail": {
+    "eyebrow": "Rizon services",
+    "heroCta": "Discuss your platform",
+    "whoWeWorkWith": {
+      "label": "Who we work with",
+      "title": "Buyers who need the platform to fit their operation."
+    },
+    "problemsWeSolve": {
+      "label": "Problems we solve",
+      "title": "The specific work your current platform leaves behind."
+    },
+    "capabilities": {
+      "label": "Capabilities",
+      "titleTemplate": "What we build inside {keyword}."
+    },
+    "process": {
+      "label": "How projects work",
+      "title": "From first call to handover."
+    },
+    "deliverables": {
+      "label": "Deliverables",
+      "title": "What you receive at handover."
+    },
+    "budget": {
+      "label": "Budget and tradeoffs",
+      "title": "What moves the price",
+      "note": "We scope in the open. You see the assumptions, what is excluded, and what would change the estimate. A fixed price without those details is only a delayed surprise."
+    },
+    "afterLaunch": {
+      "label": "After launch",
+      "title": "The platform should make the next decision easier."
+    },
+    "related": {
+      "label": "Useful next reading",
+      "title": "Make the comparison honestly"
+    },
+    "faq": {
+      "label": "Questions before a build",
+      "title": "The questions worth asking now"
+    },
+    "bottomCta": {
+      "title": "Bring the awkward part of the current setup.",
+      "description": "We will map the real constraint, tell you whether a custom build makes sense, and outline a first release that does not pretend to solve every future problem.",
+      "button": "Book a 30-minute call"
+    },
+    "alternativeSuffix": "alternative"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Custom E-Learning",

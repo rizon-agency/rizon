@@ -314,6 +314,53 @@
       }
     }
   },
+  "serviceDetail": {
+    "eyebrow": "Rizon-Leistungen",
+    "heroCta": "Sprechen wir über Ihre Plattform",
+    "whoWeWorkWith": {
+      "label": "Mit wem wir arbeiten",
+      "title": "Käufer, die eine Plattform brauchen, die zu ihrem Betrieb passt."
+    },
+    "problemsWeSolve": {
+      "label": "Probleme, die wir lösen",
+      "title": "Die konkrete Arbeit, die Ihre aktuelle Plattform liegen lässt."
+    },
+    "capabilities": {
+      "label": "Fähigkeiten",
+      "titleTemplate": "Was wir im Rahmen von {keyword} bauen."
+    },
+    "process": {
+      "label": "Wie Projekte ablaufen",
+      "title": "Vom ersten Anruf bis zur Übergabe."
+    },
+    "deliverables": {
+      "label": "Lieferumfang",
+      "title": "Was Sie bei der Übergabe erhalten."
+    },
+    "budget": {
+      "label": "Budget und Kompromisse",
+      "title": "Was den Preis bewegt",
+      "note": "Wir bereiten den Umfang offen vor. Sie sehen die Annahmen, was ausgeschlossen ist und was die Schätzung verändern würde. Ein Festpreis ohne diese Details ist nur eine aufgeschobene Überraschung."
+    },
+    "afterLaunch": {
+      "label": "Nach dem Launch",
+      "title": "Die Plattform sollte die nächste Entscheidung einfacher machen."
+    },
+    "related": {
+      "label": "Sinnvolle weitere Lektüre",
+      "title": "Den Vergleich ehrlich ziehen"
+    },
+    "faq": {
+      "label": "Fragen vor dem Bau",
+      "title": "Die Fragen, die es wert sind, jetzt gestellt zu werden"
+    },
+    "bottomCta": {
+      "title": "Bringen Sie den unbequemen Teil Ihres aktuellen Setups mit.",
+      "description": "Wir kartieren die echte Einschränkung, sagen Ihnen, ob eine maßgeschneiderte Entwicklung Sinn ergibt, und skizzieren eine erste Version, die nicht so tut, als würde sie jedes zukünftige Problem lösen.",
+      "button": "30-minütigen Termin buchen"
+    },
+    "alternativeSuffix": "Alternative"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Maßgeschneiderte E-Learning-Plattform",
