@@ -105,6 +105,135 @@
       }
     }
   },
+  "homeServices": {
+    "label": "Leistungen",
+    "titlePrefix": "Was wir",
+    "titleHighlight": "bauen",
+    "description": "Wir bauen genau das, was Sie brauchen. Keine Templates. Keine Kompromisse.",
+    "cta": "Termin buchen",
+    "items": {
+      "customLms": {
+        "name": "Maßgeschneiderte E-Learning-Plattformen",
+        "description": "Die Plattform, auf der Ihr Lernprodukt läuft: Ihre Marke, Ihre Regeln, Ihre Einnahmen. Erstellen und strukturieren Sie Inhalte, melden Sie Lernende an und verwalten Sie sie, verfolgen Sie den Fortschritt, wickeln Sie Zahlungen ab — alles, ohne einen Anteil an Dritte abzugeben oder in den Grenzen eines anderen zu leben.",
+        "features": {
+          "0": "Eine Plattform, gebaut genau nach Ihren Bedürfnissen",
+          "1": "Vollständige Kontrolle über Produkt und Daten",
+          "2": "Keine monatlichen Plattformgebühren",
+          "3": "Der gesamte Code gehört Ihnen",
+          "4": "Sie wächst mit Ihnen"
+        }
+      },
+      "schoolPortals": {
+        "name": "Schul- und Universitätsportale",
+        "description": "Ihre Einrichtung braucht mehr als ein Standard-LMS. Sie brauchen etwas, das so funktioniert, wie Ihre Schule tatsächlich arbeitet. Wir bauen Lernplattformen für Schulen und Universitäten — Klassenverwaltung, Aufgaben, Bewertungen, Studentenportale, Elternzugang, was auch immer Ihre Einrichtung braucht.",
+        "features": {
+          "0": "Maßgeschneidert für die Arbeitsweise Ihrer Schule",
+          "1": "Dashboards für Schüler und Lehrer",
+          "2": "Einreichen und Bewerten von Aufgaben",
+          "3": "Fortschrittsverfolgung und Berichte",
+          "4": "Zugangsportale für Eltern/Erziehungsberechtigte"
+        }
+      },
+      "corporateTraining": {
+        "name": "Unternehmens-Trainingsplattformen",
+        "description": "Schulen Sie Ihr Team ohne die Einschränkungen von Standard-Schulungssoftware. Wir bauen interne Schulungsplattformen für Unternehmen — Onboarding-Programme, Compliance-Training, Kompetenzentwicklung, Zertifizierungen. Alles, was Ihr Team zum Lernen braucht, an einem Ort.",
+        "features": {
+          "0": "Markenkonformes Schulungsportal",
+          "1": "Kurserstellung und -verwaltung",
+          "2": "Fortschrittsverfolgung und Compliance-Berichte",
+          "3": "Verwaltung von Zertifizierungen und Nachweisen",
+          "4": "Integration mit Ihren bestehenden Tools"
+        }
+      },
+      "upgrades": {
+        "name": "Plattform-Upgrades und individuelle Funktionen",
+        "description": "Sie haben bereits eine Plattform, die aber nicht das tut, was Sie brauchen? Wir können das lösen. Egal ob Sie Moodle, Canvas oder etwas Maßgeschneidertes nutzen — wir können Funktionen hinzufügen, die Oberfläche neu gestalten, Dinge beschleunigen oder neue Tools integrieren.",
+        "features": {
+          "0": "Neue Funktionen nach Ihren Vorgaben gebaut",
+          "1": "Besseres Design und bessere Benutzererfahrung",
+          "2": "Leistungsverbesserungen",
+          "3": "Integration mit neuen Tools",
+          "4": "Fehlerbehebung und Optimierung"
+        }
+      }
+    }
+  },
+  "features": {
+    "label": "Funktionen",
+    "titlePrefix": "Was wir",
+    "titleHighlight": "bauen können",
+    "description": "Alles, was Sie brauchen, um Lernerfahrungen zu liefern, die funktionieren.",
+    "categories": {
+      "ai": {
+        "title": "KI-gestützte Funktionen",
+        "items": {
+          "0": "Automatische Erstellung von Kursinhalten",
+          "1": "Automatische Quiz-Erstellung",
+          "2": "Sofortige Bewertung und Feedback",
+          "3": "Intelligente Inhalts-Empfehlungen",
+          "4": "Personalisierte Lernpfade für jeden Lernenden"
+        }
+      },
+      "engagement": {
+        "title": "Engagement und Gamification",
+        "items": {
+          "0": "Abzeichen und Erfolge",
+          "1": "Bestenlisten",
+          "2": "Punkte und Belohnungen",
+          "3": "Fortschritts-Meilensteine",
+          "4": "Freundlicher Wettbewerb"
+        }
+      },
+      "content": {
+        "title": "Inhalte und Auslieferung",
+        "items": {
+          "0": "Videovorlesungen und Multimedia",
+          "1": "Quizze und Prüfungen",
+          "2": "Live-Kurse (Zoom, Google Meet)",
+          "3": "Diskussionsforen",
+          "4": "Einreichen von Aufgaben",
+          "5": "Abschlusszertifikate"
+        }
+      },
+      "tracking": {
+        "title": "Verfolgung und Analysen",
+        "items": {
+          "0": "Echtzeit-Fortschrittsverfolgung",
+          "1": "Detaillierte Leistungs-Dashboards",
+          "2": "Sehen Sie, wer engagiert ist und wer feststeckt",
+          "3": "Individuelle Berichte",
+          "4": "Lern-Analysen"
+        }
+      },
+      "usability": {
+        "title": "Bedienbarkeit",
+        "items": {
+          "0": "Funktioniert auf jedem Gerät",
+          "1": "Klare Dashboards für Lernende und Dozenten",
+          "2": "Einfache Navigation",
+          "3": "Mehrere Sprachen",
+          "4": "Offline-Unterstützung auf Mobilgeräten"
+        }
+      },
+      "security": {
+        "title": "Integrationen und Sicherheit",
+        "items": {
+          "0": "Zahlungsabwicklung (Stripe, PayPal und mehr)",
+          "1": "Verbinden Sie Ihre Tools (Zoom, E-Mail, CRM)",
+          "2": "Sichere Anmeldung und SSO-Optionen",
+          "3": "Verschlüsselte Daten",
+          "4": "Cloud-basiert und immer erreichbar"
+        }
+      }
+    }
+  },
+  "cta": {
+    "eyebrow": "Loslegen",
+    "titlePrefix": "Ihr Lernprodukt verdient",
+    "titleHighlight": "seine eigene Plattform.",
+    "description": "Wenn Sie eine Lernerfahrung liefern möchten, die rund um Ihr Produkt, Ihre Lernenden und Ihre Ziele gebaut ist, sind Sie hier richtig. Wir bauen Plattformen, die Ihnen die Kontrolle und Flexibilität geben, ohne Grenzen zu wachsen.",
+    "button": "Kontakt aufnehmen"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Maßgeschneiderte E-Learning-Plattform",

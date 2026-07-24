@@ -105,6 +105,135 @@
       }
     }
   },
+  "homeServices": {
+    "label": "Services",
+    "titlePrefix": "What we",
+    "titleHighlight": "build",
+    "description": "We build exactly what you need. No templates. No compromises.",
+    "cta": "Book a call",
+    "items": {
+      "customLms": {
+        "name": "Custom E-Learning Platforms",
+        "description": "The platform your learning product runs on: your brand, your rules, your revenue. Create and structure content, enroll and manage learners, track progress, handle payments, all without handing a cut to a third party or living inside someone else's limits.",
+        "features": {
+          "0": "A platform built exactly how you need it",
+          "1": "Complete control over the product and the data",
+          "2": "No monthly platform fees",
+          "3": "You own all the code",
+          "4": "It grows as you grow"
+        }
+      },
+      "schoolPortals": {
+        "name": "School & University Portals",
+        "description": "Your institution needs more than a cookie-cutter LMS. You need something that works the way your school actually operates. We build learning platforms for schools and universities-class management, assignments, grading, student portals, parent access, whatever your institution needs.",
+        "features": {
+          "0": "Custom-built for how your school works",
+          "1": "Student and teacher dashboards",
+          "2": "Assignment submission and grading",
+          "3": "Progress tracking and reporting",
+          "4": "Parent/guardian access portals"
+        }
+      },
+      "corporateTraining": {
+        "name": "Corporate Training Platforms",
+        "description": "Train your team without the limitations of off-the-shelf training software. We build internal training platforms for companies-onboarding programs, compliance training, skill development, certifications. Everything your team needs to learn, all in one place.",
+        "features": {
+          "0": "Branded training portal",
+          "1": "Course creation and management",
+          "2": "Progress tracking and compliance reporting",
+          "3": "Certification and credential management",
+          "4": "Integration with your existing tools"
+        }
+      },
+      "upgrades": {
+        "name": "Platform Upgrades & Custom Features",
+        "description": "Already have a platform but it's not doing what you need? We can fix that. Whether you're using Moodle, Canvas, or something custom, we can add features, redesign the interface, speed things up, or integrate new tools.",
+        "features": {
+          "0": "New features built to your specs",
+          "1": "Better design and user experience",
+          "2": "Performance improvements",
+          "3": "Integration with new tools",
+          "4": "Bug fixes and optimization"
+        }
+      }
+    }
+  },
+  "features": {
+    "label": "Features",
+    "titlePrefix": "What we can",
+    "titleHighlight": "build",
+    "description": "Everything you need to deliver learning experiences that work.",
+    "categories": {
+      "ai": {
+        "title": "AI-Powered Features",
+        "items": {
+          "0": "Auto-generate course content",
+          "1": "Create quizzes automatically",
+          "2": "Instant grading and feedback",
+          "3": "Smart content recommendations",
+          "4": "Personalized learning paths for each learner"
+        }
+      },
+      "engagement": {
+        "title": "Engagement & Gamification",
+        "items": {
+          "0": "Badges and achievements",
+          "1": "Leaderboards",
+          "2": "Points and rewards",
+          "3": "Progress milestones",
+          "4": "Friendly competition"
+        }
+      },
+      "content": {
+        "title": "Content & Delivery",
+        "items": {
+          "0": "Video lectures and multimedia",
+          "1": "Quizzes and assessments",
+          "2": "Live classes (Zoom, Google Meet)",
+          "3": "Discussion forums",
+          "4": "Assignment submissions",
+          "5": "Completion certificates"
+        }
+      },
+      "tracking": {
+        "title": "Tracking & Analytics",
+        "items": {
+          "0": "Real-time progress tracking",
+          "1": "Detailed performance dashboards",
+          "2": "See who is engaged and who is stuck",
+          "3": "Custom reports",
+          "4": "Learning analytics"
+        }
+      },
+      "usability": {
+        "title": "Usability",
+        "items": {
+          "0": "Works on any device",
+          "1": "Clear dashboards for learners and instructors",
+          "2": "Simple navigation",
+          "3": "Multiple languages",
+          "4": "Offline support on mobile"
+        }
+      },
+      "security": {
+        "title": "Integrations & Security",
+        "items": {
+          "0": "Payment processing (Stripe, PayPal, and more)",
+          "1": "Connect your tools (Zoom, email, CRM)",
+          "2": "Secure login and SSO options",
+          "3": "Encrypted data",
+          "4": "Cloud-based and always accessible"
+        }
+      }
+    }
+  },
+  "cta": {
+    "eyebrow": "Get started",
+    "titlePrefix": "Your learning product deserves",
+    "titleHighlight": "its own platform.",
+    "description": "If you want to deliver a learning experience built around your product, your learners, and your goals, you are in the right place. We build platforms that give you the control and flexibility to grow without limits.",
+    "button": "Get in touch"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Custom E-Learning",

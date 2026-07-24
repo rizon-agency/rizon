@@ -2,82 +2,52 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/section-header";
 import { Reveal } from "@/components/reveal";
 
-type Service = {
-  name: string;
-  title: string;
-  description: string;
-  features: string[];
-  image: string;
-};
+type ServiceKey =
+  | "customLms"
+  | "schoolPortals"
+  | "corporateTraining"
+  | "upgrades";
 
-const services: Service[] = [
+type FeatureIndexKey = "0" | "1" | "2" | "3" | "4";
+
+const serviceDefs: {
+  key: ServiceKey;
+  image: string;
+  featureIndexes: FeatureIndexKey[];
+}[] = [
   {
-    name: "Custom E-Learning Platforms",
-    title: "Custom E-Learning Platforms",
-    description:
-      "The platform your learning product runs on: your brand, your rules, your revenue. Create and structure content, enroll and manage learners, track progress, handle payments, all without handing a cut to a third party or living inside someone else's limits.",
-    features: [
-      "A platform built exactly how you need it",
-      "Complete control over the product and the data",
-      "No monthly platform fees",
-      "You own all the code",
-      "It grows as you grow",
-    ],
+    key: "customLms",
     image: "/services/custom-e-learning-platforms.png",
+    featureIndexes: ["0", "1", "2", "3", "4"],
   },
   {
-    name: "School & University Portals",
-    title: "School & University Portals",
-    description:
-      "Your institution needs more than a cookie-cutter LMS. You need something that works the way your school actually operates. We build learning platforms for schools and universities-class management, assignments, grading, student portals, parent access, whatever your institution needs.",
-    features: [
-      "Custom-built for how your school works",
-      "Student and teacher dashboards",
-      "Assignment submission and grading",
-      "Progress tracking and reporting",
-      "Parent/guardian access portals",
-    ],
+    key: "schoolPortals",
     image: "/services/school-university-portals.png",
+    featureIndexes: ["0", "1", "2", "3", "4"],
   },
   {
-    name: "Corporate Training Platforms",
-    title: "Corporate Training Platforms",
-    description:
-      "Train your team without the limitations of off-the-shelf training software. We build internal training platforms for companies-onboarding programs, compliance training, skill development, certifications. Everything your team needs to learn, all in one place.",
-    features: [
-      "Branded training portal",
-      "Course creation and management",
-      "Progress tracking and compliance reporting",
-      "Certification and credential management",
-      "Integration with your existing tools",
-    ],
+    key: "corporateTraining",
     image: "/services/corporate-training-platforms.png",
+    featureIndexes: ["0", "1", "2", "3", "4"],
   },
   {
-    name: "Platform Upgrades & Custom Features",
-    title: "Platform Upgrades & Custom Features",
-    description:
-      "Already have a platform but it's not doing what you need? We can fix that. Whether you're using Moodle, Canvas, or something custom, we can add features, redesign the interface, speed things up, or integrate new tools.",
-    features: [
-      "New features built to your specs",
-      "Better design and user experience",
-      "Performance improvements",
-      "Integration with new tools",
-      "Bug fixes and optimization",
-    ],
+    key: "upgrades",
     image: "/services/platform-upgrades-custom-features.png",
+    featureIndexes: ["0", "1", "2", "3", "4"],
   },
 ];
 
 export const Services = () => {
+  const t = useTranslations("homeServices");
   const [active, setActive] = useState(0);
-  const current = services[active];
+  const current = serviceDefs[active];
 
   return (
     <section id="services" className="container mt-32 md:mt-40">
@@ -86,22 +56,22 @@ export const Services = () => {
         <div className="lg:col-span-5">
           <Reveal>
             <SectionHeader
-              label="Services"
+              label={t("label")}
               title={
                 <>
-                  What we{" "}
-                  <span className="text-primary italic">build</span>
+                  {t("titlePrefix")}{" "}
+                  <span className="text-primary italic">{t("titleHighlight")}</span>
                 </>
               }
-              description="We build exactly what you need. No templates. No compromises."
+              description={t("description")}
             />
           </Reveal>
 
           <ul className="mt-10 border-t border-border" role="tablist">
-            {services.map((service, index) => {
+            {serviceDefs.map((service, index) => {
               const isActive = index === active;
               return (
-                <li key={service.name}>
+                <li key={service.key}>
                   <button
                     type="button"
                     role="tab"
@@ -116,7 +86,7 @@ export const Services = () => {
                           : "text-muted-foreground group-hover:text-foreground"
                       }`}
                     >
-                      {service.name}
+                      {t(`items.${service.key}.name`)}
                     </span>
                     <ArrowUpRight
                       size={20}
@@ -144,7 +114,7 @@ export const Services = () => {
             <div className="surface relative aspect-video overflow-hidden">
               <Image
                 src={current.image}
-                alt={current.title}
+                alt={t(`items.${current.key}.name`)}
                 fill
                 sizes="(max-width: 1024px) 100vw, 55vw"
                 className="object-cover"
@@ -153,16 +123,16 @@ export const Services = () => {
             </div>
 
             <h3 className="mt-8 text-2xl md:text-3xl font-medium tracking-tight text-balance">
-              {current.title}
+              {t(`items.${current.key}.name`)}
             </h3>
             <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {current.description}
+              {t(`items.${current.key}.description`)}
             </p>
 
             <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
-              {current.features.map((feature) => (
+              {current.featureIndexes.map((idx) => (
                 <li
-                  key={feature}
+                  key={idx}
                   className="flex items-start gap-2.5 text-[15px] text-muted-foreground"
                 >
                   <Check
@@ -171,16 +141,14 @@ export const Services = () => {
                     aria-hidden
                     className="mt-0.5 shrink-0 text-primary"
                   />
-                  {feature}
+                  {t(`items.${current.key}.features.${idx}`)}
                 </li>
               ))}
             </ul>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button size="lg" asChild>
-                <Link href="/#contact">
-                  Book a call
-                </Link>
+                <Link href="/#contact">{t("cta")}</Link>
               </Button>
             </div>
           </div>

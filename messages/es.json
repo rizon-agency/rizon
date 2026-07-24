@@ -105,6 +105,135 @@
       }
     }
   },
+  "homeServices": {
+    "label": "Servicios",
+    "titlePrefix": "Lo que",
+    "titleHighlight": "construimos",
+    "description": "Construimos exactamente lo que necesitas. Sin plantillas. Sin compromisos.",
+    "cta": "Reservar una llamada",
+    "items": {
+      "customLms": {
+        "name": "Plataformas de e-learning a medida",
+        "description": "La plataforma sobre la que corre tu producto de aprendizaje: tu marca, tus reglas, tus ingresos. Crea y estructura contenido, inscribe y gestiona alumnos, sigue el progreso, gestiona pagos, todo sin ceder una parte a un tercero ni vivir dentro de los límites de otro.",
+        "features": {
+          "0": "Una plataforma construida exactamente como la necesitas",
+          "1": "Control total sobre el producto y los datos",
+          "2": "Sin cuotas mensuales de plataforma",
+          "3": "Tú eres dueño de todo el código",
+          "4": "Crece a medida que tú creces"
+        }
+      },
+      "schoolPortals": {
+        "name": "Portales escolares y universitarios",
+        "description": "Tu institución necesita más que un LMS genérico. Necesitas algo que funcione como tu escuela realmente opera. Construimos plataformas de aprendizaje para escuelas y universidades — gestión de clases, tareas, calificaciones, portales de estudiantes, acceso para padres, lo que sea que tu institución necesite.",
+        "features": {
+          "0": "Construido a medida para cómo funciona tu escuela",
+          "1": "Paneles para estudiantes y profesores",
+          "2": "Entrega y calificación de tareas",
+          "3": "Seguimiento de progreso e informes",
+          "4": "Portales de acceso para padres/tutores"
+        }
+      },
+      "corporateTraining": {
+        "name": "Plataformas de formación corporativa",
+        "description": "Forma a tu equipo sin las limitaciones del software de formación estándar. Construimos plataformas de formación interna para empresas — programas de incorporación, formación en cumplimiento, desarrollo de habilidades, certificaciones. Todo lo que tu equipo necesita para aprender, en un solo lugar.",
+        "features": {
+          "0": "Portal de formación con tu marca",
+          "1": "Creación y gestión de cursos",
+          "2": "Seguimiento de progreso e informes de cumplimiento",
+          "3": "Gestión de certificaciones y credenciales",
+          "4": "Integración con tus herramientas existentes"
+        }
+      },
+      "upgrades": {
+        "name": "Mejoras de plataforma y funciones a medida",
+        "description": "¿Ya tienes una plataforma pero no hace lo que necesitas? Podemos arreglarlo. Ya sea que uses Moodle, Canvas o algo a medida, podemos añadir funciones, rediseñar la interfaz, acelerar cosas o integrar nuevas herramientas.",
+        "features": {
+          "0": "Nuevas funciones construidas según tus especificaciones",
+          "1": "Mejor diseño y experiencia de usuario",
+          "2": "Mejoras de rendimiento",
+          "3": "Integración con nuevas herramientas",
+          "4": "Corrección de errores y optimización"
+        }
+      }
+    }
+  },
+  "features": {
+    "label": "Funcionalidades",
+    "titlePrefix": "Lo que podemos",
+    "titleHighlight": "construir",
+    "description": "Todo lo que necesitas para ofrecer experiencias de aprendizaje que funcionan.",
+    "categories": {
+      "ai": {
+        "title": "Funcionalidades impulsadas por IA",
+        "items": {
+          "0": "Generación automática de contenido de cursos",
+          "1": "Creación automática de cuestionarios",
+          "2": "Calificación y retroalimentación instantánea",
+          "3": "Recomendaciones inteligentes de contenido",
+          "4": "Rutas de aprendizaje personalizadas para cada alumno"
+        }
+      },
+      "engagement": {
+        "title": "Compromiso y gamificación",
+        "items": {
+          "0": "Insignias y logros",
+          "1": "Tablas de clasificación",
+          "2": "Puntos y recompensas",
+          "3": "Hitos de progreso",
+          "4": "Competencia amistosa"
+        }
+      },
+      "content": {
+        "title": "Contenido y entrega",
+        "items": {
+          "0": "Clases en vídeo y multimedia",
+          "1": "Cuestionarios y evaluaciones",
+          "2": "Clases en vivo (Zoom, Google Meet)",
+          "3": "Foros de discusión",
+          "4": "Entrega de tareas",
+          "5": "Certificados de finalización"
+        }
+      },
+      "tracking": {
+        "title": "Seguimiento y análisis",
+        "items": {
+          "0": "Seguimiento de progreso en tiempo real",
+          "1": "Paneles detallados de rendimiento",
+          "2": "Ve quién está comprometido y quién está atascado",
+          "3": "Informes personalizados",
+          "4": "Analítica de aprendizaje"
+        }
+      },
+      "usability": {
+        "title": "Usabilidad",
+        "items": {
+          "0": "Funciona en cualquier dispositivo",
+          "1": "Paneles claros para alumnos e instructores",
+          "2": "Navegación sencilla",
+          "3": "Múltiples idiomas",
+          "4": "Soporte sin conexión en móvil"
+        }
+      },
+      "security": {
+        "title": "Integraciones y seguridad",
+        "items": {
+          "0": "Procesamiento de pagos (Stripe, PayPal y más)",
+          "1": "Conecta tus herramientas (Zoom, email, CRM)",
+          "2": "Inicio de sesión seguro y opciones SSO",
+          "3": "Datos cifrados",
+          "4": "Basado en la nube y siempre accesible"
+        }
+      }
+    }
+  },
+  "cta": {
+    "eyebrow": "Empezar",
+    "titlePrefix": "Tu producto de aprendizaje merece",
+    "titleHighlight": "su propia plataforma.",
+    "description": "Si quieres ofrecer una experiencia de aprendizaje construida en torno a tu producto, tus alumnos y tus objetivos, estás en el lugar correcto. Construimos plataformas que te dan el control y la flexibilidad para crecer sin límites.",
+    "button": "Contactar"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Plataforma de e-learning a medida",
