@@ -1,18 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { useFormatter } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import type { Post } from "@/types";
 
 const NEW_THRESHOLD_DAYS = 30;
-
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
 
 function isNew(dateStr: string) {
   const diff = Date.now() - new Date(dateStr).getTime();
@@ -25,6 +20,13 @@ type BlogCardProps = {
 };
 
 export const BlogCard = ({ post, sizes = "(max-width: 768px) 100vw, 45vw" }: BlogCardProps) => {
+  const format = useFormatter();
+  const formatted = format.dateTime(new Date(post.date), {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
   return (
     <Link
       href={`/blog/${post.slug}`}
@@ -58,7 +60,7 @@ export const BlogCard = ({ post, sizes = "(max-width: 768px) 100vw, 45vw" }: Blo
 
         <div className="mt-auto flex items-center justify-between gap-4 pt-6">
           <span className="font-mono text-xs tabular-nums text-muted-foreground/60">
-            {formatDate(post.date)} · {post.readTime}
+            {formatted} · {post.readTime}
           </span>
           <ArrowUpRight
             size={18}

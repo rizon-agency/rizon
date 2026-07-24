@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "home": {
+      "title": "Rizon - Custom E-Learning",
+      "description": "Launch your online learning platform without vendor lock-in. We build custom e-learning solutions for course creators, schools, and companies. Own 100% of your code, no templates, no revenue sharing.",
+      "ogTitle": "Rizon - Build Your Own Online Learning Platform",
+      "ogDescription": "Custom e-learning platforms designed around how you teach. No monthly fees, no feature limits, no vendor lock-in. Built for course creators, schools, and companies.",
+      "twitterTitle": "Rizon - Custom E-Learning Platform Development",
+      "twitterDescription": "Launch your online learning platform without monthly fees or vendor lock-in. Own your platform, own your revenue.",
+      "ogAlt": "Rizon — custom e-learning platform development"
+    },
+    "about": {
+      "title": "About Rizon & Choaib Mouhrach",
+      "description": "Rizon is a software studio focused exclusively on learning platforms — custom LMS products, Moodle and Canvas development, LTI integrations, and internal training portals.",
+      "ogTitle": "About Rizon & Choaib Mouhrach",
+      "ogDescription": "A software studio focused exclusively on learning platforms. Custom LMS, Moodle, Canvas, and LTI work led by Choaib Mouhrach.",
+      "twitterTitle": "About Rizon & Choaib Mouhrach",
+      "twitterDescription": "A software studio focused exclusively on learning platforms.",
+      "ogAlt": "About Rizon"
+    },
+    "services": {
+      "title": "Custom Learning Platform Services | Rizon",
+      "description": "Custom LMS, corporate training, course platform, and school portal development for teams that need learning software built around their operation.",
+      "ogTitle": "Custom Learning Platform Services | Rizon",
+      "ogDescription": "Four ways Rizon builds learning products around the work they need to do.",
+      "ogAlt": "Rizon custom learning platform services"
+    },
+    "lmsAlternatives": {
+      "title": "LMS Alternatives: When a Custom Build Makes Sense | Rizon",
+      "description": "Compare leading LMS and course-platform alternatives, then decide whether a custom learning platform is worth the work for your business or institution.",
+      "ogTitle": "LMS Alternatives | Rizon",
+      "ogDescription": "An honest guide to choosing between an LMS and a custom learning platform.",
+      "ogAlt": "LMS alternatives"
+    },
+    "legal": {
+      "title": "Terms and Services | Rizon LLC",
+      "description": "Terms and Services for Rizon LLC. Read our terms governing custom software development engagements, payment, intellectual property, and confidentiality.",
+      "ogTitle": "Terms and Services | Rizon LLC",
+      "ogDescription": "Terms and Services for Rizon LLC. Read our terms governing custom software development engagements, payment, intellectual property, and confidentiality.",
+      "ogAlt": "Rizon legal terms"
+    }
+  }
+}
