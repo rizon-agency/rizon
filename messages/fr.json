@@ -234,6 +234,86 @@
     "description": "Si vous voulez offrir une expérience d'apprentissage construite autour de votre produit, de vos apprenants et de vos objectifs, vous êtes au bon endroit. Nous construisons des plateformes qui vous donnent le contrôle et la flexibilité pour grandir sans limites.",
     "button": "Nous contacter"
   },
+  "alternativesPreview": {
+    "label": "Vous envisagez de changer ?",
+    "title": "La plateforme que vous utilisez ne doit pas dicter le produit que vous pouvez vendre.",
+    "description": "Des comparaisons honnêtes pour les équipes qui décident de garder, configurer ou remplacer leur LMS actuel.",
+    "readComparison": "Lire la comparaison",
+    "browseAll": "Parcourir toutes les alternatives LMS"
+  },
+  "work": {
+    "label": "Réalisations",
+    "titlePrefix": "Ce que nous avons",
+    "titleHighlight": "construit",
+    "description": "Quelques plateformes que nous avons livrées récemment. De vrais produits, en production, qui font du vrai travail."
+  },
+  "trust": {
+    "label": "Retours clients",
+    "title": "Le travail doit tenir la route après la livraison.",
+    "description": "De la part de clients qui ont fait appel à Rizon quand le travail sur leur plateforme d'apprentissage est devenu difficile.",
+    "clientsLabel": "Quelques organisations clientes"
+  },
+  "blogPreview": {
+    "label": "Depuis le blog",
+    "titlePrefix": "Réflexions sur",
+    "titleHighlight": "l'e-learning",
+    "allPosts": "Tous les articles"
+  },
+  "contact": {
+    "label": "Nous contacter",
+    "titlePrefix": "Parlons de votre",
+    "titleHighlight": "plateforme",
+    "description": "Prêt à commencer, ou vous avez juste une question ? Choisissez ce qui est le plus simple. Réservez un appel et nous plongerons ensemble dans votre projet, ou envoyez un email et nous vous répondrons.",
+    "bookCard": {
+      "title": "Réserver un appel",
+      "description": "30 minutes, sans pression. Dites-nous ce que vous construisez et nous vous dirons comment nous l'aborderions.",
+      "button": "Réserver un appel"
+    },
+    "emailCard": {
+      "title": "Envoyer un email",
+      "description": "Vous préférez écrire d'abord ? Envoyez une question et nous répondrons.",
+      "button": "Nous écrire",
+      "copyLabel": "Copier l'adresse email",
+      "copiedLabel": "Adresse email copiée",
+      "copiedStatus": "Adresse email copiée dans le presse-papiers"
+    }
+  },
+  "homeFaq": {
+    "label": "FAQ",
+    "titlePrefix": "Questions,",
+    "titleHighlight": "réponses",
+    "description": "Tout ce que vous devez savoir sur notre façon de travailler. Toujours curieux ? Demandez, nous serons ravis de préciser.",
+    "items": {
+      "timeline": {
+        "question": "En combien de temps pouvez-vous construire notre plateforme ?",
+        "answer": "Cela dépend de la portée, mais voici notre approche des délais. Nous découpons tout en sprints hebdomadaires avec des démos en direct, pour que vous voyiez de vrais progrès chaque semaine plutôt que des mises à jour vagues. La plupart des plateformes se lancent par phases : d'abord les fonctionnalités essentielles (généralement 8 à 12 semaines), puis nous itérons et ajoutons en fonction de ce que vous apprenez de vrais utilisateurs. Vous aurez une feuille de route claire après notre première conversation."
+      },
+      "involvement": {
+        "question": "À quel point serons-nous impliqués pendant le développement ?",
+        "answer": "Beaucoup. Chaque semaine, vous voyez ce qui a été construit, le testez en direct, et donnez des retours qui façonnent le sprint suivant. Ce n'est pas un scénario disparaissez-pendant-des-mois-puis-surprise. Vous faites partie du processus dès le premier jour."
+      },
+      "integrations": {
+        "question": "Pouvez-vous intégrer nos outils existants ?",
+        "answer": "Oui. Passerelles de paiement, CRM, plateformes d'email, Zoom, Google Meet, SSO — tout ce que vous utilisez actuellement peut être connecté. Nous construisons autour de votre flux de travail, pas contre lui."
+      },
+      "afterLaunch": {
+        "question": "Que se passe-t-il après le lancement ?",
+        "answer": "Le lancement est le début, pas la fin. Nous proposons des contrats de maintenance optionnels pour le support continu, les mises à jour, les nouvelles fonctionnalités et les optimisations. La plupart de nos clients restent avec nous à long terme parce que leur plateforme continue d'évoluer avec leurs besoins."
+      },
+      "scale": {
+        "question": "La plateforme évoluera-t-elle avec notre croissance ?",
+        "answer": "C'est le plan. Nous concevons pour la croissance dès le premier jour. Que vous soyez à 500 apprenants ou 50 000, l'infrastructure le supporte, et nous ajustons au fur et à mesure."
+      },
+      "mobile": {
+        "question": "La plateforme est-elle adaptée au mobile ?",
+        "answer": "Complètement. Elle fonctionne sur ordinateur, tablette et mobile, responsive par défaut plutôt qu'en dernier recours."
+      },
+      "ownership": {
+        "question": "Qui est propriétaire du code et de la plateforme ?",
+        "answer": "Vous. La pleine propriété vous est transférée au paiement final : le code, la plateforme, l'infrastructure. La maintenance est optionnelle, jamais obligatoire."
+      }
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Plateforme e-learning sur mesure",

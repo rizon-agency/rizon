@@ -234,6 +234,86 @@
     "description": "Wenn Sie eine Lernerfahrung liefern möchten, die rund um Ihr Produkt, Ihre Lernenden und Ihre Ziele gebaut ist, sind Sie hier richtig. Wir bauen Plattformen, die Ihnen die Kontrolle und Flexibilität geben, ohne Grenzen zu wachsen.",
     "button": "Kontakt aufnehmen"
   },
+  "alternativesPreview": {
+    "label": "Überlegen Sie einen Wechsel?",
+    "title": "Die Plattform, die Sie nutzen, sollte nicht diktieren, welches Produkt Sie verkaufen können.",
+    "description": "Ehrliche Vergleiche für Teams, die entscheiden, ob sie ihr aktuelles LMS behalten, konfigurieren oder ersetzen wollen.",
+    "readComparison": "Vergleich lesen",
+    "browseAll": "Alle LMS-Alternativen ansehen"
+  },
+  "work": {
+    "label": "Ausgewählte Projekte",
+    "titlePrefix": "Was wir zuletzt",
+    "titleHighlight": "gebaut haben",
+    "description": "Einige Plattformen, die wir kürzlich ausgeliefert haben. Echte Produkte, in Produktion, die echte Arbeit leisten."
+  },
+  "trust": {
+    "label": "Kundenstimmen",
+    "title": "Die Arbeit muss auch nach der Übergabe halten.",
+    "description": "Von Kunden, die Rizon geholt haben, als die Arbeit an der Lernplattform schwierig wurde.",
+    "clientsLabel": "Ausgewählte Kunden"
+  },
+  "blogPreview": {
+    "label": "Aus dem Blog",
+    "titlePrefix": "Gedanken zu",
+    "titleHighlight": "E-Learning",
+    "allPosts": "Alle Beiträge"
+  },
+  "contact": {
+    "label": "Kontakt aufnehmen",
+    "titlePrefix": "Sprechen wir über Ihre",
+    "titleHighlight": "Plattform",
+    "description": "Bereit anzufangen oder haben Sie einfach eine Frage? Wählen Sie, was einfacher ist. Buchen Sie einen Termin und wir tauchen gemeinsam in Ihr Projekt ein, oder senden Sie eine E-Mail und wir melden uns zurück.",
+    "bookCard": {
+      "title": "Termin buchen",
+      "description": "30 Minuten, ohne Druck. Erzählen Sie uns, was Sie bauen, und wir sagen Ihnen, wie wir es angehen würden.",
+      "button": "Termin buchen"
+    },
+    "emailCard": {
+      "title": "E-Mail senden",
+      "description": "Möchten Sie lieber zuerst schreiben? Senden Sie eine Frage und wir antworten.",
+      "button": "Schreiben Sie uns",
+      "copyLabel": "E-Mail-Adresse kopieren",
+      "copiedLabel": "E-Mail-Adresse kopiert",
+      "copiedStatus": "E-Mail-Adresse in die Zwischenablage kopiert"
+    }
+  },
+  "homeFaq": {
+    "label": "FAQ",
+    "titlePrefix": "Fragen,",
+    "titleHighlight": "beantwortet",
+    "description": "Alles, was Sie über die Zusammenarbeit mit uns wissen müssen. Noch neugierig? Fragen Sie einfach, wir sind gerne konkret.",
+    "items": {
+      "timeline": {
+        "question": "Wie schnell können Sie unsere Plattform bauen?",
+        "answer": "Das hängt vom Umfang ab, aber so gehen wir Zeitpläne an. Wir zerlegen alles in wöchentliche Sprints mit Live-Demos, damit Sie jede Woche echten Fortschritt sehen statt vager Updates. Die meisten Plattformen starten in Phasen: zuerst die Kernfunktionen (üblicherweise 8 bis 12 Wochen), dann iterieren wir und ergänzen basierend auf dem, was Sie von echten Nutzern lernen. Sie erhalten nach unserem ersten Gespräch eine klare Roadmap."
+      },
+      "involvement": {
+        "question": "Wie stark sind wir während der Entwicklung eingebunden?",
+        "answer": "Sehr. Jede Woche sehen Sie, was gebaut wurde, testen es live und geben Feedback, das den nächsten Sprint formt. Das ist keine monatelang-verschwinden-und-Sie-überraschen-Situation. Sie sind vom ersten Tag an Teil des Prozesses."
+      },
+      "integrations": {
+        "question": "Können Sie mit unseren bestehenden Tools integrieren?",
+        "answer": "Ja. Zahlungsgateways, CRMs, E-Mail-Plattformen, Zoom, Google Meet, SSO — was auch immer Sie aktuell nutzen, wird angebunden. Wir bauen um Ihren Workflow herum, nicht dagegen."
+      },
+      "afterLaunch": {
+        "question": "Was passiert nach dem Launch?",
+        "answer": "Der Launch ist der Anfang, nicht das Ende. Wir bieten optionale Wartungsverträge für laufende Unterstützung, Updates, neue Funktionen und Optimierungen. Die meisten Kunden bleiben langfristig bei uns, weil ihre Plattform sich mit ihren Bedürfnissen weiterentwickelt."
+      },
+      "scale": {
+        "question": "Wird die Plattform mit unserem Wachstum skalieren?",
+        "answer": "Das ist der Plan. Wir architektieren vom ersten Tag an für Wachstum. Ob Sie 500 Lernende haben oder 50.000 — die Infrastruktur trägt es, und wir passen an, während Sie skalieren."
+      },
+      "mobile": {
+        "question": "Ist die Plattform mobil-freundlich?",
+        "answer": "Vollständig. Sie funktioniert auf Desktop, Tablet und Mobilgeräten, responsive by default statt als Nachgedanke."
+      },
+      "ownership": {
+        "question": "Wem gehört der Code und die Plattform?",
+        "answer": "Ihnen. Das volle Eigentum wird bei der Schlusszahlung an Sie übertragen: der Code, die Plattform, die Infrastruktur. Wartung ist optional, nie erforderlich."
+      }
+    }
+  },
   "seo": {
     "home": {
       "title": "Rizon - Maßgeschneiderte E-Learning-Plattform",

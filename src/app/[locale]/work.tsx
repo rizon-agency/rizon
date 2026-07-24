@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/projects";
@@ -8,18 +9,19 @@ import { SectionHeader } from "@/components/section-header";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 
 export const Work = () => {
+  const t = useTranslations("work");
   return (
     <section id="work" className="container mt-32 md:mt-40">
       <Reveal>
         <SectionHeader
-          label="Selected work"
+          label={t("label")}
           title={
             <>
-              What we have been{" "}
-              <span className="text-primary italic">building</span>
+              {t("titlePrefix")}{" "}
+              <span className="text-primary italic">{t("titleHighlight")}</span>
             </>
           }
-          description="A few platforms we have shipped recently. Real products, in production, doing real work."
+          description={t("description")}
         />
       </Reveal>
 

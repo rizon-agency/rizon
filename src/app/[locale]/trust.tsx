@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { SectionHeader } from "@/components/section-header";
 
@@ -16,12 +17,14 @@ const clients = [
   { name: "Arkon Agency", href: "https://arkon.agency" },
 ];
 
-export const Trust = () => (
+export const Trust = async () => {
+  const t = await getTranslations("trust");
+  return (
   <section className="container mt-32 md:mt-40">
     <SectionHeader
-      label="Client feedback"
-      title="The work has to hold up after the handoff."
-      description="From clients who brought Rizon in when the learning-platform work got hard."
+      label={t("label")}
+      title={t("title")}
+      description={t("description")}
     />
     <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
       {testimonials.map(({ quote, author }) => (
@@ -43,7 +46,7 @@ export const Trust = () => (
     </div>
     <div className="surface mt-6 flex flex-col gap-4 p-7 md:flex-row md:items-center md:justify-between md:p-8">
       <p className="text-sm font-medium text-muted-foreground">
-        Selected client organisations
+        {t("clientsLabel")}
       </p>
       <div className="flex flex-wrap gap-x-7 gap-y-3">
         {clients.map((client) => (
@@ -60,4 +63,5 @@ export const Trust = () => (
       </div>
     </div>
   </section>
-);
+  );
+};

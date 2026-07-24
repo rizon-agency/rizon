@@ -25,7 +25,7 @@ export const Hero = () => {
   return (
     <section id="home" className="px-3 pt-3 sm:px-4 sm:pt-4 lg:px-4 lg:pt-4">
       {/* Inset media card, with navigation and copy held to the site grid. */}
-      <div className="relative isolate flex h-[72vh] max-h-[720px] min-h-[560px] flex-col overflow-hidden rounded-2xl bg-background sm:rounded-3xl">
+      <div className="relative isolate flex h-[82vh] max-h-180 min-h-140 flex-col overflow-hidden rounded-2xl bg-background sm:rounded-3xl">
         {/* Image only on sm+; mobile falls back to the solid dark card */}
         <Image
           src={heroImage}

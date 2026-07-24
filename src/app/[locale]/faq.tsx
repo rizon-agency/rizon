@@ -1,12 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Plus } from "lucide-react";
 import { SectionHeader } from "@/components/section-header";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
-import { faqs } from "@/lib/faq";
+
+const faqKeys = [
+  "timeline",
+  "involvement",
+  "integrations",
+  "afterLaunch",
+  "scale",
+  "mobile",
+  "ownership",
+] as const;
 
 export const Faq = () => {
+  const t = useTranslations("homeFaq");
   const [open, setOpen] = useState<number | null>(0);
 
   return (
@@ -16,14 +27,14 @@ export const Faq = () => {
           <div className="lg:sticky lg:top-24">
             <Reveal>
               <SectionHeader
-                label="FAQ"
+                label={t("label")}
                 title={
                   <>
-                    Questions,{" "}
-                    <span className="text-primary italic">answered</span>
+                    {t("titlePrefix")}{" "}
+                    <span className="text-primary italic">{t("titleHighlight")}</span>
                   </>
                 }
-                description="Everything you need to know about working with us. Still curious? Just ask, we are happy to get specific."
+                description={t("description")}
               />
             </Reveal>
           </div>
@@ -34,10 +45,10 @@ export const Faq = () => {
             stagger={0.08}
             className="surface divide-y divide-border overflow-hidden"
           >
-            {faqs.map(({ question, answer }, index) => {
+            {faqKeys.map((key, index) => {
               const isOpen = index === open;
               return (
-                <RevealItem key={question} className="px-6 md:px-8">
+                <RevealItem key={key} className="px-6 md:px-8">
                   <dt>
                     <button
                       type="button"
@@ -54,7 +65,7 @@ export const Faq = () => {
                             : "text-foreground/80 group-hover:text-foreground"
                         }`}
                       >
-                        {question}
+                        {t(`items.${key}.question`)}
                       </span>
                       <Plus
                         size={22}
@@ -78,7 +89,7 @@ export const Faq = () => {
                   >
                     <div className="overflow-hidden">
                       <p className="max-w-xl pb-6 text-[15px] leading-relaxed text-muted-foreground">
-                        {answer}
+                        {t(`items.${key}.answer`)}
                       </p>
                     </div>
                   </dd>

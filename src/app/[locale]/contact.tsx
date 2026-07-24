@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Calendar, Check, Copy, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,7 @@ const EMAIL = "contact@rizon.agency";
 const MAILTO = `mailto:${EMAIL}?subject=Question about a custom platform`;
 
 export const Contact = () => {
+  const t = useTranslations("contact");
   const [copied, setCopied] = useState(false);
 
   const copyEmail = async () => {
@@ -28,14 +30,14 @@ export const Contact = () => {
     <section id="contact" className="container mt-32 md:mt-40">
       <Reveal>
         <SectionHeader
-          label="Get in touch"
+          label={t("label")}
           title={
             <>
-              Let&apos;s talk about your{" "}
-              <span className="text-primary italic">platform</span>
+              {t("titlePrefix")}{" "}
+              <span className="text-primary italic">{t("titleHighlight")}</span>
             </>
           }
-          description="Ready to start, or just have a question? Pick whichever is easier. Book a call and we will dig into your project together, or send an email and we will get back to you."
+          description={t("description")}
         />
       </Reveal>
 
@@ -48,16 +50,15 @@ export const Contact = () => {
             <Calendar size={20} strokeWidth={1.75} aria-hidden />
           </span>
           <h3 className="mt-6 text-xl font-semibold tracking-tight">
-            Book a call
+            {t("bookCard.title")}
           </h3>
           <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-            30 minutes, no pressure. Tell us what you are building and we will
-            tell you how we would approach it.
+            {t("bookCard.description")}
           </p>
           <div className="mt-7">
             <Button asChild>
               <Link href={CAL_LINK} target="_blank" rel="noopener noreferrer">
-                Book a call
+                {t("bookCard.button")}
               </Link>
             </Button>
           </div>
@@ -68,14 +69,14 @@ export const Contact = () => {
             <Mail size={20} strokeWidth={1.75} aria-hidden />
           </span>
           <h3 className="mt-6 text-xl font-semibold tracking-tight">
-            Send an email
+            {t("emailCard.title")}
           </h3>
           <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-            Prefer to write first? Send a question and we will reply.
+            {t("emailCard.description")}
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <Button asChild>
-              <Link href={MAILTO}>Email us</Link>
+              <Link href={MAILTO}>{t("emailCard.button")}</Link>
             </Button>
             <div className="inline-flex items-center gap-2 rounded-full border border-border py-1 pl-3.5 pr-1">
               <span className="select-all font-mono text-sm text-muted-foreground">
@@ -85,7 +86,7 @@ export const Contact = () => {
                 type="button"
                 onClick={copyEmail}
                 aria-label={
-                  copied ? "Email address copied" : "Copy email address"
+                  copied ? t("emailCard.copiedLabel") : t("emailCard.copyLabel")
                 }
                 className="flex size-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
               >
@@ -102,7 +103,7 @@ export const Contact = () => {
               </button>
             </div>
             <span className="sr-only" role="status" aria-live="polite">
-              {copied ? "Email address copied to clipboard" : ""}
+              {copied ? t("emailCard.copiedStatus") : ""}
             </span>
           </div>
         </RevealItem>

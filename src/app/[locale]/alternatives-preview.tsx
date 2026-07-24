@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { alternatives } from "@/lib/alternatives";
 import { SectionHeader } from "@/components/section-header";
 import { l } from "@/lib/l10n";
@@ -8,13 +8,14 @@ import type { Locale } from "@/i18n/routing";
 
 export const AlternativesPreview = async () => {
   const locale = (await getLocale()) as Locale;
+  const t = await getTranslations("alternativesPreview");
   const featured = alternatives.slice(0, 3);
   return (
     <section className="container mt-32 md:mt-40">
       <SectionHeader
-        label="Considering a switch"
-        title="The platform you use should not dictate the product you can sell."
-        description="Honest comparisons for teams deciding whether to keep, configure, or replace their current LMS."
+        label={t("label")}
+        title={t("title")}
+        description={t("description")}
       />
       <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
         {featured.map((alternative) => (
@@ -35,7 +36,7 @@ export const AlternativesPreview = async () => {
               href={`/alternatives/${alternative.slug}`}
               className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary"
             >
-              Read the comparison{" "}
+              {t("readComparison")}{" "}
               <ArrowRight
                 size={15}
                 className="transition-transform group-hover:translate-x-1"
@@ -49,7 +50,7 @@ export const AlternativesPreview = async () => {
         href="/lms-alternatives"
         className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground"
       >
-        Browse all LMS alternatives{" "}
+        {t("browseAll")}{" "}
         <ArrowRight
           size={15}
           className="transition-transform group-hover:translate-x-1"
