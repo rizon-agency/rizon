@@ -1,1 +1,43 @@
-{}
+{
+  "seo": {
+    "home": {
+      "title": "Rizon - Maßgeschneiderte E-Learning-Plattform",
+      "description": "Starten Sie Ihre Online-Lernplattform ohne Anbieterabhängigkeit. Wir entwickeln maßgeschneiderte E-Learning-Lösungen für Kursanbieter, Schulen und Unternehmen. Volles Code-Eigentum, keine Templates, keine Umsatzbeteiligung.",
+      "ogTitle": "Rizon - Bauen Sie Ihre eigene Online-Lernplattform",
+      "ogDescription": "Maßgeschneiderte E-Learning-Plattformen, entwickelt rund um Ihre Lehrmethodik. Keine monatlichen Gebühren, keine Feature-Grenzen, keine Anbieterabhängigkeit. Für Kursanbieter, Schulen und Unternehmen.",
+      "twitterTitle": "Rizon - Individuelle E-Learning-Plattform-Entwicklung",
+      "twitterDescription": "Starten Sie Ihre Online-Lernplattform ohne monatliche Gebühren oder Anbieterabhängigkeit. Ihre Plattform, Ihre Einnahmen.",
+      "ogAlt": "Rizon — individuelle E-Learning-Plattform-Entwicklung"
+    },
+    "about": {
+      "title": "Über Rizon und Choaib Mouhrach",
+      "description": "Rizon ist ein Softwarestudio, das sich ausschließlich auf Lernplattformen konzentriert — maßgeschneiderte LMS-Produkte, Moodle- und Canvas-Entwicklung, LTI-Integrationen und interne Schulungsportale.",
+      "ogTitle": "Über Rizon und Choaib Mouhrach",
+      "ogDescription": "Ein Softwarestudio, das sich ausschließlich auf Lernplattformen konzentriert. Maßgeschneiderte LMS-, Moodle-, Canvas- und LTI-Arbeit, geleitet von Choaib Mouhrach.",
+      "twitterTitle": "Über Rizon und Choaib Mouhrach",
+      "twitterDescription": "Ein Softwarestudio, das sich ausschließlich auf Lernplattformen konzentriert.",
+      "ogAlt": "Über Rizon"
+    },
+    "services": {
+      "title": "Dienstleistungen für Lernplattform-Entwicklung | Rizon",
+      "description": "Maßgeschneiderte LMS-, Unternehmensschulungs-, Kursplattform- und Schulportal-Entwicklung für Teams, die Lernsoftware brauchen, die auf ihre Abläufe zugeschnitten ist.",
+      "ogTitle": "Dienstleistungen für Lernplattform-Entwicklung | Rizon",
+      "ogDescription": "Vier Wege, wie Rizon Lernprodukte rund um die zu erledigende Arbeit entwickelt.",
+      "ogAlt": "Rizons Dienstleistungen für maßgeschneiderte Lernplattformen"
+    },
+    "lmsAlternatives": {
+      "title": "LMS-Alternativen: wann eine maßgeschneiderte Entwicklung sinnvoll ist | Rizon",
+      "description": "Vergleichen Sie führende LMS- und Kursplattform-Alternativen und entscheiden Sie, ob eine maßgeschneiderte Lernplattform den Aufwand für Ihr Unternehmen oder Ihre Einrichtung wert ist.",
+      "ogTitle": "LMS-Alternativen | Rizon",
+      "ogDescription": "Ein ehrlicher Leitfaden zur Wahl zwischen einem LMS und einer maßgeschneiderten Lernplattform.",
+      "ogAlt": "LMS-Alternativen"
+    },
+    "legal": {
+      "title": "AGB | Rizon LLC",
+      "description": "Allgemeine Geschäftsbedingungen von Rizon LLC. Lesen Sie unsere Bedingungen zu maßgeschneiderten Softwareentwicklungsleistungen, Zahlung, geistigem Eigentum und Vertraulichkeit.",
+      "ogTitle": "AGB | Rizon LLC",
+      "ogDescription": "Allgemeine Geschäftsbedingungen von Rizon LLC zu maßgeschneiderten Softwareentwicklungsleistungen, Zahlung, geistigem Eigentum und Vertraulichkeit.",
+      "ogAlt": "Rechtliche Bedingungen von Rizon"
+    }
+  }
+}

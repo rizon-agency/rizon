@@ -1,1 +1,43 @@
-{}
+{
+  "seo": {
+    "home": {
+      "title": "Rizon - Plataforma de e-learning a medida",
+      "description": "Lanza tu plataforma de aprendizaje online sin dependencia del proveedor. Desarrollamos soluciones e-learning a medida para creadores de cursos, escuelas y empresas. Propiedad total del código, sin plantillas, sin comisiones sobre tus ingresos.",
+      "ogTitle": "Rizon - Construye tu propia plataforma de aprendizaje online",
+      "ogDescription": "Plataformas de e-learning a medida, diseñadas en torno a tu forma de enseñar. Sin cuotas mensuales, sin límites de funciones, sin dependencia del proveedor. Para creadores de cursos, escuelas y empresas.",
+      "twitterTitle": "Rizon - Desarrollo de plataformas de e-learning a medida",
+      "twitterDescription": "Lanza tu plataforma de aprendizaje online sin cuotas mensuales ni dependencia del proveedor. Tu plataforma, tus ingresos.",
+      "ogAlt": "Rizon — desarrollo de plataformas de e-learning a medida"
+    },
+    "about": {
+      "title": "Acerca de Rizon y Choaib Mouhrach",
+      "description": "Rizon es un estudio de software dedicado exclusivamente a plataformas de aprendizaje — LMS a medida, desarrollo Moodle y Canvas, integraciones LTI y portales internos de formación.",
+      "ogTitle": "Acerca de Rizon y Choaib Mouhrach",
+      "ogDescription": "Un estudio de software dedicado a las plataformas de aprendizaje. LMS a medida, Moodle, Canvas y LTI, liderado por Choaib Mouhrach.",
+      "twitterTitle": "Acerca de Rizon y Choaib Mouhrach",
+      "twitterDescription": "Un estudio de software dedicado exclusivamente a plataformas de aprendizaje.",
+      "ogAlt": "Acerca de Rizon"
+    },
+    "services": {
+      "title": "Servicios de desarrollo de plataformas de aprendizaje | Rizon",
+      "description": "LMS a medida, formación corporativa, plataforma de cursos y portal educativo — desarrollo para equipos que necesitan software de aprendizaje construido en torno a su operación.",
+      "ogTitle": "Servicios de desarrollo de plataformas de aprendizaje | Rizon",
+      "ogDescription": "Cuatro formas en que Rizon construye productos de aprendizaje en torno al trabajo que hay que hacer.",
+      "ogAlt": "Servicios de plataformas de aprendizaje a medida de Rizon"
+    },
+    "lmsAlternatives": {
+      "title": "Alternativas a LMS: cuándo tiene sentido un desarrollo a medida | Rizon",
+      "description": "Compara las principales alternativas de LMS y plataformas de cursos, y decide si una plataforma de aprendizaje a medida merece la pena para tu empresa o institución.",
+      "ogTitle": "Alternativas a LMS | Rizon",
+      "ogDescription": "Una guía honesta para elegir entre un LMS y una plataforma de aprendizaje a medida.",
+      "ogAlt": "Alternativas a LMS"
+    },
+    "legal": {
+      "title": "Términos y Condiciones | Rizon LLC",
+      "description": "Términos y Condiciones de Rizon LLC. Lee nuestros términos sobre las prestaciones de desarrollo de software a medida, pago, propiedad intelectual y confidencialidad.",
+      "ogTitle": "Términos y Condiciones | Rizon LLC",
+      "ogDescription": "Términos y Condiciones de Rizon LLC que cubren desarrollo de software a medida, pago, propiedad intelectual y confidencialidad.",
+      "ogAlt": "Términos legales de Rizon"
+    }
+  }
+}
