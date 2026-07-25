@@ -286,6 +286,7 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "build-vs-buy-an-lms-the-honest-math": { title: "LMS kaufen oder bauen: die ehrliche Rechnung", description: "Entscheidend ist nicht Lizenz gegen Projektpreis, sondern der dreijährige Betrieb. Rechnen Sie Workarounds, Umsatzgrenzen und Personalzeit ein, bevor Sie entscheiden, ob ein eigener Build sich auszahlt.", readTime: "7 Min. Lesezeit", category: "Plattformstrategie" },
     "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": { title: "Individuelles oder Standard-LMS: Gesamtbetriebskosten über drei Jahre", description: "Ein individueller Build wird erst dann günstiger, wenn er manuelle Arbeit ersetzt, blockierten Umsatz freisetzt oder riskante Abhängigkeiten beendet. Rechnen Sie drei Jahre statt nur Lizenz gegen Projektpreis.", readTime: "7 Min. Lesezeit", category: "Plattformstrategie" },
     "hidden-cost-of-revenue-share-course-platforms": { title: "Die versteckten Kosten von Kursplattformen mit Umsatzbeteiligung", description: "Eine Umsatzbeteiligung kann zum Start passen. Folgen Sie einem Verkauf durch Gebühren, Tarife und Sonderfälle, bevor Sie entscheiden, ob die Plattform Ihnen noch Geschwindigkeit bringt oder nur Umsatz abschöpft.", readTime: "6 Min. Lesezeit", category: "Creator-Ökonomie" },
     "canvas-breach-student-data-security": { title: "Die Canvas-Datenpanne und die Sicherheit von Schülerdaten", description: "Datenpannen im Bildungsbereich entstehen oft durch einfache Fehler, die groß werden: zu breite Zugriffe, vergessene Rechte und unnötig aufbewahrte Daten. Sicherheit ist eine Architekturentscheidung.", readTime: "6 Min. Lesezeit", category: "Sicherheit" },
@@ -516,6 +517,7 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/de/build-vs-buy-an-lms-the-honest-math.mdx"),
     "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": () => import("@/content/blog/de/custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years.mdx"),
     "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/de/hidden-cost-of-revenue-share-course-platforms.mdx"),
     "canvas-breach-student-data-security": () => import("@/content/blog/de/canvas-breach-student-data-security.mdx"),
