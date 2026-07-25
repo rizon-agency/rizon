@@ -407,6 +407,12 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "what-actually-drives-the-price-of-an-e-learning-build": {
+      title: "Qué mueve realmente el precio de un proyecto de e-learning",
+      description: "Roles, migración, integraciones, reglas de negocio y calidad de lanzamiento influyen mucho más en una estimación que una pantalla de lección pulida. Así se define honestamente una primera versión.",
+      readTime: "6 min de lectura",
+      category: "Estrategia de plataforma",
+    },
     "how-to-migrate-off-moodle-without-losing-course-data": {
       title: "Cómo salir de Moodle sin perder los datos del curso",
       description: "No pierdes datos de Moodle por exportarlos mal, sino porque los plugins sostienen reglas de negocio. Haz inventario de esas reglas antes de mover el contenido.",
@@ -490,6 +496,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "what-actually-drives-the-price-of-an-e-learning-build": () => import("@/content/blog/es/what-actually-drives-the-price-of-an-e-learning-build.mdx"),
     "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/es/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
     "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/es/how-much-does-a-custom-lms-cost-in-2026.mdx"),
     "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/es/hidden-cost-of-revenue-share-course-platforms.mdx"),
