@@ -286,6 +286,13 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   fr: {
+    "scorm-vs-xapi-keeping-your-content-portable": {
+      title: "SCORM ou xAPI : garder votre contenu portable",
+      description:
+        "SCORM rend votre contenu portable entre les systèmes. xAPI rend vos traces portables, car elles peuvent vivre dans un entrepôt que vous possédez. Déplacer le ZIP ne déplace que la moitié la moins précieuse.",
+      readTime: "6 min de lecture",
+      category: "Standards",
+    },
     "exporting-courses-from-canvas-imscc-step-by-step": {
       title: "Exporter vos cours Canvas (IMSCC), étape par étape",
       description:
@@ -302,6 +309,13 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "scorm-vs-xapi-keeping-your-content-portable": {
+      title: "SCORM frente a xAPI: cómo mantener tu contenido portable",
+      description:
+        "SCORM hace portable el contenido entre sistemas. xAPI hace portables los registros porque pueden vivir en un almacén propio. Si solo mueves el ZIP, has movido la mitad menos valiosa.",
+      readTime: "6 min de lectura",
+      category: "Estándares",
+    },
     "exporting-courses-from-canvas-imscc-step-by-step": {
       title: "Cómo exportar tus cursos de Canvas (IMSCC), paso a paso",
       description:
@@ -323,10 +337,12 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   fr: {
+    "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/fr/scorm-vs-xapi-keeping-your-content-portable.mdx"),
     "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/fr/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/es/scorm-vs-xapi-keeping-your-content-portable.mdx"),
     "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/es/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
     "whats-an-imscc-file": () => import("@/content/blog/es/whats-an-imscc-file.mdx"),
   },
