@@ -286,6 +286,12 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "what-actually-drives-the-price-of-an-e-learning-build": {
+      title: "Was den Preis eines E-Learning-Projekts wirklich beeinflusst",
+      description: "Rollen, Migration, Integrationen, Geschäftsregeln und Startqualität verändern eine Schätzung weit stärker als ein polierter Lektionsbildschirm. So lässt sich eine erste Version ehrlich eingrenzen.",
+      readTime: "6 Min. Lesezeit",
+      category: "Plattformstrategie",
+    },
     "how-to-migrate-off-moodle-without-losing-course-data": {
       title: "Moodle verlassen, ohne Kursdaten zu verlieren",
       description:
@@ -475,6 +481,7 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "what-actually-drives-the-price-of-an-e-learning-build": () => import("@/content/blog/de/what-actually-drives-the-price-of-an-e-learning-build.mdx"),
     "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/de/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
     "leaving-teachable-a-migration-checklist": () => import("@/content/blog/de/leaving-teachable-a-migration-checklist.mdx"),
     "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/de/what-a-smooth-lms-migration-actually-looks-like.mdx"),
