@@ -95,8 +95,8 @@ export default async function ServiceDetailPage({
     answer: local(faq.answer),
   }));
   const crumbs: Crumb[] = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
+    { name: t("breadcrumbs.home"), href: "/" },
+    { name: t("breadcrumbs.services"), href: "/services" },
     { name: serviceTitle, href: `/services/${service.slug}` },
   ];
   const relatedAlternatives = alternatives.filter((item) =>

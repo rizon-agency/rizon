@@ -108,8 +108,8 @@ export default async function ProjectPage({
   };
 
   const crumbs: Crumb[] = [
-    { name: "Home", href: "/" },
-    { name: "Work", href: "/#work" },
+    { name: t("breadcrumbs.home"), href: "/" },
+    { name: t("breadcrumbs.work"), href: "/#work" },
     { name: projectTitle, href: `/work/${slug}` },
   ];
 

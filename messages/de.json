@@ -359,7 +359,8 @@
       "description": "Wir kartieren die echte Einschränkung, sagen Ihnen, ob eine maßgeschneiderte Entwicklung Sinn ergibt, und skizzieren eine erste Version, die nicht so tut, als würde sie jedes zukünftige Problem lösen.",
       "button": "30-minütigen Termin buchen"
     },
-    "alternativeSuffix": "Alternative"
+    "alternativeSuffix": "Alternative",
+    "breadcrumbs": { "home": "Startseite", "services": "Leistungen" }
   },
   "alternativeDetail": {
     "heroBookCall": "Termin buchen",
@@ -397,6 +398,7 @@
       "description": "Bringen Sie die Teile Ihres aktuellen Setups mit, die schmerzen. Wir sagen Ihnen, was neu gebaut werden sollte, was bleiben sollte und wo maßgeschneiderte Software Verschwendung wäre.",
       "button": "30-minütigen Termin buchen"
     },
+    "breadcrumbs": { "home": "Startseite", "alternatives": "Alternativen" },
     "footerLinks": {
       "browseAll": "Alle LMS-Alternativen ansehen",
       "exploreServicePrefix": "Erkunden"
@@ -519,7 +521,8 @@
     "viewOf": "Ansicht {n} von {total}",
     "ctaTitle": "Möchten Sie eine Plattform wie diese, gebaut rund um Ihre tatsächliche Arbeitsweise?",
     "ctaButton": "Termin buchen",
-    "nextProject": "Nächstes Projekt"
+    "nextProject": "Nächstes Projekt",
+    "breadcrumbs": { "home": "Startseite", "work": "Projekte" }
   },
   "servicesPage": {
     "eyebrow": "Leistungen",

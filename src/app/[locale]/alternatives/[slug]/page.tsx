@@ -87,8 +87,8 @@ export default async function AlternativePage({
 
   const url = `${BASE_URL}/alternatives/${slug}`;
   const crumbs: Crumb[] = [
-    { name: "Home", href: "/" },
-    { name: "Alternatives", href: "/lms-alternatives" },
+    { name: t("breadcrumbs.home"), href: "/" },
+    { name: t("breadcrumbs.alternatives"), href: "/lms-alternatives" },
     { name: alternative.competitor, href: `/alternatives/${slug}` },
   ];
   const relatedPosts = posts.filter((post) => alternative.relatedPostSlugs?.includes(post.slug));

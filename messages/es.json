@@ -359,7 +359,8 @@
       "description": "Trazaremos la restricción real, te diremos si un desarrollo a medida tiene sentido y esbozaremos una primera versión que no pretenda resolver todos los problemas futuros.",
       "button": "Reservar una llamada de 30 minutos"
     },
-    "alternativeSuffix": "alternativa"
+    "alternativeSuffix": "alternativa",
+    "breadcrumbs": { "home": "Inicio", "services": "Servicios" }
   },
   "alternativeDetail": {
     "heroBookCall": "Reservar una llamada",
@@ -397,6 +398,7 @@
       "description": "Trae las partes de tu configuración actual que duelen. Te diremos qué merece la pena reconstruir, qué debe quedarse, y dónde el software a medida sería un desperdicio.",
       "button": "Reservar una llamada de 30 minutos"
     },
+    "breadcrumbs": { "home": "Inicio", "alternatives": "Alternativas" },
     "footerLinks": {
       "browseAll": "Ver todas las alternativas de LMS",
       "exploreServicePrefix": "Explorar"
@@ -519,7 +521,8 @@
     "viewOf": "vista {n} de {total}",
     "ctaTitle": "¿Quieres una plataforma como esta, construida en torno a cómo realmente trabajas?",
     "ctaButton": "Reservar una llamada",
-    "nextProject": "Siguiente proyecto"
+    "nextProject": "Siguiente proyecto",
+    "breadcrumbs": { "home": "Inicio", "work": "Proyectos" }
   },
   "servicesPage": {
     "eyebrow": "Servicios",

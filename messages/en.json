@@ -359,7 +359,8 @@
       "description": "We will map the real constraint, tell you whether a custom build makes sense, and outline a first release that does not pretend to solve every future problem.",
       "button": "Book a 30-minute call"
     },
-    "alternativeSuffix": "alternative"
+    "alternativeSuffix": "alternative",
+    "breadcrumbs": { "home": "Home", "services": "Services" }
   },
   "alternativeDetail": {
     "heroBookCall": "Book a call",
@@ -397,6 +398,7 @@
       "description": "Bring the parts of your current setup that hurt. We will tell you what is worth rebuilding, what should stay, and where custom software would be a waste.",
       "button": "Book a 30-minute call"
     },
+    "breadcrumbs": { "home": "Home", "alternatives": "Alternatives" },
     "footerLinks": {
       "browseAll": "Browse all LMS alternatives",
       "exploreServicePrefix": "Explore"
@@ -519,7 +521,8 @@
     "viewOf": "view {n} of {total}",
     "ctaTitle": "Want a platform like this, built around how you actually work?",
     "ctaButton": "Book a call",
-    "nextProject": "Next project"
+    "nextProject": "Next project",
+    "breadcrumbs": { "home": "Home", "work": "Work" }
   },
   "servicesPage": {
     "eyebrow": "Services",
