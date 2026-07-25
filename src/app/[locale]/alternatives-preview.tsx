@@ -24,7 +24,7 @@ export const AlternativesPreview = async () => {
             className="surface surface-hover flex flex-col p-7 md:p-8"
           >
             <span className="inline-flex w-fit items-center rounded-full bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">
-              {alternative.category}
+              {l(alternative.category, locale)}
             </span>
             <h3 className="mt-5 text-2xl font-semibold tracking-tight">
               {alternative.competitor} alternative

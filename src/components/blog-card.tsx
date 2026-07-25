@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { useFormatter } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import type { Post } from "@/types";
 
@@ -21,6 +21,7 @@ type BlogCardProps = {
 
 export const BlogCard = ({ post, sizes = "(max-width: 768px) 100vw, 45vw" }: BlogCardProps) => {
   const format = useFormatter();
+  const t = useTranslations("blogPage");
   const formatted = format.dateTime(new Date(post.date), {
     year: "numeric",
     month: "long",
@@ -47,7 +48,7 @@ export const BlogCard = ({ post, sizes = "(max-width: 768px) 100vw, 45vw" }: Blo
           <span className="text-xs font-medium text-primary">
             {post.category}
           </span>
-          {isNew(post.date) && <Badge>New</Badge>}
+          {isNew(post.date) && <Badge>{t("new")}</Badge>}
         </div>
 
         <h2 className="mt-3 text-xl font-semibold tracking-tight leading-snug text-balance">

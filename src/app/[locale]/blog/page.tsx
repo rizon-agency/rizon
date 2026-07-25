@@ -1,45 +1,55 @@
 import type { Metadata } from "next";
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { Footer } from "../footer";
 import { Cta } from "../cta";
 import { SectionHeader } from "@/components/section-header";
 import { BlogCard } from "@/components/blog-card";
 import { posts } from "@/lib/posts";
+import { languagesFor, localizedUrl, OG_LOCALE } from "@/i18n/hreflang";
+import { routing } from "@/i18n/routing";
 
 export function generateStaticParams() {
-  return [{ locale: "en" }];
+  return routing.locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: "Blog — Rizon",
-  description:
-    "Insights on custom LMS development, e-learning platform architecture, and building online learning products that last.",
-  alternates: { canonical: "https://rizon.agency/blog" },
-  openGraph: {
-    title: "Blog — Rizon",
-    description:
-      "Insights on custom LMS development, e-learning platform architecture, and building online learning products that last.",
-    url: "https://rizon.agency/blog",
-    siteName: "Rizon",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Blog — Rizon",
-    description:
-      "Insights on custom LMS development, e-learning platform architecture, and building online learning products that last.",
-    creator: "@rizon_agency",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+  setRequestLocale(locale);
+  const t = await getTranslations("seo.blog");
+  const path = "/blog";
 
-export default function BlogPage() {
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: { canonical: localizedUrl(path, locale), languages: languagesFor(path) },
+    openGraph: { title: t("title"), description: t("description"), url: localizedUrl(path, locale), siteName: "Rizon", locale: OG_LOCALE[locale], type: "website" },
+    twitter: { card: "summary_large_image", title: t("title"), description: t("description"), creator: "@rizon_agency" },
+  };
+}
+
+export default async function BlogPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+  setRequestLocale(locale);
+  const t = await getTranslations("blogPage");
   return (
     <>
       <main>
         <section className="container pt-32 md:pt-40">
           <SectionHeader
-            label="From the blog"
-            title="Thinking on LMS, learning platforms, and the business of online education"
+            label={t("eyebrow")}
+            title={t("title")}
           />
         </section>
 

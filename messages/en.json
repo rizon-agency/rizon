@@ -521,6 +521,17 @@
     "ctaButton": "Book a call",
     "nextProject": "Next project"
   },
+  "servicesPage": {
+    "eyebrow": "Services",
+    "title": "Learning platforms built for the work you need them to do.",
+    "description": "Some teams need a better LMS. Others need a product, a portal, or a training system that does not exist in a catalogue. Start with the job.",
+    "schemaName": "Rizon services"
+  },
+  "blogPage": {
+    "eyebrow": "From the blog",
+    "title": "Thinking on LMS, learning platforms, and the business of online education",
+    "new": "New"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Custom E-Learning",
@@ -560,6 +571,10 @@
       "ogTitle": "Terms and Services | Rizon LLC",
       "ogDescription": "Terms and Services for Rizon LLC. Read our terms governing custom software development engagements, payment, intellectual property, and confidentiality.",
       "ogAlt": "Rizon legal terms"
+    },
+    "blog": {
+      "title": "Blog | Rizon",
+      "description": "Notes on custom LMS development, learning-platform architecture, and building online education products that hold up over time."
     }
   }
 }

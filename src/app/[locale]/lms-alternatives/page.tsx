@@ -144,10 +144,10 @@ export default async function LmsAlternativesPage({
                       </Link>
                     </th>
                     <td className="border-l border-border px-5 py-5 text-muted-foreground">
-                      {alternative.category}
+                      {l(alternative.category, locale as Locale)}
                     </td>
                     <td className="border-l border-border px-5 py-5 text-muted-foreground">
-                      {alternative.whyLeave[0].title}
+                      {l(alternative.whyLeave[0].title, locale as Locale)}
                     </td>
                   </tr>
                 ))}
@@ -163,7 +163,7 @@ export default async function LmsAlternativesPage({
                 className="surface surface-hover flex flex-col p-7 md:p-8"
               >
                 <span className="inline-flex w-fit items-center rounded-full bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">
-                  {alternative.category}
+                  {l(alternative.category, locale as Locale)}
                 </span>
                 <h2 className="mt-5 text-2xl font-semibold tracking-tight">
                   {alternative.competitor} {t("alternativeSuffix")}

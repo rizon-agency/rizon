@@ -85,11 +85,19 @@ export default async function ServiceDetailPage({
   const t = await getTranslations("serviceDetail");
   const service = getServiceBySlug(slug);
   if (!service) notFound();
-  const url = `${BASE_URL}/services/${service.slug}`;
+  const local = <T,>(field: import("@/lib/l10n").MaybeLocalized<T>) =>
+    l(field, locale as Locale);
+  const url = localizedUrl(`/services/${service.slug}`, locale);
+  const serviceTitle = local(service.title);
+  const targetKeyword = local(service.targetKeyword);
+  const serviceFaqs = service.faqs.map((faq) => ({
+    question: local(faq.question),
+    answer: local(faq.answer),
+  }));
   const crumbs: Crumb[] = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
-    { name: service.title, href: `/services/${service.slug}` },
+    { name: serviceTitle, href: `/services/${service.slug}` },
   ];
   const relatedAlternatives = alternatives.filter((item) =>
     service.relatedAlternativeSlugs?.includes(item.slug),
@@ -103,16 +111,16 @@ export default async function ServiceDetailPage({
       {
         "@type": "Service",
         "@id": `${url}#service`,
-        name: service.title,
-        serviceType: service.targetKeyword,
-        description: service.metaDescription,
+        name: serviceTitle,
+        serviceType: targetKeyword,
+        description: local(service.metaDescription),
         url,
         provider: { "@id": `${BASE_URL}/#org` },
         areaServed: "Worldwide",
       },
       {
         "@type": "FAQPage",
-        mainEntity: service.faqs.map((faq) => ({
+        mainEntity: serviceFaqs.map((faq) => ({
           "@type": "Question",
           name: faq.question,
           acceptedAnswer: { "@type": "Answer", text: faq.answer },
@@ -167,14 +175,14 @@ export default async function ServiceDetailPage({
               <ul className="space-y-6">
                 {service.whoWeWorkWith.map((item) => (
                   <li
-                    key={item.audience}
+                    key={local(item.audience)}
                     className="border-l-2 border-primary pl-5"
                   >
                     <h3 className="text-lg font-semibold tracking-tight">
-                      {item.audience}
+                      {local(item.audience)}
                     </h3>
                     <p className="mt-2 leading-relaxed text-muted-foreground">
-                      {item.description}
+                      {local(item.description)}
                     </p>
                   </li>
                 ))}
@@ -194,14 +202,14 @@ export default async function ServiceDetailPage({
           <div className="surface mt-12 divide-y divide-border overflow-hidden">
             {service.problemsWeSolve.map((item) => (
               <article
-                key={item.problem}
+                key={local(item.problem)}
                 className="grid grid-cols-1 gap-4 px-6 py-7 md:grid-cols-12 md:gap-10 md:px-8"
               >
                 <h3 className="text-lg font-medium tracking-tight md:col-span-5">
-                  {item.problem}
+                  {local(item.problem)}
                 </h3>
                 <p className="leading-relaxed text-muted-foreground md:col-span-7">
-                  {item.solution}
+                  {local(item.solution)}
                 </p>
               </article>
             ))}
@@ -213,23 +221,23 @@ export default async function ServiceDetailPage({
               {t("capabilities.label")}
             </span>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight text-balance md:text-5xl">
-              {t("capabilities.titleTemplate", { keyword: service.targetKeyword })}
+              {t("capabilities.titleTemplate", { keyword: targetKeyword })}
             </h2>
           </div>
           <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
             {service.whatWeBuild.map((section, index) => (
               <article
-                key={section.heading}
+                key={local(section.heading)}
                 className="surface surface-hover p-7 md:p-8"
               >
                 <span className="font-mono text-sm font-medium text-primary">
                   0{index + 1}
                 </span>
                 <h3 className="mt-5 text-2xl font-medium tracking-tight">
-                  {section.heading}
+                  {local(section.heading)}
                 </h3>
                 <p className="mt-4 leading-relaxed text-muted-foreground">
-                  {section.body}
+                  {local(section.body)}
                 </p>
               </article>
             ))}
@@ -247,17 +255,17 @@ export default async function ServiceDetailPage({
           <div className="surface mt-12 divide-y divide-border overflow-hidden">
             {service.process.map((item, index) => (
               <article
-                key={item.step}
+                key={local(item.step)}
                 className="grid grid-cols-1 gap-5 px-6 py-7 md:grid-cols-12 md:gap-10 md:px-8"
               >
                 <span className="font-mono text-sm text-primary md:col-span-1">
                   0{index + 1}
                 </span>
                 <h3 className="text-xl font-medium tracking-tight md:col-span-4">
-                  {item.step}
+                  {local(item.step)}
                 </h3>
                 <p className="leading-relaxed text-muted-foreground md:col-span-7">
-                  {item.detail}
+                  {local(item.detail)}
                 </p>
               </article>
             ))}
@@ -275,7 +283,7 @@ export default async function ServiceDetailPage({
             </div>
             <div className="lg:col-span-7 lg:col-start-6">
               <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {service.included.map((item) => (
+                {local(service.included).map((item) => (
                   <li
                     key={item}
                     className="flex gap-3 text-muted-foreground"
@@ -301,14 +309,14 @@ export default async function ServiceDetailPage({
               {t("budget.title")}
             </h2>
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-              {service.costBand}
+              {local(service.costBand)}
             </p>
             <p className="mt-5 max-w-3xl leading-relaxed text-muted-foreground">
               {t("budget.note")}
             </p>
             {service.stat && (
               <div className="mt-10">
-                <StatBlock stat={service.stat} />
+                <StatBlock stat={{ ...service.stat, label: local(service.stat.label) }} />
               </div>
             )}
           </div>
@@ -322,7 +330,7 @@ export default async function ServiceDetailPage({
               {t("afterLaunch.title")}
             </h2>
             <p className="mt-7 text-lg leading-relaxed text-muted-foreground">
-              {service.outcomes}
+              {local(service.outcomes)}
             </p>
           </div>
         </section>
@@ -382,7 +390,7 @@ export default async function ServiceDetailPage({
             </h2>
           </div>
           <div className="surface mt-12 divide-y divide-border overflow-hidden">
-            {service.faqs.map((faq) => (
+            {serviceFaqs.map((faq) => (
               <article
                 key={faq.question}
                 className="grid grid-cols-1 gap-5 px-6 py-7 md:grid-cols-12 md:gap-10 md:px-8"

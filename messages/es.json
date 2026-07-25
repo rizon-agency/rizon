@@ -511,7 +511,7 @@
     "metaYear": "Año",
     "metaDiscipline": "Disciplina",
     "metaDisciplineValue": "Desarrollo de LMS a medida",
-    "metaStack": "Stack",
+    "metaStack": "Tecnologías",
     "problemLabel": "El problema",
     "solutionLabel": "Nuestra solución",
     "insideBuild": "Detrás del proyecto",
@@ -520,6 +520,17 @@
     "ctaTitle": "¿Quieres una plataforma como esta, construida en torno a cómo realmente trabajas?",
     "ctaButton": "Reservar una llamada",
     "nextProject": "Siguiente proyecto"
+  },
+  "servicesPage": {
+    "eyebrow": "Servicios",
+    "title": "Plataformas de aprendizaje hechas para el trabajo que necesitas que hagan.",
+    "description": "Algunos equipos necesitan un LMS mejor. Otros necesitan un producto, un portal o un sistema de formación que no existe en ningún catálogo. Empieza por el trabajo.",
+    "schemaName": "Servicios de Rizon"
+  },
+  "blogPage": {
+    "eyebrow": "Desde el blog",
+    "title": "Ideas sobre LMS, plataformas de aprendizaje y el negocio de la educación en línea",
+    "new": "Nuevo"
   },
   "seo": {
     "home": {
@@ -560,6 +571,10 @@
       "ogTitle": "Términos y Condiciones | Rizon LLC",
       "ogDescription": "Términos y Condiciones de Rizon LLC que cubren desarrollo de software a medida, pago, propiedad intelectual y confidencialidad.",
       "ogAlt": "Términos legales de Rizon"
+    },
+    "blog": {
+      "title": "Blog | Rizon",
+      "description": "Notas sobre desarrollo de LMS a medida, arquitectura de plataformas de aprendizaje y productos de educación en línea que se sostienen con el tiempo."
     }
   }
 }

@@ -9,6 +9,7 @@ import { posts, getPostBySlug } from "@/lib/posts";
 import { alternatives } from "@/lib/alternatives";
 import { getServiceBySlug } from "@/lib/services";
 import { getAuthorBySlug } from "@/lib/authors";
+import { l } from "@/lib/l10n";
 import { Breadcrumb, breadcrumbJsonLd, type Crumb } from "@/components/breadcrumb";
 
 const BASE_URL = "https://rizon.agency";
@@ -191,7 +192,7 @@ export default async function BlogPostPage({
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Keep reading</span>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight">The useful next links</h2>
               <div className="mt-7 divide-y divide-border border-y border-border">
-                {relatedService && <Link href={`/services/${relatedService.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{relatedService.title}</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>}
+                {relatedService && <Link href={`/services/${relatedService.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{l(relatedService.title, "en")}</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>}
                 {relatedAlternatives.map((item) => <Link key={item.slug} href={`/alternatives/${item.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{item.competitor} alternative</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>)}
                 {relatedPosts.map((item) => <Link key={item.slug} href={`/blog/${item.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{item.title}</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>)}
               </div>

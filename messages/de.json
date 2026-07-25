@@ -511,7 +511,7 @@
     "metaYear": "Jahr",
     "metaDiscipline": "Disziplin",
     "metaDisciplineValue": "Maßgeschneiderte LMS-Entwicklung",
-    "metaStack": "Stack",
+    "metaStack": "Technologie",
     "problemLabel": "Das Problem",
     "solutionLabel": "Unsere Lösung",
     "insideBuild": "Hinter den Kulissen",
@@ -520,6 +520,17 @@
     "ctaTitle": "Möchten Sie eine Plattform wie diese, gebaut rund um Ihre tatsächliche Arbeitsweise?",
     "ctaButton": "Termin buchen",
     "nextProject": "Nächstes Projekt"
+  },
+  "servicesPage": {
+    "eyebrow": "Leistungen",
+    "title": "Lernplattformen für die Arbeit, die sie leisten sollen.",
+    "description": "Manche Teams brauchen ein besseres LMS. Andere brauchen ein Produkt, ein Portal oder ein Trainingssystem, das es in keinem Katalog gibt. Beginnen Sie mit der eigentlichen Aufgabe.",
+    "schemaName": "Rizon Leistungen"
+  },
+  "blogPage": {
+    "eyebrow": "Aus dem Blog",
+    "title": "Gedanken zu LMS, Lernplattformen und dem Geschäft mit Online-Bildung",
+    "new": "Neu"
   },
   "seo": {
     "home": {
@@ -560,6 +571,10 @@
       "ogTitle": "AGB | Rizon LLC",
       "ogDescription": "Allgemeine Geschäftsbedingungen von Rizon LLC zu maßgeschneiderten Softwareentwicklungsleistungen, Zahlung, geistigem Eigentum und Vertraulichkeit.",
       "ogAlt": "Rechtliche Bedingungen von Rizon"
+    },
+    "blog": {
+      "title": "Blog | Rizon",
+      "description": "Notizen zur maßgeschneiderten LMS-Entwicklung, zur Architektur von Lernplattformen und zum Aufbau von Online-Bildungsprodukten, die langfristig bestehen."
     }
   }
 }

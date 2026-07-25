@@ -55,7 +55,8 @@ export default async function ServicesPage({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
-  const jsonLd = { "@context": "https://schema.org", "@type": "CollectionPage", name: "Rizon services", url: `${BASE_URL}/services`, mainEntity: { "@type": "ItemList", itemListElement: services.map((service, index) => ({ "@type": "ListItem", position: index + 1, name: service.title, url: `${BASE_URL}/services/${service.slug}` })) } };
+  const t = await getTranslations("servicesPage");
+  const jsonLd = { "@context": "https://schema.org", "@type": "CollectionPage", name: t("schemaName"), url: localizedUrl("/services", locale), mainEntity: { "@type": "ItemList", itemListElement: services.map((service, index) => ({ "@type": "ListItem", position: index + 1, name: service.title, url: localizedUrl(`/services/${service.slug}`, locale) })) } };
   return (
     <>
       <script
@@ -65,14 +66,12 @@ export default async function ServicesPage({
       <main className="pb-24 md:pb-32">
         <section className="container pt-32 md:pt-40">
           <div className="max-w-4xl">
-            <Eyebrow>Services</Eyebrow>
+            <Eyebrow>{t("eyebrow")}</Eyebrow>
             <h1 className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance md:text-6xl">
-              Learning platforms built for the work you need them to do.
+              {t("title")}
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-relaxed text-muted-foreground">
-              Some teams need a better LMS. Others need a product, a portal, or
-              a training system that does not exist in a catalogue. Start with
-              the job.
+              {t("description")}
             </p>
           </div>
         </section>
@@ -95,7 +94,7 @@ export default async function ServicesPage({
                   />
                 </div>
                 <h2 className="mt-6 text-2xl font-semibold tracking-tight md:text-3xl">
-                  {service.title}
+                  {l(service.title, locale as Locale)}
                 </h2>
                 <p className="mt-4 leading-relaxed text-muted-foreground">
                   {l(service.heroSub, locale as Locale)}

@@ -509,9 +509,9 @@
     "caseStudy": "Étude de cas",
     "visitLive": "Voir le site en ligne",
     "metaYear": "Année",
-    "metaDiscipline": "Discipline",
+    "metaDiscipline": "Domaine",
     "metaDisciplineValue": "Développement de LMS sur mesure",
-    "metaStack": "Stack",
+    "metaStack": "Technologies",
     "problemLabel": "Le problème",
     "solutionLabel": "Notre solution",
     "insideBuild": "Dans les coulisses",
@@ -520,6 +520,17 @@
     "ctaTitle": "Vous voulez une plateforme comme celle-ci, construite autour de votre manière de travailler ?",
     "ctaButton": "Réserver un appel",
     "nextProject": "Projet suivant"
+  },
+  "servicesPage": {
+    "eyebrow": "Services",
+    "title": "Des plateformes d'apprentissage construites pour le travail qu'elles doivent accomplir.",
+    "description": "Certaines équipes ont besoin d'un meilleur LMS. D'autres ont besoin d'un produit, d'un portail ou d'un système de formation qui n'existe dans aucun catalogue. Commencez par le travail à faire.",
+    "schemaName": "Services Rizon"
+  },
+  "blogPage": {
+    "eyebrow": "Depuis le blog",
+    "title": "Réflexions sur les LMS, les plateformes d'apprentissage et l'activité de l'éducation en ligne",
+    "new": "Nouveau"
   },
   "seo": {
     "home": {
@@ -560,6 +571,10 @@
       "ogTitle": "Conditions générales | Rizon LLC",
       "ogDescription": "Conditions générales de Rizon LLC couvrant les prestations de développement logiciel sur mesure, le paiement, la propriété intellectuelle et la confidentialité.",
       "ogAlt": "Conditions générales de Rizon"
+    },
+    "blog": {
+      "title": "Blog | Rizon",
+      "description": "Notes sur le développement de LMS sur mesure, l'architecture des plateformes d'apprentissage et la création de produits d'éducation en ligne qui tiennent dans la durée."
     }
   }
 }
