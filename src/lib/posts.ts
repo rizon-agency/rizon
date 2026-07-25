@@ -286,6 +286,13 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "how-to-migrate-off-moodle-without-losing-course-data": {
+      title: "Moodle verlassen, ohne Kursdaten zu verlieren",
+      description:
+        "Moodle-Daten gehen nicht durch einen falschen Export verloren, sondern weil Plugins Geschäftsregeln tragen. Inventarisieren Sie diese Regeln zuerst und verschieben Sie dann die Inhalte.",
+      readTime: "6 Min. Lesezeit",
+      category: "Migration",
+    },
     "leaving-teachable-a-migration-checklist": {
       title: "Teachable verlassen: Checkliste für die Migration",
       description:
@@ -444,6 +451,7 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/de/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
     "leaving-teachable-a-migration-checklist": () => import("@/content/blog/de/leaving-teachable-a-migration-checklist.mdx"),
     "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/de/what-a-smooth-lms-migration-actually-looks-like.mdx"),
     "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/de/scorm-vs-xapi-keeping-your-content-portable.mdx"),
