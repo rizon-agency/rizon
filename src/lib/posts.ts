@@ -286,6 +286,13 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "exporting-courses-from-canvas-imscc-step-by-step": {
+      title: "Canvas-Kurse als IMSCC exportieren: Schritt für Schritt",
+      description:
+        "Ein Canvas-IMSCC-Export verschiebt Kursinhalte gut. Er enthält jedoch weder Noten noch Abgaben von Lernenden oder jede Einstellung externer Tools. Hier sind die Schritte und die Lücken bei jedem davon.",
+      readTime: "6 Min. Lesezeit",
+      category: "Migration",
+    },
     "how-much-does-a-custom-lms-cost-in-2026": {
       title: "Was kostet ein maßgeschneidertes LMS im Jahr 2026?",
       description:
@@ -409,6 +416,7 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/de/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
     "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/de/how-much-does-a-custom-lms-cost-in-2026.mdx"),
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
