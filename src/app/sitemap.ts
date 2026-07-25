@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { languagesFor, localizedUrl } from "@/i18n/hreflang";
 import { projects } from "@/lib/projects";
-import { posts } from "@/lib/posts";
+import { getPostsForLocale } from "@/lib/posts";
 import { alternatives } from "@/lib/alternatives";
 import { services } from "@/lib/services";
 
@@ -51,20 +51,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       })),
   );
 
-  const blogEntries: MetadataRoute.Sitemap = [
-    {
-      url: `${BASE_URL}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    ...posts.map((post) => ({
-      url: `${BASE_URL}/blog/${post.slug}`,
-      lastModified: new Date(post.date),
-      changeFrequency: "monthly" as ChangeFreq,
-      priority: 0.6,
-    })),
-  ];
+  const blogEntries: MetadataRoute.Sitemap = routing.locales.flatMap((locale) => {
+    const prefix = locale === "en" ? "" : `/${locale}`;
+    return [
+      {
+        url: `${BASE_URL}${prefix}/blog`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as ChangeFreq,
+        priority: 0.8,
+      },
+      ...getPostsForLocale(locale).map((post) => ({
+        url: `${BASE_URL}${prefix}/blog/${post.slug}`,
+        lastModified: new Date(post.date),
+        changeFrequency: "monthly" as ChangeFreq,
+        priority: 0.6,
+      })),
+    ];
+  });
 
   return [...localizedEntries, ...blogEntries];
 }

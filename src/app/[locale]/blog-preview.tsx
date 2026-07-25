@@ -1,18 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ArrowUpRight } from "lucide-react";
-import { posts } from "@/lib/posts";
+import { getPostsForLocale } from "@/lib/posts";
 import { SectionHeader } from "@/components/section-header";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { BlogCard } from "@/components/blog-card";
 
-const preview = posts.slice(0, 3);
-
 export const BlogPreview = () => {
   const t = useTranslations("blogPreview");
+  const locale = useLocale() as import("@/i18n/routing").Locale;
+  const preview = getPostsForLocale(locale).slice(0, 3);
   return (
     <section id="blog" className="container mt-32 md:mt-40">
       <Reveal>

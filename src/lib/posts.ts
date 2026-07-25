@@ -1,4 +1,6 @@
 import type { Post } from "@/types";
+import type { Locale } from "@/i18n/routing";
+import type { ComponentType } from "react";
 import cheatingExamsCover from "@/assets/blog/cheating-online-exams-what-actually-works.png";
 import canvasBreachCover from "@/assets/blog/canvas-breach-student-data-security.png";
 import ltiMigrationBreachCover from "@/assets/blog/migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders.png";
@@ -278,4 +280,83 @@ export const posts: Post[] = [
 
 export function getPostBySlug(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);
+}
+
+type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "category">;
+
+const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
+  fr: {
+    "whats-an-imscc-file": {
+      title: "Qu’est-ce qu’un fichier IMSCC ?",
+      description:
+        "Un fichier IMSCC est un cours empaqueté : pages, devoirs, questions de quiz et manifeste qui en décrit la structure. Voici ce qu’un Common Cartridge transporte, ce qu’il laisse volontairement derrière lui et quand vous en rencontrerez un.",
+      readTime: "5 min de lecture",
+      category: "Standards",
+    },
+  },
+  es: {
+    "whats-an-imscc-file": {
+      title: "¿Qué es un archivo IMSCC?",
+      description:
+        "Un archivo IMSCC es un curso empaquetado: páginas, tareas, preguntas de cuestionarios y un manifiesto que describe su estructura. Aquí tienes qué lleva un Common Cartridge, qué deja atrás a propósito y cuándo te encontrarás uno.",
+      readTime: "5 min de lectura",
+      category: "Estándares",
+    },
+  },
+};
+
+const localizedPostLoaders: Partial<
+  Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
+> = {
+  fr: {
+    "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
+  },
+  es: {
+    "whats-an-imscc-file": () => import("@/content/blog/es/whats-an-imscc-file.mdx"),
+  },
+};
+
+export function getLocalizedPostBySlug(slug: string, locale: Locale): Post | undefined {
+  const post = getPostBySlug(slug);
+  if (!post) return undefined;
+  if (locale === "en") return post;
+
+  const translation = localizedPostFields[locale]?.[slug];
+  return translation ? { ...post, ...translation } : undefined;
+}
+
+export function getPostsForLocale(locale: Locale): Post[] {
+  if (locale === "en") return posts;
+  return posts.flatMap((post) => {
+    const localizedPost = getLocalizedPostBySlug(post.slug, locale);
+    return localizedPost ? [localizedPost] : [];
+  });
+}
+
+export async function getPostContent(slug: string, locale: Locale) {
+  if (locale === "en") {
+    const contentLoaders: Record<string, () => Promise<{ default: ComponentType }>> = {
+      "whats-an-imscc-file": () => import("@/content/blog/whats-an-imscc-file.mdx"),
+      "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/how-much-does-a-custom-lms-cost-in-2026.mdx"),
+      "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/build-vs-buy-an-lms-the-honest-math.mdx"),
+      "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/hidden-cost-of-revenue-share-course-platforms.mdx"),
+      "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": () => import("@/content/blog/custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years.mdx"),
+      "what-actually-drives-the-price-of-an-e-learning-build": () => import("@/content/blog/what-actually-drives-the-price-of-an-e-learning-build.mdx"),
+      "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
+      "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
+      "leaving-teachable-a-migration-checklist": () => import("@/content/blog/leaving-teachable-a-migration-checklist.mdx"),
+      "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/scorm-vs-xapi-keeping-your-content-portable.mdx"),
+      "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/what-a-smooth-lms-migration-actually-looks-like.mdx"),
+      "lti-1-3-advantage-explained-without-the-spec-speak": () => import("@/content/blog/lti-1-3-advantage-explained-without-the-spec-speak.mdx"),
+      "student-data-security-checklist-for-edtech-teams": () => import("@/content/blog/student-data-security-checklist-for-edtech-teams.mdx"),
+      "sso-options-for-learning-platforms": () => import("@/content/blog/sso-options-for-learning-platforms.mdx"),
+      "designing-assessments-that-resist-cheating": () => import("@/content/blog/designing-assessments-that-resist-cheating.mdx"),
+      "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": () => import("@/content/blog/migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders.mdx"),
+      "canvas-breach-student-data-security": () => import("@/content/blog/canvas-breach-student-data-security.mdx"),
+      "cheating-online-exams-what-actually-works": () => import("@/content/blog/cheating-online-exams-what-actually-works.mdx"),
+    };
+    return contentLoaders[slug]?.();
+  }
+
+  return localizedPostLoaders[locale]?.[slug]?.();
 }

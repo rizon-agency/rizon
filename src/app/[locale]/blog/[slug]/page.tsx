@@ -1,11 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Footer } from "../../footer";
 import { Cta } from "../../cta";
-import { posts, getPostBySlug } from "@/lib/posts";
+import { getPostContent, getLocalizedPostBySlug, getPostsForLocale } from "@/lib/posts";
 import { alternatives } from "@/lib/alternatives";
 import { getServiceBySlug } from "@/lib/services";
 import { getAuthorBySlug } from "@/lib/authors";
@@ -18,7 +18,9 @@ import { routing } from "@/i18n/routing";
 const BASE_URL = "https://rizon.agency";
 
 export function generateStaticParams() {
-  return posts.map((post) => ({ locale: "en", slug: post.slug }));
+  return routing.locales.flatMap((locale) =>
+    getPostsForLocale(locale).map((post) => ({ locale, slug: post.slug })),
+  );
 }
 
 export const dynamicParams = false;
@@ -31,13 +33,13 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
-  const post = getPostBySlug(slug);
+  const post = getLocalizedPostBySlug(slug, locale);
 
   if (!post) {
     return { title: "Post not found — Rizon" };
   }
 
-  const url = `${BASE_URL}/blog/${slug}`;
+  const url = `${BASE_URL}${locale === "en" ? "" : `/${locale}`}/blog/${slug}`;
 
   return {
     title: `${post.title} — Rizon`,
@@ -50,12 +52,12 @@ export async function generateMetadata({
       description: post.description,
       url,
       siteName: "Rizon",
-      locale: "en_US",
+      locale: locale === "fr" ? "fr_FR" : locale === "es" ? "es_ES" : locale === "de" ? "de_DE" : "en_US",
       type: "article",
       publishedTime: post.date,
       authors: ["Rizon"],
       tags: [post.category, "e-learning", "LMS"],
-      images: [{ url: `${BASE_URL}/blog/${slug}/opengraph-image`, width: 1200, height: 630, alt: post.title }],
+      images: [{ url: `${url}/opengraph-image`, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
       card: "summary_large_image",
@@ -83,17 +85,20 @@ export default async function BlogPostPage({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const t = await getTranslations("blogDetail");
-  const post = getPostBySlug(slug);
+  const post = getLocalizedPostBySlug(slug, locale);
 
   if (!post) {
     notFound();
   }
 
-  const { default: Content } = await import(`@/content/blog/${slug}.mdx`);
+  const content = await getPostContent(slug, locale);
+  if (!content) notFound();
+  const { default: Content } = content;
 
-  const index = posts.findIndex((p) => p.slug === slug);
-  const next = posts[(index + 1) % posts.length];
-  const relatedPosts = posts.filter((item) => post.relatedPostSlugs?.includes(item.slug));
+  const localizedPosts = getPostsForLocale(locale);
+  const index = localizedPosts.findIndex((p) => p.slug === slug);
+  const next = localizedPosts[(index + 1) % localizedPosts.length];
+  const relatedPosts = localizedPosts.filter((item) => post.relatedPostSlugs?.includes(item.slug));
   const relatedAlternatives = alternatives.filter((item) => post.relatedAlternativeSlugs?.includes(item.slug));
   const relatedService = post.relatedServiceSlug ? getServiceBySlug(post.relatedServiceSlug) : undefined;
   const author = getAuthorBySlug(post.authorSlug ?? "choaib-mouhrach");
@@ -200,7 +205,7 @@ export default async function BlogPostPage({
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">{t("keepReading")}</span>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight">{t("nextLinks")}</h2>
               <div className="mt-7 divide-y divide-border border-y border-border">
-                {relatedService && <Link href={`/services/${relatedService.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{l(relatedService.title, "en")}</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>}
+                {relatedService && <Link href={`/services/${relatedService.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{l(relatedService.title, locale)}</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>}
                 {relatedAlternatives.map((item) => <Link key={item.slug} href={`/alternatives/${item.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{t("alternative", { name: item.competitor })}</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>)}
                 {relatedPosts.map((item) => <Link key={item.slug} href={`/blog/${item.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{item.title}</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>)}
               </div>

@@ -1,18 +1,22 @@
 import fs from "fs";
 import path from "path";
 import { ImageResponse } from "next/og";
-import { posts, getPostBySlug } from "@/lib/posts";
+import { getLocalizedPostBySlug, getPostsForLocale } from "@/lib/posts";
+import { hasLocale } from "next-intl";
+import { routing } from "@/i18n/routing";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const runtime = "nodejs";
 
 export function generateStaticParams() {
-  return posts.map((post) => ({ locale: "en", slug: post.slug }));
+  return routing.locales.flatMap((locale) =>
+    getPostsForLocale(locale).map((post) => ({ locale, slug: post.slug })),
+  );
 }
 
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("en-US", {
+function formatDate(dateStr: string, locale: string) {
+  return new Date(dateStr).toLocaleDateString(locale, {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -22,10 +26,11 @@ function formatDate(dateStr: string) {
 export default async function OgImage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const { locale, slug } = await params;
+  if (!hasLocale(routing.locales, locale)) return new Response("Not found", { status: 404 });
+  const post = getLocalizedPostBySlug(slug, locale);
 
   if (!post) return new Response("Not found", { status: 404 });
 
@@ -38,7 +43,7 @@ export default async function OgImage({
     imgSrc = null;
   }
 
-  const date = formatDate(post.date);
+  const date = formatDate(post.date, locale);
 
   return new ImageResponse(
     (

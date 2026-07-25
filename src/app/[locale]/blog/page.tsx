@@ -6,7 +6,7 @@ import { Footer } from "../footer";
 import { Cta } from "../cta";
 import { SectionHeader } from "@/components/section-header";
 import { BlogCard } from "@/components/blog-card";
-import { posts } from "@/lib/posts";
+import { getPostsForLocale } from "@/lib/posts";
 import { languagesFor, localizedUrl, OG_LOCALE } from "@/i18n/hreflang";
 import { routing } from "@/i18n/routing";
 
@@ -43,6 +43,7 @@ export default async function BlogPage({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const t = await getTranslations("blogPage");
+  const posts = getPostsForLocale(locale);
   return (
     <>
       <main>
