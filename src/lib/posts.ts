@@ -478,7 +478,8 @@ export function getLocalizedPostBySlug(slug: string, locale: Locale): Post | und
   if (locale === "en") return post;
 
   const translation = localizedPostFields[locale]?.[slug];
-  return translation ? { ...post, ...translation } : undefined;
+  const loader = localizedPostLoaders[locale]?.[slug];
+  return translation && loader ? { ...post, ...translation } : undefined;
 }
 
 export function getPostsForLocale(locale: Locale): Post[] {
