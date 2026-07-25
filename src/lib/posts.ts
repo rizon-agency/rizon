@@ -426,6 +426,7 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "lti-1-3-advantage-explained-without-the-spec-speak": { title: "LTI 1.3 Advantage explicado sin el lenguaje de la especificación", description: "LTI 1.3 inicia una herramienta de forma segura desde un LMS y la conecta con listas, calificaciones y contenido. Sigue una nota hasta el libro para entender el trabajo de cada servicio.", readTime: "6 min de lectura", category: "LTI" },
     "designing-assessments-that-resist-cheating": {
       title: "Cómo diseñar evaluaciones que resisten la trampa",
       description: "La evaluación más resistente no es la que más vigila. Hace inútil copiar porque la tarea exige trabajo propio. Rediseña la tarea antes de recurrir a la vigilancia.",
@@ -525,6 +526,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "lti-1-3-advantage-explained-without-the-spec-speak": () => import("@/content/blog/es/lti-1-3-advantage-explained-without-the-spec-speak.mdx"),
     "designing-assessments-that-resist-cheating": () => import("@/content/blog/es/designing-assessments-that-resist-cheating.mdx"),
     "what-actually-drives-the-price-of-an-e-learning-build": () => import("@/content/blog/es/what-actually-drives-the-price-of-an-e-learning-build.mdx"),
     "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/es/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
