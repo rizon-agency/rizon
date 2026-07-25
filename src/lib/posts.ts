@@ -286,6 +286,13 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   fr: {
+    "what-a-smooth-lms-migration-actually-looks-like": {
+      title: "À quoi ressemble vraiment une migration LMS réussie",
+      description:
+        "Une migration réussie est délibérément sans spectacle : progressive, guidée par les risques et testée avec un vrai public avant le déploiement général. Les crises viennent du changement tout ou rien d’un week-end.",
+      readTime: "6 min de lecture",
+      category: "Migration",
+    },
     "scorm-vs-xapi-keeping-your-content-portable": {
       title: "SCORM ou xAPI : garder votre contenu portable",
       description:
@@ -309,6 +316,13 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "what-a-smooth-lms-migration-actually-looks-like": {
+      title: "Cómo es realmente una migración de LMS sin sobresaltos",
+      description:
+        "Una migración sin sobresaltos es aburrida a propósito: por etapas, guiada por riesgos y probada con un público real antes de mover a todos. Las historias de crisis nacen del cambio de un solo fin de semana.",
+      readTime: "6 min de lectura",
+      category: "Migración",
+    },
     "scorm-vs-xapi-keeping-your-content-portable": {
       title: "SCORM frente a xAPI: cómo mantener tu contenido portable",
       description:
@@ -337,11 +351,13 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   fr: {
+    "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/fr/what-a-smooth-lms-migration-actually-looks-like.mdx"),
     "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/fr/scorm-vs-xapi-keeping-your-content-portable.mdx"),
     "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/fr/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/es/what-a-smooth-lms-migration-actually-looks-like.mdx"),
     "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/es/scorm-vs-xapi-keeping-your-content-portable.mdx"),
     "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/es/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
     "whats-an-imscc-file": () => import("@/content/blog/es/whats-an-imscc-file.mdx"),
