@@ -286,6 +286,7 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "canvas-breach-student-data-security": { title: "Die Canvas-Datenpanne und die Sicherheit von Schülerdaten", description: "Datenpannen im Bildungsbereich entstehen oft durch einfache Fehler, die groß werden: zu breite Zugriffe, vergessene Rechte und unnötig aufbewahrte Daten. Sicherheit ist eine Architekturentscheidung.", readTime: "6 Min. Lesezeit", category: "Sicherheit" },
     "sso-options-for-learning-platforms": { title: "SSO-Optionen für Lernplattformen", description: "Beim SSO zählt nicht nur, wer sich anmelden kann. Entscheidend sind korrekte Rollen beim Start und ein automatischer Zugriffsentzug beim Austritt. SAML, OIDC und SCIM im praktischen Vergleich.", readTime: "5 Min. Lesezeit", category: "Identität" },
     "cheating-online-exams-what-actually-works": { title: "Schummeln bei Online-Prüfungen: Was tatsächlich funktioniert", description: "Überwachung kann Schummeln nicht vollständig verhindern und macht ehrliche Lernende zu Verdächtigen. Fragenpools, kluge Zeitlimits und Anwendungsfragen machen die Abkürzung unattraktiv.", readTime: "8 Min. Lesezeit", category: "Prüfungsdesign" },
     "student-data-security-checklist-for-edtech-teams": { title: "Checkliste für Schülerdatensicherheit in Edtech-Teams", description: "Schäden an Bildungsdaten entstehen selten durch einen raffinierten Angriff. Sie entstehen, wenn die falsche Person den falschen Datensatz sieht. Beginnen Sie beim Zugriffsdesign, nicht bei Firewalls.", readTime: "6 Min. Lesezeit", category: "Sicherheit" },
@@ -511,6 +512,7 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "canvas-breach-student-data-security": () => import("@/content/blog/de/canvas-breach-student-data-security.mdx"),
     "sso-options-for-learning-platforms": () => import("@/content/blog/de/sso-options-for-learning-platforms.mdx"),
     "cheating-online-exams-what-actually-works": () => import("@/content/blog/de/cheating-online-exams-what-actually-works.mdx"),
     "student-data-security-checklist-for-edtech-teams": () => import("@/content/blog/de/student-data-security-checklist-for-edtech-teams.mdx"),
