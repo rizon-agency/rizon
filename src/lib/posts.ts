@@ -441,6 +441,7 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": { title: "Migrar de LTI 1.1 a LTI 1.3: guía práctica para equipos de herramientas", description: "LTI 1.3 no es una actualización menor, sino un modelo de seguridad nuevo. Esta guía cubre OIDC, validación JWT, LTI Advantage, registro, pruebas y riesgos de la migración.", readTime: "11 min de lectura", category: "LTI" },
     "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": { title: "LMS a medida o estándar: coste total de propiedad a tres años", description: "Un desarrollo a medida solo es más barato cuando reemplaza trabajo manual, desbloquea ingresos o reduce una dependencia arriesgada. Compara tres años de operación, no una licencia contra un proyecto.", readTime: "7 min de lectura", category: "Estrategia de plataforma" },
     "build-vs-buy-an-lms-the-honest-math": { title: "Comprar o construir un LMS: las cuentas honestas", description: "La comparación no es licencia contra proyecto, sino tres años de operación. Cuenta apaños, límites de ingresos y tiempo de equipo antes de decidir si un desarrollo propio se amortiza.", readTime: "7 min de lectura", category: "Estrategia de plataforma" },
     "cheating-online-exams-what-actually-works": { title: "Trampa en exámenes online: qué funciona de verdad", description: "La vigilancia no elimina la trampa y convierte a estudiantes honestos en sospechosos. Bancos de preguntas, límites de tiempo sensatos y escenarios aplicados hacen que buscar atajos deje de servir.", readTime: "8 min de lectura", category: "Diseño de evaluación" },
@@ -562,6 +563,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": () => import("@/content/blog/es/migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders.mdx"),
     "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": () => import("@/content/blog/es/custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years.mdx"),
     "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/es/build-vs-buy-an-lms-the-honest-math.mdx"),
     "cheating-online-exams-what-actually-works": () => import("@/content/blog/es/cheating-online-exams-what-actually-works.mdx"),
