@@ -44,6 +44,7 @@ export default async function LegalPage({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
+  const t = await getTranslations("legalPage");
   return (
     <>
       <main className="container pt-32 md:pt-40">
@@ -59,21 +60,21 @@ export default async function LegalPage({
                 aria-hidden
                 className="transition-transform duration-300 ease-out group-hover:-translate-x-1"
               />
-              Back to home
+              {t("back")}
             </Link>
 
             <span className="mt-10 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
               <span className="h-px w-8 bg-primary" aria-hidden />
-              Legal
+              {t("eyebrow")}
             </span>
             <h1 className="mt-6 text-4xl font-semibold tracking-tight leading-[1.05] text-balance md:text-5xl">
-              Terms and Services
+              {t("title")}
             </h1>
 
             <dl className="mt-8 flex flex-wrap gap-x-12 gap-y-4 border-t border-border pt-6">
               <div>
                 <dt className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">
-                  Entity
+                  {t("entity")}
                 </dt>
                 <dd className="mt-1.5 text-[15px] text-foreground">
                   Rizon LLC
@@ -81,7 +82,7 @@ export default async function LegalPage({
               </div>
               <div>
                 <dt className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">
-                  Effective
+                  {t("effective")}
                 </dt>
                 <dd className="mt-1.5 text-[15px] text-foreground">
                   May 29, 2026
@@ -89,7 +90,7 @@ export default async function LegalPage({
               </div>
               <div>
                 <dt className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">
-                  Jurisdiction
+                  {t("jurisdiction")}
                 </dt>
                 <dd className="mt-1.5 text-[15px] text-foreground">
                   Wyoming, USA

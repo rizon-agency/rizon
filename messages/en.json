@@ -541,6 +541,14 @@
     "projectDescription": "The case study you're after may have been moved or renamed. Head back to see everything we've shipped recently.",
     "backToWork": "Back to selected work"
   },
+  "legalPage": {
+    "back": "Back to home",
+    "eyebrow": "Legal",
+    "title": "Terms and Services",
+    "entity": "Entity",
+    "effective": "Effective",
+    "jurisdiction": "Jurisdiction"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Custom E-Learning",

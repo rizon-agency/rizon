@@ -541,6 +541,14 @@
     "projectDescription": "L'étude de cas que vous cherchez a peut-être été déplacée ou renommée. Retournez voir les projets récemment livrés.",
     "backToWork": "Retour aux projets sélectionnés"
   },
+  "legalPage": {
+    "back": "Retour à l'accueil",
+    "eyebrow": "Mentions légales",
+    "title": "Conditions générales de services",
+    "entity": "Entité",
+    "effective": "En vigueur",
+    "jurisdiction": "Juridiction"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Plateforme e-learning sur mesure",

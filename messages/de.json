@@ -541,6 +541,14 @@
     "projectDescription": "Die gesuchte Fallstudie wurde vielleicht verschoben oder umbenannt. Hier finden Sie unsere zuletzt gelieferten Projekte.",
     "backToWork": "Zurück zu ausgewählten Projekten"
   },
+  "legalPage": {
+    "back": "Zurück zur Startseite",
+    "eyebrow": "Rechtliches",
+    "title": "Allgemeine Geschäftsbedingungen",
+    "entity": "Unternehmen",
+    "effective": "Gültig ab",
+    "jurisdiction": "Gerichtsstand"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Maßgeschneiderte E-Learning-Plattform",

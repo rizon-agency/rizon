@@ -541,6 +541,14 @@
     "projectDescription": "Puede que el caso de estudio que buscas se haya movido o cambiado de nombre. Vuelve para ver los proyectos que hemos entregado recientemente.",
     "backToWork": "Volver a proyectos seleccionados"
   },
+  "legalPage": {
+    "back": "Volver al inicio",
+    "eyebrow": "Legal",
+    "title": "Términos y servicios",
+    "entity": "Entidad",
+    "effective": "Vigente desde",
+    "jurisdiction": "Jurisdicción"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Plataforma de e-learning a medida",
