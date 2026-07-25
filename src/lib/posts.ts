@@ -343,6 +343,12 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   fr: {
+    "designing-assessments-that-resist-cheating": {
+      title: "Concevoir des évaluations qui résistent à la triche",
+      description: "L’évaluation la plus efficace n’est pas celle qui surveille le plus. Elle rend le copier-coller inutile en demandant un travail propre à l’étudiant. Redessinez la tâche avant de surveiller.",
+      readTime: "6 min de lecture",
+      category: "Conception d’évaluation",
+    },
     "what-actually-drives-the-price-of-an-e-learning-build": {
       title: "Ce qui fait réellement varier le prix d’un projet e-learning",
       description: "Les rôles, la migration, les intégrations, les règles métier et la qualité de lancement font bien plus varier une estimation qu’un écran de leçon soigné. Voici comment cadrer une première version honnêtement.",
@@ -491,6 +497,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
   fr: {
+    "designing-assessments-that-resist-cheating": () => import("@/content/blog/fr/designing-assessments-that-resist-cheating.mdx"),
     "what-actually-drives-the-price-of-an-e-learning-build": () => import("@/content/blog/fr/what-actually-drives-the-price-of-an-e-learning-build.mdx"),
     "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/fr/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
     "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/fr/build-vs-buy-an-lms-the-honest-math.mdx"),
