@@ -286,6 +286,7 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "cheating-online-exams-what-actually-works": { title: "Schummeln bei Online-Prüfungen: Was tatsächlich funktioniert", description: "Überwachung kann Schummeln nicht vollständig verhindern und macht ehrliche Lernende zu Verdächtigen. Fragenpools, kluge Zeitlimits und Anwendungsfragen machen die Abkürzung unattraktiv.", readTime: "8 Min. Lesezeit", category: "Prüfungsdesign" },
     "student-data-security-checklist-for-edtech-teams": { title: "Checkliste für Schülerdatensicherheit in Edtech-Teams", description: "Schäden an Bildungsdaten entstehen selten durch einen raffinierten Angriff. Sie entstehen, wenn die falsche Person den falschen Datensatz sieht. Beginnen Sie beim Zugriffsdesign, nicht bei Firewalls.", readTime: "6 Min. Lesezeit", category: "Sicherheit" },
     "lti-1-3-advantage-explained-without-the-spec-speak": { title: "LTI 1.3 Advantage ohne Spezifikationsjargon erklärt", description: "LTI 1.3 startet ein Tool sicher aus einem LMS und verbindet es mit Listen, Noten und Inhalten. Folgen Sie einer Note zum Notenbuch, um die einzelnen Dienste zu verstehen.", readTime: "6 Min. Lesezeit", category: "LTI" },
     "designing-assessments-that-resist-cheating": {
@@ -505,6 +506,7 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "cheating-online-exams-what-actually-works": () => import("@/content/blog/de/cheating-online-exams-what-actually-works.mdx"),
     "student-data-security-checklist-for-edtech-teams": () => import("@/content/blog/de/student-data-security-checklist-for-edtech-teams.mdx"),
     "lti-1-3-advantage-explained-without-the-spec-speak": () => import("@/content/blog/de/lti-1-3-advantage-explained-without-the-spec-speak.mdx"),
     "designing-assessments-that-resist-cheating": () => import("@/content/blog/de/designing-assessments-that-resist-cheating.mdx"),
