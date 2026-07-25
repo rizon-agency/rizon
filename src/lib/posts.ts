@@ -285,6 +285,15 @@ export function getPostBySlug(slug: string): Post | undefined {
 type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "category">;
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
+  de: {
+    "whats-an-imscc-file": {
+      title: "Was ist eine IMSCC-Datei?",
+      description:
+        "Eine IMSCC-Datei ist ein verpackter Kurs: Seiten, Aufgaben, Quizfragen und ein Manifest, das die Struktur abbildet. Hier erfahren Sie, was ein Common Cartridge mitnimmt, was es bewusst zurücklässt und wann Sie ihm begegnen.",
+      readTime: "5 Min. Lesezeit",
+      category: "Standards",
+    },
+  },
   fr: {
     "what-a-smooth-lms-migration-actually-looks-like": {
       title: "À quoi ressemble vraiment une migration LMS réussie",
@@ -350,6 +359,9 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
 const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
+  de: {
+    "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
+  },
   fr: {
     "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/fr/what-a-smooth-lms-migration-actually-looks-like.mdx"),
     "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/fr/scorm-vs-xapi-keeping-your-content-portable.mdx"),
