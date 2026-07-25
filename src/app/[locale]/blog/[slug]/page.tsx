@@ -11,6 +11,9 @@ import { getServiceBySlug } from "@/lib/services";
 import { getAuthorBySlug } from "@/lib/authors";
 import { l } from "@/lib/l10n";
 import { Breadcrumb, breadcrumbJsonLd, type Crumb } from "@/components/breadcrumb";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { hasLocale } from "next-intl";
+import { routing } from "@/i18n/routing";
 
 const BASE_URL = "https://rizon.agency";
 
@@ -23,9 +26,11 @@ export const dynamicParams = false;
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+  setRequestLocale(locale);
   const post = getPostBySlug(slug);
 
   if (!post) {
@@ -72,9 +77,12 @@ function formatDate(dateStr: string) {
 export default async function BlogPostPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+  setRequestLocale(locale);
+  const t = await getTranslations("blogDetail");
   const post = getPostBySlug(slug);
 
   if (!post) {
@@ -109,8 +117,8 @@ export default async function BlogPostPage({
   };
 
   const crumbs: Crumb[] = [
-    { name: "Home", href: "/" },
-    { name: "Blog", href: "/blog" },
+    { name: t("home"), href: "/" },
+    { name: t("blog"), href: "/blog" },
     { name: post.title, href: `/blog/${slug}` },
   ];
 
@@ -141,7 +149,7 @@ export default async function BlogPostPage({
                 aria-hidden
                 className="transition-transform duration-300 ease-out group-hover:-translate-x-1"
               />
-              All posts
+              {t("allPosts")}
             </Link>
 
             <div className="mt-6">
@@ -184,16 +192,16 @@ export default async function BlogPostPage({
           </div>
         </section>
 
-        {author && <section className="container mt-16"><div className="mx-auto flex max-w-2xl gap-5 border-y border-border py-8"><Image src={author.avatar} alt="" width={56} height={56} className="size-14 rounded-full" /><div><p className="text-sm font-medium">Written by {author.name}</p><p className="mt-1 text-sm text-muted-foreground">{author.role}</p><p className="mt-3 leading-relaxed text-muted-foreground">{author.bio}</p></div></div></section>}
+        {author && <section className="container mt-16"><div className="mx-auto flex max-w-2xl gap-5 border-y border-border py-8"><Image src={author.avatar} alt="" width={56} height={56} className="size-14 rounded-full" /><div><p className="text-sm font-medium">{t("writtenBy", { name: author.name })}</p><p className="mt-1 text-sm text-muted-foreground">{author.role}</p><p className="mt-3 leading-relaxed text-muted-foreground">{author.bio}</p></div></div></section>}
 
         {(relatedService || relatedAlternatives.length > 0 || relatedPosts.length > 0) && (
           <section className="container mt-20">
             <div className="mx-auto max-w-2xl border-t border-border pt-10">
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Keep reading</span>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight">The useful next links</h2>
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">{t("keepReading")}</span>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight">{t("nextLinks")}</h2>
               <div className="mt-7 divide-y divide-border border-y border-border">
                 {relatedService && <Link href={`/services/${relatedService.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{l(relatedService.title, "en")}</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>}
-                {relatedAlternatives.map((item) => <Link key={item.slug} href={`/alternatives/${item.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{item.competitor} alternative</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>)}
+                {relatedAlternatives.map((item) => <Link key={item.slug} href={`/alternatives/${item.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{t("alternative", { name: item.competitor })}</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>)}
                 {relatedPosts.map((item) => <Link key={item.slug} href={`/blog/${item.slug}`} className="group flex items-center justify-between gap-6 py-5 text-lg font-medium"><span>{item.title}</span><ArrowRight size={18} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>)}
               </div>
             </div>
@@ -214,7 +222,7 @@ export default async function BlogPostPage({
               <div className="flex items-center justify-between gap-6">
                 <div>
                   <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground/60">
-                    Next post
+                    {t("nextPost")}
                   </span>
                   <h3 className="mt-3 text-2xl font-medium tracking-tight text-balance md:text-3xl">
                     {next.title}

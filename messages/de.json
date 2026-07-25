@@ -532,6 +532,16 @@
     "title": "Gedanken zu LMS, Lernplattformen und dem Geschäft mit Online-Bildung",
     "new": "Neu"
   },
+  "blogDetail": {
+    "allPosts": "Alle Beiträge",
+    "writtenBy": "Geschrieben von {name}",
+    "keepReading": "Weiterlesen",
+    "nextLinks": "Die nützlichen nächsten Links",
+    "alternative": "{name}-Alternative",
+    "nextPost": "Nächster Beitrag",
+    "home": "Startseite",
+    "blog": "Blog"
+  },
   "notFound": {
     "label": "Nicht gefunden",
     "postTitle": "Diesen Artikel haben wir nicht gefunden.",

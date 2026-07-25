@@ -532,6 +532,16 @@
     "title": "Réflexions sur les LMS, les plateformes d'apprentissage et l'activité de l'éducation en ligne",
     "new": "Nouveau"
   },
+  "blogDetail": {
+    "allPosts": "Tous les articles",
+    "writtenBy": "Écrit par {name}",
+    "keepReading": "À lire aussi",
+    "nextLinks": "Les liens utiles pour la suite",
+    "alternative": "Alternative à {name}",
+    "nextPost": "Article suivant",
+    "home": "Accueil",
+    "blog": "Blog"
+  },
   "notFound": {
     "label": "Introuvable",
     "postTitle": "Nous n'avons pas trouvé cet article.",

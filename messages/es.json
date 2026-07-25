@@ -532,6 +532,16 @@
     "title": "Ideas sobre LMS, plataformas de aprendizaje y el negocio de la educación en línea",
     "new": "Nuevo"
   },
+  "blogDetail": {
+    "allPosts": "Todos los artículos",
+    "writtenBy": "Escrito por {name}",
+    "keepReading": "Sigue leyendo",
+    "nextLinks": "Los enlaces útiles para continuar",
+    "alternative": "Alternativa a {name}",
+    "nextPost": "Siguiente artículo",
+    "home": "Inicio",
+    "blog": "Blog"
+  },
   "notFound": {
     "label": "No encontrado",
     "postTitle": "No hemos encontrado ese artículo.",

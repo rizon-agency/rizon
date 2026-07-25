@@ -532,6 +532,16 @@
     "title": "Thinking on LMS, learning platforms, and the business of online education",
     "new": "New"
   },
+  "blogDetail": {
+    "allPosts": "All posts",
+    "writtenBy": "Written by {name}",
+    "keepReading": "Keep reading",
+    "nextLinks": "The useful next links",
+    "alternative": "{name} alternative",
+    "nextPost": "Next post",
+    "home": "Home",
+    "blog": "Blog"
+  },
   "notFound": {
     "label": "Not found",
     "postTitle": "We couldn't find that post.",
