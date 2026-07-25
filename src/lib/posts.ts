@@ -286,6 +286,7 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "lti-1-3-advantage-explained-without-the-spec-speak": { title: "LTI 1.3 Advantage ohne Spezifikationsjargon erklärt", description: "LTI 1.3 startet ein Tool sicher aus einem LMS und verbindet es mit Listen, Noten und Inhalten. Folgen Sie einer Note zum Notenbuch, um die einzelnen Dienste zu verstehen.", readTime: "6 Min. Lesezeit", category: "LTI" },
     "designing-assessments-that-resist-cheating": {
       title: "Prüfungen gestalten, die Täuschung widerstehen",
       description: "Die wirksamste Prüfung ist nicht die mit der meisten Überwachung. Sie macht Kopieren nutzlos, weil die Aufgabe eigene Arbeit verlangt. Gestalten Sie die Aufgabe neu, bevor Sie überwachen.",
@@ -501,6 +502,7 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "lti-1-3-advantage-explained-without-the-spec-speak": () => import("@/content/blog/de/lti-1-3-advantage-explained-without-the-spec-speak.mdx"),
     "designing-assessments-that-resist-cheating": () => import("@/content/blog/de/designing-assessments-that-resist-cheating.mdx"),
     "what-actually-drives-the-price-of-an-e-learning-build": () => import("@/content/blog/de/what-actually-drives-the-price-of-an-e-learning-build.mdx"),
     "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/de/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
