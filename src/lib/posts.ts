@@ -286,6 +286,13 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "what-a-smooth-lms-migration-actually-looks-like": {
+      title: "Wie eine gelungene LMS-Migration wirklich aussieht",
+      description:
+        "Eine gelungene Migration ist absichtlich unspektakulär: gestaffelt, risikoorientiert und mit einer echten Zielgruppe getestet, bevor alle wechseln. Krisen entstehen aus dem Alles-oder-nichts-Wechsel an einem Wochenende.",
+      readTime: "6 Min. Lesezeit",
+      category: "Migration",
+    },
     "scorm-vs-xapi-keeping-your-content-portable": {
       title: "SCORM versus xAPI: Inhalte portabel halten",
       description:
@@ -423,6 +430,7 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/de/what-a-smooth-lms-migration-actually-looks-like.mdx"),
     "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/de/scorm-vs-xapi-keeping-your-content-portable.mdx"),
     "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/de/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
     "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/de/how-much-does-a-custom-lms-cost-in-2026.mdx"),
