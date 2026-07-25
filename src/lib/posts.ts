@@ -419,6 +419,12 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "designing-assessments-that-resist-cheating": {
+      title: "Cómo diseñar evaluaciones que resisten la trampa",
+      description: "La evaluación más resistente no es la que más vigila. Hace inútil copiar porque la tarea exige trabajo propio. Rediseña la tarea antes de recurrir a la vigilancia.",
+      readTime: "6 min de lectura",
+      category: "Diseño de evaluación",
+    },
     "what-actually-drives-the-price-of-an-e-learning-build": {
       title: "Qué mueve realmente el precio de un proyecto de e-learning",
       description: "Roles, migración, integraciones, reglas de negocio y calidad de lanzamiento influyen mucho más en una estimación que una pantalla de lección pulida. Así se define honestamente una primera versión.",
@@ -510,6 +516,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "designing-assessments-that-resist-cheating": () => import("@/content/blog/es/designing-assessments-that-resist-cheating.mdx"),
     "what-actually-drives-the-price-of-an-e-learning-build": () => import("@/content/blog/es/what-actually-drives-the-price-of-an-e-learning-build.mdx"),
     "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/es/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
     "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/es/how-much-does-a-custom-lms-cost-in-2026.mdx"),
