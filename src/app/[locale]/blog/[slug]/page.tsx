@@ -66,8 +66,8 @@ export async function generateMetadata({
   };
 }
 
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("en-US", {
+function formatDate(dateStr: string, locale: string) {
+  return new Date(dateStr).toLocaleDateString(locale, {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -161,7 +161,7 @@ export default async function BlogPostPage({
                 {post.title}
               </h1>
               <p className="mt-5 font-mono text-sm tabular-nums text-muted-foreground/60">
-                {formatDate(post.date)} · {post.readTime}
+                {formatDate(post.date, locale)} · {post.readTime}
               </p>
             </div>
 
