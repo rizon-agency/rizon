@@ -10,7 +10,8 @@
     "bookACall": "Reservar una llamada",
     "primary": "Principal",
     "mobile": "Móvil",
-    "openMenu": "Abrir menú"
+    "openMenu": "Abrir menú",
+    "selectLanguage": "Elegir idioma"
   },
   "footer": {
     "tagline": "Agencia de desarrollo de LMS a medida. Construimos plataformas de aprendizaje que la gente realmente quiere usar.",

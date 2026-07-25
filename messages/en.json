@@ -10,7 +10,8 @@
     "bookACall": "Book a call",
     "primary": "Primary",
     "mobile": "Mobile",
-    "openMenu": "Open menu"
+    "openMenu": "Open menu",
+    "selectLanguage": "Select language"
   },
   "footer": {
     "tagline": "Custom LMS development agency. Building learning platforms people actually want to use.",

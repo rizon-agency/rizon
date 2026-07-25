@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
@@ -28,13 +28,14 @@ export const LocaleSwitcher = ({
   overHero?: boolean;
 }) => {
   const locale = useLocale() as (typeof routing.locales)[number];
+  const t = useTranslations("nav");
   const pathname = usePathname();
   const router = useRouter();
 
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger
-        aria-label="Select language"
+        aria-label={t("selectLanguage")}
         className={cn(
           "inline-flex cursor-pointer items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2",
           overHero
