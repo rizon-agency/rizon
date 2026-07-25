@@ -286,6 +286,7 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": { title: "Von LTI 1.1 zu LTI 1.3 migrieren: ein Praxisleitfaden für Tool-Teams", description: "LTI 1.3 ist kein Versionsupdate, sondern ein neues Sicherheitsmodell. Dieser Leitfaden deckt OIDC, JWT-Prüfung, LTI Advantage, Registrierung, Tests und die Risiken beim Umstieg ab.", readTime: "11 Min. Lesezeit", category: "LTI" },
     "build-vs-buy-an-lms-the-honest-math": { title: "LMS kaufen oder bauen: die ehrliche Rechnung", description: "Entscheidend ist nicht Lizenz gegen Projektpreis, sondern der dreijährige Betrieb. Rechnen Sie Workarounds, Umsatzgrenzen und Personalzeit ein, bevor Sie entscheiden, ob ein eigener Build sich auszahlt.", readTime: "7 Min. Lesezeit", category: "Plattformstrategie" },
     "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": { title: "Individuelles oder Standard-LMS: Gesamtbetriebskosten über drei Jahre", description: "Ein individueller Build wird erst dann günstiger, wenn er manuelle Arbeit ersetzt, blockierten Umsatz freisetzt oder riskante Abhängigkeiten beendet. Rechnen Sie drei Jahre statt nur Lizenz gegen Projektpreis.", readTime: "7 Min. Lesezeit", category: "Plattformstrategie" },
     "hidden-cost-of-revenue-share-course-platforms": { title: "Die versteckten Kosten von Kursplattformen mit Umsatzbeteiligung", description: "Eine Umsatzbeteiligung kann zum Start passen. Folgen Sie einem Verkauf durch Gebühren, Tarife und Sonderfälle, bevor Sie entscheiden, ob die Plattform Ihnen noch Geschwindigkeit bringt oder nur Umsatz abschöpft.", readTime: "6 Min. Lesezeit", category: "Creator-Ökonomie" },
@@ -520,6 +521,7 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": () => import("@/content/blog/de/migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders.mdx"),
     "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/de/build-vs-buy-an-lms-the-honest-math.mdx"),
     "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": () => import("@/content/blog/de/custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years.mdx"),
     "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/de/hidden-cost-of-revenue-share-course-platforms.mdx"),
