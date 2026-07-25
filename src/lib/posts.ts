@@ -1,4 +1,6 @@
 import type { Post } from "@/types";
+import type { Locale } from "@/i18n/routing";
+import type { ComponentType } from "react";
 import cheatingExamsCover from "@/assets/blog/cheating-online-exams-what-actually-works.png";
 import canvasBreachCover from "@/assets/blog/canvas-breach-student-data-security.png";
 import ltiMigrationBreachCover from "@/assets/blog/migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders.png";
@@ -278,4 +280,352 @@ export const posts: Post[] = [
 
 export function getPostBySlug(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);
+}
+
+type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "category">;
+
+const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
+  de: {
+    "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": { title: "Von LTI 1.1 zu LTI 1.3 migrieren: ein Praxisleitfaden für Tool-Teams", description: "LTI 1.3 ist kein Versionsupdate, sondern ein neues Sicherheitsmodell. Dieser Leitfaden deckt OIDC, JWT-Prüfung, LTI Advantage, Registrierung, Tests und die Risiken beim Umstieg ab.", readTime: "11 Min. Lesezeit", category: "LTI" },
+    "build-vs-buy-an-lms-the-honest-math": { title: "LMS kaufen oder bauen: die ehrliche Rechnung", description: "Entscheidend ist nicht Lizenz gegen Projektpreis, sondern der dreijährige Betrieb. Rechnen Sie Workarounds, Umsatzgrenzen und Personalzeit ein, bevor Sie entscheiden, ob ein eigener Build sich auszahlt.", readTime: "7 Min. Lesezeit", category: "Plattformstrategie" },
+    "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": { title: "Individuelles oder Standard-LMS: Gesamtbetriebskosten über drei Jahre", description: "Ein individueller Build wird erst dann günstiger, wenn er manuelle Arbeit ersetzt, blockierten Umsatz freisetzt oder riskante Abhängigkeiten beendet. Rechnen Sie drei Jahre statt nur Lizenz gegen Projektpreis.", readTime: "7 Min. Lesezeit", category: "Plattformstrategie" },
+    "hidden-cost-of-revenue-share-course-platforms": { title: "Die versteckten Kosten von Kursplattformen mit Umsatzbeteiligung", description: "Eine Umsatzbeteiligung kann zum Start passen. Folgen Sie einem Verkauf durch Gebühren, Tarife und Sonderfälle, bevor Sie entscheiden, ob die Plattform Ihnen noch Geschwindigkeit bringt oder nur Umsatz abschöpft.", readTime: "6 Min. Lesezeit", category: "Creator-Ökonomie" },
+    "canvas-breach-student-data-security": { title: "Die Canvas-Datenpanne und die Sicherheit von Schülerdaten", description: "Datenpannen im Bildungsbereich entstehen oft durch einfache Fehler, die groß werden: zu breite Zugriffe, vergessene Rechte und unnötig aufbewahrte Daten. Sicherheit ist eine Architekturentscheidung.", readTime: "6 Min. Lesezeit", category: "Sicherheit" },
+    "sso-options-for-learning-platforms": { title: "SSO-Optionen für Lernplattformen", description: "Beim SSO zählt nicht nur, wer sich anmelden kann. Entscheidend sind korrekte Rollen beim Start und ein automatischer Zugriffsentzug beim Austritt. SAML, OIDC und SCIM im praktischen Vergleich.", readTime: "5 Min. Lesezeit", category: "Identität" },
+    "cheating-online-exams-what-actually-works": { title: "Schummeln bei Online-Prüfungen: Was tatsächlich funktioniert", description: "Überwachung kann Schummeln nicht vollständig verhindern und macht ehrliche Lernende zu Verdächtigen. Fragenpools, kluge Zeitlimits und Anwendungsfragen machen die Abkürzung unattraktiv.", readTime: "8 Min. Lesezeit", category: "Prüfungsdesign" },
+    "student-data-security-checklist-for-edtech-teams": { title: "Checkliste für Schülerdatensicherheit in Edtech-Teams", description: "Schäden an Bildungsdaten entstehen selten durch einen raffinierten Angriff. Sie entstehen, wenn die falsche Person den falschen Datensatz sieht. Beginnen Sie beim Zugriffsdesign, nicht bei Firewalls.", readTime: "6 Min. Lesezeit", category: "Sicherheit" },
+    "lti-1-3-advantage-explained-without-the-spec-speak": { title: "LTI 1.3 Advantage ohne Spezifikationsjargon erklärt", description: "LTI 1.3 startet ein Tool sicher aus einem LMS und verbindet es mit Listen, Noten und Inhalten. Folgen Sie einer Note zum Notenbuch, um die einzelnen Dienste zu verstehen.", readTime: "6 Min. Lesezeit", category: "LTI" },
+    "designing-assessments-that-resist-cheating": {
+      title: "Prüfungen gestalten, die Täuschung widerstehen",
+      description: "Die wirksamste Prüfung ist nicht die mit der meisten Überwachung. Sie macht Kopieren nutzlos, weil die Aufgabe eigene Arbeit verlangt. Gestalten Sie die Aufgabe neu, bevor Sie überwachen.",
+      readTime: "6 Min. Lesezeit",
+      category: "Prüfungsdesign",
+    },
+    "what-actually-drives-the-price-of-an-e-learning-build": {
+      title: "Was den Preis eines E-Learning-Projekts wirklich beeinflusst",
+      description: "Rollen, Migration, Integrationen, Geschäftsregeln und Startqualität verändern eine Schätzung weit stärker als ein polierter Lektionsbildschirm. So lässt sich eine erste Version ehrlich eingrenzen.",
+      readTime: "6 Min. Lesezeit",
+      category: "Plattformstrategie",
+    },
+    "how-to-migrate-off-moodle-without-losing-course-data": {
+      title: "Moodle verlassen, ohne Kursdaten zu verlieren",
+      description:
+        "Moodle-Daten gehen nicht durch einen falschen Export verloren, sondern weil Plugins Geschäftsregeln tragen. Inventarisieren Sie diese Regeln zuerst und verschieben Sie dann die Inhalte.",
+      readTime: "6 Min. Lesezeit",
+      category: "Migration",
+    },
+    "leaving-teachable-a-migration-checklist": {
+      title: "Teachable verlassen: Checkliste für die Migration",
+      description:
+        "Die Ankündigungs-E-Mail ist der letzte Schritt. Vorher muss sich ein zahlender Kunde auf der neuen Plattform anmelden und alles finden können, was ihm gehört. Diese Checkliste bringt Sie dorthin.",
+      readTime: "5 Min. Lesezeit",
+      category: "Migration",
+    },
+    "what-a-smooth-lms-migration-actually-looks-like": {
+      title: "Wie eine gelungene LMS-Migration wirklich aussieht",
+      description:
+        "Eine gelungene Migration ist absichtlich unspektakulär: gestaffelt, risikoorientiert und mit einer echten Zielgruppe getestet, bevor alle wechseln. Krisen entstehen aus dem Alles-oder-nichts-Wechsel an einem Wochenende.",
+      readTime: "6 Min. Lesezeit",
+      category: "Migration",
+    },
+    "scorm-vs-xapi-keeping-your-content-portable": {
+      title: "SCORM versus xAPI: Inhalte portabel halten",
+      description:
+        "SCORM macht Inhalte zwischen Systemen portabel. xAPI macht Aufzeichnungen portabel, weil sie in einem Speicher liegen können, den Sie besitzen. Wenn Sie nur das ZIP verschieben, bewegen Sie die weniger wertvolle Hälfte.",
+      readTime: "6 Min. Lesezeit",
+      category: "Standards",
+    },
+    "exporting-courses-from-canvas-imscc-step-by-step": {
+      title: "Canvas-Kurse als IMSCC exportieren: Schritt für Schritt",
+      description:
+        "Ein Canvas-IMSCC-Export verschiebt Kursinhalte gut. Er enthält jedoch weder Noten noch Abgaben von Lernenden oder jede Einstellung externer Tools. Hier sind die Schritte und die Lücken bei jedem davon.",
+      readTime: "6 Min. Lesezeit",
+      category: "Migration",
+    },
+    "how-much-does-a-custom-lms-cost-in-2026": {
+      title: "Was kostet ein maßgeschneidertes LMS im Jahr 2026?",
+      description:
+        "Der Preis eines maßgeschneiderten LMS hängt an den schwierigen Teilen: unterschiedlichen Lernpfaden, Migration, Integrationen und der Tiefe des Reportings. Hier erfahren Sie, was die Kosten tatsächlich beeinflusst und was eine brauchbare erste Version umfasst.",
+      readTime: "6 Min. Lesezeit",
+      category: "Plattformstrategie",
+    },
+    "whats-an-imscc-file": {
+      title: "Was ist eine IMSCC-Datei?",
+      description:
+        "Eine IMSCC-Datei ist ein verpackter Kurs: Seiten, Aufgaben, Quizfragen und ein Manifest, das die Struktur abbildet. Hier erfahren Sie, was ein Common Cartridge mitnimmt, was es bewusst zurücklässt und wann Sie ihm begegnen.",
+      readTime: "5 Min. Lesezeit",
+      category: "Standards",
+    },
+  },
+  fr: {
+    "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": { title: "Migrer de LTI 1.1 à LTI 1.3 : guide pratique pour les équipes outil", description: "LTI 1.3 n’est pas une simple mise à jour : son modèle de sécurité change. Ce guide couvre OIDC, validation JWT, LTI Advantage, enregistrement, tests et risques de migration.", readTime: "11 min de lecture", category: "LTI" },
+    "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": { title: "LMS sur mesure ou standard : coût total de possession sur trois ans", description: "Un développement sur mesure ne devient moins cher que s’il remplace du travail manuel, débloque du revenu ou réduit une dépendance risquée. Comparez trois ans d’exploitation, pas une licence à un projet.", readTime: "7 min de lecture", category: "Stratégie de plateforme" },
+    "cheating-online-exams-what-actually-works": { title: "Triche aux examens en ligne : ce qui fonctionne vraiment", description: "La surveillance n’empêche pas toute triche et transforme les étudiants honnêtes en suspects. Banques de questions, délais justes et scénarios appliqués rendent le raccourci inutile.", readTime: "8 min de lecture", category: "Conception d’évaluation" },
+    "canvas-breach-student-data-security": { title: "La fuite Canvas et la sécurité des données étudiantes", description: "Les fuites de données éducatives viennent souvent d’erreurs ordinaires qui prennent de l’ampleur : accès trop larges, permissions oubliées et données conservées sans nécessité. La sécurité est une décision d’architecture.", readTime: "6 min de lecture", category: "Sécurité" },
+    "sso-options-for-learning-platforms": { title: "Options SSO pour les plateformes d’apprentissage", description: "Le SSO ne se limite pas à la connexion. Les bons rôles au départ et la suppression automatique des accès au départ sont décisifs. SAML, OIDC et SCIM comparés en pratique.", readTime: "5 min de lecture", category: "Identité" },
+    "student-data-security-checklist-for-edtech-teams": { title: "Liste de sécurité des données étudiantes pour les équipes edtech", description: "Les dommages sur les données scolaires viennent rarement d’un piratage sophistiqué. Ils viennent de la mauvaise personne qui voit le mauvais dossier. Commencez par la conception des accès, pas par les pare-feux.", readTime: "6 min de lecture", category: "Sécurité" },
+    "lti-1-3-advantage-explained-without-the-spec-speak": { title: "LTI 1.3 Advantage expliqué sans le jargon de la spécification", description: "LTI 1.3 lance un outil de façon sûre depuis un LMS puis le relie aux listes, aux notes et au contenu. Suivez une note jusqu’au carnet pour comprendre ce que chaque service fait.", readTime: "6 min de lecture", category: "LTI" },
+    "designing-assessments-that-resist-cheating": {
+      title: "Concevoir des évaluations qui résistent à la triche",
+      description: "L’évaluation la plus efficace n’est pas celle qui surveille le plus. Elle rend le copier-coller inutile en demandant un travail propre à l’étudiant. Redessinez la tâche avant de surveiller.",
+      readTime: "6 min de lecture",
+      category: "Conception d’évaluation",
+    },
+    "what-actually-drives-the-price-of-an-e-learning-build": {
+      title: "Ce qui fait réellement varier le prix d’un projet e-learning",
+      description: "Les rôles, la migration, les intégrations, les règles métier et la qualité de lancement font bien plus varier une estimation qu’un écran de leçon soigné. Voici comment cadrer une première version honnêtement.",
+      readTime: "6 min de lecture",
+      category: "Stratégie de plateforme",
+    },
+    "how-to-migrate-off-moodle-without-losing-course-data": {
+      title: "Quitter Moodle sans perdre vos données de cours",
+      description: "Les données Moodle ne se perdent pas à cause d’un mauvais export, mais parce que des plugins portent des règles métier. Inventoriez-les avant de déplacer le contenu.",
+      readTime: "6 min de lecture",
+      category: "Migration",
+    },
+    "build-vs-buy-an-lms-the-honest-math": {
+      title: "Construire ou acheter un LMS : le calcul honnête",
+      description:
+        "La bonne comparaison n’oppose pas une licence mensuelle à un développement unique. Elle compte trois ans d’abonnements, de contournements, d’intégrations, de contraintes de revenus et de propriété.",
+      readTime: "7 min de lecture",
+      category: "Stratégie de plateforme",
+    },
+    "how-much-does-a-custom-lms-cost-in-2026": {
+      title: "Combien coûte un LMS sur mesure en 2026 ?",
+      description:
+        "Le prix d’un LMS sur mesure dépend des éléments difficiles : parcours d’apprenants distincts, migration, intégrations et profondeur du reporting. Voici ce qui fait réellement varier le montant et ce qu’une première version utile comprend.",
+      readTime: "6 min de lecture",
+      category: "Stratégie de plateforme",
+    },
+    "hidden-cost-of-revenue-share-course-platforms": {
+      title: "Le coût caché des plateformes de cours qui prélèvent sur vos revenus",
+      description:
+        "Un partage de revenus peut être pertinent au lancement. Suivez une vente de 500 $ entre frais de plateforme et paiement, puis ajoutez les exceptions opérationnelles avant de décider si le modèle vous convient encore.",
+      readTime: "6 min de lecture",
+      category: "Économie des créateurs",
+    },
+    "leaving-teachable-a-migration-checklist": {
+      title: "Quitter Teachable : la liste de contrôle pour votre migration",
+      description:
+        "L’e-mail d’annonce est la dernière étape. Avant de l’envoyer, un client payant doit pouvoir se connecter à la nouvelle plateforme et retrouver tout ce qu’il possède. Voici la liste qui permet d’y arriver.",
+      readTime: "5 min de lecture",
+      category: "Migration",
+    },
+    "what-a-smooth-lms-migration-actually-looks-like": {
+      title: "À quoi ressemble vraiment une migration LMS réussie",
+      description:
+        "Une migration réussie est délibérément sans spectacle : progressive, guidée par les risques et testée avec un vrai public avant le déploiement général. Les crises viennent du changement tout ou rien d’un week-end.",
+      readTime: "6 min de lecture",
+      category: "Migration",
+    },
+    "scorm-vs-xapi-keeping-your-content-portable": {
+      title: "SCORM ou xAPI : garder votre contenu portable",
+      description:
+        "SCORM rend votre contenu portable entre les systèmes. xAPI rend vos traces portables, car elles peuvent vivre dans un entrepôt que vous possédez. Déplacer le ZIP ne déplace que la moitié la moins précieuse.",
+      readTime: "6 min de lecture",
+      category: "Standards",
+    },
+    "exporting-courses-from-canvas-imscc-step-by-step": {
+      title: "Exporter vos cours Canvas (IMSCC), étape par étape",
+      description:
+        "Un export IMSCC de Canvas déplace bien le contenu de votre cours. Il ne transporte ni les notes, ni les remises des étudiants, ni tous les réglages d’outils externes. Voici les étapes et les lacunes à chaque étape.",
+      readTime: "6 min de lecture",
+      category: "Migration",
+    },
+    "whats-an-imscc-file": {
+      title: "Qu’est-ce qu’un fichier IMSCC ?",
+      description:
+        "Un fichier IMSCC est un cours empaqueté : pages, devoirs, questions de quiz et manifeste qui en décrit la structure. Voici ce qu’un Common Cartridge transporte, ce qu’il laisse volontairement derrière lui et quand vous en rencontrerez un.",
+      readTime: "5 min de lecture",
+      category: "Standards",
+    },
+  },
+  es: {
+    "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": { title: "Migrar de LTI 1.1 a LTI 1.3: guía práctica para equipos de herramientas", description: "LTI 1.3 no es una actualización menor, sino un modelo de seguridad nuevo. Esta guía cubre OIDC, validación JWT, LTI Advantage, registro, pruebas y riesgos de la migración.", readTime: "11 min de lectura", category: "LTI" },
+    "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": { title: "LMS a medida o estándar: coste total de propiedad a tres años", description: "Un desarrollo a medida solo es más barato cuando reemplaza trabajo manual, desbloquea ingresos o reduce una dependencia arriesgada. Compara tres años de operación, no una licencia contra un proyecto.", readTime: "7 min de lectura", category: "Estrategia de plataforma" },
+    "build-vs-buy-an-lms-the-honest-math": { title: "Comprar o construir un LMS: las cuentas honestas", description: "La comparación no es licencia contra proyecto, sino tres años de operación. Cuenta apaños, límites de ingresos y tiempo de equipo antes de decidir si un desarrollo propio se amortiza.", readTime: "7 min de lectura", category: "Estrategia de plataforma" },
+    "cheating-online-exams-what-actually-works": { title: "Trampa en exámenes online: qué funciona de verdad", description: "La vigilancia no elimina la trampa y convierte a estudiantes honestos en sospechosos. Bancos de preguntas, límites de tiempo sensatos y escenarios aplicados hacen que buscar atajos deje de servir.", readTime: "8 min de lectura", category: "Diseño de evaluación" },
+    "canvas-breach-student-data-security": { title: "La filtración de Canvas y la seguridad de datos de estudiantes", description: "Las filtraciones educativas suelen venir de errores básicos que escalan: accesos demasiado amplios, permisos olvidados y datos retenidos sin necesidad. La seguridad es una decisión de arquitectura.", readTime: "6 min de lectura", category: "Seguridad" },
+    "sso-options-for-learning-platforms": { title: "Opciones de SSO para plataformas de aprendizaje", description: "El SSO no trata solo de iniciar sesión. Los roles correctos al entrar y la retirada automática de acceso al salir importan más. SAML, OIDC y SCIM comparados en la práctica.", readTime: "5 min de lectura", category: "Identidad" },
+    "student-data-security-checklist-for-edtech-teams": { title: "Lista de seguridad de datos de estudiantes para equipos edtech", description: "El daño en datos educativos rara vez viene de un ataque sofisticado. Viene de que la persona equivocada vea el registro equivocado. Empieza por el diseño de acceso, no por los cortafuegos.", readTime: "6 min de lectura", category: "Seguridad" },
+    "lti-1-3-advantage-explained-without-the-spec-speak": { title: "LTI 1.3 Advantage explicado sin el lenguaje de la especificación", description: "LTI 1.3 inicia una herramienta de forma segura desde un LMS y la conecta con listas, calificaciones y contenido. Sigue una nota hasta el libro para entender el trabajo de cada servicio.", readTime: "6 min de lectura", category: "LTI" },
+    "designing-assessments-that-resist-cheating": {
+      title: "Cómo diseñar evaluaciones que resisten la trampa",
+      description: "La evaluación más resistente no es la que más vigila. Hace inútil copiar porque la tarea exige trabajo propio. Rediseña la tarea antes de recurrir a la vigilancia.",
+      readTime: "6 min de lectura",
+      category: "Diseño de evaluación",
+    },
+    "what-actually-drives-the-price-of-an-e-learning-build": {
+      title: "Qué mueve realmente el precio de un proyecto de e-learning",
+      description: "Roles, migración, integraciones, reglas de negocio y calidad de lanzamiento influyen mucho más en una estimación que una pantalla de lección pulida. Así se define honestamente una primera versión.",
+      readTime: "6 min de lectura",
+      category: "Estrategia de plataforma",
+    },
+    "how-to-migrate-off-moodle-without-losing-course-data": {
+      title: "Cómo salir de Moodle sin perder los datos del curso",
+      description: "No pierdes datos de Moodle por exportarlos mal, sino porque los plugins sostienen reglas de negocio. Haz inventario de esas reglas antes de mover el contenido.",
+      readTime: "6 min de lectura",
+      category: "Migración",
+    },
+    "how-much-does-a-custom-lms-cost-in-2026": {
+      title: "¿Cuánto cuesta un LMS a medida en 2026?",
+      description:
+        "El precio de un LMS a medida cambia con las partes difíciles: recorridos de alumnos distintos, migración, integraciones y la profundidad de los informes. Aquí tienes qué mueve el número y qué incluye una primera versión útil.",
+      readTime: "6 min de lectura",
+      category: "Estrategia de plataforma",
+    },
+    "hidden-cost-of-revenue-share-course-platforms": {
+      title: "El coste oculto de las plataformas de cursos que cobran parte de tus ingresos",
+      description:
+        "Compartir ingresos puede tener sentido al lanzar. Sigue una venta de 500 $ entre comisiones de plataforma y pago, y añade las excepciones operativas antes de decidir si el modelo todavía encaja.",
+      readTime: "6 min de lectura",
+      category: "Economía de creadores",
+    },
+    "leaving-teachable-a-migration-checklist": {
+      title: "Dejar Teachable: una lista de comprobación para migrar",
+      description:
+        "El correo de anuncio es el último paso. Antes de enviarlo, un cliente que pagó debe poder entrar en la nueva plataforma y encontrar todo lo que posee. Esta es la lista para lograrlo.",
+      readTime: "5 min de lectura",
+      category: "Migración",
+    },
+    "what-a-smooth-lms-migration-actually-looks-like": {
+      title: "Cómo es realmente una migración de LMS sin sobresaltos",
+      description:
+        "Una migración sin sobresaltos es aburrida a propósito: por etapas, guiada por riesgos y probada con un público real antes de mover a todos. Las historias de crisis nacen del cambio de un solo fin de semana.",
+      readTime: "6 min de lectura",
+      category: "Migración",
+    },
+    "scorm-vs-xapi-keeping-your-content-portable": {
+      title: "SCORM frente a xAPI: cómo mantener tu contenido portable",
+      description:
+        "SCORM hace portable el contenido entre sistemas. xAPI hace portables los registros porque pueden vivir en un almacén propio. Si solo mueves el ZIP, has movido la mitad menos valiosa.",
+      readTime: "6 min de lectura",
+      category: "Estándares",
+    },
+    "exporting-courses-from-canvas-imscc-step-by-step": {
+      title: "Cómo exportar tus cursos de Canvas (IMSCC), paso a paso",
+      description:
+        "Una exportación IMSCC de Canvas mueve bien el contenido del curso. No lleva calificaciones, entregas de estudiantes ni todos los ajustes de herramientas externas. Aquí tienes el proceso y los huecos de cada paso.",
+      readTime: "6 min de lectura",
+      category: "Migración",
+    },
+    "whats-an-imscc-file": {
+      title: "¿Qué es un archivo IMSCC?",
+      description:
+        "Un archivo IMSCC es un curso empaquetado: páginas, tareas, preguntas de cuestionarios y un manifiesto que describe su estructura. Aquí tienes qué lleva un Common Cartridge, qué deja atrás a propósito y cuándo te encontrarás uno.",
+      readTime: "5 min de lectura",
+      category: "Estándares",
+    },
+  },
+};
+
+const localizedPostLoaders: Partial<
+  Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
+> = {
+  de: {
+    "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": () => import("@/content/blog/de/migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders.mdx"),
+    "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/de/build-vs-buy-an-lms-the-honest-math.mdx"),
+    "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": () => import("@/content/blog/de/custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years.mdx"),
+    "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/de/hidden-cost-of-revenue-share-course-platforms.mdx"),
+    "canvas-breach-student-data-security": () => import("@/content/blog/de/canvas-breach-student-data-security.mdx"),
+    "sso-options-for-learning-platforms": () => import("@/content/blog/de/sso-options-for-learning-platforms.mdx"),
+    "cheating-online-exams-what-actually-works": () => import("@/content/blog/de/cheating-online-exams-what-actually-works.mdx"),
+    "student-data-security-checklist-for-edtech-teams": () => import("@/content/blog/de/student-data-security-checklist-for-edtech-teams.mdx"),
+    "lti-1-3-advantage-explained-without-the-spec-speak": () => import("@/content/blog/de/lti-1-3-advantage-explained-without-the-spec-speak.mdx"),
+    "designing-assessments-that-resist-cheating": () => import("@/content/blog/de/designing-assessments-that-resist-cheating.mdx"),
+    "what-actually-drives-the-price-of-an-e-learning-build": () => import("@/content/blog/de/what-actually-drives-the-price-of-an-e-learning-build.mdx"),
+    "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/de/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
+    "leaving-teachable-a-migration-checklist": () => import("@/content/blog/de/leaving-teachable-a-migration-checklist.mdx"),
+    "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/de/what-a-smooth-lms-migration-actually-looks-like.mdx"),
+    "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/de/scorm-vs-xapi-keeping-your-content-portable.mdx"),
+    "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/de/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
+    "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/de/how-much-does-a-custom-lms-cost-in-2026.mdx"),
+    "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
+  },
+  fr: {
+    "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": () => import("@/content/blog/fr/migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders.mdx"),
+    "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": () => import("@/content/blog/fr/custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years.mdx"),
+    "cheating-online-exams-what-actually-works": () => import("@/content/blog/fr/cheating-online-exams-what-actually-works.mdx"),
+    "canvas-breach-student-data-security": () => import("@/content/blog/fr/canvas-breach-student-data-security.mdx"),
+    "sso-options-for-learning-platforms": () => import("@/content/blog/fr/sso-options-for-learning-platforms.mdx"),
+    "student-data-security-checklist-for-edtech-teams": () => import("@/content/blog/fr/student-data-security-checklist-for-edtech-teams.mdx"),
+    "lti-1-3-advantage-explained-without-the-spec-speak": () => import("@/content/blog/fr/lti-1-3-advantage-explained-without-the-spec-speak.mdx"),
+    "designing-assessments-that-resist-cheating": () => import("@/content/blog/fr/designing-assessments-that-resist-cheating.mdx"),
+    "what-actually-drives-the-price-of-an-e-learning-build": () => import("@/content/blog/fr/what-actually-drives-the-price-of-an-e-learning-build.mdx"),
+    "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/fr/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
+    "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/fr/build-vs-buy-an-lms-the-honest-math.mdx"),
+    "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/fr/how-much-does-a-custom-lms-cost-in-2026.mdx"),
+    "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/fr/hidden-cost-of-revenue-share-course-platforms.mdx"),
+    "leaving-teachable-a-migration-checklist": () => import("@/content/blog/fr/leaving-teachable-a-migration-checklist.mdx"),
+    "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/fr/what-a-smooth-lms-migration-actually-looks-like.mdx"),
+    "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/fr/scorm-vs-xapi-keeping-your-content-portable.mdx"),
+    "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/fr/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
+    "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
+  },
+  es: {
+    "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": () => import("@/content/blog/es/migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders.mdx"),
+    "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": () => import("@/content/blog/es/custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years.mdx"),
+    "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/es/build-vs-buy-an-lms-the-honest-math.mdx"),
+    "cheating-online-exams-what-actually-works": () => import("@/content/blog/es/cheating-online-exams-what-actually-works.mdx"),
+    "canvas-breach-student-data-security": () => import("@/content/blog/es/canvas-breach-student-data-security.mdx"),
+    "sso-options-for-learning-platforms": () => import("@/content/blog/es/sso-options-for-learning-platforms.mdx"),
+    "student-data-security-checklist-for-edtech-teams": () => import("@/content/blog/es/student-data-security-checklist-for-edtech-teams.mdx"),
+    "lti-1-3-advantage-explained-without-the-spec-speak": () => import("@/content/blog/es/lti-1-3-advantage-explained-without-the-spec-speak.mdx"),
+    "designing-assessments-that-resist-cheating": () => import("@/content/blog/es/designing-assessments-that-resist-cheating.mdx"),
+    "what-actually-drives-the-price-of-an-e-learning-build": () => import("@/content/blog/es/what-actually-drives-the-price-of-an-e-learning-build.mdx"),
+    "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/es/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
+    "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/es/how-much-does-a-custom-lms-cost-in-2026.mdx"),
+    "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/es/hidden-cost-of-revenue-share-course-platforms.mdx"),
+    "leaving-teachable-a-migration-checklist": () => import("@/content/blog/es/leaving-teachable-a-migration-checklist.mdx"),
+    "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/es/what-a-smooth-lms-migration-actually-looks-like.mdx"),
+    "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/es/scorm-vs-xapi-keeping-your-content-portable.mdx"),
+    "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/es/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
+    "whats-an-imscc-file": () => import("@/content/blog/es/whats-an-imscc-file.mdx"),
+  },
+};
+
+export function getLocalizedPostBySlug(slug: string, locale: Locale): Post | undefined {
+  const post = getPostBySlug(slug);
+  if (!post) return undefined;
+  if (locale === "en") return post;
+
+  const translation = localizedPostFields[locale]?.[slug];
+  const loader = localizedPostLoaders[locale]?.[slug];
+  return translation && loader ? { ...post, ...translation } : undefined;
+}
+
+export function getPostsForLocale(locale: Locale): Post[] {
+  if (locale === "en") return posts;
+  return posts.flatMap((post) => {
+    const localizedPost = getLocalizedPostBySlug(post.slug, locale);
+    return localizedPost ? [localizedPost] : [];
+  });
+}
+
+export async function getPostContent(slug: string, locale: Locale) {
+  if (locale === "en") {
+    const contentLoaders: Record<string, () => Promise<{ default: ComponentType }>> = {
+      "whats-an-imscc-file": () => import("@/content/blog/whats-an-imscc-file.mdx"),
+      "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/how-much-does-a-custom-lms-cost-in-2026.mdx"),
+      "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/build-vs-buy-an-lms-the-honest-math.mdx"),
+      "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/hidden-cost-of-revenue-share-course-platforms.mdx"),
+      "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": () => import("@/content/blog/custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years.mdx"),
+      "what-actually-drives-the-price-of-an-e-learning-build": () => import("@/content/blog/what-actually-drives-the-price-of-an-e-learning-build.mdx"),
+      "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
+      "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
+      "leaving-teachable-a-migration-checklist": () => import("@/content/blog/leaving-teachable-a-migration-checklist.mdx"),
+      "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/scorm-vs-xapi-keeping-your-content-portable.mdx"),
+      "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/what-a-smooth-lms-migration-actually-looks-like.mdx"),
+      "lti-1-3-advantage-explained-without-the-spec-speak": () => import("@/content/blog/lti-1-3-advantage-explained-without-the-spec-speak.mdx"),
+      "student-data-security-checklist-for-edtech-teams": () => import("@/content/blog/student-data-security-checklist-for-edtech-teams.mdx"),
+      "sso-options-for-learning-platforms": () => import("@/content/blog/sso-options-for-learning-platforms.mdx"),
+      "designing-assessments-that-resist-cheating": () => import("@/content/blog/designing-assessments-that-resist-cheating.mdx"),
+      "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": () => import("@/content/blog/migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders.mdx"),
+      "canvas-breach-student-data-security": () => import("@/content/blog/canvas-breach-student-data-security.mdx"),
+      "cheating-online-exams-what-actually-works": () => import("@/content/blog/cheating-online-exams-what-actually-works.mdx"),
+    };
+    return contentLoaders[slug]?.();
+  }
+
+  return localizedPostLoaders[locale]?.[slug]?.();
 }

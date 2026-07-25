@@ -1,4 +1,5 @@
 import type { StaticImageData } from "next/image";
+import type { MaybeLocalized } from "@/lib/l10n";
 
 export type Post = {
   slug: string;
@@ -16,11 +17,11 @@ export type Post = {
 
 export type Project = {
   slug: string;
-  title: string;
+  title: MaybeLocalized<string>;
   link?: string;
-  description: string;
-  problem: string;
-  solution: string;
+  description: MaybeLocalized<string>;
+  problem: MaybeLocalized<string>;
+  solution: MaybeLocalized<string>;
   year: string;
   preview: string;
   tech: string[];
@@ -34,20 +35,20 @@ export type GalleryImage = {
 };
 
 export type ComparisonRow = {
-  dimension: string;
-  rizon: string;
-  them: string;
+  dimension: MaybeLocalized<string>;
+  rizon: MaybeLocalized<string>;
+  them: MaybeLocalized<string>;
 };
 
 export type Faq = {
-  question: string;
-  answer: string;
+  question: MaybeLocalized<string>;
+  answer: MaybeLocalized<string>;
 };
 
 // A quotable, extractable figure with a primary-source citation (GEO / AI-search).
 export type CitedStat = {
   value: string; // the headline figure or term, e.g. "SCORM 1.2" or "IMSCC"
-  label: string; // what it means, in one sentence
+  label: MaybeLocalized<string>; // what it means, in one sentence
   source: string; // the primary source's name
   sourceUrl: string; // outbound link to that primary source
 };
@@ -55,17 +56,17 @@ export type CitedStat = {
 export type Alternative = {
   slug: string;
   competitor: string;
-  category: string;
-  metaTitle: string;
-  metaDescription: string;
-  heroHeadline: string;
-  heroSub: string;
-  intro: string[];
-  whoThisIsFor: string;
-  whyLeave: { title: string; body: string }[];
-  whereTheyWin: { title: string; body: string }[];
+  category: MaybeLocalized<string>;
+  metaTitle: MaybeLocalized<string>;
+  metaDescription: MaybeLocalized<string>;
+  heroHeadline: MaybeLocalized<string>;
+  heroSub: MaybeLocalized<string>;
+  intro: MaybeLocalized<string[]>;
+  whoThisIsFor: MaybeLocalized<string>;
+  whyLeave: { title: MaybeLocalized<string>; body: MaybeLocalized<string> }[];
+  whereTheyWin: { title: MaybeLocalized<string>; body: MaybeLocalized<string> }[];
   comparison: ComparisonRow[];
-  migration: string;
+  migration: MaybeLocalized<string>;
   faqs: Faq[];
   stat?: CitedStat;
   keywords: string[];
@@ -73,23 +74,26 @@ export type Alternative = {
   relatedPostSlugs?: string[];
 };
 
-export type ServiceSection = { heading: string; body: string };
+export type ServiceSection = {
+  heading: MaybeLocalized<string>;
+  body: MaybeLocalized<string>;
+};
 
 export type ServicePage = {
   slug: string;
-  title: string;
-  metaTitle: string;
-  metaDescription: string;
-  h1: string;
-  heroSub: string;
-  targetKeyword: string;
-  whoWeWorkWith: { audience: string; description: string }[];
-  problemsWeSolve: { problem: string; solution: string }[];
+  title: MaybeLocalized<string>;
+  metaTitle: MaybeLocalized<string>;
+  metaDescription: MaybeLocalized<string>;
+  h1: MaybeLocalized<string>;
+  heroSub: MaybeLocalized<string>;
+  targetKeyword: MaybeLocalized<string>;
+  whoWeWorkWith: { audience: MaybeLocalized<string>; description: MaybeLocalized<string> }[];
+  problemsWeSolve: { problem: MaybeLocalized<string>; solution: MaybeLocalized<string> }[];
   whatWeBuild: ServiceSection[];
-  process: { step: string; detail: string }[];
-  included: string[];
-  costBand: string;
-  outcomes: string;
+  process: { step: MaybeLocalized<string>; detail: MaybeLocalized<string> }[];
+  included: MaybeLocalized<string[]>;
+  costBand: MaybeLocalized<string>;
+  outcomes: MaybeLocalized<string>;
   faqs: Faq[];
   stat?: CitedStat;
   relatedAlternativeSlugs?: string[];

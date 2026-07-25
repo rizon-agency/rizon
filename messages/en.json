@@ -1,0 +1,611 @@
+{
+  "nav": {
+    "home": "Home",
+    "whyUs": "Why us",
+    "process": "Process",
+    "services": "Services",
+    "about": "About",
+    "work": "Work",
+    "blog": "Blog",
+    "bookACall": "Book a call",
+    "primary": "Primary",
+    "mobile": "Mobile",
+    "openMenu": "Open menu",
+    "selectLanguage": "Select language"
+  },
+  "footer": {
+    "tagline": "Custom LMS development agency. Building learning platforms people actually want to use.",
+    "explore": "Explore",
+    "compare": "Compare",
+    "follow": "Follow",
+    "allAlternatives": "All alternatives",
+    "getInTouch": "Get In Touch",
+    "howWeWork": "How We Work",
+    "whyUsShort": "Why Us",
+    "terms": "Terms & Services",
+    "copyright": "© {year} Rizon. All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "headline": "The platform behind your learning product, built from scratch.",
+      "sub": "Custom e-learning platforms built around how you teach. No monthly fees, no limits. You own all the code.",
+      "ctaContact": "Get in touch",
+      "ctaWork": "See our work",
+      "statFees": "Platform fees. You keep every dollar you earn.",
+      "statOwnership": "Code ownership. The platform is yours to keep.",
+      "statLiveDay": "Day",
+      "statLiveLabel": "Your platform goes live and stays live"
+    },
+    "whyUs": {
+      "label": "Why us",
+      "titlePrefix": "Why",
+      "titleHighlight": "work with us",
+      "description": "Most agencies optimize for their own convenience and bill you for it. Here is how we have decided to work instead, in writing.",
+      "reasons": {
+        "tech": {
+          "title": "Best tech for your needs, not ours",
+          "description": "We pick the stack that fits your project and the people who will maintain it, not the one we happen to be fastest at. You never pay for our habits."
+        },
+        "demos": {
+          "title": "Weekly live demos and updates",
+          "description": "Every week you get a working build to click through and a plain-English rundown of what changed. No month-long silences. No surprise invoices."
+        },
+        "live": {
+          "title": "Live platform from day one",
+          "description": "Your platform ships to production with the first build. You watch it grow feature by feature instead of waiting for one big reveal at the end."
+        },
+        "lean": {
+          "title": "Build only what you will use",
+          "description": "We cut anything that does not earn its place. No bloated feature lists you will never open, just the things your users actually reach for."
+        },
+        "feedback": {
+          "title": "Your feedback shapes everything",
+          "description": "Your input drives every decision. We do not disappear for months. You are part of the process from day one."
+        }
+      }
+    },
+    "howWeWork": {
+      "label": "How we work",
+      "titlePrefix": "How we actually",
+      "titleHighlight": "work with you",
+      "description": "No confusing process, no project-management jargon. Just straightforward.",
+      "stepLabel": "Step",
+      "stepNumbers": {
+        "1": "one",
+        "2": "two",
+        "3": "three",
+        "4": "four",
+        "5": "five",
+        "6": "six"
+      },
+      "steps": {
+        "first": {
+          "title": "First call",
+          "description": "Tell us about your vision. What are you building? Who is it for? What is holding you back right now? We listen first."
+        },
+        "plan": {
+          "title": "Plan the next feature",
+          "description": "We work with you to decide what to build next. What matters most? What will make the biggest difference for your learners?"
+        },
+        "design": {
+          "title": "Design it",
+          "description": "We design how it looks and how it works. You see exactly what it will be before we write a single line of code."
+        },
+        "build": {
+          "title": "Build it",
+          "description": "We bring it to life. We handle the heavy lifting and make sure everything works the way it should."
+        },
+        "demo": {
+          "title": "Demo it",
+          "description": "We give you a live version to play with. Test it, break it, tell us what feels right and what does not."
+        },
+        "launch": {
+          "title": "Launch it",
+          "description": "We ship it to your platform. Your users get it."
+        }
+      }
+    }
+  },
+  "homeServices": {
+    "label": "Services",
+    "titlePrefix": "What we",
+    "titleHighlight": "build",
+    "description": "We build exactly what you need. No templates. No compromises.",
+    "cta": "Book a call",
+    "items": {
+      "customLms": {
+        "name": "Custom E-Learning Platforms",
+        "description": "The platform your learning product runs on: your brand, your rules, your revenue. Create and structure content, enroll and manage learners, track progress, handle payments, all without handing a cut to a third party or living inside someone else's limits.",
+        "features": {
+          "0": "A platform built exactly how you need it",
+          "1": "Complete control over the product and the data",
+          "2": "No monthly platform fees",
+          "3": "You own all the code",
+          "4": "It grows as you grow"
+        }
+      },
+      "schoolPortals": {
+        "name": "School & University Portals",
+        "description": "Your institution needs more than a cookie-cutter LMS. You need something that works the way your school actually operates. We build learning platforms for schools and universities-class management, assignments, grading, student portals, parent access, whatever your institution needs.",
+        "features": {
+          "0": "Custom-built for how your school works",
+          "1": "Student and teacher dashboards",
+          "2": "Assignment submission and grading",
+          "3": "Progress tracking and reporting",
+          "4": "Parent/guardian access portals"
+        }
+      },
+      "corporateTraining": {
+        "name": "Corporate Training Platforms",
+        "description": "Train your team without the limitations of off-the-shelf training software. We build internal training platforms for companies-onboarding programs, compliance training, skill development, certifications. Everything your team needs to learn, all in one place.",
+        "features": {
+          "0": "Branded training portal",
+          "1": "Course creation and management",
+          "2": "Progress tracking and compliance reporting",
+          "3": "Certification and credential management",
+          "4": "Integration with your existing tools"
+        }
+      },
+      "upgrades": {
+        "name": "Platform Upgrades & Custom Features",
+        "description": "Already have a platform but it's not doing what you need? We can fix that. Whether you're using Moodle, Canvas, or something custom, we can add features, redesign the interface, speed things up, or integrate new tools.",
+        "features": {
+          "0": "New features built to your specs",
+          "1": "Better design and user experience",
+          "2": "Performance improvements",
+          "3": "Integration with new tools",
+          "4": "Bug fixes and optimization"
+        }
+      }
+    }
+  },
+  "features": {
+    "label": "Features",
+    "titlePrefix": "What we can",
+    "titleHighlight": "build",
+    "description": "Everything you need to deliver learning experiences that work.",
+    "categories": {
+      "ai": {
+        "title": "AI-Powered Features",
+        "items": {
+          "0": "Auto-generate course content",
+          "1": "Create quizzes automatically",
+          "2": "Instant grading and feedback",
+          "3": "Smart content recommendations",
+          "4": "Personalized learning paths for each learner"
+        }
+      },
+      "engagement": {
+        "title": "Engagement & Gamification",
+        "items": {
+          "0": "Badges and achievements",
+          "1": "Leaderboards",
+          "2": "Points and rewards",
+          "3": "Progress milestones",
+          "4": "Friendly competition"
+        }
+      },
+      "content": {
+        "title": "Content & Delivery",
+        "items": {
+          "0": "Video lectures and multimedia",
+          "1": "Quizzes and assessments",
+          "2": "Live classes (Zoom, Google Meet)",
+          "3": "Discussion forums",
+          "4": "Assignment submissions",
+          "5": "Completion certificates"
+        }
+      },
+      "tracking": {
+        "title": "Tracking & Analytics",
+        "items": {
+          "0": "Real-time progress tracking",
+          "1": "Detailed performance dashboards",
+          "2": "See who is engaged and who is stuck",
+          "3": "Custom reports",
+          "4": "Learning analytics"
+        }
+      },
+      "usability": {
+        "title": "Usability",
+        "items": {
+          "0": "Works on any device",
+          "1": "Clear dashboards for learners and instructors",
+          "2": "Simple navigation",
+          "3": "Multiple languages",
+          "4": "Offline support on mobile"
+        }
+      },
+      "security": {
+        "title": "Integrations & Security",
+        "items": {
+          "0": "Payment processing (Stripe, PayPal, and more)",
+          "1": "Connect your tools (Zoom, email, CRM)",
+          "2": "Secure login and SSO options",
+          "3": "Encrypted data",
+          "4": "Cloud-based and always accessible"
+        }
+      }
+    }
+  },
+  "cta": {
+    "eyebrow": "Get started",
+    "titlePrefix": "Your learning product deserves",
+    "titleHighlight": "its own platform.",
+    "description": "If you want to deliver a learning experience built around your product, your learners, and your goals, you are in the right place. We build platforms that give you the control and flexibility to grow without limits.",
+    "button": "Get in touch"
+  },
+  "alternativesPreview": {
+    "label": "Considering a switch",
+    "title": "The platform you use should not dictate the product you can sell.",
+    "description": "Honest comparisons for teams deciding whether to keep, configure, or replace their current LMS.",
+    "readComparison": "Read the comparison",
+    "browseAll": "Browse all LMS alternatives"
+  },
+  "work": {
+    "label": "Selected work",
+    "titlePrefix": "What we have been",
+    "titleHighlight": "building",
+    "description": "A few platforms we have shipped recently. Real products, in production, doing real work."
+  },
+  "trust": {
+    "label": "Client feedback",
+    "title": "The work has to hold up after the handoff.",
+    "description": "From clients who brought Rizon in when the learning-platform work got hard.",
+    "clientsLabel": "Selected client organisations"
+  },
+  "blogPreview": {
+    "label": "From the blog",
+    "titlePrefix": "Thinking on",
+    "titleHighlight": "e-learning",
+    "allPosts": "All posts"
+  },
+  "contact": {
+    "label": "Get in touch",
+    "titlePrefix": "Let's talk about your",
+    "titleHighlight": "platform",
+    "description": "Ready to start, or just have a question? Pick whichever is easier. Book a call and we will dig into your project together, or send an email and we will get back to you.",
+    "bookCard": {
+      "title": "Book a call",
+      "description": "30 minutes, no pressure. Tell us what you are building and we will tell you how we would approach it.",
+      "button": "Book a call"
+    },
+    "emailCard": {
+      "title": "Send an email",
+      "description": "Prefer to write first? Send a question and we will reply.",
+      "button": "Email us",
+      "copyLabel": "Copy email address",
+      "copiedLabel": "Email address copied",
+      "copiedStatus": "Email address copied to clipboard"
+    }
+  },
+  "homeFaq": {
+    "label": "FAQ",
+    "titlePrefix": "Questions,",
+    "titleHighlight": "answered",
+    "description": "Everything you need to know about working with us. Still curious? Just ask, we are happy to get specific.",
+    "items": {
+      "timeline": {
+        "question": "How quickly can you build our platform?",
+        "answer": "It depends on scope, but here is how we approach timelines. We break everything into weekly sprints with live demos, so you see real progress every week instead of vague updates. Most platforms launch in phases: core features first (usually 8 to 12 weeks), then we iterate and add more based on what you learn from real users. You get a clear roadmap after our first conversation."
+      },
+      "involvement": {
+        "question": "How involved will we be during development?",
+        "answer": "Very. Every week you see what has been built, test it live, and give feedback that shapes the next sprint. This is not a disappear-for-months-then-surprise-you situation. You are part of the process from day one."
+      },
+      "integrations": {
+        "question": "Can you integrate with our existing tools?",
+        "answer": "Yes. Payment gateways, CRMs, email platforms, Zoom, Google Meet, SSO, whatever you currently use gets connected. We build around your workflow, not against it."
+      },
+      "afterLaunch": {
+        "question": "What happens after we launch?",
+        "answer": "Launch is the beginning, not the end. We offer optional maintenance contracts for ongoing support, updates, new features, and optimizations. Most clients stay with us long-term because their platform keeps evolving with their needs."
+      },
+      "scale": {
+        "question": "Will the platform scale as we grow?",
+        "answer": "That is the plan. We architect for growth from day one. Whether you are at 500 learners or 50,000, the infrastructure supports it, and we adjust as you scale."
+      },
+      "mobile": {
+        "question": "Is the platform mobile-friendly?",
+        "answer": "Completely. It works on desktop, tablet, and mobile, responsive by default rather than as an afterthought."
+      },
+      "ownership": {
+        "question": "Who owns the code and platform?",
+        "answer": "You do. Full ownership transfers to you on final payment: the code, the platform, the infrastructure. Maintenance is optional, never required."
+      }
+    }
+  },
+  "serviceDetail": {
+    "eyebrow": "Rizon services",
+    "heroCta": "Discuss your platform",
+    "whoWeWorkWith": {
+      "label": "Who we work with",
+      "title": "Buyers who need the platform to fit their operation."
+    },
+    "problemsWeSolve": {
+      "label": "Problems we solve",
+      "title": "The specific work your current platform leaves behind."
+    },
+    "capabilities": {
+      "label": "Capabilities",
+      "titleTemplate": "What we build inside {keyword}."
+    },
+    "process": {
+      "label": "How projects work",
+      "title": "From first call to handover."
+    },
+    "deliverables": {
+      "label": "Deliverables",
+      "title": "What you receive at handover."
+    },
+    "budget": {
+      "label": "Budget and tradeoffs",
+      "title": "What moves the price",
+      "note": "We scope in the open. You see the assumptions, what is excluded, and what would change the estimate. A fixed price without those details is only a delayed surprise."
+    },
+    "afterLaunch": {
+      "label": "After launch",
+      "title": "The platform should make the next decision easier."
+    },
+    "related": {
+      "label": "Useful next reading",
+      "title": "Make the comparison honestly"
+    },
+    "faq": {
+      "label": "Questions before a build",
+      "title": "The questions worth asking now"
+    },
+    "bottomCta": {
+      "title": "Bring the awkward part of the current setup.",
+      "description": "We will map the real constraint, tell you whether a custom build makes sense, and outline a first release that does not pretend to solve every future problem.",
+      "button": "Book a 30-minute call"
+    },
+    "alternativeSuffix": "alternative",
+    "breadcrumbs": { "home": "Home", "services": "Services" }
+  },
+  "alternativeDetail": {
+    "heroBookCall": "Book a call",
+    "heroSeeComparison": "See the comparison",
+    "intro": {
+      "label": "The direct answer",
+      "whoThisIsFor": "Who this is for:"
+    },
+    "whyLeave": {
+      "label": "Where the friction starts",
+      "titleTemplate": "Why teams leave {competitor}"
+    },
+    "comparison": {
+      "label": "Side by side",
+      "titleTemplate": "Custom build vs {competitor}",
+      "dimension": "Dimension",
+      "rizon": "Rizon (custom build)"
+    },
+    "whereTheyWin": {
+      "label": "The honest case",
+      "titleTemplate": "Where {competitor} is genuinely the better choice"
+    },
+    "migration": {
+      "label": "Migration, without theatre",
+      "title": "Move the parts that matter. Test the rest.",
+      "readPrefix": "Read"
+    },
+    "faq": {
+      "label": "Questions buyers ask",
+      "title": "Before you switch"
+    },
+    "bottomCta": {
+      "eyebrow": "Your next step",
+      "title": "Find out if a custom platform is actually the sensible move.",
+      "description": "Bring the parts of your current setup that hurt. We will tell you what is worth rebuilding, what should stay, and where custom software would be a waste.",
+      "button": "Book a 30-minute call"
+    },
+    "breadcrumbs": { "home": "Home", "alternatives": "Alternatives" },
+    "footerLinks": {
+      "browseAll": "Browse all LMS alternatives",
+      "exploreServicePrefix": "Explore"
+    }
+  },
+  "lmsAlternativesPage": {
+    "eyebrow": "Decision guide",
+    "h1": "LMS alternatives, without pretending every team needs a custom build.",
+    "sub": "A hosted or open-source LMS is often the right choice. Build custom software when the platform itself is part of your offer, your operations, or your edge.",
+    "table": {
+      "platform": "Platform",
+      "bestFit": "Best fit",
+      "whyCustom": "Why teams consider custom"
+    },
+    "readComparison": "Read the comparison",
+    "alternativeSuffix": "alternative",
+    "faq": {
+      "eyebrow": "Before deciding",
+      "title": "Three questions worth answering first",
+      "items": {
+        "worthIt": {
+          "question": "When is a custom LMS worth it?",
+          "answer": "When your learning experience, business rules, data, or integrations are important enough that fixed product settings create recurring manual work or lost opportunities."
+        },
+        "replaceWorking": {
+          "question": "Should we replace an LMS that already works?",
+          "answer": "Usually no. Keep a working LMS when its constraints are tolerable and its operating model suits your team. Replace it when the constraints affect a core part of your programme or product."
+        },
+        "stages": {
+          "question": "Can we migrate in stages?",
+          "answer": "Yes. A staged migration can move one programme, audience, or workflow first. It reduces risk and makes the lessons from the first release useful before a broader cutover."
+        }
+      }
+    },
+    "bottomCta": {
+      "title": "Bring the awkward workflow to the call.",
+      "description": "We will help you sort a practical upgrade from a platform replacement. Sometimes the right answer is to keep what you have.",
+      "button": "Book a 30-minute call"
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "eyebrow": "About Rizon",
+      "titlePrefix": "A software studio focused exclusively on",
+      "titleHighlight": "learning platforms",
+      "intro1": "I'm Choaib Mouhrach, founder of Rizon and a software engineer specializing in learning technology. For the past several years I've worked almost exclusively on LMS development, building custom learning platforms and integrating systems like Moodle, Canvas, and LTI for education businesses and training organizations.",
+      "intro2": "I started Rizon to give organizations an alternative to forcing their workflows into off-the-shelf platforms.",
+      "founderRole": "Founder & Learning Platform Engineer"
+    },
+    "aboutRizon": {
+      "eyebrow": "About Rizon",
+      "title": "Learning platforms built around how your organization already operates.",
+      "p1": "Rizon is a software studio focused exclusively on learning platforms. We design and build custom LMS products for education businesses, training companies, schools, and organizations whose current platform no longer fits how they operate.",
+      "p2": "That includes everything from complete learning platforms to Moodle and Canvas development, LTI integrations, assessment systems, reporting, course commerce, and internal training portals.",
+      "p3": "Every project starts with understanding how your organization teaches and operates, then building software around that instead of forcing your team to adapt to generic LMS software."
+    },
+    "proofPoints": {
+      "focus": "Focused exclusively on learning platforms",
+      "specialists": "Moodle & Canvas specialists",
+      "lti": "LTI integrations",
+      "customLms": "Custom LMS development",
+      "ownership": "End-to-end ownership",
+      "global": "Clients across multiple countries"
+    },
+    "howWeBuild": {
+      "eyebrow": "How we build",
+      "titlePrefix": "Small releases. Direct conversations.",
+      "titleHighlight": "Code you keep.",
+      "principles": {
+        "small": {
+          "title": "Small releases",
+          "body": "Every project is delivered in small milestones so feedback happens early, not after months of development."
+        },
+        "direct": {
+          "title": "Direct conversations",
+          "body": "You work directly with the engineer building your platform. No account managers, no communication chain, and no information lost between meetings and implementation."
+        },
+        "code": {
+          "title": "Code you keep",
+          "body": "Every project includes full source code, documentation, and deployment instructions. You own the platform and can continue developing it with any team."
+        }
+      }
+    },
+    "capabilitiesSection": {
+      "eyebrow": "What we've built",
+      "title": "The specific work we do inside learning platforms.",
+      "items": {
+        "0": "Custom LMS platforms",
+        "1": "Moodle development",
+        "2": "Canvas development",
+        "3": "LTI 1.3 integrations",
+        "4": "Student dashboards",
+        "5": "Instructor portals",
+        "6": "Assessment systems",
+        "7": "Certificates",
+        "8": "Learning analytics",
+        "9": "Gamification",
+        "10": "Course commerce",
+        "11": "Internal training portals"
+      }
+    },
+    "cta": {
+      "title": "Let's evaluate your platform.",
+      "description": "Whether you're extending Moodle, integrating Canvas, replacing an existing LMS, or building a learning platform from scratch, we'll help you determine whether the problem is configuration, integration, or custom software — and recommend the most practical path forward.",
+      "button": "Book a discovery call"
+    }
+  },
+  "workDetail": {
+    "backLink": "Selected work",
+    "caseStudy": "Case study",
+    "visitLive": "Visit live site",
+    "metaYear": "Year",
+    "metaDiscipline": "Discipline",
+    "metaDisciplineValue": "Custom LMS development",
+    "metaStack": "Stack",
+    "problemLabel": "The problem",
+    "solutionLabel": "Our solution",
+    "insideBuild": "Inside the build",
+    "framesLabel": "frames",
+    "viewOf": "view {n} of {total}",
+    "ctaTitle": "Want a platform like this, built around how you actually work?",
+    "ctaButton": "Book a call",
+    "nextProject": "Next project",
+    "breadcrumbs": { "home": "Home", "work": "Work" }
+  },
+  "servicesPage": {
+    "eyebrow": "Services",
+    "title": "Learning platforms built for the work you need them to do.",
+    "description": "Some teams need a better LMS. Others need a product, a portal, or a training system that does not exist in a catalogue. Start with the job.",
+    "schemaName": "Rizon services"
+  },
+  "blogPage": {
+    "eyebrow": "From the blog",
+    "title": "Thinking on LMS, learning platforms, and the business of online education",
+    "new": "New"
+  },
+  "blogDetail": {
+    "allPosts": "All posts",
+    "writtenBy": "Written by {name}",
+    "keepReading": "Keep reading",
+    "nextLinks": "The useful next links",
+    "alternative": "{name} alternative",
+    "nextPost": "Next post",
+    "home": "Home",
+    "blog": "Blog"
+  },
+  "notFound": {
+    "label": "Not found",
+    "postTitle": "We couldn't find that post.",
+    "postDescription": "The article you're looking for may have been moved or renamed. Head back to the blog to see everything we've written.",
+    "backToBlog": "Back to the blog",
+    "projectTitle": "We couldn't find that project.",
+    "projectDescription": "The case study you're after may have been moved or renamed. Head back to see everything we've shipped recently.",
+    "backToWork": "Back to selected work"
+  },
+  "legalPage": {
+    "back": "Back to home",
+    "eyebrow": "Legal",
+    "title": "Terms and Services",
+    "entity": "Entity",
+    "effective": "Effective",
+    "jurisdiction": "Jurisdiction"
+  },
+  "seo": {
+    "home": {
+      "title": "Rizon - Custom E-Learning",
+      "description": "Launch your online learning platform without vendor lock-in. We build custom e-learning solutions for course creators, schools, and companies. Own 100% of your code, no templates, no revenue sharing.",
+      "ogTitle": "Rizon - Build Your Own Online Learning Platform",
+      "ogDescription": "Custom e-learning platforms designed around how you teach. No monthly fees, no feature limits, no vendor lock-in. Built for course creators, schools, and companies.",
+      "twitterTitle": "Rizon - Custom E-Learning Platform Development",
+      "twitterDescription": "Launch your online learning platform without monthly fees or vendor lock-in. Own your platform, own your revenue.",
+      "ogAlt": "Rizon — custom e-learning platform development"
+    },
+    "about": {
+      "title": "About Rizon & Choaib Mouhrach",
+      "description": "Rizon is a software studio focused exclusively on learning platforms — custom LMS products, Moodle and Canvas development, LTI integrations, and internal training portals.",
+      "ogTitle": "About Rizon & Choaib Mouhrach",
+      "ogDescription": "A software studio focused exclusively on learning platforms. Custom LMS, Moodle, Canvas, and LTI work led by Choaib Mouhrach.",
+      "twitterTitle": "About Rizon & Choaib Mouhrach",
+      "twitterDescription": "A software studio focused exclusively on learning platforms.",
+      "ogAlt": "About Rizon"
+    },
+    "services": {
+      "title": "Custom Learning Platform Services | Rizon",
+      "description": "Custom LMS, corporate training, course platform, and school portal development for teams that need learning software built around their operation.",
+      "ogTitle": "Custom Learning Platform Services | Rizon",
+      "ogDescription": "Four ways Rizon builds learning products around the work they need to do.",
+      "ogAlt": "Rizon custom learning platform services"
+    },
+    "lmsAlternatives": {
+      "title": "LMS Alternatives: When a Custom Build Makes Sense | Rizon",
+      "description": "Compare leading LMS and course-platform alternatives, then decide whether a custom learning platform is worth the work for your business or institution.",
+      "ogTitle": "LMS Alternatives | Rizon",
+      "ogDescription": "An honest guide to choosing between an LMS and a custom learning platform.",
+      "ogAlt": "LMS alternatives"
+    },
+    "legal": {
+      "title": "Terms and Services | Rizon LLC",
+      "description": "Terms and Services for Rizon LLC. Read our terms governing custom software development engagements, payment, intellectual property, and confidentiality.",
+      "ogTitle": "Terms and Services | Rizon LLC",
+      "ogDescription": "Terms and Services for Rizon LLC. Read our terms governing custom software development engagements, payment, intellectual property, and confidentiality.",
+      "ogAlt": "Rizon legal terms"
+    },
+    "blog": {
+      "title": "Blog | Rizon",
+      "description": "Notes on custom LMS development, learning-platform architecture, and building online education products that hold up over time."
+    }
+  }
+}

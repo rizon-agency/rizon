@@ -1,80 +1,73 @@
 import type { MetadataRoute } from "next";
+import { routing } from "@/i18n/routing";
+import { languagesFor, localizedUrl } from "@/i18n/hreflang";
 import { projects } from "@/lib/projects";
-import { posts } from "@/lib/posts";
+import { getPostsForLocale } from "@/lib/posts";
 import { alternatives } from "@/lib/alternatives";
 import { services } from "@/lib/services";
 
 const BASE_URL = "https://rizon.agency";
 
+type ChangeFreq = MetadataRoute.Sitemap[number]["changeFrequency"];
+
+type LocalizedRoute = {
+  path: string;
+  priority: number;
+  changeFrequency: ChangeFreq;
+};
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const projectUrls: MetadataRoute.Sitemap = projects.map((project) => ({
-    url: `${BASE_URL}/work/${project.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
-
-  const postUrls: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
-
-  const alternativeUrls: MetadataRoute.Sitemap = alternatives.map((alternative) => ({
-    url: `${BASE_URL}/alternatives/${alternative.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
-
-  const serviceUrls: MetadataRoute.Sitemap = services.map((service) => ({
-    url: `${BASE_URL}/services/${service.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
-
-  return [
-    {
-      url: BASE_URL,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${BASE_URL}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
+  const localizedRoutes: LocalizedRoute[] = [
+    { path: "/", priority: 1, changeFrequency: "weekly" },
+    { path: "/services", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/about", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/lms-alternatives", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/legal", priority: 0.3, changeFrequency: "yearly" },
+    ...services.map((s) => ({
+      path: `/services/${s.slug}`,
       priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/services`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "monthly" as ChangeFreq,
+    })),
+    ...alternatives.map((a) => ({
+      path: `/alternatives/${a.slug}`,
       priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "monthly" as ChangeFreq,
+    })),
+    ...projects.map((p) => ({
+      path: `/work/${p.slug}`,
       priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/lms-alternatives`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/legal`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    ...projectUrls,
-    ...postUrls,
-    ...alternativeUrls,
-    ...serviceUrls,
+      changeFrequency: "monthly" as ChangeFreq,
+    })),
   ];
+
+  const localizedEntries: MetadataRoute.Sitemap = localizedRoutes.flatMap(
+    (r) =>
+      routing.locales.map((locale) => ({
+        url: localizedUrl(r.path, locale),
+        lastModified: new Date(),
+        changeFrequency: r.changeFrequency,
+        priority: r.priority,
+        alternates: { languages: languagesFor(r.path) },
+      })),
+  );
+
+  const blogEntries: MetadataRoute.Sitemap = routing.locales.flatMap((locale) => {
+    const prefix = locale === "en" ? "" : `/${locale}`;
+    return [
+      {
+        url: `${BASE_URL}${prefix}/blog`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as ChangeFreq,
+        priority: 0.8,
+      },
+      ...getPostsForLocale(locale).map((post) => ({
+        url: `${BASE_URL}${prefix}/blog/${post.slug}`,
+        lastModified: new Date(post.date),
+        changeFrequency: "monthly" as ChangeFreq,
+        priority: 0.6,
+      })),
+    ];
+  });
+
+  return [...localizedEntries, ...blogEntries];
 }

@@ -2,7 +2,9 @@ import type { CitedStat } from "@/types";
 
 // Renders a quotable figure with its primary-source citation. Uses figure/figcaption
 // so search and AI engines can extract the stat and attribute it.
-export const StatBlock = ({ stat }: { stat: CitedStat }) => (
+type RenderableStat = Omit<CitedStat, "label"> & { label: string };
+
+export const StatBlock = ({ stat }: { stat: RenderableStat }) => (
   <figure className="rounded-xl border border-border bg-muted/40 px-6 py-8 md:px-10 md:py-10">
     <div className="flex flex-col gap-5 md:flex-row md:items-baseline md:gap-10">
       <p className="shrink-0 text-4xl font-semibold tracking-tight text-primary md:text-5xl">

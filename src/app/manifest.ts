@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Rizon Agency",
+    name: "Rizon",
     short_name: "Rizon",
     description:
       "Launch your online learning platform without vendor lock-in. We build custom e-learning solutions for course creators, schools, and companies. Own 100% of your code, no templates, no revenue sharing.",
