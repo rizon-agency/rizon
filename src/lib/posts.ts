@@ -353,6 +353,7 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   fr: {
+    "canvas-breach-student-data-security": { title: "La fuite Canvas et la sécurité des données étudiantes", description: "Les fuites de données éducatives viennent souvent d’erreurs ordinaires qui prennent de l’ampleur : accès trop larges, permissions oubliées et données conservées sans nécessité. La sécurité est une décision d’architecture.", readTime: "6 min de lecture", category: "Sécurité" },
     "sso-options-for-learning-platforms": { title: "Options SSO pour les plateformes d’apprentissage", description: "Le SSO ne se limite pas à la connexion. Les bons rôles au départ et la suppression automatique des accès au départ sont décisifs. SAML, OIDC et SCIM comparés en pratique.", readTime: "5 min de lecture", category: "Identité" },
     "student-data-security-checklist-for-edtech-teams": { title: "Liste de sécurité des données étudiantes pour les équipes edtech", description: "Les dommages sur les données scolaires viennent rarement d’un piratage sophistiqué. Ils viennent de la mauvaise personne qui voit le mauvais dossier. Commencez par la conception des accès, pas par les pare-feux.", readTime: "6 min de lecture", category: "Sécurité" },
     "lti-1-3-advantage-explained-without-the-spec-speak": { title: "LTI 1.3 Advantage expliqué sans le jargon de la spécification", description: "LTI 1.3 lance un outil de façon sûre depuis un LMS puis le relie aux listes, aux notes et au contenu. Suivez une note jusqu’au carnet pour comprendre ce que chaque service fait.", readTime: "6 min de lecture", category: "LTI" },
@@ -524,6 +525,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
   fr: {
+    "canvas-breach-student-data-security": () => import("@/content/blog/fr/canvas-breach-student-data-security.mdx"),
     "sso-options-for-learning-platforms": () => import("@/content/blog/fr/sso-options-for-learning-platforms.mdx"),
     "student-data-security-checklist-for-edtech-teams": () => import("@/content/blog/fr/student-data-security-checklist-for-edtech-teams.mdx"),
     "lti-1-3-advantage-explained-without-the-spec-speak": () => import("@/content/blog/fr/lti-1-3-advantage-explained-without-the-spec-speak.mdx"),
