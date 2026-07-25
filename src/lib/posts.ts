@@ -337,6 +337,12 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   fr: {
+    "what-actually-drives-the-price-of-an-e-learning-build": {
+      title: "Ce qui fait réellement varier le prix d’un projet e-learning",
+      description: "Les rôles, la migration, les intégrations, les règles métier et la qualité de lancement font bien plus varier une estimation qu’un écran de leçon soigné. Voici comment cadrer une première version honnêtement.",
+      readTime: "6 min de lecture",
+      category: "Stratégie de plateforme",
+    },
     "how-to-migrate-off-moodle-without-losing-course-data": {
       title: "Quitter Moodle sans perdre vos données de cours",
       description: "Les données Moodle ne se perdent pas à cause d’un mauvais export, mais parce que des plugins portent des règles métier. Inventoriez-les avant de déplacer le contenu.",
@@ -472,6 +478,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
   fr: {
+    "what-actually-drives-the-price-of-an-e-learning-build": () => import("@/content/blog/fr/what-actually-drives-the-price-of-an-e-learning-build.mdx"),
     "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/fr/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
     "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/fr/build-vs-buy-an-lms-the-honest-math.mdx"),
     "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/fr/how-much-does-a-custom-lms-cost-in-2026.mdx"),
