@@ -295,6 +295,13 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   fr: {
+    "leaving-teachable-a-migration-checklist": {
+      title: "Quitter Teachable : la liste de contrôle pour votre migration",
+      description:
+        "L’e-mail d’annonce est la dernière étape. Avant de l’envoyer, un client payant doit pouvoir se connecter à la nouvelle plateforme et retrouver tout ce qu’il possède. Voici la liste qui permet d’y arriver.",
+      readTime: "5 min de lecture",
+      category: "Migration",
+    },
     "what-a-smooth-lms-migration-actually-looks-like": {
       title: "À quoi ressemble vraiment une migration LMS réussie",
       description:
@@ -325,6 +332,13 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "leaving-teachable-a-migration-checklist": {
+      title: "Dejar Teachable: una lista de comprobación para migrar",
+      description:
+        "El correo de anuncio es el último paso. Antes de enviarlo, un cliente que pagó debe poder entrar en la nueva plataforma y encontrar todo lo que posee. Esta es la lista para lograrlo.",
+      readTime: "5 min de lectura",
+      category: "Migración",
+    },
     "what-a-smooth-lms-migration-actually-looks-like": {
       title: "Cómo es realmente una migración de LMS sin sobresaltos",
       description:
@@ -363,12 +377,14 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
   fr: {
+    "leaving-teachable-a-migration-checklist": () => import("@/content/blog/fr/leaving-teachable-a-migration-checklist.mdx"),
     "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/fr/what-a-smooth-lms-migration-actually-looks-like.mdx"),
     "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/fr/scorm-vs-xapi-keeping-your-content-portable.mdx"),
     "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/fr/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "leaving-teachable-a-migration-checklist": () => import("@/content/blog/es/leaving-teachable-a-migration-checklist.mdx"),
     "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/es/what-a-smooth-lms-migration-actually-looks-like.mdx"),
     "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/es/scorm-vs-xapi-keeping-your-content-portable.mdx"),
     "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/es/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
