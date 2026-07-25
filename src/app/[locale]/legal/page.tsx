@@ -85,7 +85,11 @@ export default async function LegalPage({
                   {t("effective")}
                 </dt>
                 <dd className="mt-1.5 text-[15px] text-foreground">
-                  May 29, 2026
+                  {new Date("2026-05-29").toLocaleDateString(locale, {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
                 </dd>
               </div>
               <div>
