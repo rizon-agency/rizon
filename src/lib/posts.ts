@@ -295,6 +295,13 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   fr: {
+    "how-much-does-a-custom-lms-cost-in-2026": {
+      title: "Combien coûte un LMS sur mesure en 2026 ?",
+      description:
+        "Le prix d’un LMS sur mesure dépend des éléments difficiles : parcours d’apprenants distincts, migration, intégrations et profondeur du reporting. Voici ce qui fait réellement varier le montant et ce qu’une première version utile comprend.",
+      readTime: "6 min de lecture",
+      category: "Stratégie de plateforme",
+    },
     "hidden-cost-of-revenue-share-course-platforms": {
       title: "Le coût caché des plateformes de cours qui prélèvent sur vos revenus",
       description:
@@ -339,6 +346,13 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "how-much-does-a-custom-lms-cost-in-2026": {
+      title: "¿Cuánto cuesta un LMS a medida en 2026?",
+      description:
+        "El precio de un LMS a medida cambia con las partes difíciles: recorridos de alumnos distintos, migración, integraciones y la profundidad de los informes. Aquí tienes qué mueve el número y qué incluye una primera versión útil.",
+      readTime: "6 min de lectura",
+      category: "Estrategia de plataforma",
+    },
     "hidden-cost-of-revenue-share-course-platforms": {
       title: "El coste oculto de las plataformas de cursos que cobran parte de tus ingresos",
       description:
@@ -391,6 +405,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
   fr: {
+    "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/fr/how-much-does-a-custom-lms-cost-in-2026.mdx"),
     "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/fr/hidden-cost-of-revenue-share-course-platforms.mdx"),
     "leaving-teachable-a-migration-checklist": () => import("@/content/blog/fr/leaving-teachable-a-migration-checklist.mdx"),
     "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/fr/what-a-smooth-lms-migration-actually-looks-like.mdx"),
@@ -399,6 +414,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/es/how-much-does-a-custom-lms-cost-in-2026.mdx"),
     "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/es/hidden-cost-of-revenue-share-course-platforms.mdx"),
     "leaving-teachable-a-migration-checklist": () => import("@/content/blog/es/leaving-teachable-a-migration-checklist.mdx"),
     "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/es/what-a-smooth-lms-migration-actually-looks-like.mdx"),
