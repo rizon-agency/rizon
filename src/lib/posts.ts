@@ -286,6 +286,12 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "designing-assessments-that-resist-cheating": {
+      title: "Prüfungen gestalten, die Täuschung widerstehen",
+      description: "Die wirksamste Prüfung ist nicht die mit der meisten Überwachung. Sie macht Kopieren nutzlos, weil die Aufgabe eigene Arbeit verlangt. Gestalten Sie die Aufgabe neu, bevor Sie überwachen.",
+      readTime: "6 Min. Lesezeit",
+      category: "Prüfungsdesign",
+    },
     "what-actually-drives-the-price-of-an-e-learning-build": {
       title: "Was den Preis eines E-Learning-Projekts wirklich beeinflusst",
       description: "Rollen, Migration, Integrationen, Geschäftsregeln und Startqualität verändern eine Schätzung weit stärker als ein polierter Lektionsbildschirm. So lässt sich eine erste Version ehrlich eingrenzen.",
@@ -493,6 +499,7 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "designing-assessments-that-resist-cheating": () => import("@/content/blog/de/designing-assessments-that-resist-cheating.mdx"),
     "what-actually-drives-the-price-of-an-e-learning-build": () => import("@/content/blog/de/what-actually-drives-the-price-of-an-e-learning-build.mdx"),
     "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/de/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
     "leaving-teachable-a-migration-checklist": () => import("@/content/blog/de/leaving-teachable-a-migration-checklist.mdx"),
