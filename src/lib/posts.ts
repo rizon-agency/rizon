@@ -286,6 +286,13 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   fr: {
+    "exporting-courses-from-canvas-imscc-step-by-step": {
+      title: "Exporter vos cours Canvas (IMSCC), étape par étape",
+      description:
+        "Un export IMSCC de Canvas déplace bien le contenu de votre cours. Il ne transporte ni les notes, ni les remises des étudiants, ni tous les réglages d’outils externes. Voici les étapes et les lacunes à chaque étape.",
+      readTime: "6 min de lecture",
+      category: "Migration",
+    },
     "whats-an-imscc-file": {
       title: "Qu’est-ce qu’un fichier IMSCC ?",
       description:
@@ -295,6 +302,13 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "exporting-courses-from-canvas-imscc-step-by-step": {
+      title: "Cómo exportar tus cursos de Canvas (IMSCC), paso a paso",
+      description:
+        "Una exportación IMSCC de Canvas mueve bien el contenido del curso. No lleva calificaciones, entregas de estudiantes ni todos los ajustes de herramientas externas. Aquí tienes el proceso y los huecos de cada paso.",
+      readTime: "6 min de lectura",
+      category: "Migración",
+    },
     "whats-an-imscc-file": {
       title: "¿Qué es un archivo IMSCC?",
       description:
@@ -309,9 +323,11 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   fr: {
+    "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/fr/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/es/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
     "whats-an-imscc-file": () => import("@/content/blog/es/whats-an-imscc-file.mdx"),
   },
 };
