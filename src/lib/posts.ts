@@ -286,6 +286,13 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "how-much-does-a-custom-lms-cost-in-2026": {
+      title: "Was kostet ein maßgeschneidertes LMS im Jahr 2026?",
+      description:
+        "Der Preis eines maßgeschneiderten LMS hängt an den schwierigen Teilen: unterschiedlichen Lernpfaden, Migration, Integrationen und der Tiefe des Reportings. Hier erfahren Sie, was die Kosten tatsächlich beeinflusst und was eine brauchbare erste Version umfasst.",
+      readTime: "6 Min. Lesezeit",
+      category: "Plattformstrategie",
+    },
     "whats-an-imscc-file": {
       title: "Was ist eine IMSCC-Datei?",
       description:
@@ -402,6 +409,7 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/de/how-much-does-a-custom-lms-cost-in-2026.mdx"),
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
   fr: {
