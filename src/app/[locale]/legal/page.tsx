@@ -45,8 +45,10 @@ export default async function LegalPage({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const t = await getTranslations("legalPage");
-  if (locale === "fr") {
-    const { default: Terms } = await import("@/content/legal/fr.mdx");
+  if (locale === "fr" || locale === "es") {
+    const { default: Terms } = locale === "fr"
+      ? await import("@/content/legal/fr.mdx")
+      : await import("@/content/legal/es.mdx");
     return (
       <>
         <main className="container pt-32 md:pt-40">
@@ -55,7 +57,7 @@ export default async function LegalPage({
               <Link href="/" className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"><ArrowLeft size={15} strokeWidth={1.75} aria-hidden className="transition-transform duration-300 ease-out group-hover:-translate-x-1" />{t("back")}</Link>
               <span className="mt-10 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary"><span className="h-px w-8 bg-primary" aria-hidden />{t("eyebrow")}</span>
               <h1 className="mt-6 text-4xl font-semibold tracking-tight leading-[1.05] text-balance md:text-5xl">{t("title")}</h1>
-              <dl className="mt-8 flex flex-wrap gap-x-12 gap-y-4 border-t border-border pt-6"><div><dt className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">{t("entity")}</dt><dd className="mt-1.5 text-[15px] text-foreground">Rizon LLC</dd></div><div><dt className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">{t("effective")}</dt><dd className="mt-1.5 text-[15px] text-foreground">{new Date("2026-05-29").toLocaleDateString(locale, { year: "numeric", month: "long", day: "numeric" })}</dd></div><div><dt className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">{t("jurisdiction")}</dt><dd className="mt-1.5 text-[15px] text-foreground">Wyoming, États-Unis</dd></div></dl>
+              <dl className="mt-8 flex flex-wrap gap-x-12 gap-y-4 border-t border-border pt-6"><div><dt className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">{t("entity")}</dt><dd className="mt-1.5 text-[15px] text-foreground">Rizon LLC</dd></div><div><dt className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">{t("effective")}</dt><dd className="mt-1.5 text-[15px] text-foreground">{new Date("2026-05-29").toLocaleDateString(locale, { year: "numeric", month: "long", day: "numeric" })}</dd></div><div><dt className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">{t("jurisdiction")}</dt><dd className="mt-1.5 text-[15px] text-foreground">Wyoming, {locale === "fr" ? "États-Unis" : "Estados Unidos"}</dd></div></dl>
             </header>
             <div className="prose dark:prose-invert mt-14 max-w-none"><Terms /></div>
           </div>
