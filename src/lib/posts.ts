@@ -286,6 +286,13 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "leaving-teachable-a-migration-checklist": {
+      title: "Teachable verlassen: Checkliste für die Migration",
+      description:
+        "Die Ankündigungs-E-Mail ist der letzte Schritt. Vorher muss sich ein zahlender Kunde auf der neuen Plattform anmelden und alles finden können, was ihm gehört. Diese Checkliste bringt Sie dorthin.",
+      readTime: "5 Min. Lesezeit",
+      category: "Migration",
+    },
     "what-a-smooth-lms-migration-actually-looks-like": {
       title: "Wie eine gelungene LMS-Migration wirklich aussieht",
       description:
@@ -430,6 +437,7 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "leaving-teachable-a-migration-checklist": () => import("@/content/blog/de/leaving-teachable-a-migration-checklist.mdx"),
     "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/de/what-a-smooth-lms-migration-actually-looks-like.mdx"),
     "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/de/scorm-vs-xapi-keeping-your-content-portable.mdx"),
     "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/de/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
