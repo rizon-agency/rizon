@@ -330,6 +330,13 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   fr: {
+    "build-vs-buy-an-lms-the-honest-math": {
+      title: "Construire ou acheter un LMS : le calcul honnête",
+      description:
+        "La bonne comparaison n’oppose pas une licence mensuelle à un développement unique. Elle compte trois ans d’abonnements, de contournements, d’intégrations, de contraintes de revenus et de propriété.",
+      readTime: "7 min de lecture",
+      category: "Stratégie de plateforme",
+    },
     "how-much-does-a-custom-lms-cost-in-2026": {
       title: "Combien coûte un LMS sur mesure en 2026 ?",
       description:
@@ -445,6 +452,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
   fr: {
+    "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/fr/build-vs-buy-an-lms-the-honest-math.mdx"),
     "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/fr/how-much-does-a-custom-lms-cost-in-2026.mdx"),
     "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/fr/hidden-cost-of-revenue-share-course-platforms.mdx"),
     "leaving-teachable-a-migration-checklist": () => import("@/content/blog/fr/leaving-teachable-a-migration-checklist.mdx"),
