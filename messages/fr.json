@@ -532,6 +532,15 @@
     "title": "Réflexions sur les LMS, les plateformes d'apprentissage et l'activité de l'éducation en ligne",
     "new": "Nouveau"
   },
+  "notFound": {
+    "label": "Introuvable",
+    "postTitle": "Nous n'avons pas trouvé cet article.",
+    "postDescription": "L'article que vous cherchez a peut-être été déplacé ou renommé. Retournez au blog pour retrouver tout ce que nous avons publié.",
+    "backToBlog": "Retour au blog",
+    "projectTitle": "Nous n'avons pas trouvé ce projet.",
+    "projectDescription": "L'étude de cas que vous cherchez a peut-être été déplacée ou renommée. Retournez voir les projets récemment livrés.",
+    "backToWork": "Retour aux projets sélectionnés"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Plateforme e-learning sur mesure",

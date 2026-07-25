@@ -1,29 +1,30 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowLeft } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { Footer } from "../../footer";
 
-export default function BlogPostNotFound() {
+export default async function BlogPostNotFound() {
+  const t = await getTranslations("notFound");
   return (
     <>
       <main className="container flex min-h-[70vh] flex-col justify-center pt-32 md:pt-40">
         <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
           <span className="font-mono text-sm tabular-nums">404</span>
           <span className="h-px w-8 bg-primary" aria-hidden />
-          Not found
+          {t("label")}
         </span>
         <h1 className="mt-6 max-w-2xl text-4xl font-semibold tracking-tight leading-[1.05] text-balance md:text-5xl">
-          We couldn&apos;t find that post.
+          {t("postTitle")}
         </h1>
         <p className="mt-5 max-w-md text-lg leading-relaxed text-muted-foreground text-pretty">
-          The article you&apos;re looking for may have been moved or renamed.
-          Head back to the blog to see everything we&apos;ve written.
+          {t("postDescription")}
         </p>
         <div className="mt-8">
           <Button asChild>
             <Link href="/blog">
               <ArrowLeft size={16} strokeWidth={1.75} aria-hidden />
-              Back to the blog
+              {t("backToBlog")}
             </Link>
           </Button>
         </div>

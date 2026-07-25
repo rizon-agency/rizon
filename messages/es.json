@@ -532,6 +532,15 @@
     "title": "Ideas sobre LMS, plataformas de aprendizaje y el negocio de la educación en línea",
     "new": "Nuevo"
   },
+  "notFound": {
+    "label": "No encontrado",
+    "postTitle": "No hemos encontrado ese artículo.",
+    "postDescription": "Puede que el artículo que buscas se haya movido o cambiado de nombre. Vuelve al blog para ver todo lo que hemos publicado.",
+    "backToBlog": "Volver al blog",
+    "projectTitle": "No hemos encontrado ese proyecto.",
+    "projectDescription": "Puede que el caso de estudio que buscas se haya movido o cambiado de nombre. Vuelve para ver los proyectos que hemos entregado recientemente.",
+    "backToWork": "Volver a proyectos seleccionados"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Plataforma de e-learning a medida",

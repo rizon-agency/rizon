@@ -532,6 +532,15 @@
     "title": "Thinking on LMS, learning platforms, and the business of online education",
     "new": "New"
   },
+  "notFound": {
+    "label": "Not found",
+    "postTitle": "We couldn't find that post.",
+    "postDescription": "The article you're looking for may have been moved or renamed. Head back to the blog to see everything we've written.",
+    "backToBlog": "Back to the blog",
+    "projectTitle": "We couldn't find that project.",
+    "projectDescription": "The case study you're after may have been moved or renamed. Head back to see everything we've shipped recently.",
+    "backToWork": "Back to selected work"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Custom E-Learning",
