@@ -295,6 +295,13 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   fr: {
+    "hidden-cost-of-revenue-share-course-platforms": {
+      title: "Le coût caché des plateformes de cours qui prélèvent sur vos revenus",
+      description:
+        "Un partage de revenus peut être pertinent au lancement. Suivez une vente de 500 $ entre frais de plateforme et paiement, puis ajoutez les exceptions opérationnelles avant de décider si le modèle vous convient encore.",
+      readTime: "6 min de lecture",
+      category: "Économie des créateurs",
+    },
     "leaving-teachable-a-migration-checklist": {
       title: "Quitter Teachable : la liste de contrôle pour votre migration",
       description:
@@ -332,6 +339,13 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "hidden-cost-of-revenue-share-course-platforms": {
+      title: "El coste oculto de las plataformas de cursos que cobran parte de tus ingresos",
+      description:
+        "Compartir ingresos puede tener sentido al lanzar. Sigue una venta de 500 $ entre comisiones de plataforma y pago, y añade las excepciones operativas antes de decidir si el modelo todavía encaja.",
+      readTime: "6 min de lectura",
+      category: "Economía de creadores",
+    },
     "leaving-teachable-a-migration-checklist": {
       title: "Dejar Teachable: una lista de comprobación para migrar",
       description:
@@ -377,6 +391,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
   fr: {
+    "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/fr/hidden-cost-of-revenue-share-course-platforms.mdx"),
     "leaving-teachable-a-migration-checklist": () => import("@/content/blog/fr/leaving-teachable-a-migration-checklist.mdx"),
     "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/fr/what-a-smooth-lms-migration-actually-looks-like.mdx"),
     "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/fr/scorm-vs-xapi-keeping-your-content-portable.mdx"),
@@ -384,6 +399,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/es/hidden-cost-of-revenue-share-course-platforms.mdx"),
     "leaving-teachable-a-migration-checklist": () => import("@/content/blog/es/leaving-teachable-a-migration-checklist.mdx"),
     "what-a-smooth-lms-migration-actually-looks-like": () => import("@/content/blog/es/what-a-smooth-lms-migration-actually-looks-like.mdx"),
     "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/es/scorm-vs-xapi-keeping-your-content-portable.mdx"),
