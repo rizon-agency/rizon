@@ -337,6 +337,12 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   fr: {
+    "how-to-migrate-off-moodle-without-losing-course-data": {
+      title: "Quitter Moodle sans perdre vos données de cours",
+      description: "Les données Moodle ne se perdent pas à cause d’un mauvais export, mais parce que des plugins portent des règles métier. Inventoriez-les avant de déplacer le contenu.",
+      readTime: "6 min de lecture",
+      category: "Migration",
+    },
     "build-vs-buy-an-lms-the-honest-math": {
       title: "Construire ou acheter un LMS : le calcul honnête",
       description:
@@ -395,6 +401,12 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "how-to-migrate-off-moodle-without-losing-course-data": {
+      title: "Cómo salir de Moodle sin perder los datos del curso",
+      description: "No pierdes datos de Moodle por exportarlos mal, sino porque los plugins sostienen reglas de negocio. Haz inventario de esas reglas antes de mover el contenido.",
+      readTime: "6 min de lectura",
+      category: "Migración",
+    },
     "how-much-does-a-custom-lms-cost-in-2026": {
       title: "¿Cuánto cuesta un LMS a medida en 2026?",
       description:
@@ -460,6 +472,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
   fr: {
+    "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/fr/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
     "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/fr/build-vs-buy-an-lms-the-honest-math.mdx"),
     "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/fr/how-much-does-a-custom-lms-cost-in-2026.mdx"),
     "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/fr/hidden-cost-of-revenue-share-course-platforms.mdx"),
@@ -470,6 +483,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "how-to-migrate-off-moodle-without-losing-course-data": () => import("@/content/blog/es/how-to-migrate-off-moodle-without-losing-course-data.mdx"),
     "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/es/how-much-does-a-custom-lms-cost-in-2026.mdx"),
     "hidden-cost-of-revenue-share-course-platforms": () => import("@/content/blog/es/hidden-cost-of-revenue-share-course-platforms.mdx"),
     "leaving-teachable-a-migration-checklist": () => import("@/content/blog/es/leaving-teachable-a-migration-checklist.mdx"),
