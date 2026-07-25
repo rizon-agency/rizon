@@ -350,6 +350,7 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   fr: {
+    "student-data-security-checklist-for-edtech-teams": { title: "Liste de sécurité des données étudiantes pour les équipes edtech", description: "Les dommages sur les données scolaires viennent rarement d’un piratage sophistiqué. Ils viennent de la mauvaise personne qui voit le mauvais dossier. Commencez par la conception des accès, pas par les pare-feux.", readTime: "6 min de lecture", category: "Sécurité" },
     "lti-1-3-advantage-explained-without-the-spec-speak": { title: "LTI 1.3 Advantage expliqué sans le jargon de la spécification", description: "LTI 1.3 lance un outil de façon sûre depuis un LMS puis le relie aux listes, aux notes et au contenu. Suivez une note jusqu’au carnet pour comprendre ce que chaque service fait.", readTime: "6 min de lecture", category: "LTI" },
     "designing-assessments-that-resist-cheating": {
       title: "Concevoir des évaluations qui résistent à la triche",
@@ -514,6 +515,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
   fr: {
+    "student-data-security-checklist-for-edtech-teams": () => import("@/content/blog/fr/student-data-security-checklist-for-edtech-teams.mdx"),
     "lti-1-3-advantage-explained-without-the-spec-speak": () => import("@/content/blog/fr/lti-1-3-advantage-explained-without-the-spec-speak.mdx"),
     "designing-assessments-that-resist-cheating": () => import("@/content/blog/fr/designing-assessments-that-resist-cheating.mdx"),
     "what-actually-drives-the-price-of-an-e-learning-build": () => import("@/content/blog/fr/what-actually-drives-the-price-of-an-e-learning-build.mdx"),
