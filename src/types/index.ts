@@ -17,11 +17,11 @@ export type Post = {
 
 export type Project = {
   slug: string;
-  title: string;
+  title: MaybeLocalized<string>;
   link?: string;
-  description: string;
-  problem: string;
-  solution: string;
+  description: MaybeLocalized<string>;
+  problem: MaybeLocalized<string>;
+  solution: MaybeLocalized<string>;
   year: string;
   preview: string;
   tech: string[];

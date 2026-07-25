@@ -9,9 +9,10 @@ import { projects, getProjectBySlug } from "@/lib/projects";
 import { Breadcrumb, breadcrumbJsonLd, type Crumb } from "@/components/breadcrumb";
 
 import { hasLocale } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
-import { routing } from "@/i18n/routing";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { routing, type Locale } from "@/i18n/routing";
 import { languagesFor, localizedUrl, OG_LOCALE } from "@/i18n/hreflang";
+import { l } from "@/lib/l10n";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -34,27 +35,29 @@ export async function generateMetadata({
   }
 
   const path = `/work/${slug}`;
+  const title = l(project.title, locale as Locale);
+  const description = l(project.description, locale as Locale);
 
   return {
-    title: `${project.title} — Rizon`,
-    description: project.description,
+    title: `${title} — Rizon`,
+    description,
     alternates: {
       canonical: localizedUrl(path, locale),
       languages: languagesFor(path),
     },
     openGraph: {
-      title: project.title,
-      description: project.description,
+      title,
+      description,
       url: localizedUrl(path, locale),
       siteName: "Rizon",
       locale: OG_LOCALE[locale as keyof typeof OG_LOCALE] ?? "en_US",
       type: "website",
-      images: [{ url: project.preview, width: 1200, height: 630, alt: project.title }],
+      images: [{ url: project.preview, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
-      title: project.title,
-      description: project.description,
+      title,
+      description,
       creator: "@rizon_agency",
     },
   };
@@ -68,6 +71,7 @@ export default async function ProjectPage({
   const { locale, slug } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
+  const t = await getTranslations("workDetail");
   const project = getProjectBySlug(slug);
 
   if (!project) {
@@ -77,18 +81,23 @@ export default async function ProjectPage({
   const index = projects.findIndex((p) => p.slug === slug);
   const number = String(index + 1).padStart(2, "0");
   const next = projects[(index + 1) % projects.length];
+  const projectTitle = l(project.title, locale as Locale);
+  const nextTitle = l(next.title, locale as Locale);
+  const projectDescription = l(project.description, locale as Locale);
+  const projectProblem = l(project.problem, locale as Locale);
+  const projectSolution = l(project.solution, locale as Locale);
 
   const meta = [
-    { label: "Year", value: project.year },
-    { label: "Discipline", value: "Custom LMS development" },
-    { label: "Stack", value: project.tech.join(", ") },
+    { label: t("metaYear"), value: project.year },
+    { label: t("metaDiscipline"), value: t("metaDisciplineValue") },
+    { label: t("metaStack"), value: project.tech.join(", ") },
   ];
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    name: project.title,
-    description: project.description,
+    name: projectTitle,
+    description: projectDescription,
     dateCreated: project.year,
     creator: {
       "@type": "Organization",
@@ -101,7 +110,7 @@ export default async function ProjectPage({
   const crumbs: Crumb[] = [
     { name: "Home", href: "/" },
     { name: "Work", href: "/#work" },
-    { name: project.title, href: `/work/${slug}` },
+    { name: projectTitle, href: `/work/${slug}` },
   ];
 
   return (
@@ -130,7 +139,7 @@ export default async function ProjectPage({
               aria-hidden
               className="transition-transform duration-300 ease-out group-hover:-translate-x-1"
             />
-            Selected work
+            {t("backLink")}
           </Link>
 
           <div className="mt-6 grid grid-cols-1 items-end gap-x-12 gap-y-10 lg:grid-cols-12">
@@ -140,16 +149,16 @@ export default async function ProjectPage({
                   {number}
                 </span>
                 <span className="h-px w-8 bg-primary" aria-hidden />
-                Case study
+                {t("caseStudy")}
               </span>
               <h1 className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance sm:text-6xl">
-                {project.title}
+                {projectTitle}
               </h1>
             </div>
 
             <div className="lg:col-span-4">
               <p className="text-lg leading-relaxed text-muted-foreground text-pretty">
-                {project.description}
+                {projectDescription}
               </p>
               {project.link ? (
                 <Button asChild variant="outline" size="sm" className="mt-6">
@@ -158,7 +167,7 @@ export default async function ProjectPage({
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Visit live site
+                    {t("visitLive")}
                     <ArrowUpRight size={15} strokeWidth={1.75} aria-hidden />
                   </a>
                 </Button>
@@ -189,7 +198,7 @@ export default async function ProjectPage({
           <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-muted md:aspect-[21/9]">
             <Image
               src={project.preview}
-              alt={`${project.title} — overview`}
+              alt={`${projectTitle} — overview`}
               fill
               priority
               quality={90}
@@ -207,20 +216,20 @@ export default async function ProjectPage({
                 <span className="font-mono text-sm tabular-nums text-foreground/40">
                   01
                 </span>
-                The problem
+                {t("problemLabel")}
               </span>
               <p className="mt-7 text-xl leading-relaxed tracking-tight text-foreground text-pretty">
-                {project.problem}
+                {projectProblem}
               </p>
             </article>
 
             <article className="py-10 md:py-12 md:pl-12">
               <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
                 <span className="font-mono text-sm tabular-nums">02</span>
-                Our solution
+                {t("solutionLabel")}
               </span>
               <p className="mt-7 text-xl leading-relaxed tracking-tight text-foreground text-pretty">
-                {project.solution}
+                {projectSolution}
               </p>
             </article>
           </div>
@@ -231,10 +240,10 @@ export default async function ProjectPage({
           <div className="flex items-end justify-between gap-6 border-b border-border pb-6">
             <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
               <span className="h-px w-8 bg-primary" aria-hidden />
-              Inside the build
+              {t("insideBuild")}
             </span>
             <span className="font-mono text-xs tabular-nums text-muted-foreground/60">
-              {String(project.images.length).padStart(2, "0")} frames
+              {String(project.images.length).padStart(2, "0")} {t("framesLabel")}
             </span>
           </div>
 
@@ -244,7 +253,7 @@ export default async function ProjectPage({
                 <div className="relative overflow-hidden rounded-xl border border-border bg-muted shadow-sm">
                   <Image
                     src={image.src}
-                    alt={`${project.title} — screen ${i + 1}`}
+                    alt={`${projectTitle} — screen ${i + 1}`}
                     width={image.width}
                     height={image.height}
                     loading={i === 0 ? "eager" : "lazy"}
@@ -258,7 +267,7 @@ export default async function ProjectPage({
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="h-px w-6 bg-border" aria-hidden />
-                  {project.title} — view {i + 1} of {project.images.length}
+                  {projectTitle} — {t("viewOf", { n: i + 1, total: project.images.length })}
                 </figcaption>
               </figure>
             ))}
@@ -269,7 +278,7 @@ export default async function ProjectPage({
         <section className="container mt-32 md:mt-40">
           <div className="grid grid-cols-1 items-end gap-x-12 gap-y-8 border-t border-border pt-14 lg:grid-cols-12">
             <h2 className="text-3xl font-semibold tracking-tight leading-[1.05] text-balance lg:col-span-8 md:text-4xl">
-              Want a platform like this, built around how you actually work?
+              {t("ctaTitle")}
             </h2>
             <div className="lg:col-span-4 lg:justify-self-end">
               <Button size="lg" asChild>
@@ -278,7 +287,7 @@ export default async function ProjectPage({
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Book a call
+                  {t("ctaButton")}
                   <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden />
                 </a>
               </Button>
@@ -299,10 +308,10 @@ export default async function ProjectPage({
             <div className="flex items-center justify-between gap-6">
               <div>
                 <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground/60">
-                  Next project
+                  {t("nextProject")}
                 </span>
                 <h3 className="mt-3 text-2xl font-medium tracking-tight text-balance md:text-3xl">
-                  {next.title}
+                  {nextTitle}
                 </h3>
               </div>
               <ArrowRight

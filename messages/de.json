@@ -504,6 +504,23 @@
       "button": "Discovery-Call buchen"
     }
   },
+  "workDetail": {
+    "backLink": "Ausgewählte Projekte",
+    "caseStudy": "Fallstudie",
+    "visitLive": "Live-Seite ansehen",
+    "metaYear": "Jahr",
+    "metaDiscipline": "Disziplin",
+    "metaDisciplineValue": "Maßgeschneiderte LMS-Entwicklung",
+    "metaStack": "Stack",
+    "problemLabel": "Das Problem",
+    "solutionLabel": "Unsere Lösung",
+    "insideBuild": "Hinter den Kulissen",
+    "framesLabel": "Bilder",
+    "viewOf": "Ansicht {n} von {total}",
+    "ctaTitle": "Möchten Sie eine Plattform wie diese, gebaut rund um Ihre tatsächliche Arbeitsweise?",
+    "ctaButton": "Termin buchen",
+    "nextProject": "Nächstes Projekt"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Maßgeschneiderte E-Learning-Plattform",

@@ -504,6 +504,23 @@
       "button": "Book a discovery call"
     }
   },
+  "workDetail": {
+    "backLink": "Selected work",
+    "caseStudy": "Case study",
+    "visitLive": "Visit live site",
+    "metaYear": "Year",
+    "metaDiscipline": "Discipline",
+    "metaDisciplineValue": "Custom LMS development",
+    "metaStack": "Stack",
+    "problemLabel": "The problem",
+    "solutionLabel": "Our solution",
+    "insideBuild": "Inside the build",
+    "framesLabel": "frames",
+    "viewOf": "view {n} of {total}",
+    "ctaTitle": "Want a platform like this, built around how you actually work?",
+    "ctaButton": "Book a call",
+    "nextProject": "Next project"
+  },
   "seo": {
     "home": {
       "title": "Rizon - Custom E-Learning",
