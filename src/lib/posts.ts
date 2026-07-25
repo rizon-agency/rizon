@@ -286,6 +286,13 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "scorm-vs-xapi-keeping-your-content-portable": {
+      title: "SCORM versus xAPI: Inhalte portabel halten",
+      description:
+        "SCORM macht Inhalte zwischen Systemen portabel. xAPI macht Aufzeichnungen portabel, weil sie in einem Speicher liegen können, den Sie besitzen. Wenn Sie nur das ZIP verschieben, bewegen Sie die weniger wertvolle Hälfte.",
+      readTime: "6 Min. Lesezeit",
+      category: "Standards",
+    },
     "exporting-courses-from-canvas-imscc-step-by-step": {
       title: "Canvas-Kurse als IMSCC exportieren: Schritt für Schritt",
       description:
@@ -416,6 +423,7 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "scorm-vs-xapi-keeping-your-content-portable": () => import("@/content/blog/de/scorm-vs-xapi-keeping-your-content-portable.mdx"),
     "exporting-courses-from-canvas-imscc-step-by-step": () => import("@/content/blog/de/exporting-courses-from-canvas-imscc-step-by-step.mdx"),
     "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/de/how-much-does-a-custom-lms-cost-in-2026.mdx"),
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
