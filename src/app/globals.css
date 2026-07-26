@@ -108,7 +108,7 @@
   --card-foreground: oklch(0.95 0.01 88);
   --popover: oklch(0.247 0.011 60);
   --popover-foreground: oklch(0.95 0.01 88);
-  --primary: oklch(0.62 0.2 262);
+  --primary: oklch(0.488 0.243 264.376); /* brand blue #1447E6 */
   --primary-foreground: oklch(0.985 0.008 260);
   --secondary: oklch(0.29 0.011 60);
   --secondary-foreground: oklch(0.95 0.01 88);

@@ -5,7 +5,8 @@ import type { Metadata } from "next";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Footer } from "../../footer";
 import { Cta } from "../../cta";
-import { getPostContent, getLocalizedPostBySlug, getPostsForLocale } from "@/lib/posts";
+import { getPostContent, getLocalizedPostBySlug, getPostsForLocale, getLocalesForPost } from "@/lib/posts";
+import { languagesFor, localizedUrl } from "@/i18n/hreflang";
 import { alternatives } from "@/lib/alternatives";
 import { getServiceBySlug } from "@/lib/services";
 import { getAuthorBySlug } from "@/lib/authors";
@@ -39,14 +40,16 @@ export async function generateMetadata({
     return { title: "Post not found — Rizon" };
   }
 
-  const url = `${BASE_URL}${locale === "en" ? "" : `/${locale}`}/blog/${slug}`;
+  const path = `/blog/${slug}`;
+  const url = localizedUrl(path, locale);
+  const availableLocales = getLocalesForPost(slug);
 
   return {
     title: `${post.title} — Rizon`,
     description: post.description,
     authors: [{ name: "Rizon", url: BASE_URL }],
     keywords: [post.category, "e-learning", "LMS development", "online learning platform", "custom LMS"],
-    alternates: { canonical: url },
+    alternates: { canonical: url, languages: languagesFor(path, availableLocales) },
     openGraph: {
       title: post.title,
       description: post.description,

@@ -1,5 +1,5 @@
 import type { Post } from "@/types";
-import type { Locale } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
 import type { ComponentType } from "react";
 import cheatingExamsCover from "@/assets/blog/cheating-online-exams-what-actually-works.png";
 import canvasBreachCover from "@/assets/blog/canvas-breach-student-data-security.png";
@@ -592,6 +592,16 @@ export function getLocalizedPostBySlug(slug: string, locale: Locale): Post | und
   const translation = localizedPostFields[locale]?.[slug];
   const loader = localizedPostLoaders[locale]?.[slug];
   return translation && loader ? { ...post, ...translation } : undefined;
+}
+
+export function getLocalesForPost(slug: string): Locale[] {
+  if (!getPostBySlug(slug)) return [];
+  return routing.locales.filter(
+    (locale) =>
+      locale === "en" ||
+      (localizedPostFields[locale]?.[slug] !== undefined &&
+        localizedPostLoaders[locale]?.[slug] !== undefined),
+  );
 }
 
 export function getPostsForLocale(locale: Locale): Post[] {
