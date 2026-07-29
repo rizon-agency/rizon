@@ -120,7 +120,7 @@ Rizon reserves the right to update these Terms at any time. Updates will be post
 
 **Rizon LLC**
 Email: [contact@rizon.agency](mailto:contact@rizon.agency)
-Phone: [+212 613 739 291](tel:+212613739291)
+Phone: [+212 728-170617](tel:+212728170617)
 Website: [rizon.agency](https://rizon.agency)
 
 [Back to Rizon](index.md)

@@ -398,7 +398,7 @@ export default async function LegalPage({
                 contact@rizon.agency
               </Link>
               <br />
-              Phone: <a href="tel:+212613739291">+212 613 739 291</a>
+              Phone: <a href="tel:+212728170617">+212 728-170617</a>
               <br />
               Website:{" "}
               <Link

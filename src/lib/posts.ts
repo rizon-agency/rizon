@@ -19,8 +19,53 @@ import studentDataSecurityCover from "@/assets/blog/student-data-security-checkl
 import ssoLearningPlatformsCover from "@/assets/blog/sso-learning-platforms.svg";
 import assessmentsCheatingCover from "@/assets/blog/assessments-resist-cheating.svg";
 import whatsImsccCover from "@/assets/blog/whats-an-imscc-file.png";
+import wcagAccessibilityCover from "@/assets/blog/wcag-accessibility-learning-platforms.svg";
+import multiTenantLmsCover from "@/assets/blog/multi-tenant-lms.svg";
+import ferpaEdtechCover from "@/assets/blog/ferpa-edtech-compliance.svg";
 
 export const posts: Post[] = [
+  {
+    slug: "what-ferpa-actually-requires-of-an-edtech-platform",
+    title: "What FERPA Actually Requires of an Edtech Platform",
+    description:
+      "There is no FERPA certificate. It is a set of obligations that reach you through the contracts schools sign. Here is how a vendor is legally allowed to touch student data, what FERPA asks you to build, and the other privacy laws in the room.",
+    date: "2026-07-27",
+    readTime: "8 min read",
+    category: "Compliance",
+    coverImage: ferpaEdtechCover,
+    relatedServiceSlug: "school-student-portal-development",
+    relatedAlternativeSlugs: ["canvas", "blackboard"],
+    relatedPostSlugs: ["student-data-security-checklist-for-edtech-teams", "canvas-breach-student-data-security", "what-wcag-2-2-aa-requires-from-a-learning-platform"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "what-a-multi-tenant-lms-is-and-when-you-need-one",
+    title: "What a Multi-Tenant LMS Actually Is, and When You Need One",
+    description:
+      "Multi-tenancy means one platform serving many walled-off client organizations, each with its own users, branding, admins, and reports. Here is the honest test for whether you need it, the three ways it gets built, and the parts teams forget until they hurt.",
+    date: "2026-07-28",
+    readTime: "8 min read",
+    category: "Platform Strategy",
+    coverImage: multiTenantLmsCover,
+    relatedServiceSlug: "corporate-training-platform",
+    relatedAlternativeSlugs: ["moodle", "docebo"],
+    relatedPostSlugs: ["build-vs-buy-an-lms-the-honest-math", "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years", "sso-options-for-learning-platforms"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "what-wcag-2-2-aa-requires-from-a-learning-platform",
+    title: "What WCAG 2.2 AA Actually Requires From a Learning Platform",
+    description:
+      "Accessibility for an LMS is now a legal requirement with deadlines: ADA Title II lands in 2026, and the EU's Accessibility Act is already in force. Here is what WCAG 2.2 AA asks, where learning platforms break, and why it is cheap to build in and costly to bolt on.",
+    date: "2026-07-29",
+    readTime: "9 min read",
+    category: "Accessibility",
+    coverImage: wcagAccessibilityCover,
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle", "canvas"],
+    relatedPostSlugs: ["student-data-security-checklist-for-edtech-teams", "what-actually-drives-the-price-of-an-e-learning-build", "designing-assessments-that-resist-cheating"],
+    authorSlug: "choaib-mouhrach",
+  },
   {
     slug: "whats-an-imscc-file",
     title: "What's an IMSCC File?",
@@ -286,6 +331,24 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "what-ferpa-actually-requires-of-an-edtech-platform": {
+      title: "Was FERPA von einer Edtech-Plattform tatsächlich verlangt",
+      description: "Ein FERPA-Zertifikat gibt es nicht. Die Pflichten erreichen Anbieter über die Verträge der Schulen. So dürfen sie Schülerdaten verarbeiten, diese Kontrollen müssen sie bauen und diese weiteren Datenschutzgesetze gelten.",
+      readTime: "8 Min. Lesezeit",
+      category: "Compliance",
+    },
+    "what-a-multi-tenant-lms-is-and-when-you-need-one": {
+      title: "Was ein Multi-Tenant-LMS tatsächlich ist – und wann Sie eines brauchen",
+      description: "Multi-Tenancy bedeutet eine Plattform für mehrere voneinander abgeschottete Kundenorganisationen mit eigenen Nutzern, Markenauftritten, Admins und Berichten. So erkennen Sie den Bedarf und wählen das passende Modell.",
+      readTime: "8 Min. Lesezeit",
+      category: "Plattformstrategie",
+    },
+    "what-wcag-2-2-aa-requires-from-a-learning-platform": {
+      title: "Was WCAG 2.2 AA tatsächlich von einer Lernplattform verlangt",
+      description: "Barrierefreiheit ist für LMS inzwischen eine rechtliche Pflicht mit konkreten Terminen. Das verlangt WCAG 2.2 AA, an diesen Stellen scheitern Lernplattformen und deshalb ist frühes Einbauen günstiger als Nachrüsten.",
+      readTime: "9 Min. Lesezeit",
+      category: "Barrierefreiheit",
+    },
     "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": { title: "Von LTI 1.1 zu LTI 1.3 migrieren: ein Praxisleitfaden für Tool-Teams", description: "LTI 1.3 ist kein Versionsupdate, sondern ein neues Sicherheitsmodell. Dieser Leitfaden deckt OIDC, JWT-Prüfung, LTI Advantage, Registrierung, Tests und die Risiken beim Umstieg ab.", readTime: "11 Min. Lesezeit", category: "LTI" },
     "build-vs-buy-an-lms-the-honest-math": { title: "LMS kaufen oder bauen: die ehrliche Rechnung", description: "Entscheidend ist nicht Lizenz gegen Projektpreis, sondern der dreijährige Betrieb. Rechnen Sie Workarounds, Umsatzgrenzen und Personalzeit ein, bevor Sie entscheiden, ob ein eigener Build sich auszahlt.", readTime: "7 Min. Lesezeit", category: "Plattformstrategie" },
     "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": { title: "Individuelles oder Standard-LMS: Gesamtbetriebskosten über drei Jahre", description: "Ein individueller Build wird erst dann günstiger, wenn er manuelle Arbeit ersetzt, blockierten Umsatz freisetzt oder riskante Abhängigkeiten beendet. Rechnen Sie drei Jahre statt nur Lizenz gegen Projektpreis.", readTime: "7 Min. Lesezeit", category: "Plattformstrategie" },
@@ -358,6 +421,24 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   fr: {
+    "what-ferpa-actually-requires-of-an-edtech-platform": {
+      title: "Ce que FERPA exige réellement d’une plateforme edtech",
+      description: "Il n’existe aucun certificat FERPA. Les obligations atteignent les fournisseurs par les contrats signés avec les établissements. Voici comment ils peuvent traiter les données étudiantes et quels contrôles ils doivent prévoir.",
+      readTime: "8 min de lecture",
+      category: "Conformité",
+    },
+    "what-a-multi-tenant-lms-is-and-when-you-need-one": {
+      title: "Ce qu’est réellement un LMS multi-tenant, et quand vous en avez besoin",
+      description: "Le multi-tenant permet à une plateforme de servir plusieurs organisations clientes isolées, chacune avec ses utilisateurs, sa marque, ses administrateurs et ses rapports. Voici comment savoir si vous en avez besoin.",
+      readTime: "8 min de lecture",
+      category: "Stratégie de plateforme",
+    },
+    "what-wcag-2-2-aa-requires-from-a-learning-platform": {
+      title: "Ce que WCAG 2.2 AA exige réellement d’une plateforme d’apprentissage",
+      description: "L’accessibilité d’un LMS est désormais une obligation légale assortie d’échéances. Voici ce que demande WCAG 2.2 AA, où les plateformes échouent et pourquoi il coûte moins cher de l’intégrer dès le départ.",
+      readTime: "9 min de lecture",
+      category: "Accessibilité",
+    },
     "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": { title: "Migrer de LTI 1.1 à LTI 1.3 : guide pratique pour les équipes outil", description: "LTI 1.3 n’est pas une simple mise à jour : son modèle de sécurité change. Ce guide couvre OIDC, validation JWT, LTI Advantage, enregistrement, tests et risques de migration.", readTime: "11 min de lecture", category: "LTI" },
     "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": { title: "LMS sur mesure ou standard : coût total de possession sur trois ans", description: "Un développement sur mesure ne devient moins cher que s’il remplace du travail manuel, débloque du revenu ou réduit une dépendance risquée. Comparez trois ans d’exploitation, pas une licence à un projet.", readTime: "7 min de lecture", category: "Stratégie de plateforme" },
     "cheating-online-exams-what-actually-works": { title: "Triche aux examens en ligne : ce qui fonctionne vraiment", description: "La surveillance n’empêche pas toute triche et transforme les étudiants honnêtes en suspects. Banques de questions, délais justes et scénarios appliqués rendent le raccourci inutile.", readTime: "8 min de lecture", category: "Conception d’évaluation" },
@@ -441,6 +522,24 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "what-ferpa-actually-requires-of-an-edtech-platform": {
+      title: "Lo que FERPA exige realmente a una plataforma edtech",
+      description: "No existe un certificado FERPA. Las obligaciones llegan a los proveedores mediante los contratos de los centros. Así pueden tratar datos de estudiantes y estos son los controles que deben construir.",
+      readTime: "8 min de lectura",
+      category: "Cumplimiento",
+    },
+    "what-a-multi-tenant-lms-is-and-when-you-need-one": {
+      title: "Qué es realmente un LMS multi-tenant y cuándo lo necesitas",
+      description: "El multi-tenant permite que una plataforma sirva a varias organizaciones cliente aisladas, cada una con sus usuarios, marca, administradores e informes. Estas son las señales de que lo necesitas.",
+      readTime: "8 min de lectura",
+      category: "Estrategia de plataforma",
+    },
+    "what-wcag-2-2-aa-requires-from-a-learning-platform": {
+      title: "Lo que WCAG 2.2 AA exige realmente a una plataforma de aprendizaje",
+      description: "La accesibilidad de un LMS es ya una obligación legal con plazos concretos. Esto pide WCAG 2.2 AA, aquí fallan las plataformas y por eso integrarla al principio cuesta menos que añadirla después.",
+      readTime: "9 min de lectura",
+      category: "Accesibilidad",
+    },
     "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": { title: "Migrar de LTI 1.1 a LTI 1.3: guía práctica para equipos de herramientas", description: "LTI 1.3 no es una actualización menor, sino un modelo de seguridad nuevo. Esta guía cubre OIDC, validación JWT, LTI Advantage, registro, pruebas y riesgos de la migración.", readTime: "11 min de lectura", category: "LTI" },
     "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": { title: "LMS a medida o estándar: coste total de propiedad a tres años", description: "Un desarrollo a medida solo es más barato cuando reemplaza trabajo manual, desbloquea ingresos o reduce una dependencia arriesgada. Compara tres años de operación, no una licencia contra un proyecto.", readTime: "7 min de lectura", category: "Estrategia de plataforma" },
     "build-vs-buy-an-lms-the-honest-math": { title: "Comprar o construir un LMS: las cuentas honestas", description: "La comparación no es licencia contra proyecto, sino tres años de operación. Cuenta apaños, límites de ingresos y tiempo de equipo antes de decidir si un desarrollo propio se amortiza.", readTime: "7 min de lectura", category: "Estrategia de plataforma" },
@@ -523,6 +622,9 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "what-ferpa-actually-requires-of-an-edtech-platform": () => import("@/content/blog/de/what-ferpa-actually-requires-of-an-edtech-platform.mdx"),
+    "what-a-multi-tenant-lms-is-and-when-you-need-one": () => import("@/content/blog/de/what-a-multi-tenant-lms-is-and-when-you-need-one.mdx"),
+    "what-wcag-2-2-aa-requires-from-a-learning-platform": () => import("@/content/blog/de/what-wcag-2-2-aa-requires-from-a-learning-platform.mdx"),
     "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": () => import("@/content/blog/de/migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders.mdx"),
     "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/de/build-vs-buy-an-lms-the-honest-math.mdx"),
     "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": () => import("@/content/blog/de/custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years.mdx"),
@@ -543,6 +645,9 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
   fr: {
+    "what-ferpa-actually-requires-of-an-edtech-platform": () => import("@/content/blog/fr/what-ferpa-actually-requires-of-an-edtech-platform.mdx"),
+    "what-a-multi-tenant-lms-is-and-when-you-need-one": () => import("@/content/blog/fr/what-a-multi-tenant-lms-is-and-when-you-need-one.mdx"),
+    "what-wcag-2-2-aa-requires-from-a-learning-platform": () => import("@/content/blog/fr/what-wcag-2-2-aa-requires-from-a-learning-platform.mdx"),
     "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": () => import("@/content/blog/fr/migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders.mdx"),
     "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": () => import("@/content/blog/fr/custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years.mdx"),
     "cheating-online-exams-what-actually-works": () => import("@/content/blog/fr/cheating-online-exams-what-actually-works.mdx"),
@@ -563,6 +668,9 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "what-ferpa-actually-requires-of-an-edtech-platform": () => import("@/content/blog/es/what-ferpa-actually-requires-of-an-edtech-platform.mdx"),
+    "what-a-multi-tenant-lms-is-and-when-you-need-one": () => import("@/content/blog/es/what-a-multi-tenant-lms-is-and-when-you-need-one.mdx"),
+    "what-wcag-2-2-aa-requires-from-a-learning-platform": () => import("@/content/blog/es/what-wcag-2-2-aa-requires-from-a-learning-platform.mdx"),
     "migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders": () => import("@/content/blog/es/migrating-from-lti-1-1-to-lti-1-3-a-practical-guide-for-tool-builders.mdx"),
     "custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years": () => import("@/content/blog/es/custom-lms-vs-off-the-shelf-total-cost-of-ownership-over-three-years.mdx"),
     "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/es/build-vs-buy-an-lms-the-honest-math.mdx"),
@@ -615,6 +723,9 @@ export function getPostsForLocale(locale: Locale): Post[] {
 export async function getPostContent(slug: string, locale: Locale) {
   if (locale === "en") {
     const contentLoaders: Record<string, () => Promise<{ default: ComponentType }>> = {
+      "what-ferpa-actually-requires-of-an-edtech-platform": () => import("@/content/blog/what-ferpa-actually-requires-of-an-edtech-platform.mdx"),
+      "what-a-multi-tenant-lms-is-and-when-you-need-one": () => import("@/content/blog/what-a-multi-tenant-lms-is-and-when-you-need-one.mdx"),
+      "what-wcag-2-2-aa-requires-from-a-learning-platform": () => import("@/content/blog/what-wcag-2-2-aa-requires-from-a-learning-platform.mdx"),
       "whats-an-imscc-file": () => import("@/content/blog/whats-an-imscc-file.mdx"),
       "how-much-does-a-custom-lms-cost-in-2026": () => import("@/content/blog/how-much-does-a-custom-lms-cost-in-2026.mdx"),
       "build-vs-buy-an-lms-the-honest-math": () => import("@/content/blog/build-vs-buy-an-lms-the-honest-math.mdx"),

@@ -1,0 +1,15 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" fill="#101827"/>
+  <rect x="54" y="54" width="1092" height="567" rx="28" stroke="#334155" stroke-width="2"/>
+  <rect x="852" y="212" width="212" height="252" rx="18" stroke="#334155" stroke-width="4"/>
+  <rect x="874" y="242" width="168" height="52" rx="10" stroke="#60A5FA" stroke-width="9"/>
+  <rect x="874" y="312" width="168" height="52" rx="10" stroke="#60A5FA" stroke-width="9"/>
+  <rect x="874" y="382" width="168" height="52" rx="10" stroke="#60A5FA" stroke-width="9"/>
+  <circle cx="900" cy="268" r="9" fill="#60A5FA"/>
+  <circle cx="900" cy="338" r="9" fill="#60A5FA"/>
+  <circle cx="900" cy="408" r="9" fill="#60A5FA"/>
+  <text x="94" y="164" fill="#93C5FD" font-family="Arial, sans-serif" font-size="26" letter-spacing="5">RIZON / PLATFORM STRATEGY</text>
+  <text x="94" y="290" fill="white" font-family="Arial, sans-serif" font-size="66" font-weight="700">What a multi-tenant</text>
+  <text x="94" y="368" fill="white" font-family="Arial, sans-serif" font-size="66" font-weight="700">LMS actually is</text>
+  <text x="94" y="560" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="26">One platform, many walled-off tenants. Decide it before you build.</text>
+</svg>

@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
+import { BlogThumbnail } from "@/components/blog-thumbnail";
 import type { Post } from "@/types";
 
 const NEW_THRESHOLD_DAYS = 30;
@@ -16,10 +16,9 @@ function isNew(dateStr: string) {
 
 type BlogCardProps = {
   post: Post;
-  sizes?: string;
 };
 
-export const BlogCard = ({ post, sizes = "(max-width: 768px) 100vw, 45vw" }: BlogCardProps) => {
+export const BlogCard = ({ post }: BlogCardProps) => {
   const format = useFormatter();
   const t = useTranslations("blogPage");
   const formatted = format.dateTime(new Date(post.date), {
@@ -34,12 +33,9 @@ export const BlogCard = ({ post, sizes = "(max-width: 768px) 100vw, 45vw" }: Blo
       className="surface surface-hover group flex h-full flex-col overflow-hidden"
     >
       <div className="relative aspect-[16/9] overflow-hidden bg-muted">
-        <Image
-          src={post.coverImage}
-          alt={post.title}
-          fill
-          sizes={sizes}
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        <BlogThumbnail
+          title={post.title}
+          className="transition-transform duration-700 ease-out group-hover:scale-[1.015]"
         />
       </div>
 

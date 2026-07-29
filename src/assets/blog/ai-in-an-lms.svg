@@ -1,0 +1,16 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" fill="#101827"/>
+  <rect x="54" y="54" width="1092" height="567" rx="28" stroke="#334155" stroke-width="2"/>
+  <path d="M888 250L888 424" stroke="#334155" stroke-width="4"/>
+  <path d="M888 250L1000 316" stroke="#334155" stroke-width="4"/>
+  <path d="M888 424L1000 316" stroke="#334155" stroke-width="4"/>
+  <path d="M888 250L1000 316" stroke="#334155" stroke-width="4"/>
+  <path d="M888 424L910 360" stroke="#334155" stroke-width="4"/>
+  <circle cx="888" cy="250" r="22" stroke="#60A5FA" stroke-width="9" fill="#101827"/>
+  <circle cx="888" cy="424" r="22" stroke="#60A5FA" stroke-width="9" fill="#101827"/>
+  <circle cx="1000" cy="316" r="28" stroke="#60A5FA" stroke-width="9" fill="#101827"/>
+  <text x="94" y="164" fill="#93C5FD" font-family="Arial, sans-serif" font-size="26" letter-spacing="5">RIZON / AI</text>
+  <text x="94" y="290" fill="white" font-family="Arial, sans-serif" font-size="66" font-weight="700">AI in an LMS:</text>
+  <text x="94" y="368" fill="white" font-family="Arial, sans-serif" font-size="66" font-weight="700">what actually helps</text>
+  <text x="94" y="560" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="26">Sorting the genuinely useful from the demo-day theater.</text>
+</svg>
