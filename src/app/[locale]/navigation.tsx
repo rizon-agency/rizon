@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { LogoWithText } from "@/components/logo";
+import { AnalyticsEvent } from "@/lib/analytics";
 import { MobileNav } from "./mobile-nav";
 import { LocaleSwitcher } from "./locale-switcher";
 
@@ -125,7 +126,12 @@ export const Navigation = () => {
         <div className="hidden items-center gap-3 md:flex">
           <LocaleSwitcher overHero={overHero} />
           <Button asChild size="sm">
-            <Link href="/#contact" onClick={(e) => handleAnchorClick(e, "contact")}>
+            <Link
+              href="/#contact"
+              onClick={(e) => handleAnchorClick(e, "contact")}
+              data-umami-event={AnalyticsEvent.ContactCta}
+              data-umami-event-location="nav"
+            >
               {t("bookACall")}
             </Link>
           </Button>

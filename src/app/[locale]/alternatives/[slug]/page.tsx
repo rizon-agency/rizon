@@ -16,6 +16,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing, type Locale } from "@/i18n/routing";
 import { languagesFor, localizedUrl, OG_LOCALE } from "@/i18n/hreflang";
 import { l } from "@/lib/l10n";
+import { AnalyticsEvent } from "@/lib/analytics";
 
 const BASE_URL = "https://rizon.agency";
 
@@ -143,7 +144,7 @@ export default async function AlternativePage({
               {l(alternative.heroSub, locale as Locale)}
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Button asChild size="lg"><Link href="https://cal.com/rizon.agency-cvbkll/30min" target="_blank" rel="noreferrer">{t("heroBookCall")} <ArrowRight size={16} aria-hidden /></Link></Button>
+              <Button asChild size="lg"><Link href="https://cal.com/rizon.agency-cvbkll/30min" target="_blank" rel="noreferrer" data-umami-event={AnalyticsEvent.BookCall} data-umami-event-location="alternative-hero">{t("heroBookCall")} <ArrowRight size={16} aria-hidden /></Link></Button>
               <Button asChild size="lg" variant="outline"><Link href="#comparison">{t("heroSeeComparison")}</Link></Button>
             </div>
           </div>
@@ -179,7 +180,7 @@ export default async function AlternativePage({
 
         <section className="container mt-24 md:mt-32"><div className="max-w-3xl"><span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">{t("faq.label")}</span><h2 className="mt-5 text-4xl font-semibold tracking-tight md:text-5xl">{t("faq.title")}</h2></div><div className="surface mt-12 divide-y divide-border overflow-hidden">{faqs.map((faq) => <article key={faq.question} className="grid grid-cols-1 gap-5 px-6 py-7 md:grid-cols-12 md:gap-10 md:px-8"><h3 className="text-lg font-medium tracking-tight md:col-span-5">{faq.question}</h3><p className="leading-relaxed text-muted-foreground md:col-span-7">{faq.answer}</p></article>)}</div></section>
 
-        <section className="container mt-24 md:mt-32"><div className="rounded-3xl bg-primary px-6 py-14 text-primary-foreground md:px-12 md:py-20"><div className="max-w-3xl"><span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary-foreground/70">{t("bottomCta.eyebrow")}</span><h2 className="mt-5 text-4xl font-semibold tracking-tight text-balance md:text-5xl">{t("bottomCta.title")}</h2><p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">{t("bottomCta.description")}</p><Button asChild size="lg" className="mt-8 bg-background text-foreground hover:bg-background/90"><Link href="https://cal.com/rizon.agency-cvbkll/30min" target="_blank" rel="noreferrer">{t("bottomCta.button")} <ArrowRight size={16} aria-hidden /></Link></Button></div></div></section>
+        <section className="container mt-24 md:mt-32"><div className="rounded-3xl bg-primary px-6 py-14 text-primary-foreground md:px-12 md:py-20"><div className="max-w-3xl"><span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary-foreground/70">{t("bottomCta.eyebrow")}</span><h2 className="mt-5 text-4xl font-semibold tracking-tight text-balance md:text-5xl">{t("bottomCta.title")}</h2><p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">{t("bottomCta.description")}</p><Button asChild size="lg" className="mt-8 bg-background text-foreground hover:bg-background/90"><Link href="https://cal.com/rizon.agency-cvbkll/30min" target="_blank" rel="noreferrer" data-umami-event={AnalyticsEvent.BookCall} data-umami-event-location="alternative-bottom">{t("bottomCta.button")} <ArrowRight size={16} aria-hidden /></Link></Button></div></div></section>
 
         <section className="container mt-20"><div className="flex flex-wrap gap-x-6 gap-y-3"><Link href="/lms-alternatives" className="group inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">{t("footerLinks.browseAll")} <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>{relatedService && <Link href={`/services/${relatedService.slug}`} className="group inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">{t("footerLinks.exploreServicePrefix")} {local(relatedService.title)} <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" aria-hidden /></Link>}</div></section>
       </main>

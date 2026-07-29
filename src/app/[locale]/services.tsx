@@ -8,6 +8,7 @@ import { ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/section-header";
 import { Reveal } from "@/components/reveal";
+import { AnalyticsEvent } from "@/lib/analytics";
 
 type ServiceKey =
   | "customLms"
@@ -148,7 +149,13 @@ export const Services = () => {
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button size="lg" asChild>
-                <Link href="/#contact">{t("cta")}</Link>
+                <Link
+                  href="/#contact"
+                  data-umami-event={AnalyticsEvent.ContactCta}
+                  data-umami-event-location="services-section"
+                >
+                  {t("cta")}
+                </Link>
               </Button>
             </div>
           </div>

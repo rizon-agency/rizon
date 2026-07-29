@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
+import { AnalyticsEvent } from "@/lib/analytics";
 
 export const Cta = () => {
   const t = useTranslations("cta");
@@ -38,7 +39,13 @@ export const Cta = () => {
                   asChild
                   className="bg-background text-foreground hover:bg-background/90"
                 >
-                  <Link href="/#contact">{t("button")}</Link>
+                  <Link
+                    href="/#contact"
+                    data-umami-event={AnalyticsEvent.ContactCta}
+                    data-umami-event-location="cta-section"
+                  >
+                    {t("button")}
+                  </Link>
                 </Button>
               </div>
             </div>

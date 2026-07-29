@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/ui/button";
+import { AnalyticsEvent } from "@/lib/analytics";
 import heroImage from "@/assets/hero.jpg";
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
@@ -64,7 +65,13 @@ export const Hero = () => {
             className="mt-10 flex flex-wrap items-center justify-center gap-3"
           >
             <Button size="lg" asChild>
-              <Link href="/#contact">{t("ctaContact")}</Link>
+              <Link
+                href="/#contact"
+                data-umami-event={AnalyticsEvent.ContactCta}
+                data-umami-event-location="hero"
+              >
+                {t("ctaContact")}
+              </Link>
             </Button>
             <Button
               size="lg"
