@@ -16,6 +16,7 @@ import { Footer } from "../footer";
 import { languagesFor, localizedUrl, OG_LOCALE } from "@/i18n/hreflang";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
+import { AnalyticsEvent } from "@/lib/analytics";
 
 const BASE_URL = "https://rizon.agency";
 
@@ -296,6 +297,8 @@ export default async function AboutPage({
                   href="https://cal.com/rizon.agency-cvbkll/30min"
                   target="_blank"
                   rel="noreferrer"
+                  data-umami-event={AnalyticsEvent.BookCall}
+                  data-umami-event-location="about"
                 >
                   {t("cta.button")} <ArrowRight size={16} aria-hidden />
                 </Link>

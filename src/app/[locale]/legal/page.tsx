@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { Footer } from "../footer";
 import { languagesFor, localizedUrl, OG_LOCALE } from "@/i18n/hreflang";
 import { routing } from "@/i18n/routing";
+import { AnalyticsEvent } from "@/lib/analytics";
 
 export async function generateMetadata({
   params,
@@ -394,11 +395,20 @@ export default async function LegalPage({
               <strong>Rizon LLC</strong>
               <br />
               Email:{" "}
-              <Link href="mailto:contact@rizon.agency">
+              <Link
+                href="mailto:contact@rizon.agency"
+                data-umami-event={AnalyticsEvent.EmailClick}
+              >
                 contact@rizon.agency
               </Link>
               <br />
-              Phone: <a href="tel:+212728170617">+212 728-170617</a>
+              Phone:{" "}
+              <a
+                href="tel:+212728170617"
+                data-umami-event={AnalyticsEvent.PhoneClick}
+              >
+                +212 728-170617
+              </a>
               <br />
               Website:{" "}
               <Link

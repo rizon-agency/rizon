@@ -19,6 +19,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing, type Locale } from "@/i18n/routing";
 import { languagesFor, localizedUrl, OG_LOCALE } from "@/i18n/hreflang";
 import { l } from "@/lib/l10n";
+import { AnalyticsEvent } from "@/lib/analytics";
 
 const BASE_URL = "https://rizon.agency";
 
@@ -155,6 +156,8 @@ export default async function ServiceDetailPage({
                 href="https://cal.com/rizon.agency-cvbkll/30min"
                 target="_blank"
                 rel="noreferrer"
+                data-umami-event={AnalyticsEvent.BookCall}
+                data-umami-event-location="service-hero"
               >
                 {t("heroCta")} <ArrowRight size={16} aria-hidden />
               </Link>
@@ -422,6 +425,8 @@ export default async function ServiceDetailPage({
                 href="https://cal.com/rizon.agency-cvbkll/30min"
                 target="_blank"
                 rel="noreferrer"
+                data-umami-event={AnalyticsEvent.BookCall}
+                data-umami-event-location="service-bottom"
               >
                 {t("bottomCta.button")} <ArrowRight size={16} aria-hidden />
               </Link>

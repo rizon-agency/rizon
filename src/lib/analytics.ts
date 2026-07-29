@@ -15,17 +15,23 @@
  * locale dropdown) that are not a plain link or button click.
  */
 export const AnalyticsEvent = {
-  /** cal.com booking click, the primary conversion. */
+  /**
+   * cal.com booking click, the primary conversion. Carries a `location`
+   * property (e.g. contact-section, about, service-hero) so bookings can be
+   * attributed to the page that drove them.
+   */
   BookCall: "book-call",
   /** Any mailto: click. */
   EmailClick: "email-click",
+  /** Any tel: click. */
+  PhoneClick: "phone-click",
   /** The copy-email button in the contact section. */
   CopyEmail: "copy-email",
-  /** Any CTA that sends the visitor to the #contact section. */
+  /** Any CTA that sends the visitor to the #contact section. Carries `location`. */
   ContactCta: "contact-cta",
-  /** Outbound click to a social profile. */
+  /** Outbound click to a social profile. Carries `network`. */
   OutboundSocial: "outbound-social",
-  /** Visitor changes the site language. */
+  /** Visitor changes the site language. Carries `from` and `to`. */
   LocaleSwitch: "locale-switch",
 } as const;
 

@@ -13,6 +13,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing, type Locale } from "@/i18n/routing";
 import { languagesFor, localizedUrl, OG_LOCALE } from "@/i18n/hreflang";
 import { l } from "@/lib/l10n";
+import { AnalyticsEvent } from "@/lib/analytics";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -286,6 +287,8 @@ export default async function ProjectPage({
                   href="https://cal.com/rizon.agency-cvbkll/30min"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-umami-event={AnalyticsEvent.BookCall}
+                  data-umami-event-location="case-study"
                 >
                   {t("ctaButton")}
                   <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden />

@@ -63,6 +63,7 @@ export const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-umami-event={AnalyticsEvent.BookCall}
+                data-umami-event-location="contact-section"
               >
                 {t("bookCard.button")}
               </Link>
