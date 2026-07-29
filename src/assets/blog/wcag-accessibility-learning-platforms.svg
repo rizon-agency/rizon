@@ -1,0 +1,14 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" fill="#101827"/>
+  <rect x="54" y="54" width="1092" height="567" rx="28" stroke="#334155" stroke-width="2"/>
+  <circle cx="948" cy="300" r="88" stroke="#60A5FA" stroke-width="12"/>
+  <circle cx="948" cy="252" r="15" fill="#60A5FA"/>
+  <path d="M948 276V330" stroke="#60A5FA" stroke-width="11" stroke-linecap="round"/>
+  <path d="M906 292H990" stroke="#60A5FA" stroke-width="11" stroke-linecap="round"/>
+  <path d="M948 330L924 366" stroke="#60A5FA" stroke-width="11" stroke-linecap="round"/>
+  <path d="M948 330L972 366" stroke="#60A5FA" stroke-width="11" stroke-linecap="round"/>
+  <text x="94" y="164" fill="#93C5FD" font-family="Arial, sans-serif" font-size="26" letter-spacing="5">RIZON / ACCESSIBILITY</text>
+  <text x="94" y="290" fill="white" font-family="Arial, sans-serif" font-size="66" font-weight="700">What WCAG 2.2 AA</text>
+  <text x="94" y="368" fill="white" font-family="Arial, sans-serif" font-size="66" font-weight="700">actually requires</text>
+  <text x="94" y="560" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="26">Accessibility is built into the components, not painted on later.</text>
+</svg>

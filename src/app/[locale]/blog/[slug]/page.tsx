@@ -12,6 +12,7 @@ import { getServiceBySlug } from "@/lib/services";
 import { getAuthorBySlug } from "@/lib/authors";
 import { l } from "@/lib/l10n";
 import { Breadcrumb, breadcrumbJsonLd, type Crumb } from "@/components/breadcrumb";
+import { BlogThumbnail } from "@/components/blog-thumbnail";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
@@ -181,14 +182,7 @@ export default async function BlogPostPage({
         <section className="container mt-10">
           <div className="mx-auto max-w-2xl">
             <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-border bg-muted">
-              <Image
-                src={post.coverImage}
-                alt={post.title}
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 672px"
-                className="object-cover"
-              />
+              <BlogThumbnail title={post.title} />
             </div>
           </div>
         </section>

@@ -8,7 +8,7 @@ export type Post = {
   date: string;
   readTime: string;
   category: string;
-  coverImage: StaticImageData;
+  coverImage?: StaticImageData;
   relatedServiceSlug?: string;
   relatedAlternativeSlugs?: string[];
   relatedPostSlugs?: string[];
