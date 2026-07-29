@@ -25,6 +25,45 @@ import ferpaEdtechCover from "@/assets/blog/ferpa-edtech-compliance.svg";
 
 export const posts: Post[] = [
   {
+    slug: "lms-reporting-and-analytics-what-you-actually-need",
+    title: "LMS Reporting and Analytics: What You Actually Need",
+    description:
+      "Most LMS dashboards count activity without helping anyone act. Here is how to design useful operational, learning, commercial, and outcome reporting, choose honest metrics, and build data people can trust.",
+    date: "2026-07-24",
+    readTime: "8 min read",
+    category: "Analytics",
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle", "canvas"],
+    relatedPostSlugs: ["what-gdpr-requires-from-an-elearning-platform", "what-a-multi-tenant-lms-is-and-when-you-need-one", "scorm-vs-xapi-keeping-your-content-portable"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "what-gdpr-requires-from-an-elearning-platform",
+    title: "What GDPR Actually Requires From an E-Learning Platform",
+    description:
+      "GDPR for an LMS is not a cookie banner. It shapes what learner data you collect, who controls it, how rights requests work, which vendors receive it, and when analytics or AI requires a DPIA.",
+    date: "2026-07-25",
+    readTime: "8 min read",
+    category: "Compliance",
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle", "canvas"],
+    relatedPostSlugs: ["what-ferpa-actually-requires-of-an-edtech-platform", "student-data-security-checklist-for-edtech-teams", "ai-in-an-lms-what-actually-helps"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "ai-in-an-lms-what-actually-helps",
+    title: "AI in an LMS: What Actually Helps",
+    description:
+      "Every learning platform claims to have AI. Here is what genuinely saves time, what is mostly demo theater, and the questions to ask about student data, grading, bias, and cost before you buy or build it.",
+    date: "2026-07-26",
+    readTime: "8 min read",
+    category: "AI",
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle", "docebo"],
+    relatedPostSlugs: ["what-ferpa-actually-requires-of-an-edtech-platform", "what-actually-drives-the-price-of-an-e-learning-build", "cheating-online-exams-what-actually-works"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
     slug: "what-ferpa-actually-requires-of-an-edtech-platform",
     title: "What FERPA Actually Requires of an Edtech Platform",
     description:
@@ -331,6 +370,24 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "lms-reporting-and-analytics-what-you-actually-need": {
+      title: "LMS-Reporting und Analytics: Was Sie wirklich brauchen",
+      description: "Die meisten LMS-Dashboards zählen Aktivitäten, ohne eine Handlung auszulösen. So entwerfen Sie nützliches operatives, lernbezogenes, kaufmännisches und ergebnisorientiertes Reporting mit ehrlichen, prüfbaren Kennzahlen.",
+      readTime: "8 Min. Lesezeit",
+      category: "Analytics",
+    },
+    "what-gdpr-requires-from-an-elearning-platform": {
+      title: "Was die DSGVO tatsächlich von einer E-Learning-Plattform verlangt",
+      description: "Bei der DSGVO für ein LMS geht es nicht um ein Cookie-Banner. Sie bestimmt, welche Lerndaten Sie erheben, wer sie kontrolliert, wie Betroffenenrechte funktionieren, welche Anbieter sie erhalten und wann Analytics oder KI eine DSFA erfordern.",
+      readTime: "8 Min. Lesezeit",
+      category: "Compliance",
+    },
+    "ai-in-an-lms-what-actually-helps": {
+      title: "KI in einem LMS: Was tatsächlich hilft",
+      description: "Jede Lernplattform wirbt inzwischen mit KI. Das spart wirklich Zeit, das funktioniert vor allem in der Demo und diese Fragen sollten Sie vor dem Kauf oder der Entwicklung zu Daten, Bewertung, Fairness und Kosten stellen.",
+      readTime: "8 Min. Lesezeit",
+      category: "KI",
+    },
     "what-ferpa-actually-requires-of-an-edtech-platform": {
       title: "Was FERPA von einer Edtech-Plattform tatsächlich verlangt",
       description: "Ein FERPA-Zertifikat gibt es nicht. Die Pflichten erreichen Anbieter über die Verträge der Schulen. So dürfen sie Schülerdaten verarbeiten, diese Kontrollen müssen sie bauen und diese weiteren Datenschutzgesetze gelten.",
@@ -421,6 +478,24 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   fr: {
+    "lms-reporting-and-analytics-what-you-actually-need": {
+      title: "Reporting et analytics LMS : ce dont vous avez réellement besoin",
+      description: "La plupart des dashboards LMS comptent l’activité sans aider personne à agir. Voici comment concevoir des rapports opérationnels, pédagogiques, commerciaux et orientés résultats avec des indicateurs fiables.",
+      readTime: "8 min de lecture",
+      category: "Analytics",
+    },
+    "what-gdpr-requires-from-an-elearning-platform": {
+      title: "Ce que le RGPD exige réellement d’une plateforme e-learning",
+      description: "Le RGPD appliqué à un LMS ne se résume pas à une bannière de cookies. Il détermine les données apprenantes collectées, leur responsable, la gestion des droits, les prestataires qui les reçoivent et les cas où l’analytics ou l’IA impose une AIPD.",
+      readTime: "8 min de lecture",
+      category: "Conformité",
+    },
+    "ai-in-an-lms-what-actually-helps": {
+      title: "L’IA dans un LMS : ce qui est réellement utile",
+      description: "Toutes les plateformes d’apprentissage revendiquent désormais de l’IA. Voici ce qui fait réellement gagner du temps, ce qui relève surtout de la démonstration et les questions à poser sur les données, la notation, les biais et les coûts.",
+      readTime: "8 min de lecture",
+      category: "IA",
+    },
     "what-ferpa-actually-requires-of-an-edtech-platform": {
       title: "Ce que FERPA exige réellement d’une plateforme edtech",
       description: "Il n’existe aucun certificat FERPA. Les obligations atteignent les fournisseurs par les contrats signés avec les établissements. Voici comment ils peuvent traiter les données étudiantes et quels contrôles ils doivent prévoir.",
@@ -522,6 +597,24 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "lms-reporting-and-analytics-what-you-actually-need": {
+      title: "Informes y analítica de un LMS: lo que realmente necesitas",
+      description: "La mayoría de los paneles LMS cuentan actividad sin ayudar a actuar. Así se diseñan informes operativos, educativos, comerciales y de resultados con métricas honestas y datos fiables.",
+      readTime: "8 min de lectura",
+      category: "Analítica",
+    },
+    "what-gdpr-requires-from-an-elearning-platform": {
+      title: "Lo que el RGPD exige realmente a una plataforma e-learning",
+      description: "El RGPD para un LMS no es un banner de cookies. Define qué datos del alumnado recoges, quién los controla, cómo se atienden sus derechos, qué proveedores los reciben y cuándo la analítica o la IA exige una EIPD.",
+      readTime: "8 min de lectura",
+      category: "Cumplimiento",
+    },
+    "ai-in-an-lms-what-actually-helps": {
+      title: "IA en un LMS: lo que realmente ayuda",
+      description: "Todas las plataformas de aprendizaje afirman tener IA. Esto es lo que realmente ahorra tiempo, lo que sirve sobre todo para la demo y las preguntas que debes hacer sobre datos, evaluación, sesgos y costes.",
+      readTime: "8 min de lectura",
+      category: "IA",
+    },
     "what-ferpa-actually-requires-of-an-edtech-platform": {
       title: "Lo que FERPA exige realmente a una plataforma edtech",
       description: "No existe un certificado FERPA. Las obligaciones llegan a los proveedores mediante los contratos de los centros. Así pueden tratar datos de estudiantes y estos son los controles que deben construir.",
@@ -622,6 +715,9 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "lms-reporting-and-analytics-what-you-actually-need": () => import("@/content/blog/de/lms-reporting-and-analytics-what-you-actually-need.mdx"),
+    "what-gdpr-requires-from-an-elearning-platform": () => import("@/content/blog/de/what-gdpr-requires-from-an-elearning-platform.mdx"),
+    "ai-in-an-lms-what-actually-helps": () => import("@/content/blog/de/ai-in-an-lms-what-actually-helps.mdx"),
     "what-ferpa-actually-requires-of-an-edtech-platform": () => import("@/content/blog/de/what-ferpa-actually-requires-of-an-edtech-platform.mdx"),
     "what-a-multi-tenant-lms-is-and-when-you-need-one": () => import("@/content/blog/de/what-a-multi-tenant-lms-is-and-when-you-need-one.mdx"),
     "what-wcag-2-2-aa-requires-from-a-learning-platform": () => import("@/content/blog/de/what-wcag-2-2-aa-requires-from-a-learning-platform.mdx"),
@@ -645,6 +741,9 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
   fr: {
+    "lms-reporting-and-analytics-what-you-actually-need": () => import("@/content/blog/fr/lms-reporting-and-analytics-what-you-actually-need.mdx"),
+    "what-gdpr-requires-from-an-elearning-platform": () => import("@/content/blog/fr/what-gdpr-requires-from-an-elearning-platform.mdx"),
+    "ai-in-an-lms-what-actually-helps": () => import("@/content/blog/fr/ai-in-an-lms-what-actually-helps.mdx"),
     "what-ferpa-actually-requires-of-an-edtech-platform": () => import("@/content/blog/fr/what-ferpa-actually-requires-of-an-edtech-platform.mdx"),
     "what-a-multi-tenant-lms-is-and-when-you-need-one": () => import("@/content/blog/fr/what-a-multi-tenant-lms-is-and-when-you-need-one.mdx"),
     "what-wcag-2-2-aa-requires-from-a-learning-platform": () => import("@/content/blog/fr/what-wcag-2-2-aa-requires-from-a-learning-platform.mdx"),
@@ -668,6 +767,9 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "lms-reporting-and-analytics-what-you-actually-need": () => import("@/content/blog/es/lms-reporting-and-analytics-what-you-actually-need.mdx"),
+    "what-gdpr-requires-from-an-elearning-platform": () => import("@/content/blog/es/what-gdpr-requires-from-an-elearning-platform.mdx"),
+    "ai-in-an-lms-what-actually-helps": () => import("@/content/blog/es/ai-in-an-lms-what-actually-helps.mdx"),
     "what-ferpa-actually-requires-of-an-edtech-platform": () => import("@/content/blog/es/what-ferpa-actually-requires-of-an-edtech-platform.mdx"),
     "what-a-multi-tenant-lms-is-and-when-you-need-one": () => import("@/content/blog/es/what-a-multi-tenant-lms-is-and-when-you-need-one.mdx"),
     "what-wcag-2-2-aa-requires-from-a-learning-platform": () => import("@/content/blog/es/what-wcag-2-2-aa-requires-from-a-learning-platform.mdx"),
@@ -723,6 +825,9 @@ export function getPostsForLocale(locale: Locale): Post[] {
 export async function getPostContent(slug: string, locale: Locale) {
   if (locale === "en") {
     const contentLoaders: Record<string, () => Promise<{ default: ComponentType }>> = {
+      "lms-reporting-and-analytics-what-you-actually-need": () => import("@/content/blog/lms-reporting-and-analytics-what-you-actually-need.mdx"),
+      "what-gdpr-requires-from-an-elearning-platform": () => import("@/content/blog/what-gdpr-requires-from-an-elearning-platform.mdx"),
+      "ai-in-an-lms-what-actually-helps": () => import("@/content/blog/ai-in-an-lms-what-actually-helps.mdx"),
       "what-ferpa-actually-requires-of-an-edtech-platform": () => import("@/content/blog/what-ferpa-actually-requires-of-an-edtech-platform.mdx"),
       "what-a-multi-tenant-lms-is-and-when-you-need-one": () => import("@/content/blog/what-a-multi-tenant-lms-is-and-when-you-need-one.mdx"),
       "what-wcag-2-2-aa-requires-from-a-learning-platform": () => import("@/content/blog/what-wcag-2-2-aa-requires-from-a-learning-platform.mdx"),

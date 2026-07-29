@@ -82,7 +82,6 @@ export function BlogThumbnail({
     position: "relative",
     textAlign: "center",
     textWrap: "balance",
-    zIndex: 2,
   };
 
   return (
@@ -98,7 +97,6 @@ export function BlogThumbnail({
           right: isOg ? -120 : "-9%",
           transform: "rotate(-7deg)",
           width: isOg ? 600 : "56%",
-          zIndex: 0,
         }}
       >
         <svg height="100%" viewBox="-2 -2 84 84" width="100%">
@@ -113,7 +111,6 @@ export function BlogThumbnail({
           justifyContent: "space-between",
           position: "relative",
           width: "100%",
-          zIndex: 2,
         }}
       >
         <Wordmark mode={mode} />
@@ -139,7 +136,6 @@ export function BlogThumbnail({
           height: isOg ? 2 : 1,
           position: "relative",
           width: isOg ? 42 : 24,
-          zIndex: 2,
         }}
       />
     </div>
