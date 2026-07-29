@@ -14,6 +14,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { LogoWithText } from "@/components/logo";
+import { AnalyticsEvent } from "@/lib/analytics";
 
 const linkDefs = [
   { key: "home", href: "/#home", id: "home", isPage: false },
@@ -108,6 +109,8 @@ export const MobileNav = ({ activeId, overHero }: Props) => {
             <Link
               href="/#contact"
               onClick={(e) => handleClick(e, { id: "contact", isPage: false })}
+              data-umami-event={AnalyticsEvent.ContactCta}
+              data-umami-event-location="mobile-nav"
             >
               {t("bookACall")}
             </Link>

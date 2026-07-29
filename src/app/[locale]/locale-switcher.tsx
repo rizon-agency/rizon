@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
+import { AnalyticsEvent, track } from "@/lib/analytics";
 
 const LOCALE_LABEL: Record<(typeof routing.locales)[number], string> = {
   en: "EN",
@@ -53,11 +54,14 @@ export const LocaleSwitcher = ({
       >
         <DropdownMenuRadioGroup
           value={locale}
-          onValueChange={(l) =>
+          onValueChange={(l) => {
+            if (l !== locale) {
+              track(AnalyticsEvent.LocaleSwitch, { from: locale, to: l });
+            }
             router.replace(pathname, {
               locale: l as (typeof routing.locales)[number],
-            })
-          }
+            });
+          }}
         >
           {routing.locales.map((l) => (
             <DropdownMenuRadioItem

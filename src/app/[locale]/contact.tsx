@@ -7,6 +7,7 @@ import { Calendar, Check, Copy, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/section-header";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
+import { AnalyticsEvent } from "@/lib/analytics";
 
 const CAL_LINK = "https://cal.com/rizon.agency-cvbkll/30min";
 const EMAIL = "contact@rizon.agency";
@@ -57,7 +58,12 @@ export const Contact = () => {
           </p>
           <div className="mt-7">
             <Button asChild>
-              <Link href={CAL_LINK} target="_blank" rel="noopener noreferrer">
+              <Link
+                href={CAL_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-umami-event={AnalyticsEvent.BookCall}
+              >
                 {t("bookCard.button")}
               </Link>
             </Button>
@@ -76,7 +82,9 @@ export const Contact = () => {
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <Button asChild>
-              <Link href={MAILTO}>{t("emailCard.button")}</Link>
+              <Link href={MAILTO} data-umami-event={AnalyticsEvent.EmailClick}>
+                {t("emailCard.button")}
+              </Link>
             </Button>
             <div className="inline-flex items-center gap-2 rounded-full border border-border py-1 pl-3.5 pr-1">
               <span className="select-all font-mono text-sm text-muted-foreground">
@@ -85,6 +93,7 @@ export const Contact = () => {
               <button
                 type="button"
                 onClick={copyEmail}
+                data-umami-event={AnalyticsEvent.CopyEmail}
                 aria-label={
                   copied ? t("emailCard.copiedLabel") : t("emailCard.copyLabel")
                 }

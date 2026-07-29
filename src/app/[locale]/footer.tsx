@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { LogoWithText } from "@/components/logo";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { alternatives } from "@/lib/alternatives";
+import { AnalyticsEvent } from "@/lib/analytics";
 
 const navLinkDefs = [
   { key: "home", href: "/#home" },
@@ -48,6 +49,12 @@ export const Footer = async () => {
                   <Link
                     href={link.href}
                     className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground"
+                    {...(link.key === "getInTouch"
+                      ? {
+                          "data-umami-event": AnalyticsEvent.ContactCta,
+                          "data-umami-event-location": "footer",
+                        }
+                      : {})}
                   >
                     {link.key === "getInTouch" || link.key === "howWeWork" || link.key === "whyUsShort"
                       ? tFooter(link.key)
@@ -78,6 +85,8 @@ export const Footer = async () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
+                  data-umami-event={AnalyticsEvent.OutboundSocial}
+                  data-umami-event-network={social.name.toLowerCase()}
                   className="flex size-10 items-center justify-center rounded-full border border-primary-foreground/30 text-primary-foreground/80 transition-colors hover:border-primary-foreground/60 hover:text-primary-foreground"
                 >
                   <svg
@@ -91,7 +100,7 @@ export const Footer = async () => {
                 </Link>
               ))}
             </div>
-            <a href="mailto:contact@rizon.agency" className="mt-5 inline-block text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground">contact@rizon.agency</a>
+            <a href="mailto:contact@rizon.agency" data-umami-event={AnalyticsEvent.EmailClick} className="mt-5 inline-block text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground">contact@rizon.agency</a>
           </div>
         </div>
 
