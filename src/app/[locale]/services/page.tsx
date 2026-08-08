@@ -11,8 +11,6 @@ import { languagesFor, localizedUrl, OG_LOCALE } from "@/i18n/hreflang";
 import { routing, type Locale } from "@/i18n/routing";
 import { l } from "@/lib/l10n";
 
-const BASE_URL = "https://rizon.agency";
-
 export async function generateMetadata({
   params,
 }: {

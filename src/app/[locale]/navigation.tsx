@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { startTransition, useCallback, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
@@ -33,7 +33,9 @@ export const Navigation = () => {
   // After mount, seed from the URL hash so a refresh on /#work highlights Work.
   useEffect(() => {
     const hash = window.location.hash.replace("#", "");
-    if (sectionLinkDefs.some((l) => l.id === hash)) setActiveId(hash);
+    if (sectionLinkDefs.some((l) => l.id === hash)) {
+      startTransition(() => setActiveId(hash));
+    }
   }, []);
 
   // Single scroll listener: frosted header + scroll-spy in one pass.

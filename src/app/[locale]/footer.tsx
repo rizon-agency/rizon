@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { LogoWithText } from "@/components/logo";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { alternatives } from "@/lib/alternatives";
+import { productLabs } from "@/lib/product-labs";
 import { AnalyticsEvent } from "@/lib/analytics";
 
 const navLinkDefs = [
@@ -30,7 +31,7 @@ export const Footer = async () => {
     <footer className="mt-32 bg-primary text-primary-foreground md:mt-40">
       <div className="container">
         <div className="grid grid-cols-1 gap-x-12 gap-y-12 py-16 lg:grid-cols-12 md:py-20">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-4">
             <Link href="/" className="inline-block">
               <LogoWithText size={120} />
             </Link>
@@ -73,7 +74,20 @@ export const Footer = async () => {
             </ul>
           </nav>
 
-          <div className="lg:col-span-3">
+          <nav className="lg:col-span-2" aria-label={tFooter("products")}>
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/50">{tFooter("products")}</h2>
+            <ul className="mt-5 space-y-3">
+              {productLabs.map((product) => (
+                <li key={product.slug}>
+                  <Link href={`/products/${product.slug}`} className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground">
+                    {product.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="lg:col-span-2">
             <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/50">
               {tFooter("follow")}
             </h2>

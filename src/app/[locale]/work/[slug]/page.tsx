@@ -106,6 +106,7 @@ export default async function ProjectPage({
       url: "https://rizon.agency",
     },
     url: `https://rizon.agency/work/${slug}`,
+    ...(project.link ? { sameAs: project.link } : {}),
   };
 
   const crumbs: Crumb[] = [
