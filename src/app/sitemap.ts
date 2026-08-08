@@ -5,6 +5,7 @@ import { projects } from "@/lib/projects";
 import { posts, getLocalesForPost } from "@/lib/posts";
 import { alternatives } from "@/lib/alternatives";
 import { services } from "@/lib/services";
+import { productLabs } from "@/lib/product-labs";
 
 type ChangeFreq = MetadataRoute.Sitemap[number]["changeFrequency"];
 
@@ -33,6 +34,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...projects.map((p) => ({
       path: `/work/${p.slug}`,
+      priority: 0.7,
+      changeFrequency: "monthly" as ChangeFreq,
+    })),
+    ...productLabs.map((p) => ({
+      path: `/products/${p.slug}`,
       priority: 0.7,
       changeFrequency: "monthly" as ChangeFreq,
     })),
