@@ -25,6 +25,84 @@ import ferpaEdtechCover from "@/assets/blog/ferpa-edtech-compliance.svg";
 
 export const posts: Post[] = [
   {
+    slug: "moodle-5-2-upgrade-guide",
+    title: "Moodle 5.1 to 5.2 Upgrade Guide",
+    description:
+      "Upgrade Moodle 5.1 to 5.2 safely with checks for PHP, databases, the public directory, router rules, Composer dependencies, plugin compatibility, caches, and post-upgrade workflows.",
+    date: "2026-08-10",
+    readTime: "10 min read",
+    category: "Moodle",
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle"],
+    relatedPostSlugs: ["moodle-router-not-correctly-configured", "moodle-vendor-directory-not-found", "moodle-file-picker-stuck-loading"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "moodle-router-not-correctly-configured",
+    title: "Moodle 5.2 Router Is Not Correctly Configured",
+    description:
+      "Fix Moodle 5.2 router errors where routed PHP-looking paths return 404 instead of reaching r.php, including Apache PHP-FPM, FallbackResource, Nginx, and shared-hosting rules.",
+    date: "2026-08-10",
+    readTime: "8 min read",
+    category: "Moodle",
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle"],
+    relatedPostSlugs: ["moodle-5-2-upgrade-guide", "moodle-5-2-shared-hosting", "moodle-file-picker-stuck-loading"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "moodle-5-2-windows-install",
+    title: "How to Install Moodle 5.2 on Windows",
+    description:
+      "A practical Moodle 5.2 Windows install checklist for IIS, FastCGI, PHP 8.3, database setup, the public directory, routing, file permissions, cron, and common errors.",
+    date: "2026-08-10",
+    readTime: "9 min read",
+    category: "Moodle",
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle"],
+    relatedPostSlugs: ["moodle-5-2-upgrade-guide", "moodle-router-not-correctly-configured", "moodle-vendor-directory-not-found"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "moodle-vendor-directory-not-found",
+    title: "Moodle Composer Vendor Directory Not Found",
+    description:
+      "What Moodle's Composer vendor directory error means, how to run the production Composer install command from the Moodle root, and what to do on shared hosting.",
+    date: "2026-08-10",
+    readTime: "7 min read",
+    category: "Moodle",
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle"],
+    relatedPostSlugs: ["moodle-5-2-upgrade-guide", "moodle-5-2-shared-hosting", "moodle-router-not-correctly-configured"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "moodle-file-picker-stuck-loading",
+    title: "Moodle File Picker Stuck Loading After Upgrade to 5.2",
+    description:
+      "Troubleshoot Moodle 5.2 file picker and upload boxes that keep loading after an upgrade, from cache purge and browser errors to plugins, routing, cron, and moodledata permissions.",
+    date: "2026-08-10",
+    readTime: "8 min read",
+    category: "Moodle",
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle"],
+    relatedPostSlugs: ["moodle-5-2-upgrade-guide", "moodle-router-not-correctly-configured", "what-a-smooth-lms-migration-actually-looks-like"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
+    slug: "moodle-5-2-shared-hosting",
+    title: "Can Moodle 5.2 Run on Shared Hosting?",
+    description:
+      "A realistic guide to Moodle 5.2 on shared hosting, including cPanel, Hostinger, GoDaddy, public directory setup, symlinks, router rules, Composer, cron, and when to use a VPS.",
+    date: "2026-08-10",
+    readTime: "8 min read",
+    category: "Moodle",
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle"],
+    relatedPostSlugs: ["moodle-5-2-upgrade-guide", "moodle-router-not-correctly-configured", "moodle-vendor-directory-not-found"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
     slug: "lms-reporting-and-analytics-what-you-actually-need",
     title: "LMS Reporting and Analytics: What You Actually Need",
     description:
@@ -370,6 +448,42 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "moodle-5-2-upgrade-guide": {
+      title: "Moodle 5.1 auf 5.2 aktualisieren: Upgrade-Leitfaden",
+      description: "Aktualisieren Sie Moodle 5.1 auf 5.2 mit Checks für PHP, Datenbank, public-Verzeichnis, Router, Composer, Plugins, Caches und Produktion.",
+      readTime: "9 Min. Lesezeit",
+      category: "Moodle",
+    },
+    "moodle-router-not-correctly-configured": {
+      title: "Moodle 5.2 Router nicht korrekt konfiguriert",
+      description: "So beheben Sie Moodle-5.2-Routerfehler mit public-Verzeichnis, r.php, Apache PHP-FPM, FallbackResource, Nginx und Shared Hosting.",
+      readTime: "7 Min. Lesezeit",
+      category: "Moodle",
+    },
+    "moodle-5-2-windows-install": {
+      title: "Moodle 5.2 unter Windows installieren",
+      description: "Praktische Anleitung für Moodle 5.2 unter Windows mit IIS, FastCGI, PHP 8.3, Datenbank, public-Verzeichnis, Routing, Cron und Fehlern.",
+      readTime: "8 Min. Lesezeit",
+      category: "Moodle",
+    },
+    "moodle-vendor-directory-not-found": {
+      title: "Moodle Composer vendor directory not found",
+      description: "Was der Moodle-Fehler Composer vendor directory not found bedeutet, wie Composer aus der Moodle-Wurzel läuft und was bei Shared Hosting gilt.",
+      readTime: "6 Min. Lesezeit",
+      category: "Moodle",
+    },
+    "moodle-file-picker-stuck-loading": {
+      title: "Moodle-Dateiauswahl lädt nach Upgrade auf 5.2 endlos",
+      description: "So finden Sie die Ursache, wenn die Moodle-Dateiauswahl nach 5.2 lädt: Caches, JavaScript, Theme, Repository-Plugins, Router und Rechte.",
+      readTime: "7 Min. Lesezeit",
+      category: "Moodle",
+    },
+    "moodle-5-2-shared-hosting": {
+      title: "Kann Moodle 5.2 auf Shared Hosting laufen?",
+      description: "Wann Moodle 5.2 auf Shared Hosting funktioniert: cPanel, Hostinger, GoDaddy, public-Verzeichnis, Router, Composer, Cron und VPS-Vergleich.",
+      readTime: "7 Min. Lesezeit",
+      category: "Moodle",
+    },
     "lms-reporting-and-analytics-what-you-actually-need": {
       title: "LMS-Reporting und Analytics: Was Sie wirklich brauchen",
       description: "Die meisten LMS-Dashboards zählen Aktivitäten, ohne eine Handlung auszulösen. So entwerfen Sie nützliches operatives, lernbezogenes, kaufmännisches und ergebnisorientiertes Reporting mit ehrlichen, prüfbaren Kennzahlen.",
@@ -478,6 +592,42 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   fr: {
+    "moodle-5-2-upgrade-guide": {
+      title: "Mettre Moodle 5.1 à niveau vers 5.2 : guide pratique",
+      description: "Mettez Moodle 5.1 à niveau vers 5.2 avec les bons contrôles PHP, base de données, public, routeur, Composer, plugins, caches et production.",
+      readTime: "9 min de lecture",
+      category: "Moodle",
+    },
+    "moodle-router-not-correctly-configured": {
+      title: "Moodle 5.2 : le routeur n’est pas correctement configuré",
+      description: "Corrigez les erreurs de routeur Moodle 5.2 avec public, r.php, Apache PHP-FPM, FallbackResource, Nginx et les contraintes d’hébergement.",
+      readTime: "7 min de lecture",
+      category: "Moodle",
+    },
+    "moodle-5-2-windows-install": {
+      title: "Installer Moodle 5.2 sur Windows",
+      description: "Guide Moodle 5.2 sur Windows avec IIS, FastCGI, PHP 8.3, base de données, dossier public, routage, cron et erreurs fréquentes.",
+      readTime: "8 min de lecture",
+      category: "Moodle",
+    },
+    "moodle-vendor-directory-not-found": {
+      title: "Moodle : erreur Composer vendor directory not found",
+      description: "Comprendre l’erreur Composer vendor directory not found dans Moodle, lancer Composer depuis la racine et gérer le cas de l’hébergement mutualisé.",
+      readTime: "6 min de lecture",
+      category: "Moodle",
+    },
+    "moodle-file-picker-stuck-loading": {
+      title: "Moodle 5.2 : le sélecteur de fichiers reste bloqué",
+      description: "Diagnostiquez un sélecteur de fichiers Moodle bloqué après 5.2 : caches, JavaScript, thème, plugins de dépôt, routeur, limites et permissions.",
+      readTime: "7 min de lecture",
+      category: "Moodle",
+    },
+    "moodle-5-2-shared-hosting": {
+      title: "Moodle 5.2 peut-il fonctionner sur hébergement mutualisé ?",
+      description: "Ce qu’il faut pour faire tourner Moodle 5.2 sur cPanel, Hostinger ou GoDaddy : public, routeur, Composer, cron, moodledata et limites.",
+      readTime: "7 min de lecture",
+      category: "Moodle",
+    },
     "lms-reporting-and-analytics-what-you-actually-need": {
       title: "Reporting et analytics LMS : ce dont vous avez réellement besoin",
       description: "La plupart des dashboards LMS comptent l’activité sans aider personne à agir. Voici comment concevoir des rapports opérationnels, pédagogiques, commerciaux et orientés résultats avec des indicateurs fiables.",
@@ -597,6 +747,42 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "moodle-5-2-upgrade-guide": {
+      title: "Cómo actualizar Moodle 5.1 a 5.2 sin romper producción",
+      description: "Actualiza Moodle 5.1 a 5.2 revisando PHP, base de datos, public, router, Composer, plugins, cachés y pruebas antes de producción.",
+      readTime: "9 min de lectura",
+      category: "Moodle",
+    },
+    "moodle-router-not-correctly-configured": {
+      title: "Moodle 5.2: el router no está configurado correctamente",
+      description: "Arregla errores de router en Moodle 5.2 con public, r.php, Apache PHP-FPM, FallbackResource, Nginx y límites del hosting compartido.",
+      readTime: "7 min de lectura",
+      category: "Moodle",
+    },
+    "moodle-5-2-windows-install": {
+      title: "Cómo instalar Moodle 5.2 en Windows",
+      description: "Guía práctica para instalar Moodle 5.2 en Windows con IIS, FastCGI, PHP 8.3, base de datos, public, routing, cron y errores comunes.",
+      readTime: "8 min de lectura",
+      category: "Moodle",
+    },
+    "moodle-vendor-directory-not-found": {
+      title: "Moodle: Composer vendor directory not found",
+      description: "Qué significa Composer vendor directory not found en Moodle, cómo ejecutar Composer desde la raíz y qué hacer en hosting compartido.",
+      readTime: "6 min de lectura",
+      category: "Moodle",
+    },
+    "moodle-file-picker-stuck-loading": {
+      title: "El selector de archivos de Moodle se queda cargando tras actualizar a 5.2",
+      description: "Diagnostica el selector de archivos de Moodle tras 5.2: cachés, JavaScript, tema, repositorios, router, límites y permisos.",
+      readTime: "7 min de lectura",
+      category: "Moodle",
+    },
+    "moodle-5-2-shared-hosting": {
+      title: "¿Puede Moodle 5.2 funcionar en hosting compartido?",
+      description: "Cuándo Moodle 5.2 funciona en cPanel, Hostinger o GoDaddy: public, router, Composer, cron, moodledata y cuándo pasar a VPS.",
+      readTime: "7 min de lectura",
+      category: "Moodle",
+    },
     "lms-reporting-and-analytics-what-you-actually-need": {
       title: "Informes y analítica de un LMS: lo que realmente necesitas",
       description: "La mayoría de los paneles LMS cuentan actividad sin ayudar a actuar. Así se diseñan informes operativos, educativos, comerciales y de resultados con métricas honestas y datos fiables.",
@@ -715,6 +901,12 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "moodle-5-2-upgrade-guide": () => import("@/content/blog/de/moodle-5-2-upgrade-guide.mdx"),
+    "moodle-router-not-correctly-configured": () => import("@/content/blog/de/moodle-router-not-correctly-configured.mdx"),
+    "moodle-5-2-windows-install": () => import("@/content/blog/de/moodle-5-2-windows-install.mdx"),
+    "moodle-vendor-directory-not-found": () => import("@/content/blog/de/moodle-vendor-directory-not-found.mdx"),
+    "moodle-file-picker-stuck-loading": () => import("@/content/blog/de/moodle-file-picker-stuck-loading.mdx"),
+    "moodle-5-2-shared-hosting": () => import("@/content/blog/de/moodle-5-2-shared-hosting.mdx"),
     "lms-reporting-and-analytics-what-you-actually-need": () => import("@/content/blog/de/lms-reporting-and-analytics-what-you-actually-need.mdx"),
     "what-gdpr-requires-from-an-elearning-platform": () => import("@/content/blog/de/what-gdpr-requires-from-an-elearning-platform.mdx"),
     "ai-in-an-lms-what-actually-helps": () => import("@/content/blog/de/ai-in-an-lms-what-actually-helps.mdx"),
@@ -741,6 +933,12 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
   fr: {
+    "moodle-5-2-upgrade-guide": () => import("@/content/blog/fr/moodle-5-2-upgrade-guide.mdx"),
+    "moodle-router-not-correctly-configured": () => import("@/content/blog/fr/moodle-router-not-correctly-configured.mdx"),
+    "moodle-5-2-windows-install": () => import("@/content/blog/fr/moodle-5-2-windows-install.mdx"),
+    "moodle-vendor-directory-not-found": () => import("@/content/blog/fr/moodle-vendor-directory-not-found.mdx"),
+    "moodle-file-picker-stuck-loading": () => import("@/content/blog/fr/moodle-file-picker-stuck-loading.mdx"),
+    "moodle-5-2-shared-hosting": () => import("@/content/blog/fr/moodle-5-2-shared-hosting.mdx"),
     "lms-reporting-and-analytics-what-you-actually-need": () => import("@/content/blog/fr/lms-reporting-and-analytics-what-you-actually-need.mdx"),
     "what-gdpr-requires-from-an-elearning-platform": () => import("@/content/blog/fr/what-gdpr-requires-from-an-elearning-platform.mdx"),
     "ai-in-an-lms-what-actually-helps": () => import("@/content/blog/fr/ai-in-an-lms-what-actually-helps.mdx"),
@@ -767,6 +965,12 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "moodle-5-2-upgrade-guide": () => import("@/content/blog/es/moodle-5-2-upgrade-guide.mdx"),
+    "moodle-router-not-correctly-configured": () => import("@/content/blog/es/moodle-router-not-correctly-configured.mdx"),
+    "moodle-5-2-windows-install": () => import("@/content/blog/es/moodle-5-2-windows-install.mdx"),
+    "moodle-vendor-directory-not-found": () => import("@/content/blog/es/moodle-vendor-directory-not-found.mdx"),
+    "moodle-file-picker-stuck-loading": () => import("@/content/blog/es/moodle-file-picker-stuck-loading.mdx"),
+    "moodle-5-2-shared-hosting": () => import("@/content/blog/es/moodle-5-2-shared-hosting.mdx"),
     "lms-reporting-and-analytics-what-you-actually-need": () => import("@/content/blog/es/lms-reporting-and-analytics-what-you-actually-need.mdx"),
     "what-gdpr-requires-from-an-elearning-platform": () => import("@/content/blog/es/what-gdpr-requires-from-an-elearning-platform.mdx"),
     "ai-in-an-lms-what-actually-helps": () => import("@/content/blog/es/ai-in-an-lms-what-actually-helps.mdx"),
@@ -826,6 +1030,12 @@ export async function getPostContent(slug: string, locale: Locale) {
   if (locale === "en") {
     const contentLoaders: Record<string, () => Promise<{ default: ComponentType }>> = {
       "lms-reporting-and-analytics-what-you-actually-need": () => import("@/content/blog/lms-reporting-and-analytics-what-you-actually-need.mdx"),
+      "moodle-5-2-upgrade-guide": () => import("@/content/blog/moodle-5-2-upgrade-guide.mdx"),
+      "moodle-router-not-correctly-configured": () => import("@/content/blog/moodle-router-not-correctly-configured.mdx"),
+      "moodle-5-2-windows-install": () => import("@/content/blog/moodle-5-2-windows-install.mdx"),
+      "moodle-vendor-directory-not-found": () => import("@/content/blog/moodle-vendor-directory-not-found.mdx"),
+      "moodle-file-picker-stuck-loading": () => import("@/content/blog/moodle-file-picker-stuck-loading.mdx"),
+      "moodle-5-2-shared-hosting": () => import("@/content/blog/moodle-5-2-shared-hosting.mdx"),
       "what-gdpr-requires-from-an-elearning-platform": () => import("@/content/blog/what-gdpr-requires-from-an-elearning-platform.mdx"),
       "ai-in-an-lms-what-actually-helps": () => import("@/content/blog/ai-in-an-lms-what-actually-helps.mdx"),
       "what-ferpa-actually-requires-of-an-edtech-platform": () => import("@/content/blog/what-ferpa-actually-requires-of-an-edtech-platform.mdx"),

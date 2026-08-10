@@ -1,0 +1,164 @@
+## The honest answer
+
+Moodle 5.2 can run on shared hosting only if the host gives you enough control over the document root, PHP version, database version, router rules, Composer dependencies, cron, and `moodledata` security. Many shared hosting plans fail at least one of those requirements.
+
+The Moodle.org forum demand is loud here. ["Shared Hosting problem [resolved]"](https://moodle.org/mod/forum/discuss.php?d=470266) has 77 replies, ["Further discussions on shared hosting"](https://moodle.org/mod/forum/discuss.php?d=470526) has 34, and there are separate threads about GoDaddy, Hostinger, cPanel, subfolders, document roots, and routing. The pain is not imaginary. Moodle 5.x changed what "just upload it to public_html" means.
+
+The exact symptoms people report are painfully concrete: `/admin/index.php` returns 404, Moodle says the root directory must not be publicly accessible, or `config.php` complains that `$CFG->wwwroot` should not end in `/public`. Those messages all point back to the same tension: the public folder should be the published folder, but `/public` should not become part of the visible Moodle URL.
+
+## Why Moodle 5.x is harder on shared hosting
+
+Moodle 5.1 introduced a `public` directory. Moodle's [5.2 upgrading guide](https://docs.moodle.org/502/en/Upgrading) says the web server should serve Moodle from `public`, while configuration and sensitive files live outside that folder.
+
+On a VPS, this is normal:
+
+```apache
+DocumentRoot /var/www/moodle/public
+```
+
+On shared hosting, the primary domain is often locked to:
+
+```text
+public_html
+```
+
+That mismatch is the core problem. If the host cannot point the domain at `moodle/public`, you are forced into symlinks, subdomains, aliases, or rewrite workarounds. Some hosts allow that. Some do not.
+
+## The shared hosting checklist
+
+Ask the host these questions before you buy or upgrade.
+
+| Requirement | Why it matters |
+| --- | --- |
+| Can I set the domain document root to `moodle/public`? | Moodle 5.x expects only `public` to be web-accessible |
+| Can I create symlinks? | Useful when the primary document root is fixed |
+| Is PHP 8.3 or 8.4 available for web and CLI? | Moodle 5.2 requires PHP 8.3+ |
+| Are required PHP extensions enabled? | Missing `sodium`, `intl`, `mbstring`, `soap`, etc. can block install |
+| Is MariaDB 10.11, MySQL 8.4, PostgreSQL 16, or supported SQL Server available? | Moodle 5.2 database requirements increased |
+| Is Composer available with the right PHP? | Moodle 5.1+ can require dependencies in `vendor` |
+| Can I configure `.htaccess` rewrite rules? | Needed when `FallbackResource` is unavailable |
+| Can I run cron every minute? | Moodle depends on scheduled background work |
+| Can `moodledata` live outside public web access? | Public `moodledata` is a security risk |
+| Can I view logs? | Without logs, every install error becomes guesswork |
+
+If the host cannot answer these clearly, assume you will lose time during the install.
+
+## What changed with `public`
+
+Before Moodle 5.1, many shared-hosting installs worked by uploading Moodle into `public_html/moodle` and visiting the folder. From Moodle 5.1 onwards, Moodle's structure is designed so that the browser sees only the `public` folder.
+
+Moodle's [Installing Moodle](https://docs.moodle.org/502/en/Installing_Moodle) page describes options when `public_html` is the web-accessible directory. You can point the web root at the `public` directory, use a symbolic link, or place the Moodle directory outside the web root and link to its `public` directory.
+
+That means a shared host is viable only if it lets you model one of those layouts.
+
+## cPanel, Hostinger, GoDaddy, and subdomains
+
+The common workaround on cPanel is to create an addon domain or subdomain whose document root can be edited. Instead of fighting the locked primary `public_html`, you create something like:
+
+```text
+moodle.example.com -> /home/account/moodle/public
+```
+
+Then the Moodle parent directory can live at:
+
+```text
+/home/account/moodle
+```
+
+and only the `public` folder is exposed.
+
+Some Hostinger-style panels let you set a custom public folder more directly. Some GoDaddy/shared plans are more restrictive. The brand name matters less than the exact controls on your plan.
+
+## What if the host cannot change document root?
+
+You have three possible paths.
+
+| Option | When it works | Risk |
+| --- | --- | --- |
+| Symlink `public_html` to `moodle/public` | Host allows symlinks and follows them safely | Can disrupt other sites under `public_html` |
+| Addon domain or subdomain | Panel allows custom document roots for new domains | URL may change unless planned carefully |
+| Rewrite rules in `.htaccess` | Host supports rewrite rules well enough | More fragile than a clean document root |
+
+Do not solve this by making the whole Moodle directory public. That can expose files Moodle intentionally moved out of web access.
+
+## Router configuration on shared hosting
+
+Moodle's [router documentation](https://docs.moodle.org/502/en/Configuring_the_Router) explains `FallbackResource` for Apache, `try_files` for Nginx, and rewrite rules for OpenLiteSpeed/cPanel-like environments.
+
+On shared hosting, you often cannot edit Apache or Nginx directly. That leaves `.htaccess`.
+
+If `FallbackResource /r.php` is blocked, use the rewrite-rule approach in Moodle's docs. Put the rule in Moodle's `public` directory. If the host's web root points somewhere else, the rule may never run.
+
+If the system status report says the router is not correctly configured, use [Moodle 5.2 Router Is Not Correctly Configured](/blog/moodle-router-not-correctly-configured).
+
+## Composer on shared hosting
+
+Moodle 5.1+ may show `Composer vendor directory not found` when dependencies are missing. Moodle's official fix is:
+
+```bash
+composer install --no-dev --classmap-authoritative
+```
+
+Shared hosting questions:
+
+- Do you have SSH?
+- Does Composer exist?
+- Does Composer use PHP 8.3 or 8.4?
+- Can it write to the Moodle root?
+- Can you upload a complete built artifact including `vendor`?
+
+If the answer is no across the board, shared hosting is not giving you enough deployment control. Read [Moodle Composer Vendor Directory Not Found](/blog/moodle-vendor-directory-not-found) before trying random uploads.
+
+## The VPS comparison
+
+A small VPS is not automatically faster or safer. You have to maintain it. But it gives you control over the exact things Moodle 5.x needs.
+
+| Need | Shared hosting | VPS |
+| --- | --- | --- |
+| Document root | Sometimes locked | Fully controlled |
+| Router config | `.htaccess` or panel limits | Apache/Nginx config |
+| PHP-FPM | Host-defined | Fully controlled |
+| Database version | Host-defined | Fully controlled |
+| Composer | Often limited | Fully controlled |
+| Cron | Panel schedule limits | System cron |
+| Logs | Partial | Full |
+| Security updates | Host handles base system | You handle base system |
+
+If you run Moodle for paying learners, compliance training, or a school, the operational control is usually worth the VPS or managed Moodle hosting cost.
+
+## When shared hosting is acceptable
+
+Shared hosting can be fine when:
+
+- The site is small.
+- You can tolerate occasional support delays.
+- The host lets you point the domain at `public`.
+- PHP/database versions meet Moodle 5.2 requirements.
+- Cron works reliably.
+- You can run or package Composer dependencies.
+- You can view logs.
+- You have a tested backup and restore process.
+
+It is not fine when the platform is business-critical and you cannot see or change the layers Moodle depends on.
+
+## FAQ
+
+### Can Moodle 5.2 run on cPanel?
+
+Yes, if cPanel lets you set an addon domain or subdomain document root to Moodle's `public` folder, run a supported PHP/database stack, configure rewrite rules, run cron, and keep `moodledata` private.
+
+### Can Moodle 5.2 run on GoDaddy shared hosting?
+
+Only if that specific plan gives you the controls Moodle 5.2 needs. Many low-cost shared plans restrict document roots, shell access, Composer, cron frequency, or logs.
+
+### Can Moodle 5.2 run on Hostinger?
+
+It depends on the plan and panel controls. If you can set the website's public folder to `moodle/public` and meet Moodle's PHP/database requirements, it is possible.
+
+### Is a symlink to `public` safe?
+
+It can be, when configured deliberately. The safe target is Moodle's `public` directory. Do not symlink or expose the whole Moodle parent directory.
+
+### Should I use MoodleCloud instead?
+
+Use MoodleCloud or managed Moodle hosting if you want Moodle without server administration. Use a VPS if you want control. Use shared hosting only when the checklist passes.

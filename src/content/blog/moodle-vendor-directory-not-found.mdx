@@ -1,0 +1,165 @@
+## What the error means
+
+`Composer vendor directory not found` means Moodle expected Composer-installed PHP dependencies to exist in the `vendor` directory, but they are missing or not readable. In Moodle 5.1 and later, this is no longer an edge-case developer problem. It can stop a normal install or upgrade.
+
+The Moodle.org thread ["error in 5.1: Composer vendor directory not found"](https://moodle.org/mod/forum/discuss.php?d=470295) has 57 replies, which tells you how often admins hit this while moving into the Moodle 5.x structure. Moodle also has an official [Composer vendor directory not found](https://docs.moodle.org/501/en/Composer_vendor_directory_not_found) error page for it.
+
+The production fix is usually:
+
+```bash
+composer install --no-dev --classmap-authoritative
+```
+
+Run that from the Moodle root directory, not from `public`.
+
+## Why this happens in Moodle 5.x
+
+Moodle 5.1 introduced Composer-managed dependencies as an explicit install check. In some 5.1 forum discussion this was described as a preparatory check rather than an immediate site-breaking condition, but by the time you are installing or upgrading Moodle 5.x, you should treat the missing `vendor` directory as an incomplete deployment artifact. If you use a release package that already includes the right dependencies, you may never think about Composer. If you install from Git, build your own release, upload only part of the code tree, or use a host-provided installer, the `vendor` directory can be missing.
+
+The upgrade then fails because Moodle cannot load required third-party libraries.
+
+## First, check where you are running the command
+
+Your Moodle 5.x tree has a parent Moodle directory and a `public` directory. Composer belongs at the parent Moodle directory.
+
+Correct:
+
+```bash
+cd /var/www/moodle
+composer install --no-dev --classmap-authoritative
+```
+
+Wrong:
+
+```bash
+cd /var/www/moodle/public
+composer install --no-dev --classmap-authoritative
+```
+
+If you run Composer inside `public`, you are solving the wrong directory.
+
+## The safest fix for production
+
+Use this sequence on staging first:
+
+1. Confirm the PHP CLI version matches Moodle 5.2 requirements.
+2. Go to the Moodle root directory.
+3. Run Composer without dev dependencies.
+4. Confirm `vendor/autoload.php` exists.
+5. Check ownership and permissions.
+6. Purge caches.
+7. Run the Moodle upgrade again.
+
+Commands:
+
+```bash
+php -v
+cd /path/to/moodle
+composer install --no-dev --classmap-authoritative
+test -f vendor/autoload.php
+php admin/cli/purge_caches.php
+php admin/cli/upgrade.php
+```
+
+If `php -v` shows PHP 8.2 but your web server uses PHP 8.3 or 8.4, fix that mismatch before trusting the result. Composer can resolve platform dependencies against the wrong PHP runtime.
+
+## If you installed Moodle from Git
+
+Git does not make dependency management disappear. After checking out the Moodle stable branch or tag, run Composer in the Moodle root.
+
+For Moodle 5.2, a Git-based upgrade might look like:
+
+```bash
+cd /path/to/moodle
+git fetch origin
+git checkout -b MOODLE_502_STABLE origin/MOODLE_502_STABLE
+composer install --no-dev --classmap-authoritative
+php admin/cli/upgrade.php
+```
+
+Moodle's [Git for Administrators](https://docs.moodle.org/502/en/GIT) also reminds admins to back up first and move third-party plugins into the correct 5.x locations.
+
+## If you cannot run Composer on shared hosting
+
+This is where shared hosting gets awkward.
+
+Some hosts do not provide shell access. Some provide shell access but no Composer. Some provide Composer, but tied to the wrong PHP version. If any of those are true, use one of these approaches:
+
+| Situation | Practical option |
+| --- | --- |
+| No Composer, but SSH/SFTP works | Build locally or on a CI server, then upload the complete tree including `vendor` |
+| Composer exists but wrong PHP version | Ask host for the correct Composer/PHP binary pair |
+| File manager upload drops hidden or nested files | Upload an archive and extract it server-side |
+| Host forbids shell and large uploads | Move to a VPS or Moodle-capable host |
+
+The important rule: do not upload a half-built Moodle tree to production. The `vendor` directory is part of the application artifact.
+
+For hosting-specific constraints, see [Can Moodle 5.2 Run on Shared Hosting?](/blog/moodle-5-2-shared-hosting).
+
+## If Composer itself fails
+
+Composer failures are usually clearer than the Moodle error. Read the first actual error, not the last stack trace.
+
+| Composer output | Likely cause |
+| --- | --- |
+| PHP version does not satisfy requirement | CLI PHP is too old |
+| Missing extension `sodium`, `intl`, `zip`, `soap`, etc. | PHP extension is not enabled for CLI |
+| Killed or memory exhausted | Composer hit memory limits |
+| Permission denied in `vendor` | Wrong owner or read-only directory |
+| Could not resolve package | Network, proxy, lock file, or repository access issue |
+
+For Moodle 5.2, verify the requirements against Moodle's [5.2 release notes](https://moodledev.io/general/releases/5.2), then rerun Composer with the correct PHP.
+
+## Permissions after Composer
+
+On production Linux servers, Moodle code should generally be readable by the web server but not writable by it. Moodle's upgrading guide gives the security-minded pattern of root-owned code with `755` permissions, adjusted to your server model.
+
+After Composer creates `vendor`, check:
+
+```bash
+find vendor -type f -name autoload.php
+ls -ld vendor
+ls -l vendor/autoload.php
+```
+
+If the web server cannot read the directory, Moodle may still fail even though Composer ran successfully.
+
+## Do not fix this by copying random `vendor` folders
+
+Copying `vendor` from another Moodle version is how you turn one obvious error into subtle runtime failures. The dependency tree must match the Moodle version and lock file you deployed.
+
+Use the Moodle package for the version you are installing, or run Composer for that exact codebase.
+
+## How this connects to the Moodle 5.2 upgrade
+
+The `vendor` error often appears next to other Moodle 5.x migration issues:
+
+- The web root was not moved to `public`.
+- Plugins were copied to old locations.
+- Router configuration was skipped.
+- The CLI PHP version differs from the web PHP version.
+- The host's one-click installer did not match Moodle's supported process.
+
+If more than one of those is true, step back and follow [How to Upgrade Moodle 5.1 to 5.2 Safely](/blog/moodle-5-2-upgrade-guide) from the beginning.
+
+## FAQ
+
+### What command fixes `Composer vendor directory not found` in Moodle?
+
+Run `composer install --no-dev --classmap-authoritative` from the Moodle root directory. Moodle's own error page recommends that command for installing the missing dependencies.
+
+### Should the `vendor` directory be inside `public`?
+
+No. Run Composer in the Moodle root. Do not create a separate `vendor` directory inside `public`.
+
+### Can I install Moodle 5.2 without Composer?
+
+You can use an official Moodle release package that already includes the needed dependencies. If your deployment method does not include them, you need Composer somewhere in the build process.
+
+### Why does Composer use the wrong PHP version?
+
+On many servers, `php` on the command line is not the same binary the web server uses. Check `php -v`, and use the host's PHP 8.3 or 8.4 CLI path if needed.
+
+### Is this a Moodle bug?
+
+Usually no. It normally means the deployment artifact is incomplete. Treat `vendor` as part of the Moodle code release, not as an optional development folder.

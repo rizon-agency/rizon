@@ -1,0 +1,178 @@
+## What the error usually means
+
+If Moodle 5.2 says the router is not correctly configured, the web server is usually not passing unmatched routes to Moodle's `r.php` front controller. The sharp version of the error is this: a routed URL ending in `.php` returns `404 Not Found` when Moodle expected a redirect-like router response.
+
+In the Moodle.org thread ["Moodle 5.2: router is not correctly configured"](https://moodle.org/mod/forum/discuss.php?d=481917), the report had 38 replies and centered on this exact symptom: most router checks passed, but `/lib/exampleshimroute2.php` returned 404 instead of the expected 302. That is a strong clue. The site can run PHP, but a non-existent PHP-looking path is being swallowed before Moodle's router gets it.
+
+## Why Moodle 5.x cares about routing
+
+Moodle's router is a front controller. It lets Moodle serve URLs that do not correspond to a physical PHP file on disk. Moodle's [router documentation](https://docs.moodle.org/502/en/Configuring_the_Router) says the router lives at `r.php` and is used when a request does not map to a real file.
+
+That matters more in Moodle 5.x because Moodle 5.1 introduced the `public` directory structure. Public web requests should enter through `moodle/public`, while internal code and configuration sit outside the web root. The router is part of making that model work.
+
+## Start with the document root
+
+Before changing router rules, confirm the web server is serving the right folder.
+
+If your Moodle code is here:
+
+```text
+/var/www/moodle
+```
+
+the public website should usually point here:
+
+```text
+/var/www/moodle/public
+```
+
+not here:
+
+```text
+/var/www/moodle
+```
+
+Moodle's [5.2 upgrading guide](https://docs.moodle.org/502/en/Upgrading) warns that the Moodle file structure and security model changed in 5.1, and that all web requests are now served from `public`. If the document root is wrong, router debugging becomes noisy because the whole request path is already wrong.
+
+## Apache fix: let missing paths fall through to `r.php`
+
+For Apache, Moodle's base router configuration is `FallbackResource`:
+
+```apache
+<Directory "/var/www/moodle/public">
+    FallbackResource /r.php
+</Directory>
+```
+
+Some hosts allow this in `.htaccess` inside `public`:
+
+```apache
+FallbackResource /r.php
+```
+
+But the forum thread highlights a common Apache + PHP-FPM trap. If Apache sends every `.php`-looking request to PHP-FPM, even when the file does not exist, PHP-FPM can return 404 before Apache reaches `FallbackResource`. That is why the failing check is often a fake routed URL ending in `.php`.
+
+The practical fix is to make the PHP handler apply only to real files:
+
+```apache
+<FilesMatch ".+\.ph(?:ar|p|tml)$">
+    <If "-f %{REQUEST_FILENAME}">
+        SetHandler "proxy:unix:/run/php/php8.3-fpm.sock|fcgi://localhost"
+    </If>
+</FilesMatch>
+```
+
+Your socket path may be different. PHP 8.4 might use `/run/php/php8.4-fpm.sock`; a TCP setup might use `proxy:fcgi://127.0.0.1:9000`. Do not paste blindly. Find the existing `SetHandler` line that connects Apache to PHP-FPM, then add the file-exists guard around that handler.
+
+## Nginx fix: use `try_files`
+
+For Nginx, the essential pattern is:
+
+```nginx
+location / {
+    try_files $uri $uri/ /r.php$is_args$args;
+}
+```
+
+If Moodle lives under a subdirectory, scope the rule to that subdirectory:
+
+```nginx
+location /moodle/ {
+    try_files $uri $uri/ /moodle/r.php$is_args$args;
+}
+```
+
+Nginx has no per-directory `.htaccess`, so this must be in the server configuration. If you are on shared hosting and cannot edit Nginx config, you need the host to provide an equivalent control panel setting or move to hosting where you can manage the web server.
+
+## OpenLiteSpeed and cPanel: use rewrite rules
+
+Moodle's router docs include an OpenLiteSpeed-compatible rewrite approach that often works better than `FallbackResource` on control-panel hosting:
+
+```apache
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.php -f
+RewriteRule ^(.*)$ $1/index.php [L]
+
+RewriteRule ^$ ./index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ r.php [L,QSA]
+```
+
+Put this in the `.htaccess` file inside Moodle's `public` folder, not in the old parent Moodle directory. If the control panel points the domain at the wrong folder, the rule is in the wrong place before it even starts.
+
+## How to debug the exact failing check
+
+Use this order. It keeps you from changing three things at once.
+
+1. Open `Site administration > Reports > System status` and note the exact router test that fails.
+2. Request the failing URL directly in the browser or with `curl -I`.
+3. Check whether the response is coming from Apache/Nginx, PHP-FPM, Moodle, a CDN, or a security layer.
+4. Read the web server error log and PHP-FPM log for the same timestamp.
+5. Temporarily enable Moodle developer debugging on staging, not permanently in production.
+6. Fix the first layer that returns the wrong response.
+7. Restart or reload the web server and PHP-FPM after config changes.
+8. Purge Moodle caches and rerun the router status check.
+
+The key question is: "Who returned the 404?" If PHP-FPM returned it for a file that does not exist, Apache never got the chance to fall back to `r.php`.
+
+## Symptoms that point to router configuration
+
+| Symptom | What it suggests |
+| --- | --- |
+| `/lib/exampleshimroute2.php` returns 404 | PHP handler catches missing `.php` route before router |
+| Clean URLs fail but old PHP URLs load | Router fallback not applied |
+| CSS or JS is missing after 5.x upgrade | Web root or rewrite rule may be wrong |
+| Site works on one server but not another | Apache/Nginx/PHP-FPM integration differs |
+| Shared host refuses `FallbackResource` | Use rewrite rules or change hosting |
+
+## What not to do
+
+Do not make the whole Moodle directory public just to make the error disappear. That reverses the security reason Moodle moved web-accessible files into `public`.
+
+Do not keep adding rewrite rules in both the parent Moodle directory and `public`. Pick the actual web root and configure the router there.
+
+Do not expose PHP-FPM on a public network port. If you use a TCP FastCGI backend, bind and firewall it carefully. A Unix socket is simpler on a single server.
+
+Do not set `$CFG->routerconfigured = true` as a substitute for fixing the server. That flag can silence checks in some situations, but it does not make Apache, Nginx, IIS, or OpenLiteSpeed route requests correctly.
+
+## If the router check passes but pages are still broken
+
+Then the router was only one layer. Continue with:
+
+- Purge all Moodle caches.
+- Switch temporarily to the standard Boost theme.
+- Disable recently added third-party plugins on staging.
+- Check browser console errors for missing JavaScript or JSON responses.
+- Confirm `config.php` still has the correct `$CFG->wwwroot`.
+
+For the broader upgrade sequence, use [How to Upgrade Moodle 5.1 to 5.2 Safely](/blog/moodle-5-2-upgrade-guide).
+
+## FAQ
+
+### Is Moodle routing compulsory in Moodle 5.2?
+
+Moodle's router documentation says router configuration is compulsory from Moodle 5.1 onwards. In practice, some compatibility paths may still appear to work, but a production Moodle 5.2 site should have the router configured correctly.
+
+### Where is Moodle's router file?
+
+The router entry point is `r.php`. Your web server should send non-file requests to that file while still serving real files normally.
+
+### Why does Moodle expect 302 but my server returns 404?
+
+The common cause is that the web server hands a fake `.php` path to PHP-FPM before the fallback router runs. Restricting the PHP handler to real files lets missing routed paths fall through to `r.php`.
+
+### Should I put `FallbackResource` in `.htaccess`?
+
+Use the main Apache virtual host config if you have root access. `.htaccess` can work when allowed, but Moodle notes it is not the preferred approach and many hosts restrict it.
+
+### Should I set `$CFG->routerconfigured = true`?
+
+Only after the router is genuinely configured and tested. It is not the fix for a server returning 404 for routed Moodle URLs.
+
+### Does this apply behind a reverse proxy?
+
+Yes, but fix the origin first. Then check proxy headers, scheme, host, and `$CFG->wwwroot` so Moodle sees the same URL users see.

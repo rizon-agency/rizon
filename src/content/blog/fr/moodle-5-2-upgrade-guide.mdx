@@ -1,0 +1,180 @@
+## La version courte
+
+Une mise à niveau de Moodle 5.1 vers 5.2 se passe bien quand le serveur a été préparé avant de remplacer le code. Les pannes qui semblent mystérieuses viennent presque toujours des mêmes endroits : le dossier `public` introduit en 5.1, la configuration du routeur, les dépendances Composer, des plugins qui supposent encore l’ancienne arborescence, et des caches qui n’ont pas été purgés proprement.
+
+Ne traitez donc pas Moodle 5.2 comme une simple copie de fichiers. Traitez-le comme un déploiement contrôlé : clone de production, vérification des prérequis, plugins déplacés volontairement, essai en préproduction, puis répétition exacte en production.
+
+## Pourquoi les mises à niveau Moodle 5.2 surprennent
+
+Les discussions du forum Moodle.org Installing and Upgrading Help montrent les mêmes symptômes en boucle : contrôles de routeur en échec, menus disparus, images manquantes, sélecteur de fichiers qui charge sans fin, problèmes de banque de questions, erreur `Class "Mustache_Engine" not found` et dépendances Composer absentes.
+
+Ce ne sont pas des incidents séparés. Depuis Moodle 5.1, les fichiers accessibles au web doivent être servis depuis `public`, et Moodle utilise un routeur pour certaines requêtes. Moodle 5.2 ajoute des exigences plus hautes, dont PHP 8.3 et une source de mise à niveau au moins en 4.4. Les [notes de version Moodle 5.2](https://moodledev.io/general/releases/5.2) et le [guide de mise à niveau 5.2](https://docs.moodle.org/502/en/Upgrading) sont les références à suivre.
+
+## Avant de toucher à la production
+
+Préparez une liste avec trois colonnes : serveur, code et données.
+
+| Zone | À vérifier | Pourquoi c’est important |
+| --- | --- | --- |
+| PHP | Moodle 5.2 exige PHP 8.3 ou plus récent | L’environnement peut bloquer l’installation |
+| Base de données | MariaDB 10.11, MySQL 8.4, PostgreSQL 16 ou équivalent supporté | Les anciennes versions arrêtent la mise à niveau |
+| Racine web | Le site pointe vers `moodle/public` | Sinon le modèle de sécurité 5.x casse |
+| Routeur | Apache, Nginx, IIS ou OpenLiteSpeed renvoie les routes vers `r.php` | Les pages routées et les contrôles système en dépendent |
+| Composer | Le dossier `vendor` existe | Moodle 5.1+ vérifie les dépendances installées |
+| Plugins | Chaque plugin est compatible 5.2 | Thèmes, formats de cours et dépôts cassent souvent ici |
+| Caches | Les caches peuvent être purgés après la mise à niveau | Moodle signale que le sélecteur de fichiers peut nécessiter une purge manuelle |
+
+Le but n’est pas d’ajouter de l’administration. Le but est de rendre la mise à niveau ennuyeuse.
+
+## 1. Vérifiez le chemin de mise à niveau
+
+Dans le site actuel, ouvrez `Administration du site > Serveur > Environnement` et choisissez Moodle 5.2 comme version cible. Corrigez chaque avertissement avant de commencer.
+
+Moodle 5.2 accepte une mise à niveau depuis Moodle 4.4 ou plus récent. Si votre site est en 4.3, 4.2 ou plus ancien, passez d’abord par une version intermédiaire supportée.
+
+| Exigence | Minimum Moodle 5.2 |
+| --- | --- |
+| Version source | Moodle 4.4 ou plus récent |
+| PHP | 8.3.0 |
+| MariaDB | 10.11.0 |
+| MySQL | 8.4 |
+| PostgreSQL | 16 |
+| SQL Server | 2019 |
+| `max_input_vars` | 5000 |
+| Architecture PHP | 64 bits |
+
+Vérifiez aussi les extensions PHP comme `sodium`, `intl`, `mbstring`, `soap`, `zip` et `fileinfo`.
+
+## 2. Sauvegardez les trois éléments réels
+
+Sauvegardez le code Moodle, le dossier `moodledata` et la base de données. Une sauvegarde des fichiers seuls n’est pas un plan de retour arrière. Les fichiers de cours vivent dans `moodledata`, et les traces d’apprentissage vivent dans la base.
+
+Pour un site de production, activez le mode maintenance ou choisissez une fenêtre calme. Si cron tourne, attendez la fin des tâches en cours.
+
+## 3. Remplacez le code proprement
+
+Ne copiez pas Moodle 5.2 par-dessus l’ancien dossier. Déplacez l’ancien code, décompressez la nouvelle version, puis recopiez seulement ce qui doit revenir.
+
+```bash
+mv moodle moodle.backup
+tar xvzf moodle-latest-5.2.tgz
+cp moodle.backup/config.php moodle/
+```
+
+Recopiez ensuite les plugins vérifiés dans les bons emplacements 5.x. Beaucoup doivent désormais vivre sous `public`.
+
+```bash
+cp -pr moodle.backup/theme/mytheme moodle/public/theme/mytheme
+cp -pr moodle.backup/mod/mymod moodle/public/mod/mymod
+```
+
+Si vous utilisez Git, suivez le guide [Git pour administrateurs Moodle](https://docs.moodle.org/502/en/GIT) et ciblez la bonne branche stable.
+
+## 4. Bloquez sur la compatibilité des plugins
+
+Un dossier copié n’est pas une preuve de compatibilité. Pour chaque plugin non standard, vérifiez la version compatible Moodle 5.2 et testez le flux concerné.
+
+| Zone plugin | Échec possible après mise à niveau |
+| --- | --- |
+| Thème | Menus invisibles, tiroirs cassés, sélecteur de fichiers absent |
+| Format de cours | Sections qui ne s’affichent pas |
+| Type de question | Erreurs dans la banque de questions |
+| Dépôt | Sélecteur de fichiers bloqué |
+| Inscription/paiement | Accès aux cours cassé |
+| Rapports/local | Pages admin en erreur de classe ou namespace |
+
+Si vous voyez `Class "Mustache_Engine" not found`, suspectez un thème ou plugin qui appelle encore l’ancien nom de classe Mustache.
+
+## 5. Pointez le serveur web vers `public`
+
+Pour Moodle 5.1 et plus récent, la racine web doit être le dossier `public`, pas le dossier parent de Moodle.
+
+Apache :
+
+```apache
+DocumentRoot /var/www/moodle/public
+
+<Directory /var/www/moodle/public>
+    AllowOverride None
+    Require all granted
+</Directory>
+```
+
+Nginx :
+
+```nginx
+root /var/www/moodle/public;
+```
+
+Sur cPanel ou hébergement mutualisé, il faut parfois utiliser un domaine additionnel, un lien symbolique ou un alias. Si l’hôte ne permet aucune de ces options, le problème n’est pas votre contenu Moodle. C’est l’hébergement.
+
+Pour les compromis, lisez [Moodle 5.2 peut-il tourner sur un hébergement mutualisé ?](/fr/blog/moodle-5-2-shared-hosting).
+
+## 6. Configurez le routeur
+
+Le routeur Moodle envoie les requêtes qui ne correspondent pas à un vrai fichier vers `r.php`. Sans cela, certaines pages renvoient 404 et le rapport système indique que le routeur est mal configuré.
+
+Apache :
+
+```apache
+FallbackResource /r.php
+```
+
+Nginx :
+
+```nginx
+try_files $uri $uri/ /r.php$is_args$args;
+```
+
+Si le test indique qu’une fausse route `.php` renvoie 404 au lieu de 302, consultez [Moodle 5.2 : routeur mal configuré](/fr/blog/moodle-router-not-correctly-configured).
+
+## 7. Installez les dépendances Composer
+
+Si Moodle affiche `Composer vendor directory not found`, lancez la commande depuis la racine Moodle, pas depuis `public`.
+
+```bash
+composer install --no-dev --classmap-authoritative
+```
+
+Si l’hôte ne fournit ni Composer ni shell, construisez l’artefact ailleurs et téléversez l’arborescence complète, dossier `vendor` inclus. Le guide détaillé est ici : [Moodle Composer vendor directory not found](/fr/blog/moodle-vendor-directory-not-found).
+
+## 8. Lancez la mise à niveau puis purgez les caches
+
+Pour un site sérieux, préférez la ligne de commande :
+
+```bash
+php admin/cli/upgrade.php
+```
+
+Puis purgez les caches :
+
+`Administration du site > Développement > Purger tous les caches`
+
+Si le sélecteur de fichiers charge encore sans fin, lisez [Sélecteur de fichiers Moodle bloqué après une mise à niveau 5.2](/fr/blog/moodle-file-picker-stuck-loading).
+
+## Testez ce que les utilisateurs touchent
+
+Ne concluez pas quand le tableau de bord s’affiche. Testez la connexion, l’administration, les pages de cours, l’ajout d’activité, les dépôts de fichiers, les remises de devoirs, cron, les plugins et les intégrations API.
+
+| Symptôme | Premier endroit à vérifier |
+| --- | --- |
+| 404 après mise à niveau | Racine web pas sur `public` |
+| Contrôle routeur en échec | Règle routeur ou PHP-FPM |
+| `Composer vendor directory not found` | Dossier `vendor` absent |
+| Menus cassés | Thème, plugin ou cache |
+| Sélecteur de fichiers bloqué | Cache, JavaScript, thème, dépôt ou AJAX |
+| `Class "Mustache_Engine" not found` | Plugin incompatible Moodle 5.2 |
+
+## FAQ
+
+### Puis-je passer directement de Moodle 5.1 à 5.2 ?
+
+Oui. Moodle 5.2 supporte les mises à niveau depuis Moodle 4.4 ou plus récent.
+
+### Dois-je déplacer la racine web vers `public` ?
+
+Oui, si cela n’a pas déjà été fait en 5.1.
+
+### Navigateur ou CLI ?
+
+Utilisez la CLI en production dès que possible. Elle évite les délais d’expiration du navigateur et du proxy.

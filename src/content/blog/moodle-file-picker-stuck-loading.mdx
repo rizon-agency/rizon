@@ -1,0 +1,180 @@
+## The quick diagnosis
+
+If Moodle's file picker or upload box spins forever after upgrading to 5.2, start with caches, JavaScript errors, theme overrides, repository plugins, and server upload limits. The spinner means the page rendered, but the browser did not receive a valid response for the file-picker request.
+
+The Moodle.org thread ["Upgrade to 5.2 has broken file uploads where the box now never loads"](https://moodle.org/mod/forum/discuss.php?d=474506) describes the clean version of this problem: "the box and button for the file picker never load" and "There is a loading symbol but it doesn't load." After a 4.3 to 4.4 to 5.2 path, PHP version, theme, plugins, cache, cron, and shared-hosting constraints were all investigated. A related thread, ["Students can't upload files after upgrading to 5.2"](https://moodle.org/mod/forum/discuss.php?d=474005), shows the same user-facing pain from the student side.
+
+## Why the file picker fails differently from the whole page
+
+The file picker is not just a form field. It depends on Moodle JavaScript, AJAX endpoints, repository plugins, sessions, draft file areas, server upload settings, permissions, and theme templates. A Moodle page can look normal while the file picker fails in the background.
+
+That is why "the site loads" is not enough evidence. You need to inspect the request behind the spinner.
+
+## First fix: purge all caches
+
+After a Moodle 5.2 upgrade, purge caches manually:
+
+`Site administration > Development > Purge all caches`
+
+Or from the command line:
+
+```bash
+php admin/cli/purge_caches.php
+```
+
+Moodle's [5.2 upgrading guide](https://docs.moodle.org/502/en/Upgrading) specifically notes that if functionality is missing after the upgrade, including the file picker not loading, admins should purge all caches manually.
+
+If this fixes it, the root cause was stale cached JavaScript, templates, or plugin metadata from the previous version. Still test uploads as teacher and student before calling it done.
+
+## Check the browser console and network tab
+
+Open the broken page, open browser developer tools, then reload. Look for:
+
+- JavaScript errors.
+- Failed requests with 403, 404, 500, or 503 status.
+- AJAX responses that contain HTML error pages instead of JSON.
+- Blocked mixed-content requests after an HTTPS change.
+- Requests going to the wrong host or path.
+
+The most useful clue is usually the first failed network request. A spinner is vague. A `500` from an AJAX endpoint is actionable.
+
+If you see old YUI combo-loader URLs or JavaScript aggregation errors, purge caches again and temporarily disable JavaScript caching/aggregation settings on staging. The goal is not to leave the site unoptimized; it is to separate stale assets from real upload logic failures.
+
+## Turn on Moodle debugging on staging
+
+On a staging copy, enable developer-level debugging:
+
+`Site administration > Development > Debugging`
+
+Set:
+
+- Debug messages: `DEVELOPER`
+- Display debug messages: enabled on staging only
+
+Then reproduce the file picker issue. Check both the page and the server logs. Turn visible debugging off when you are done.
+
+If production is already broken and you cannot reproduce in staging, log errors to files rather than displaying them to users.
+
+## Rule out the theme
+
+Switch temporarily to Boost on staging. Then test:
+
+1. Add a file resource.
+2. Add an assignment submission.
+3. Upload a course image.
+4. Open the file picker from a teacher account.
+5. Upload from a student account.
+
+If the file picker works in Boost but not in the custom theme, the upgrade probably exposed an outdated template, AMD module, renderer override, or bundled JavaScript assumption.
+
+This is especially likely when the same upgrade also causes invisible menus, broken drawers, or missing images.
+
+## Rule out repository and file plugins
+
+The file picker loads repositories. Disable non-essential repository plugins on staging and retry.
+
+Check:
+
+| Component | What can break |
+| --- | --- |
+| File system repository | Path or permissions changed |
+| Google Drive / OneDrive | OAuth callback, service account, or token issue |
+| Custom repository plugin | Not compatible with Moodle 5.2 |
+| Media plugins | JavaScript or filter conflict |
+| Antivirus integration | Upload request blocked or timed out |
+
+If a third-party repository plugin is the trigger, update it to a Moodle 5.2-compatible version or disable it until the vendor catches up.
+
+## Check upload limits in PHP and Moodle
+
+When the picker opens but upload fails, check limits. When it spins forever, limits are less likely, but still worth verifying because some servers fail badly instead of returning a clear upload error.
+
+Check PHP:
+
+```ini
+upload_max_filesize = 128M
+post_max_size = 128M
+max_file_uploads = 20
+max_input_vars = 5000
+max_execution_time = 300
+memory_limit = 256M
+```
+
+Then check Moodle:
+
+- `Site administration > Security > Site security settings`
+- Course upload limits
+- Assignment upload limits
+- Repository settings
+
+Moodle 5.2 requires `max_input_vars` of at least 5000 according to the [5.2 release notes](https://moodledev.io/general/releases/5.2). That setting is not only about file uploads, but it is a useful signal that the PHP environment has actually been prepared for the version.
+
+## Check permissions on `moodledata`
+
+Moodle stores uploaded files in `moodledata`, not inside the Moodle code directory. The web server must be able to write to `moodledata`, but the directory must not be publicly accessible.
+
+Check:
+
+```bash
+ls -ld /path/to/moodledata
+```
+
+Then confirm the web server user can create and read files there. If permissions are wrong, uploads may fail while normal pages still load.
+
+Moodle's [installing guide](https://docs.moodle.org/502/en/Installing_Moodle) warns that `moodledata` should not be placed in a web-accessible folder. Do not fix permissions by moving `moodledata` under `public_html`.
+
+## Check the 5.x web root and router
+
+The file picker can expose the same underlying request-routing problems as the rest of Moodle 5.x. Confirm:
+
+- The web root points to `moodle/public`.
+- `$CFG->wwwroot` has the correct scheme and hostname.
+- Router checks pass in system status.
+- Reverse proxy headers preserve HTTPS and host correctly.
+
+If router status fails, fix that first with [Moodle 5.2 Router Is Not Correctly Configured](/blog/moodle-router-not-correctly-configured). A broken router can make AJAX endpoints return 404 or unexpected HTML.
+
+## A practical troubleshooting order
+
+Use this order on staging:
+
+1. Purge all caches.
+2. Reproduce with browser dev tools open.
+3. Record the first failing network request.
+4. Enable Moodle debugging.
+5. Switch to Boost.
+6. Disable non-core repository plugins.
+7. Check PHP upload and input limits.
+8. Check `moodledata` permissions.
+9. Check router and web root.
+10. Run cron and ad hoc tasks, including assignment tasks such as `\mod_assign\task\cron_task`.
+
+Stop when one change explains the symptom. Do not leave debugging, disabled plugins, or temporary theme switches behind without documenting them.
+
+## When to suspect a Moodle core issue
+
+Suspect a core issue only after you can reproduce the same failure on a clean Moodle 5.2 site with a supported PHP/database stack, Boost theme, no third-party plugins, correct router, correct `public` web root, and purged caches.
+
+That test is worth doing. It turns a vague production complaint into a bug report Moodle maintainers can use.
+
+## FAQ
+
+### Why does Moodle's file picker spin forever after upgrade?
+
+The browser is usually waiting for an AJAX response that fails, returns invalid JSON, or is blocked by JavaScript, theme, plugin, session, routing, or permission problems. Start by purging caches and checking the browser network tab.
+
+### Does purging caches really fix Moodle 5.2 file picker issues?
+
+It can. Moodle's own 5.2 upgrading guide mentions missing functionality such as the file picker not loading and recommends purging caches manually after the upgrade.
+
+### Could this be a theme problem?
+
+Yes. If the file picker works in Boost but fails in a custom theme, update the theme and inspect overrides or JavaScript tied to old Moodle markup.
+
+### Could upload limits cause the picker to never load?
+
+They more often cause upload failure after the picker opens. Still check PHP and Moodle upload limits because broken server handling can surface as a spinner.
+
+### Should I reinstall Moodle to fix it?
+
+No. Reinstalling usually destroys useful evidence. Debug the failing request first, then fix the layer returning the bad response.

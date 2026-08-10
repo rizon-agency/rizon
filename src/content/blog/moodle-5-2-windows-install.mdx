@@ -1,0 +1,233 @@
+## Can you install Moodle 5.2 on Windows?
+
+Yes, you can install Moodle 5.2 on Windows for testing, development, training, or small internal use. For serious production Moodle hosting, Linux is still the safer default because Moodle is primarily developed and commonly deployed on a LAMP-style stack.
+
+The Moodle.org thread ["Moodle 5.2 Windows Install"](https://moodle.org/mod/forum/discuss.php?d=481924) has 54 replies, and nearby forum threads mention IIS, WAMP, PHP versions, and Windows package confusion. That is the pattern: Windows can work, but the install path has more small traps than a typical Linux VPS.
+
+## Pick the right Windows path
+
+Choose based on what you are trying to do.
+
+| Goal | Best path |
+| --- | --- |
+| Quick local testing | Moodle Windows package or XAMPP/WAMP-style stack |
+| Learning Moodle administration | Local Windows install is fine |
+| Production on Windows Server | IIS + FastCGI + supported PHP + supported database |
+| Public, growing LMS | Prefer Linux VPS or managed Moodle hosting |
+
+Moodle's [Installing Moodle](https://docs.moodle.org/502/en/Installing_Moodle) page says Moodle is primarily developed on Linux with Apache, PostgreSQL/MySQL/MariaDB, and PHP. Its [IIS documentation](https://docs.moodle.org/502/en/IIS) also notes that Apache has stronger community support and that Windows is not suitable for large installations.
+
+For local experiments, WSL or Laragon can be easier than hand-assembling IIS, PHP, and a database. If you only need to test a plugin locally, an older long-term-support Moodle package may also be enough. If you are testing Moodle 5.2 behavior specifically, use a real Moodle 5.2-compatible stack rather than assuming the bundled Windows package has current PHP and database versions.
+
+## Moodle 5.2 requirements to check first
+
+Before you install anything, confirm the Moodle 5.2 requirements from the [official release notes](https://moodledev.io/general/releases/5.2):
+
+| Component | Moodle 5.2 minimum |
+| --- | --- |
+| PHP | 8.3.0 |
+| MariaDB | 10.11.0 |
+| MySQL | 8.4 |
+| PostgreSQL | 16 |
+| Microsoft SQL Server | 2019 |
+| `max_input_vars` | 5000 |
+| PHP architecture | 64-bit only |
+
+On Windows, install 64-bit PHP. If you are using IIS, Moodle's IIS page recommends Non Thread Safe PHP with FastCGI.
+
+## Option A: Install Moodle 5.2 on IIS
+
+Use this when you specifically need Windows Server or IIS.
+
+### 1. Enable IIS and CGI
+
+In Windows features, enable:
+
+- Internet Information Services
+- World Wide Web Services
+- Application Development Features
+- CGI
+
+Then visit `http://localhost` and confirm IIS responds.
+
+### 2. Install PHP for FastCGI
+
+Download a Moodle-supported PHP version from the official Windows PHP builds. For Moodle 5.2, that means PHP 8.3 or a supported newer version.
+
+Use Non Thread Safe PHP for IIS FastCGI, extract it to a stable path such as:
+
+```text
+C:\PHP
+```
+
+Install the Visual C++ Redistributable required by your PHP build.
+
+### 3. Register PHP in IIS
+
+In IIS Manager, add a module mapping:
+
+| Setting | Value |
+| --- | --- |
+| Request path | `*.php` |
+| Module | `FastCgiModule` |
+| Executable | `C:\PHP\php-cgi.exe` |
+| Name | `PHP-FastCGI` |
+
+In request restrictions, choose to invoke the handler only if the request maps to a file or folder. Then increase the FastCGI activity timeout to at least one hour so long Moodle install and upgrade scripts do not die midway.
+
+### 4. Configure `php.ini`
+
+Copy `php.ini-production` to `php.ini`, then enable the extensions Moodle needs. Common ones include:
+
+```ini
+extension=curl
+extension=fileinfo
+extension=gd
+extension=intl
+extension=mbstring
+extension=mysqli
+extension=openssl
+extension=pdo_mysql
+extension=soap
+extension=sodium
+extension=zip
+zend_extension=opcache
+```
+
+Set:
+
+```ini
+max_input_vars = 5000
+upload_max_filesize = 128M
+post_max_size = 128M
+memory_limit = 256M
+max_execution_time = 300
+cgi.force_redirect = 0
+fastcgi.impersonate = 1
+```
+
+Add a real timezone, such as:
+
+```ini
+date.timezone = Europe/London
+```
+
+Use your actual timezone.
+
+### 5. Install the database
+
+For Windows, MariaDB or PostgreSQL are common choices. Create a database and a database user for Moodle before running the installer.
+
+For MariaDB/MySQL, use `utf8mb4`:
+
+```sql
+CREATE DATABASE moodle DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+Give the Moodle database user only the permissions it needs for that database.
+
+### 6. Put Moodle code and data in separate places
+
+Use a structure like:
+
+```text
+C:\inetpub\moodle
+C:\moodledata
+```
+
+The IIS site should point at:
+
+```text
+C:\inetpub\moodle\public
+```
+
+not the parent Moodle folder.
+
+This matters in Moodle 5.2 because Moodle 5.1 introduced the `public` directory model. If IIS points at `C:\inetpub\moodle`, you can get 404s, directory exposure warnings, or broken routed pages.
+
+### 7. Configure default document and URL rewriting
+
+Add `index.php` as a default document in IIS.
+
+Install the IIS URL Rewrite module if it is not present. Moodle's IIS documentation includes rewrite guidance for slash arguments and Unicode file names. For Moodle 5.x, also make sure requests that do not map to real files can reach Moodle's router. Then run Moodle's system status router check after install.
+
+If router status fails later, use [Moodle 5.2 Router Is Not Correctly Configured](/blog/moodle-router-not-correctly-configured).
+
+## Option B: Install Moodle 5.2 with WAMP or XAMPP
+
+Use WAMP/XAMPP for a local test site, not for a public production LMS.
+
+The checklist is the same:
+
+1. Use a stack with PHP 8.3 or newer supported PHP.
+2. Enable required PHP extensions.
+3. Set `max_input_vars` to at least 5000.
+4. Create the database with `utf8mb4`.
+5. Put `moodledata` outside the web-accessible folder.
+6. Point the local virtual host to Moodle's `public` folder.
+7. Configure the router.
+
+The most common mistake is extracting Moodle into `htdocs` and visiting the parent folder directly. For Moodle 5.2, configure a virtual host whose document root is the `public` folder.
+
+## Common Windows install errors
+
+| Error or symptom | Likely cause |
+| --- | --- |
+| Environment check blocks install | PHP version, extension, or database version missing |
+| 404 after install | Site root points at parent Moodle folder instead of `public` |
+| PHP file downloads instead of running | PHP handler not registered |
+| Installer times out | FastCGI or PHP timeout too low |
+| File uploads fail | `upload_max_filesize`, `post_max_size`, permissions, or temp path |
+| File picker spins | Cache, JavaScript, repository plugin, router, or permissions |
+| `Composer vendor directory not found` | Missing dependencies in Moodle root |
+| Cron never runs | Windows scheduled task not configured |
+
+For the Composer issue, read [Moodle Composer Vendor Directory Not Found](/blog/moodle-vendor-directory-not-found).
+
+## Do not skip cron
+
+Moodle needs cron for background work: forum mail, completion, notifications, cleanup, scheduled tasks, and ad hoc tasks.
+
+On Windows, configure Task Scheduler to run Moodle's cron script with the correct PHP executable. Use the PHP path that matches your IIS or local stack installation.
+
+Example shape:
+
+```text
+C:\PHP\php.exe C:\inetpub\moodle\admin\cli\cron.php
+```
+
+Run it manually once and confirm it completes.
+
+## When Windows is the wrong host
+
+Move to Linux or managed Moodle hosting if:
+
+- You expect a large production site.
+- You need easier community support.
+- Your team is not comfortable debugging IIS, FastCGI, PHP, and URL Rewrite.
+- You need multiple Moodle versions on one server.
+- You are already fighting file permissions, cron, and routing before launch.
+
+Windows is not a failure. It is just a less common Moodle production path, which means you pay in debugging time.
+
+## FAQ
+
+### Is Moodle 5.2 supported on Windows?
+
+Moodle can run on Windows when the server meets Moodle 5.2 requirements. For large production installations, Moodle documentation recommends considering Linux or another Unix-like operating system.
+
+### Should I use IIS or Apache on Windows?
+
+Use IIS if you specifically need Microsoft server integration. Use Apache/WAMP only for simpler local testing. For production, Linux with Apache or Nginx is usually easier to support.
+
+### Where should the IIS site point?
+
+Point IIS at Moodle's `public` directory, such as `C:\inetpub\moodle\public`, not the parent Moodle folder.
+
+### Which PHP should I install for IIS?
+
+Use a 64-bit Non Thread Safe PHP build supported by Moodle 5.2, then register it through FastCGI.
+
+### Can I use the Moodle Windows package for production?
+
+Treat bundled Windows packages as testing conveniences. For production, build a deliberate stack with supported PHP, database, web server routing, backups, cron, and monitoring.
