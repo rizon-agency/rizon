@@ -461,6 +461,12 @@ type LocalizedPostFields = Pick<Post, "title" | "description" | "readTime" | "ca
 
 const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, LocalizedPostFields>>> = {
   de: {
+    "moodle-5-0-release-notes-and-upgrade-guide": {
+      title: "Moodle 5.0 Release Notes und Upgrade-Leitfaden",
+      description: "Moodle 5.0 erschien im April 2025 und hat bereits End of Life erreicht, aber seine Anforderungsänderungen wirken fort: PHP 8.2, erhöhte Datenbankuntergrenzen, Bootstrap 5 und die dauerhafte Entfernung von Atto, Oracle, Chat, Survey und MNet.",
+      readTime: "10 Min. Lesezeit",
+      category: "Moodle",
+    },
     "moodle-5-2-upgrade-guide": {
       title: "Moodle 5.1 auf 5.2 aktualisieren: Upgrade-Leitfaden",
       description: "Aktualisieren Sie Moodle 5.1 auf 5.2 mit Checks für PHP, Datenbank, public-Verzeichnis, Router, Composer, Plugins, Caches und Produktion.",
@@ -605,6 +611,12 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   fr: {
+    "moodle-5-0-release-notes-and-upgrade-guide": {
+      title: "Notes de version Moodle 5.0 et guide de mise à niveau",
+      description: "Moodle 5.0 est sorti en avril 2025 et est déjà en fin de vie, mais ses changements d'exigences se propagent : PHP 8.2, seuils de bases de données rehaussés, Bootstrap 5, et suppression définitive d'Atto, Oracle, Chat, Survey et MNet.",
+      readTime: "10 min de lecture",
+      category: "Moodle",
+    },
     "moodle-5-2-upgrade-guide": {
       title: "Mettre Moodle 5.1 à niveau vers 5.2 : guide pratique",
       description: "Mettez Moodle 5.1 à niveau vers 5.2 avec les bons contrôles PHP, base de données, public, routeur, Composer, plugins, caches et production.",
@@ -760,6 +772,12 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
     },
   },
   es: {
+    "moodle-5-0-release-notes-and-upgrade-guide": {
+      title: "Notas de versión de Moodle 5.0 y guía de actualización",
+      description: "Moodle 5.0 salió en abril de 2025 y ya está en fin de vida, pero sus cambios de requisitos se propagan: PHP 8.2, suelos de base de datos más altos, Bootstrap 5 y la eliminación permanente de Atto, Oracle, Chat, Survey y MNet.",
+      readTime: "10 min de lectura",
+      category: "Moodle",
+    },
     "moodle-5-2-upgrade-guide": {
       title: "Cómo actualizar Moodle 5.1 a 5.2 sin romper producción",
       description: "Actualiza Moodle 5.1 a 5.2 revisando PHP, base de datos, public, router, Composer, plugins, cachés y pruebas antes de producción.",
@@ -914,6 +932,7 @@ const localizedPostLoaders: Partial<
   Record<Exclude<Locale, "en">, Record<string, () => Promise<{ default: ComponentType }>>>
 > = {
   de: {
+    "moodle-5-0-release-notes-and-upgrade-guide": () => import("@/content/blog/de/moodle-5-0-release-notes-and-upgrade-guide.mdx"),
     "moodle-5-2-upgrade-guide": () => import("@/content/blog/de/moodle-5-2-upgrade-guide.mdx"),
     "moodle-router-not-correctly-configured": () => import("@/content/blog/de/moodle-router-not-correctly-configured.mdx"),
     "moodle-5-2-windows-install": () => import("@/content/blog/de/moodle-5-2-windows-install.mdx"),
@@ -946,6 +965,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/de/whats-an-imscc-file.mdx"),
   },
   fr: {
+    "moodle-5-0-release-notes-and-upgrade-guide": () => import("@/content/blog/fr/moodle-5-0-release-notes-and-upgrade-guide.mdx"),
     "moodle-5-2-upgrade-guide": () => import("@/content/blog/fr/moodle-5-2-upgrade-guide.mdx"),
     "moodle-router-not-correctly-configured": () => import("@/content/blog/fr/moodle-router-not-correctly-configured.mdx"),
     "moodle-5-2-windows-install": () => import("@/content/blog/fr/moodle-5-2-windows-install.mdx"),
@@ -978,6 +998,7 @@ const localizedPostLoaders: Partial<
     "whats-an-imscc-file": () => import("@/content/blog/fr/whats-an-imscc-file.mdx"),
   },
   es: {
+    "moodle-5-0-release-notes-and-upgrade-guide": () => import("@/content/blog/es/moodle-5-0-release-notes-and-upgrade-guide.mdx"),
     "moodle-5-2-upgrade-guide": () => import("@/content/blog/es/moodle-5-2-upgrade-guide.mdx"),
     "moodle-router-not-correctly-configured": () => import("@/content/blog/es/moodle-router-not-correctly-configured.mdx"),
     "moodle-5-2-windows-install": () => import("@/content/blog/es/moodle-5-2-windows-install.mdx"),
