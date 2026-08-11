@@ -25,6 +25,19 @@ import ferpaEdtechCover from "@/assets/blog/ferpa-edtech-compliance.svg";
 
 export const posts: Post[] = [
   {
+    slug: "moodle-5-0-release-notes-and-upgrade-guide",
+    title: "Moodle 5.0 Release Notes and Upgrade Guide",
+    description:
+      "Moodle 5.0 shipped April 2025 and is already end of life, but its requirement changes carry forward: PHP 8.2, raised database floors, Bootstrap 5, and the permanent removal of Atto, Oracle, Chat, Survey, and MNet.",
+    date: "2026-08-11",
+    readTime: "10 min read",
+    category: "Moodle",
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle"],
+    relatedPostSlugs: ["moodle-5-2-upgrade-guide", "ai-in-an-lms-what-actually-helps", "sso-options-for-learning-platforms"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
     slug: "moodle-5-2-upgrade-guide",
     title: "Moodle 5.1 to 5.2 Upgrade Guide",
     description:
@@ -1030,6 +1043,7 @@ export async function getPostContent(slug: string, locale: Locale) {
   if (locale === "en") {
     const contentLoaders: Record<string, () => Promise<{ default: ComponentType }>> = {
       "lms-reporting-and-analytics-what-you-actually-need": () => import("@/content/blog/lms-reporting-and-analytics-what-you-actually-need.mdx"),
+      "moodle-5-0-release-notes-and-upgrade-guide": () => import("@/content/blog/moodle-5-0-release-notes-and-upgrade-guide.mdx"),
       "moodle-5-2-upgrade-guide": () => import("@/content/blog/moodle-5-2-upgrade-guide.mdx"),
       "moodle-router-not-correctly-configured": () => import("@/content/blog/moodle-router-not-correctly-configured.mdx"),
       "moodle-5-2-windows-install": () => import("@/content/blog/moodle-5-2-windows-install.mdx"),

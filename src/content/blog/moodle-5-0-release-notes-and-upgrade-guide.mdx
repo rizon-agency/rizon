@@ -1,0 +1,179 @@
+## The short version
+
+Moodle 5.0 shipped on 14 April 2025 and is already end of life. It was never a long-term support release, so the Moodle community moved on fast. That does not mean it is irrelevant. If you are on Moodle 4.x and heading toward 5.2 or later, your upgrade path passes through the requirements that 5.0 locked in: PHP 8.2 minimum, raised database floors, Bootstrap 5, and the permanent removal of Atto, Oracle, Chat, Survey, and MNet. Those changes do not disappear in later releases. They started here.
+
+This page covers what actually changed in Moodle 5.0, what was cut permanently, and what you need to verify before an upgrade that includes this version in its path.
+
+## Why Moodle 5.0 matters even if you are skipping it
+
+Moodle release numbering follows a predictable pattern: every fourth release is a long-term support version. Moodle 4.5 LTS preceded 5.0, and Moodle 5.1 was the next LTS candidate most sites targeted. Moodle 5.0 is a standard release, supported only until the next standard release arrives, which is why its EOL came so quickly.
+
+But the requirement changes in 5.0 are real and carry forward. If your site is still on PHP 8.1, MariaDB 10.6, or MySQL 8.0 (pre-8.4), or if you are running Oracle, Moodle 5.0 is the version where those setups stopped working. That wall does not soften in 5.1 or 5.2.
+
+## Server requirements for Moodle 5.0
+
+These are minimums. Running at the minimum is fine for a test server; production should be at the latest stable point release of each.
+
+| Requirement | Moodle 5.0 minimum | Notes |
+| --- | --- | --- |
+| Upgrade source | Moodle 4.2.3 or later | Cannot jump from 4.1 or older |
+| PHP | 8.2.0 | 8.3.x and 8.4.x also supported |
+| PHP architecture | 64-bit only | 32-bit dropped in Moodle 4.1 |
+| PHP extension | sodium | Required, not optional |
+| PHP setting | max_input_vars >= 5000 | Lower values break form submissions |
+| PostgreSQL | 14 | Raised from 13 |
+| MySQL | 8.4 | Raised from 8.0 |
+| MariaDB | 10.11.0 | Raised from 10.6 |
+| Aurora MySQL | 8.0 | Versioned as MySQL, not Aurora internal |
+| Microsoft SQL Server | 2017 | Unchanged |
+| Oracle | Removed | Not supported from 5.0 onward |
+
+The Aurora MySQL note is practical: Aurora uses internal version strings like 3.x, but Moodle's detection code reads the MySQL compatibility version, which you must set to a standard MySQL number such as 8.0. If Aurora is reporting its own versioning to the Moodle environment check, expect errors that look like MySQL version failures.
+
+Database prefix length has been capped at 10 characters since Moodle 4.3. If your `$CFG->prefix` is longer than that, the upgrade will fail before it starts.
+
+## What was removed in Moodle 5.0
+
+This is the list that catches administrators who do not read release notes before upgrading.
+
+### Atto text editor
+
+MDL-83282 removed Atto permanently. TinyMCE is now the default and only bundled rich text editor. If any of your plugins, themes, or custom forms referenced Atto-specific APIs or templates, they will break on upgrade. Check plugin compatibility before assuming Atto-based content will render correctly in the new editor.
+
+TinyMCE in 5.0 also gained an accessibility plugin (MDL-84125), per-role plugin disabling (MDL-84126), and improved media handling (MDL-78428), so the replacement is more capable than what it replaced.
+
+### Oracle database
+
+MDL-83172 dropped Oracle support entirely. If your institution runs Moodle on Oracle, 5.0 is a hard stop. There is no migration path inside Moodle itself; you need to export your data and rebuild on a supported engine before the upgrade. PostgreSQL is the recommended target for sites with high-volume reporting workloads.
+
+### Chat and Survey activities
+
+MDL-82457 removed the Chat module and the Survey module from Moodle core. Sites using these activities need to audit who relies on them before upgrading. The Survey module stored response data that does not automatically migrate to an alternative.
+
+### Authentication plugins
+
+MDL-78778 removed the CAS authentication plugin (auth_cas). Sites using CAS for single sign-on need to migrate to an alternative before upgrading. SAML2, OAuth2, or LDAP are the common replacements depending on your identity provider setup. For SSO options in general, see [SSO options for learning platforms](/blog/sso-options-for-learning-platforms).
+
+### MNet
+
+MDL-84652 removed all MNet plugins. MNet was Moodle's own peer-to-peer networking system. Most sites had already stopped using it, but if yours had active MNet connections for enrolment or authentication, those stop working on upgrade.
+
+### Other removals
+
+MDL-84265 dropped SQLite support from Moodle's database layer. MDL-83703 removed the legacy subplugins.php discovery format. MDL-84107 removed the PHP machine learning backend. MDL-61232 retired admin/process_email.php. None of these affect typical production sites, but they matter if your setup relied on any of them.
+
+## What is new in Moodle 5.0
+
+### Centralised course overview page
+
+The most visible change for students and teachers is the new course activities overview page (MDL-83871). Instead of navigating to each activity's index page, users get a unified view across all activities in a course. It uses on-demand tables (MDL-83872) so the page does not load everything at once, and it includes alert counting (MDL-84602) so teachers can see at a glance which activities need attention.
+
+The Feedback, Assignment, and Workshop activity indexes were all migrated into this overview (MDL-83892, MDL-83888, MDL-83901). Activity icons now include purpose colouring (MDL-84555) to distinguish activity types visually.
+
+### AI improvements
+
+Moodle 5.0 expanded the AI subsystem in four directions:
+
+- A new Ollama provider (MDL-83006), letting sites run local language models without sending data to an external API
+- Support for multiple provider instances (MDL-82977), so different AI placements can use different models or providers
+- Per-model settings (MDL-82980) and provider ordering (MDL-83216)
+- Admin reporting on AI usage and policy acceptance (MDL-83395, MDL-83396)
+
+The Ollama addition is practically significant for institutions with strict data residency requirements. Running a local model means learner content stays on your infrastructure. For a realistic view of which AI features in an LMS actually help versus which ones are mostly demo material, see [AI in an LMS: what actually helps](/blog/ai-in-an-lms-what-actually-helps).
+
+### Open Badges 3.0
+
+MDL-82905 and related tickets updated Moodle's badge system toward the Open Badges 3.0 specification. The badge creation form was reorganised and simplified (MDL-84577), image author fields were removed (MDL-83909), and the badges report was improved to display criteria clearly (MDL-82904, MDL-82905).
+
+### SMS notifications
+
+Moodle 5.0 added SMS as a notification channel (MDL-83518). Assignment notifications were the first to use it. The Modica SMS gateway plugin was included (MDL-79329), and asynchronous delivery support was added so SMS sends do not block the request cycle (MDL-81015).
+
+### Bootstrap 5
+
+MDL-75669 upgraded the Boost theme to Bootstrap 5.x. This is a significant internal change. Bootstrap 4 and Bootstrap 5 have different class naming, different JavaScript data-attribute conventions, and different grid behaviour. Moodle included compatibility layers for both (MDL-84324 for jQuery, MDL-84450 for data-attributes, MDL-80519 for SCSS) so existing custom themes and plugins do not break immediately, but those shims are transitional. Custom themes that relied on Bootstrap 4 internals need updating.
+
+### Quiz and question bank improvements
+
+The question bank in 5.0 got a significant filter expansion. You can now filter by modified time, question ID, name, type, status, modifier, owner, and question text or feedback content (MDL-83859 through MDL-83863, MDL-84191). Shared question banks also became more usable, with non-editing teacher roles gaining "use questions" capability by default (MDL-84576).
+
+New quiz attempt states and asynchronous attempt creation (MDL-68806) allow quizzes to start without blocking on database writes, which matters for large concurrent exam sessions.
+
+### Gradebook and assignment
+
+MDL-80984 implemented generic penalties in the gradebook, replacing activity-specific penalty logic with a consistent approach across modules. Assignment got submission confirmation with file lists (MDL-84387), additional data fields for notification customisation (MDL-84733), and a "Graded" status filter on the submissions page (MDL-75292).
+
+### Multi-factor authentication
+
+MFA setup pages were improved significantly (MDL-83516, MDL-79958). The factor table now shows more useful information for admins, and each factor's settings page includes explanations of what the factor does and why it might be configured a certain way. Setup feedback for security keys was also clarified (MDL-81285, MDL-81551).
+
+### Usability changes worth noting
+
+Notification settings now save automatically when you toggle a switch (MDL-73909). The messaging interface warns if you try to leave with an unsent message (MDL-82944). The activity completion page uses collapsible sections (MDL-84208). Ad hoc task management got an improved display with fail delay visibility and the ability to reset it (MDL-81780).
+
+## Upgrade checklist for sites passing through Moodle 5.0
+
+If your current version is 4.2.3 or later and you are upgrading to a 5.x release, this is the sequence that avoids surprises.
+
+**Before you start:**
+
+- Confirm PHP is 8.2 or later, 64-bit, with the sodium extension loaded and max_input_vars at 5000 or above
+- Confirm your database version meets the 5.0 floors (PostgreSQL 14, MySQL 8.4, MariaDB 10.11)
+- Check every active plugin against the Moodle plugins directory for 5.0 compatibility
+- List any use of Atto, Chat, Survey, auth_cas, or MNet, and resolve those before upgrading
+- If running Oracle, plan a full database migration to a supported engine first
+- Verify your database prefix is 10 characters or shorter
+
+**During the upgrade:**
+
+- Back up the Moodle code directory, moodledata, and the database before touching anything
+- Put the site in maintenance mode
+- Replace code cleanly rather than copying over the existing directory
+- Run the upgrade via CLI for production sites: `php admin/cli/upgrade.php`
+- Purge all caches after the upgrade completes
+
+**After the upgrade:**
+
+- Test login for each role: admin, teacher, student
+- Test the activities that were migrated to the new course overview (Assignment, Workshop, Feedback)
+- Verify TinyMCE renders and saves correctly in your most-used activities
+- Check any SSO integration if you were using auth_cas
+- Confirm cron is running and scheduled tasks are completing
+
+For sites going directly to 5.2 rather than stopping at 5.0, also read the [Moodle 5.2 upgrade guide](/blog/moodle-5-2-upgrade-guide). The 5.1 public directory change and router requirement layer on top of what 5.0 introduced.
+
+## Should you stop at 5.0 or go straight to 5.2?
+
+Do not stop at 5.0. It is already end of life and receives no bug fixes or security patches. If you are planning an upgrade now, target 5.2 or whatever the current supported release is at the time of your upgrade. Use 5.0 only as an intermediate waypoint if your upgrade path requires it, then continue immediately.
+
+The requirement floors stay the same between 5.0 and 5.2, with one exception: Moodle 5.2 raised the PHP minimum to 8.3 and the PostgreSQL minimum to 16. Get those in place on staging and you can validate both releases in one test cycle.
+
+## FAQ
+
+### Can I upgrade directly to Moodle 5.0 from Moodle 4.1?
+
+No. Moodle 5.0 requires an upgrade source of Moodle 4.2.3 or later. Upgrade to a supported 4.2.x or later version first.
+
+### Is Moodle 5.0 still receiving security patches?
+
+No. Moodle 5.0 is end of life. It is listed as an unsupported version on moodle.org. If you are on 5.0, upgrade to a supported release.
+
+### Will my Atto-based content break after upgrading to 5.0?
+
+Content stored by Atto is HTML that Moodle saved to the database. That HTML does not disappear on upgrade. What changes is the editor used to create new content and the editing experience for existing content. Content should render correctly; the editing interface is TinyMCE.
+
+### Do I need to migrate from Oracle before upgrading?
+
+Yes. Oracle support was removed in Moodle 5.0. If you run the upgrade with an Oracle database, the installer will stop. You need to migrate your data to PostgreSQL, MySQL, or MariaDB first.
+
+### What replaces Chat and Survey?
+
+Moodle does not ship replacements as core activities. The typical alternatives are third-party plugins from the Moodle plugins directory, or external tools integrated via LTI. For chat, BigBlueButton (which received its own improvements in 5.0) covers some use cases. For survey-style data collection, the Feedback activity covers many of the same scenarios.
+
+### Does Bootstrap 5 break my custom theme?
+
+Possibly, depending on how the theme is built. Moodle included compatibility layers for Bootstrap 4 to 5 transitions, but those cover the main breaking changes, not every edge case. Custom themes that use Bootstrap 4 internals directly should be tested against 5.0 on staging before production.
+
+### Is the new AI subsystem mandatory?
+
+No. The AI features in Moodle 5.0 are opt-in. They require configuration of a provider (Ollama for local, or another supported external provider) and explicit enablement. A site with no AI provider configured does not expose AI features to users.
