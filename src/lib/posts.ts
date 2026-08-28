@@ -34,20 +34,7 @@ export const posts: Post[] = [
     category: "Moodle",
     relatedServiceSlug: "custom-lms-development",
     relatedAlternativeSlugs: ["moodle"],
-    relatedPostSlugs: ["moodle-5-2-upgrade-guide", "ai-in-an-lms-what-actually-helps", "sso-options-for-learning-platforms"],
-    authorSlug: "choaib-mouhrach",
-  },
-  {
-    slug: "moodle-5-2-upgrade-guide",
-    title: "Moodle 5.1 to 5.2 Upgrade Guide",
-    description:
-      "Upgrade Moodle 5.1 to 5.2 safely with checks for PHP, databases, the public directory, router rules, Composer dependencies, plugin compatibility, caches, and post-upgrade workflows.",
-    date: "2026-08-10",
-    readTime: "10 min read",
-    category: "Moodle",
-    relatedServiceSlug: "custom-lms-development",
-    relatedAlternativeSlugs: ["moodle"],
-    relatedPostSlugs: ["moodle-router-not-correctly-configured", "moodle-vendor-directory-not-found", "moodle-file-picker-stuck-loading"],
+    relatedPostSlugs: ["ai-in-an-lms-what-actually-helps", "sso-options-for-learning-platforms"],
     authorSlug: "choaib-mouhrach",
   },
   {
@@ -60,7 +47,7 @@ export const posts: Post[] = [
     category: "Moodle",
     relatedServiceSlug: "custom-lms-development",
     relatedAlternativeSlugs: ["moodle"],
-    relatedPostSlugs: ["moodle-5-2-upgrade-guide", "moodle-5-2-shared-hosting", "moodle-file-picker-stuck-loading"],
+    relatedPostSlugs: ["moodle-5-2-shared-hosting", "moodle-file-picker-stuck-loading"],
     authorSlug: "choaib-mouhrach",
   },
   {
@@ -73,7 +60,7 @@ export const posts: Post[] = [
     category: "Moodle",
     relatedServiceSlug: "custom-lms-development",
     relatedAlternativeSlugs: ["moodle"],
-    relatedPostSlugs: ["moodle-5-2-upgrade-guide", "moodle-router-not-correctly-configured", "moodle-vendor-directory-not-found"],
+    relatedPostSlugs: ["moodle-router-not-correctly-configured", "moodle-vendor-directory-not-found"],
     authorSlug: "choaib-mouhrach",
   },
   {
@@ -86,7 +73,7 @@ export const posts: Post[] = [
     category: "Moodle",
     relatedServiceSlug: "custom-lms-development",
     relatedAlternativeSlugs: ["moodle"],
-    relatedPostSlugs: ["moodle-5-2-upgrade-guide", "moodle-5-2-shared-hosting", "moodle-router-not-correctly-configured"],
+    relatedPostSlugs: ["moodle-5-2-shared-hosting", "moodle-router-not-correctly-configured"],
     authorSlug: "choaib-mouhrach",
   },
   {
@@ -99,7 +86,7 @@ export const posts: Post[] = [
     category: "Moodle",
     relatedServiceSlug: "custom-lms-development",
     relatedAlternativeSlugs: ["moodle"],
-    relatedPostSlugs: ["moodle-5-2-upgrade-guide", "moodle-router-not-correctly-configured", "what-a-smooth-lms-migration-actually-looks-like"],
+    relatedPostSlugs: ["moodle-router-not-correctly-configured", "what-a-smooth-lms-migration-actually-looks-like"],
     authorSlug: "choaib-mouhrach",
   },
   {
@@ -112,7 +99,7 @@ export const posts: Post[] = [
     category: "Moodle",
     relatedServiceSlug: "custom-lms-development",
     relatedAlternativeSlugs: ["moodle"],
-    relatedPostSlugs: ["moodle-5-2-upgrade-guide", "moodle-router-not-correctly-configured", "moodle-vendor-directory-not-found"],
+    relatedPostSlugs: ["moodle-router-not-correctly-configured", "moodle-vendor-directory-not-found"],
     authorSlug: "choaib-mouhrach",
   },
   {
@@ -467,12 +454,6 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
       readTime: "10 Min. Lesezeit",
       category: "Moodle",
     },
-    "moodle-5-2-upgrade-guide": {
-      title: "Moodle 5.1 auf 5.2 aktualisieren: Upgrade-Leitfaden",
-      description: "Aktualisieren Sie Moodle 5.1 auf 5.2 mit Checks für PHP, Datenbank, public-Verzeichnis, Router, Composer, Plugins, Caches und Produktion.",
-      readTime: "9 Min. Lesezeit",
-      category: "Moodle",
-    },
     "moodle-router-not-correctly-configured": {
       title: "Moodle 5.2 Router nicht korrekt konfiguriert",
       description: "So beheben Sie Moodle-5.2-Routerfehler mit public-Verzeichnis, r.php, Apache PHP-FPM, FallbackResource, Nginx und Shared Hosting.",
@@ -615,12 +596,6 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
       title: "Notes de version Moodle 5.0 et guide de mise à niveau",
       description: "Moodle 5.0 est sorti en avril 2025 et est déjà en fin de vie, mais ses changements d'exigences se propagent : PHP 8.2, seuils de bases de données rehaussés, Bootstrap 5, et suppression définitive d'Atto, Oracle, Chat, Survey et MNet.",
       readTime: "10 min de lecture",
-      category: "Moodle",
-    },
-    "moodle-5-2-upgrade-guide": {
-      title: "Mettre Moodle 5.1 à niveau vers 5.2 : guide pratique",
-      description: "Mettez Moodle 5.1 à niveau vers 5.2 avec les bons contrôles PHP, base de données, public, routeur, Composer, plugins, caches et production.",
-      readTime: "9 min de lecture",
       category: "Moodle",
     },
     "moodle-router-not-correctly-configured": {
@@ -778,12 +753,6 @@ const localizedPostFields: Partial<Record<Exclude<Locale, "en">, Record<string, 
       readTime: "10 min de lectura",
       category: "Moodle",
     },
-    "moodle-5-2-upgrade-guide": {
-      title: "Cómo actualizar Moodle 5.1 a 5.2 sin romper producción",
-      description: "Actualiza Moodle 5.1 a 5.2 revisando PHP, base de datos, public, router, Composer, plugins, cachés y pruebas antes de producción.",
-      readTime: "9 min de lectura",
-      category: "Moodle",
-    },
     "moodle-router-not-correctly-configured": {
       title: "Moodle 5.2: el router no está configurado correctamente",
       description: "Arregla errores de router en Moodle 5.2 con public, r.php, Apache PHP-FPM, FallbackResource, Nginx y límites del hosting compartido.",
@@ -933,7 +902,6 @@ const localizedPostLoaders: Partial<
 > = {
   de: {
     "moodle-5-0-release-notes-and-upgrade-guide": () => import("@/content/blog/de/moodle-5-0-release-notes-and-upgrade-guide.mdx"),
-    "moodle-5-2-upgrade-guide": () => import("@/content/blog/de/moodle-5-2-upgrade-guide.mdx"),
     "moodle-router-not-correctly-configured": () => import("@/content/blog/de/moodle-router-not-correctly-configured.mdx"),
     "moodle-5-2-windows-install": () => import("@/content/blog/de/moodle-5-2-windows-install.mdx"),
     "moodle-vendor-directory-not-found": () => import("@/content/blog/de/moodle-vendor-directory-not-found.mdx"),
@@ -966,7 +934,6 @@ const localizedPostLoaders: Partial<
   },
   fr: {
     "moodle-5-0-release-notes-and-upgrade-guide": () => import("@/content/blog/fr/moodle-5-0-release-notes-and-upgrade-guide.mdx"),
-    "moodle-5-2-upgrade-guide": () => import("@/content/blog/fr/moodle-5-2-upgrade-guide.mdx"),
     "moodle-router-not-correctly-configured": () => import("@/content/blog/fr/moodle-router-not-correctly-configured.mdx"),
     "moodle-5-2-windows-install": () => import("@/content/blog/fr/moodle-5-2-windows-install.mdx"),
     "moodle-vendor-directory-not-found": () => import("@/content/blog/fr/moodle-vendor-directory-not-found.mdx"),
@@ -999,7 +966,6 @@ const localizedPostLoaders: Partial<
   },
   es: {
     "moodle-5-0-release-notes-and-upgrade-guide": () => import("@/content/blog/es/moodle-5-0-release-notes-and-upgrade-guide.mdx"),
-    "moodle-5-2-upgrade-guide": () => import("@/content/blog/es/moodle-5-2-upgrade-guide.mdx"),
     "moodle-router-not-correctly-configured": () => import("@/content/blog/es/moodle-router-not-correctly-configured.mdx"),
     "moodle-5-2-windows-install": () => import("@/content/blog/es/moodle-5-2-windows-install.mdx"),
     "moodle-vendor-directory-not-found": () => import("@/content/blog/es/moodle-vendor-directory-not-found.mdx"),
@@ -1065,7 +1031,6 @@ export async function getPostContent(slug: string, locale: Locale) {
     const contentLoaders: Record<string, () => Promise<{ default: ComponentType }>> = {
       "lms-reporting-and-analytics-what-you-actually-need": () => import("@/content/blog/lms-reporting-and-analytics-what-you-actually-need.mdx"),
       "moodle-5-0-release-notes-and-upgrade-guide": () => import("@/content/blog/moodle-5-0-release-notes-and-upgrade-guide.mdx"),
-      "moodle-5-2-upgrade-guide": () => import("@/content/blog/moodle-5-2-upgrade-guide.mdx"),
       "moodle-router-not-correctly-configured": () => import("@/content/blog/moodle-router-not-correctly-configured.mdx"),
       "moodle-5-2-windows-install": () => import("@/content/blog/moodle-5-2-windows-install.mdx"),
       "moodle-vendor-directory-not-found": () => import("@/content/blog/moodle-vendor-directory-not-found.mdx"),
