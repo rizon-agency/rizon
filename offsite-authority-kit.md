@@ -8,7 +8,6 @@
 | Public brand | Rizon |
 | Website | https://rizon.agency |
 | Public email | contact@rizon.agency |
-| Phone | +212 728 170 617 |
 | Service area | Worldwide, remote delivery |
 | Physical address | Do not publish; Rizon does not operate from a client-facing location. |
 | Founder | Choaib Mouhrach |

@@ -23,8 +23,6 @@ export const AnalyticsEvent = {
   BookCall: "book-call",
   /** Any mailto: click. */
   EmailClick: "email-click",
-  /** Any tel: click. */
-  PhoneClick: "phone-click",
   /** The copy-email button in the contact section. */
   CopyEmail: "copy-email",
   /** Any CTA that sends the visitor to the #contact section. Carries `location`. */

@@ -402,14 +402,6 @@ export default async function LegalPage({
                 contact@rizon.agency
               </Link>
               <br />
-              Phone:{" "}
-              <a
-                href="tel:+212728170617"
-                data-umami-event={AnalyticsEvent.PhoneClick}
-              >
-                +212 728-170617
-              </a>
-              <br />
               Website:{" "}
               <Link
                 href="https://rizon.agency"
