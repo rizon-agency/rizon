@@ -30,4 +30,11 @@ B2B corporate and SME training platform teaching AI fundamentals, prompt enginee
 **Stack:** React, TypeScript, PostgreSQL, Hono, Redis, BullMQ
 [Read the case study](ai-literacy-lxp.md)
 
+## 05. Wavalid
+
+Real-time WhatsApp phone number validation for marketing and sales teams. Checks any number against WhatsApp in sub-100ms across 195+ countries, with batch uploads, a dashboard, REST API, and MCP server.
+
+**Stack:** Next.js, TypeScript, PostgreSQL
+[Read the case study](wavalid.md) · [Visit live site](https://wavalid.com)
+
 [Back to Rizon](../index.md)
