@@ -13,6 +13,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: "/work/wavalid", destination: "/products/wavalid", permanent: true },
+      { source: "/:locale(fr|es|de)/work/wavalid", destination: "/:locale/products/wavalid", permanent: true },
+    ];
+  },
 };
 
 const withMDX = createMDX({
