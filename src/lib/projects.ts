@@ -348,45 +348,6 @@ export const projects: Project[] = [
       }
     ]
   },
-  {
-    "slug": "wavalid",
-    title: { en: "Wavalid" },
-    "link": "https://wavalid.com",
-    description: {
-      en: "Real-time WhatsApp phone number validation for marketing and sales teams. Checks any number against WhatsApp in sub-100ms across 195+ countries, with batch uploads, a dashboard, REST API, and MCP server.",
-      fr: "Validation en temps réel de numéros de téléphone WhatsApp pour les équipes marketing et commerciales. Vérifie n'importe quel numéro sur WhatsApp en moins de 100ms dans plus de 195 pays, avec envois par lot, tableau de bord, API REST et serveur MCP.",
-      es: "Validación en tiempo real de números de teléfono de WhatsApp para equipos de marketing y ventas. Comprueba cualquier número en WhatsApp en menos de 100ms en más de 195 países, con carga por lotes, panel, API REST y servidor MCP.",
-      de: "Echtzeit-Validierung von WhatsApp-Telefonnummern für Marketing- und Vertriebsteams. Prüft jede Nummer in unter 100ms gegen WhatsApp in über 195 Ländern, mit Stapel-Uploads, Dashboard, REST-API und MCP-Server.",
-    },
-    problem: {
-      en: "Teams doing cold outreach on WhatsApp were wasting sends on numbers that were never registered on the platform, hurting deliverability and wasting budget on list cleaning tools that only checked format, not actual WhatsApp presence.",
-      fr: "Les équipes menant des campagnes de prospection sur WhatsApp gaspillaient des envois sur des numéros jamais enregistrés sur la plateforme, ce qui nuisait à la délivrabilité et gaspillait le budget sur des outils de nettoyage de listes qui ne vérifiaient que le format, pas la présence réelle sur WhatsApp.",
-      es: "Los equipos que hacían prospección en frío por WhatsApp desperdiciaban envíos en números que nunca estuvieron registrados en la plataforma, perjudicando la entregabilidad y malgastando presupuesto en herramientas de limpieza de listas que solo verificaban el formato, no la presencia real en WhatsApp.",
-      de: "Teams, die Kaltakquise über WhatsApp betrieben, verschwendeten Nachrichten an Nummern, die nie auf der Plattform registriert waren. Das schadete der Zustellbarkeit und verschwendete Budget für Listen-Tools, die nur das Format prüften, nicht die tatsächliche WhatsApp-Präsenz.",
-    },
-    solution: {
-      en: "We built a validation service that checks any phone number against WhatsApp in real time, sub-100ms, across 195+ countries. Users validate numbers one at a time or in bulk batches, track results on a dashboard with historical charts, and integrate via REST API, MCP server, or Chrome extension. Credit-based pricing with no subscriptions, and numbers are never sold or retained.",
-      fr: "Nous avons construit un service de validation qui vérifie n'importe quel numéro de téléphone sur WhatsApp en temps réel, en moins de 100ms, dans plus de 195 pays. Les utilisateurs valident des numéros un par un ou par lots, suivent les résultats sur un tableau de bord avec historique, et s'intègrent via API REST, serveur MCP ou extension Chrome. Tarification à base de crédits sans abonnement, et les numéros ne sont jamais vendus ni conservés.",
-      es: "Construimos un servicio de validación que comprueba cualquier número de teléfono en WhatsApp en tiempo real, en menos de 100ms, en más de 195 países. Los usuarios validan números uno a uno o por lotes, siguen los resultados en un panel con historial, y se integran vía API REST, servidor MCP o extensión de Chrome. Precios basados en créditos sin suscripciones, y los números nunca se venden ni se conservan.",
-      de: "Wir haben einen Validierungsdienst gebaut, der jede Telefonnummer in Echtzeit, in unter 100ms, in über 195 Ländern gegen WhatsApp prüft. Nutzer validieren Nummern einzeln oder in Stapeln, verfolgen Ergebnisse in einem Dashboard mit Verlauf und binden den Dienst über REST-API, MCP-Server oder Chrome-Erweiterung ein. Guthabenbasierte Preise ohne Abonnements, Nummern werden nie verkauft oder gespeichert.",
-    },
-    "year": "2026",
-    "preview": "/wavalid/landing-page.png",
-    "tech": [
-      "Next.js",
-      "TypeScript",
-      "PostgreSQL",
-    ],
-    "images": [
-      { "src": "/wavalid/landing-page.png", "width": 2880, "height": 1756 },
-      { "src": "/wavalid/dashboard.png", "width": 2880, "height": 1756 },
-      { "src": "/wavalid/batches.png", "width": 2880, "height": 1756 },
-      { "src": "/wavalid/batch-detail.png", "width": 2880, "height": 1756 },
-      { "src": "/wavalid/batch-detail-stats.png", "width": 2880, "height": 1756 },
-      { "src": "/wavalid/new-validation.png", "width": 2880, "height": 1756 },
-      { "src": "/wavalid/billing-pricing.png", "width": 2880, "height": 1756 },
-    ],
-  },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {

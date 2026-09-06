@@ -103,6 +103,7 @@ A hosted or open-source LMS is often the right choice. Build custom software whe
 ## Products
 
 - [RizonVO](products/rizonvo.md) — vertical SaaS for French used-vehicle dealers managing stock, livre de police, Cerfa 13751, invoices, costs, and TVA sur marge.
+- [Wavalid](products/wavalid.md) — real-time WhatsApp number validation for marketing and sales teams, sub-100ms across 195+ countries.
 
 ## Client feedback
 

@@ -16,7 +16,7 @@ const BASE_URL = "https://rizon.agency";
 const pageCopy = {
   home: { en: "Home", fr: "Accueil", es: "Inicio", de: "Startseite" },
   products: { en: "Products", fr: "Produits", es: "Productos", de: "Produkte" },
-  visitProduct: { en: "Visit RizonVO", fr: "Visiter RizonVO", es: "Visitar RizonVO", de: "RizonVO besuchen" },
+  visitProduct: { en: "Visit {name}", fr: "Visiter {name}", es: "Visitar {name}", de: "{name} besuchen" },
   discuss: { en: "Discuss vertical SaaS", fr: "Discuter SaaS métier", es: "Hablar de SaaS vertical", de: "Vertical SaaS besprechen" },
   whyEyebrow: { en: "Why this exists", fr: "Pourquoi ce produit", es: "Por qué existe", de: "Warum es das gibt" },
   whyTitle: {
@@ -34,10 +34,10 @@ const pageCopy = {
   },
   seoEyebrow: { en: "SEO role", fr: "Rôle SEO", es: "Rol SEO", de: "SEO-Rolle" },
   seoTitle: {
-    en: "Why mention RizonVO on Rizon at all?",
-    fr: "Pourquoi mentionner RizonVO sur Rizon ?",
-    es: "¿Por qué mencionar RizonVO en Rizon?",
-    de: "Warum RizonVO überhaupt auf Rizon erwähnen?",
+    en: "Why mention {name} on Rizon at all?",
+    fr: "Pourquoi mentionner {name} sur Rizon ?",
+    es: "¿Por qué mencionar {name} en Rizon?",
+    de: "Warum {name} überhaupt auf Rizon erwähnen?",
   },
 };
 
@@ -169,7 +169,7 @@ export default async function ProductLabPage({
               <div className="mt-7 flex flex-wrap gap-3">
                 <Button asChild>
                   <a href={product.liveUrl} target="_blank" rel="noopener noreferrer">
-                    {l(pageCopy.visitProduct, typedLocale)}
+                    {l(pageCopy.visitProduct, typedLocale).replace("{name}", product.name)}
                     <ArrowUpRight data-icon="inline-end" strokeWidth={1.75} aria-hidden />
                   </a>
                 </Button>
@@ -233,7 +233,7 @@ export default async function ProductLabPage({
                 {l(pageCopy.seoEyebrow, typedLocale)}
               </span>
               <h2 className="mt-5 text-4xl font-semibold tracking-tight text-balance">
-                {l(pageCopy.seoTitle, typedLocale)}
+                {l(pageCopy.seoTitle, typedLocale).replace("{name}", product.name)}
               </h2>
             </div>
             <div className="grid gap-5 lg:col-span-8">
