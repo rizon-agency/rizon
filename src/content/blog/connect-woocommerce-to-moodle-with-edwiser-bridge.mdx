@@ -1,0 +1,56 @@
+## Edwiser Bridge connects WooCommerce and Moodle by turning courses into products
+
+Edwiser Bridge is a WordPress plugin that links a Moodle site to WooCommerce so you can sell courses like any other product: cart, checkout, order history, all of it. Buy a course and the plugin creates (or matches) a Moodle account for the buyer and enrolls them, without anyone touching the Moodle admin screen. The free core plugin ([Edwiser Bridge on WordPress.org](https://wordpress.org/plugins/edwiser-bridge/)) handles the WordPress-to-Moodle link and single sign-on. A separate free extension, WooCommerce Integration, is what maps a Moodle course to a WooCommerce product ([Edwiser's WooCommerce integration overview](https://edwiser.org/bridge-wordpress-moodle-integration/extensions/woocommerce-integration/)).
+
+Two moving parts, one buyer experience: log in once, and the same session works on both the marketing site and the course itself.
+
+## What you need before you touch a plugin settings page
+
+| Requirement | Why it matters |
+| --- | --- |
+| WordPress with WooCommerce active | Edwiser Bridge is a WordPress plugin, not a Moodle plugin |
+| Admin access to the Moodle site | You'll enable web services and generate a token |
+| Moodle and WordPress can reach each other over HTTPS | The integration runs on Moodle's REST web service API |
+| A Moodle admin account to authorize the connection | The token is tied to a user, and that user needs the right capabilities |
+
+Edwiser Bridge doesn't require WordPress and Moodle to live on the same server, and one Moodle instance can serve more than one connected WordPress site if you're running several brands off a shared course library.
+
+## Enable web services on the Moodle side first
+
+The WordPress plugin can't do anything until Moodle is willing to talk to it. That setup happens in Moodle, not WordPress:
+
+1. **Turn on web services.** Site administration → Advanced features → check "Enable web services."
+2. **Enable the REST protocol.** Site administration → Plugins → Web services → Manage protocols → enable REST.
+3. **Create an external service** for Edwiser Bridge and mark it enabled and restricted to authorized users.
+4. **Generate a token** under Manage tokens, tied to an admin-role user and the service you just created.
+
+Moodle's own plugin documentation is direct about testing changes like this outside production first ([Moodle's plugin and web services guidance](https://docs.moodle.org/en/Installing_plugins)), and that applies here too: do this on a staging Moodle copy if you have one, because a bad token or a disabled protocol won't throw an obvious error, it'll just make the WordPress side report "invalid token" with no further explanation.
+
+## Connect the two sites, then map courses to products
+
+With the token in hand, install Edwiser Bridge on WordPress, paste the token and Moodle site URL into its connection settings, and run the test connection. Once that passes, install the WooCommerce Integration extension. It adds a "Moodle course" field to the WooCommerce product editor, pulling in the course title, description, image, and category automatically so you're not retyping content that already exists in Moodle.
+
+From there you can sell a course as a single product, group several into a bundle, or set it up as a variable product (a certificate track versus an audit-only track, for example). The Pro version extends this to all of WooCommerce's supported payment gateways, plus coupons and subscriptions; the free tier ships with PayPal only.
+
+## What actually happens when someone buys a course
+
+This is the part worth tracing end to end before you trust it with real customers, the same way you'd trace any integration that touches money and access:
+
+1. A customer completes checkout in WooCommerce.
+2. Edwiser Bridge checks whether that email already has a Moodle account. If not, it creates one.
+3. The plugin enrolls the account in the mapped Moodle course.
+4. The customer logs in once, on either site, and the session carries over.
+
+Refunds and cancellations should trigger un-enrollment, but that path is worth testing manually before launch rather than assuming it mirrors the purchase path exactly. The same is true for a customer who buys the same bundle twice, or whose WooCommerce email doesn't match an existing Moodle username. These edge cases don't show up in a demo checkout with one test course.
+
+## Where this pairing runs out of road
+
+Edwiser Bridge is built for selling individual or bundled courses off a single Moodle instance, and it does that job well. It starts to strain once the business logic gets specific: seat-based licenses for a company account, usage-based renewal instead of a flat one-time price, or a checkout flow that has to sync with an existing CRM or LMS-adjacent tool you already run. At that point you're not fighting the plugin, you're working around it, which is the same pattern behind [the hidden cost of revenue-share course platforms](/blog/hidden-cost-of-revenue-share-course-platforms): a tool that's cheap to start with can get expensive once your actual pricing model stops matching what it was built for.
+
+If single sign-on matters beyond WordPress and Moodle, for example a company portal or a separate app, it's worth reading how [SSO options for learning platforms](/blog/sso-options-for-learning-platforms) compare before you standardize on the plugin's built-in login sync.
+
+## When it's time to talk to someone about the build
+
+Edwiser Bridge is the right call for a straightforward course shop on top of Moodle. It's the wrong call once the checkout logic, licensing rules, or enrollment sources have outgrown what a plugin pairing was designed to handle, and that's usually where [custom LMS development](/services/custom-lms-development) or [a Moodle alternative built around your actual rules](/alternatives/moodle) becomes the cheaper long-term option, not the more expensive one.
+
+If you're not sure which side of that line you're on, [get in touch](/contact) and we'll look at your current setup before recommending anything.

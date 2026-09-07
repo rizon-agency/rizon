@@ -25,6 +25,19 @@ import ferpaEdtechCover from "@/assets/blog/ferpa-edtech-compliance.svg";
 
 export const posts: Post[] = [
   {
+    slug: "connect-woocommerce-to-moodle-with-edwiser-bridge",
+    title: "How to Connect WooCommerce to Moodle With Edwiser Bridge",
+    description:
+      "Edwiser Bridge links WooCommerce and Moodle so a course purchase creates the account and enrolls the buyer automatically. Here's the setup, the order-to-enrollment flow, and where the pairing runs out of road.",
+    date: "2026-09-07",
+    readTime: "5 min read",
+    category: "Integration",
+    relatedServiceSlug: "custom-lms-development",
+    relatedAlternativeSlugs: ["moodle"],
+    relatedPostSlugs: ["hidden-cost-of-revenue-share-course-platforms", "sso-options-for-learning-platforms"],
+    authorSlug: "choaib-mouhrach",
+  },
+  {
     slug: "moodle-5-0-release-notes-and-upgrade-guide",
     title: "Moodle 5.0 Release Notes and Upgrade Guide",
     description:
@@ -1029,6 +1042,7 @@ export function getPostsForLocale(locale: Locale): Post[] {
 export async function getPostContent(slug: string, locale: Locale) {
   if (locale === "en") {
     const contentLoaders: Record<string, () => Promise<{ default: ComponentType }>> = {
+      "connect-woocommerce-to-moodle-with-edwiser-bridge": () => import("@/content/blog/connect-woocommerce-to-moodle-with-edwiser-bridge.mdx"),
       "lms-reporting-and-analytics-what-you-actually-need": () => import("@/content/blog/lms-reporting-and-analytics-what-you-actually-need.mdx"),
       "moodle-5-0-release-notes-and-upgrade-guide": () => import("@/content/blog/moodle-5-0-release-notes-and-upgrade-guide.mdx"),
       "moodle-router-not-correctly-configured": () => import("@/content/blog/moodle-router-not-correctly-configured.mdx"),
