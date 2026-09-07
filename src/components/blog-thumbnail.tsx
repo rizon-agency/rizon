@@ -16,6 +16,12 @@ function titleSize(title: string) {
   return 60;
 }
 
+function webTitleSize(title: string) {
+  if (title.length > 76) return "clamp(0.85rem, 6.6cqw, 2.1rem)";
+  if (title.length > 58) return "clamp(0.85rem, 7.4cqw, 2.35rem)";
+  return "clamp(0.9rem, 9cqw, 2.65rem)";
+}
+
 function Wordmark({ mode }: { mode: "web" | "og" }) {
   const markSize = mode === "og" ? 38 : 22;
 
@@ -65,14 +71,17 @@ export function BlogThumbnail({
     position: "relative",
     width: isOg ? 1200 : "100%",
   };
-  if (!isOg) rootStyle.aspectRatio = "16 / 9";
+  if (!isOg) {
+    rootStyle.aspectRatio = "16 / 9";
+    rootStyle.containerType = "inline-size";
+  }
 
   const titleStyle: CSSProperties = {
     alignItems: "center",
     alignSelf: "center",
     display: "flex",
     flex: 1,
-    fontSize: isOg ? titleSize(title) : "clamp(1.15rem, 3.3vw, 2.65rem)",
+    fontSize: isOg ? titleSize(title) : webTitleSize(title),
     fontWeight: 650,
     justifyContent: "center",
     letterSpacing: "-0.045em",
