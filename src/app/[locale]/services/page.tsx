@@ -54,7 +54,21 @@ export default async function ServicesPage({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const t = await getTranslations("servicesPage");
-  const jsonLd = { "@context": "https://schema.org", "@type": "CollectionPage", name: t("schemaName"), url: localizedUrl("/services", locale), mainEntity: { "@type": "ItemList", itemListElement: services.map((service, index) => ({ "@type": "ListItem", position: index + 1, name: service.title, url: localizedUrl(`/services/${service.slug}`, locale) })) } };
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: t("schemaName"),
+    url: localizedUrl("/services", locale),
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: services.map((service, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: service.title,
+        url: localizedUrl(`/services/${service.slug}`, locale),
+      })),
+    },
+  };
   return (
     <>
       <script
@@ -62,7 +76,7 @@ export default async function ServicesPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <main className="pb-24 md:pb-32">
-        <section className="container pt-32 md:pt-40">
+        <section className="container cntr pt-32 md:pt-40">
           <div className="max-w-4xl">
             <Eyebrow>{t("eyebrow")}</Eyebrow>
             <h1 className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance md:text-6xl">
@@ -73,7 +87,7 @@ export default async function ServicesPage({
             </p>
           </div>
         </section>
-        <section className="container mt-16 md:mt-20">
+        <section className="container cntr mt-16 md:mt-20">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {services.map((service, index) => (
               <Link

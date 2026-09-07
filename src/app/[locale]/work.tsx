@@ -14,7 +14,7 @@ export const Work = () => {
   const t = useTranslations("work");
   const locale = useLocale() as Locale;
   return (
-    <section id="work" className="container mt-32 md:mt-40">
+    <section id="work" className="container mt-32 md:mt-40 cntr">
       <Reveal>
         <SectionHeader
           label={t("label")}
@@ -28,7 +28,10 @@ export const Work = () => {
         />
       </Reveal>
 
-      <RevealGroup stagger={0.12} className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
+      <RevealGroup
+        stagger={0.12}
+        className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2"
+      >
         {projects.map(({ slug, title, tech, description, preview }, index) => {
           const localTitle = l(title, locale);
           const localDesc = l(description, locale);

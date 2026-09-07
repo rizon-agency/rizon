@@ -21,7 +21,7 @@ const stepNumberKeys: StepNumberKey[] = ["1", "2", "3", "4", "5", "6"];
 export const HowWeWork = () => {
   const t = useTranslations("home.howWeWork");
   return (
-    <section id="how-we-work" className="container mt-32 md:mt-40">
+    <section id="how-we-work" className="container mt-32 md:mt-40 cntr">
       <Reveal>
         <SectionHeader
           label={t("label")}

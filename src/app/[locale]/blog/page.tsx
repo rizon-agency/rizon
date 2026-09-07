@@ -28,9 +28,24 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: localizedUrl(path, locale), languages: languagesFor(path) },
-    openGraph: { title: t("title"), description: t("description"), url: localizedUrl(path, locale), siteName: "Rizon", locale: OG_LOCALE[locale], type: "website" },
-    twitter: { card: "summary_large_image", title: t("title"), description: t("description"), creator: "@rizon_agency" },
+    alternates: {
+      canonical: localizedUrl(path, locale),
+      languages: languagesFor(path),
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: localizedUrl(path, locale),
+      siteName: "Rizon",
+      locale: OG_LOCALE[locale],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      creator: "@rizon_agency",
+    },
   };
 }
 
@@ -47,14 +62,11 @@ export default async function BlogPage({
   return (
     <>
       <main>
-        <section className="container pt-32 md:pt-40">
-          <SectionHeader
-            label={t("eyebrow")}
-            title={t("title")}
-          />
+        <section className="container cntr pt-32 md:pt-40 ">
+          <SectionHeader label={t("eyebrow")} title={t("title")} />
         </section>
 
-        <section className="container mt-16">
+        <section className="container cntr mt-16 ">
           <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:gap-x-12">
             {posts.map((post) => (
               <BlogCard key={post.slug} post={post} />

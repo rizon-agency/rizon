@@ -11,7 +11,7 @@ export const AlternativesPreview = async () => {
   const t = await getTranslations("alternativesPreview");
   const featured = alternatives.slice(0, 3);
   return (
-    <section className="container mt-32 md:mt-40">
+    <section className="container mt-32 md:mt-40 cntr">
       <SectionHeader
         label={t("label")}
         title={t("title")}

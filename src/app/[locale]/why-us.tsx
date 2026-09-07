@@ -1,6 +1,13 @@
 "use client";
 
-import { Cpu, MonitorPlay, Radio, Scissors, MessageSquare, type LucideIcon } from "lucide-react";
+import {
+  Cpu,
+  MonitorPlay,
+  Radio,
+  Scissors,
+  MessageSquare,
+  type LucideIcon,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 import { SectionHeader } from "@/components/section-header";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
@@ -20,7 +27,7 @@ const reasonKeys: ReasonKey[] = ["tech", "demos", "live", "lean", "feedback"];
 export const WhyUs = () => {
   const t = useTranslations("home.whyUs");
   return (
-    <section id="why-us" className="container mt-32 md:mt-40">
+    <section id="why-us" className="container mt-32 md:mt-40 cntr">
       <Reveal>
         <SectionHeader
           label={t("label")}
@@ -34,7 +41,10 @@ export const WhyUs = () => {
         />
       </Reveal>
 
-      <RevealGroup stagger={0.1} className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
+      <RevealGroup
+        stagger={0.1}
+        className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2"
+      >
         {reasonKeys.map((key, index) => {
           const Icon = reasonIcons[key];
           return (

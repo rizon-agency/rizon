@@ -28,7 +28,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="container mt-32 md:mt-40">
+    <section id="contact" className="container mt-32 md:mt-40 cntr">
       <Reveal>
         <SectionHeader
           label={t("label")}

@@ -6,7 +6,11 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Footer } from "../../footer";
 import { projects, getProjectBySlug } from "@/lib/projects";
-import { Breadcrumb, breadcrumbJsonLd, type Crumb } from "@/components/breadcrumb";
+import {
+  Breadcrumb,
+  breadcrumbJsonLd,
+  type Crumb,
+} from "@/components/breadcrumb";
 
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -123,12 +127,14 @@ export default async function ProjectPage({
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(crumbs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd(crumbs)),
+        }}
       />
 
       <main>
         {/* Header */}
-        <section className="container pt-24 md:pt-28">
+        <section className="container pt-24 md:pt-28 cntr">
           <Breadcrumb items={crumbs} />
 
           <Link
@@ -196,7 +202,7 @@ export default async function ProjectPage({
         </section>
 
         {/* Lead image */}
-        <section className="container mt-12 md:mt-16">
+        <section className="container mt-12 md:mt-16 cntr">
           <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-muted md:aspect-[21/9]">
             <Image
               src={project.preview}
@@ -211,7 +217,7 @@ export default async function ProjectPage({
         </section>
 
         {/* Problem / Solution */}
-        <section className="container mt-32 md:mt-40">
+        <section className="container mt-32 md:mt-40 cntr">
           <div className="grid grid-cols-1 border-t border-border md:grid-cols-2">
             <article className="border-b border-border py-10 md:border-b-0 md:border-r md:py-12 md:pr-12">
               <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground/70">
@@ -238,14 +244,15 @@ export default async function ProjectPage({
         </section>
 
         {/* Gallery */}
-        <section className="container mt-32 md:mt-40">
+        <section className="container mt-32 md:mt-40 cntr">
           <div className="flex items-end justify-between gap-6 border-b border-border pb-6">
             <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
               <span className="h-px w-8 bg-primary" aria-hidden />
               {t("insideBuild")}
             </span>
             <span className="font-mono text-xs tabular-nums text-muted-foreground/60">
-              {String(project.images.length).padStart(2, "0")} {t("framesLabel")}
+              {String(project.images.length).padStart(2, "0")}{" "}
+              {t("framesLabel")}
             </span>
           </div>
 
@@ -269,7 +276,8 @@ export default async function ProjectPage({
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="h-px w-6 bg-border" aria-hidden />
-                  {projectTitle} — {t("viewOf", { n: i + 1, total: project.images.length })}
+                  {projectTitle} —{" "}
+                  {t("viewOf", { n: i + 1, total: project.images.length })}
                 </figcaption>
               </figure>
             ))}
@@ -277,7 +285,7 @@ export default async function ProjectPage({
         </section>
 
         {/* CTA */}
-        <section className="container mt-32 md:mt-40">
+        <section className="container mt-32 md:mt-40 cntr">
           <div className="grid grid-cols-1 items-end gap-x-12 gap-y-8 border-t border-border pt-14 lg:grid-cols-12">
             <h2 className="text-3xl font-semibold tracking-tight leading-[1.05] text-balance lg:col-span-8 md:text-4xl">
               {t("ctaTitle")}
@@ -300,7 +308,7 @@ export default async function ProjectPage({
         </section>
 
         {/* Next project */}
-        <section className="container mt-20">
+        <section className="container mt-20 cntr">
           <Link
             href={`/work/${next.slug}`}
             className="group relative block border-t border-border py-10"

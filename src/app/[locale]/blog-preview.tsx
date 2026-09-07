@@ -14,7 +14,7 @@ export const BlogPreview = () => {
   const locale = useLocale() as import("@/i18n/routing").Locale;
   const preview = getPostsForLocale(locale).slice(0, 3);
   return (
-    <section id="blog" className="container mt-32 md:mt-40">
+    <section id="blog" className="container mt-32 md:mt-40 cntr">
       <Reveal>
         <div className="flex items-end justify-between gap-6">
           <SectionHeader
@@ -22,7 +22,9 @@ export const BlogPreview = () => {
             title={
               <>
                 {t("titlePrefix")}{" "}
-                <span className="text-primary italic">{t("titleHighlight")}</span>
+                <span className="text-primary italic">
+                  {t("titleHighlight")}
+                </span>
               </>
             }
           />

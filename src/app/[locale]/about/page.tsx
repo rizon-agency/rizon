@@ -73,13 +73,48 @@ const principleIcons: Record<PrincipleKey, LucideIcon> = {
 
 const principleKeys: PrincipleKey[] = ["small", "direct", "code"];
 
-type ProofKey = "focus" | "specialists" | "lti" | "customLms" | "ownership" | "global";
-const proofKeys: ProofKey[] = ["focus", "specialists", "lti", "customLms", "ownership", "global"];
+type ProofKey =
+  | "focus"
+  | "specialists"
+  | "lti"
+  | "customLms"
+  | "ownership"
+  | "global";
+const proofKeys: ProofKey[] = [
+  "focus",
+  "specialists",
+  "lti",
+  "customLms",
+  "ownership",
+  "global",
+];
 
 type CapabilityIndex =
-  | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11";
+  | "0"
+  | "1"
+  | "2"
+  | "3"
+  | "4"
+  | "5"
+  | "6"
+  | "7"
+  | "8"
+  | "9"
+  | "10"
+  | "11";
 const capabilityIndexes: CapabilityIndex[] = [
-  "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "11",
 ];
 
 const heroTags = ["Custom LMS", "LTI", "Moodle", "Canvas", "Course platforms"];
@@ -132,7 +167,7 @@ export default async function AboutPage({
       />
       <main className="pb-24 md:pb-32">
         {/* Hero */}
-        <section className="container pt-28 md:pt-36">
+        <section className="container pt-28 md:pt-36 cntr">
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
               <Eyebrow>{t("hero.eyebrow")}</Eyebrow>
@@ -181,7 +216,7 @@ export default async function AboutPage({
         </section>
 
         {/* About Rizon */}
-        <section className="mt-24 md:mt-32">
+        <section className="mt-24 md:mt-32 cntr">
           <div className="bg-tint py-20 md:py-28">
             <div className="container">
               <div className="max-w-3xl">
@@ -222,7 +257,7 @@ export default async function AboutPage({
         </section>
 
         {/* How we build */}
-        <section className="container mt-24 md:mt-32">
+        <section className="container mt-24 md:mt-32 cntr">
           <div className="max-w-2xl">
             <Eyebrow>{t("howWeBuild.eyebrow")}</Eyebrow>
             <h2 className="mt-6 text-4xl font-semibold tracking-tight text-balance md:text-5xl">
@@ -251,7 +286,7 @@ export default async function AboutPage({
         </section>
 
         {/* What we've built */}
-        <section className="container mt-24 md:mt-32">
+        <section className="container mt-24 md:mt-32 cntr">
           <div className="max-w-2xl">
             <Eyebrow>{t("capabilitiesSection.eyebrow")}</Eyebrow>
             <h2 className="mt-6 text-4xl font-semibold tracking-tight text-balance md:text-5xl">
@@ -275,7 +310,7 @@ export default async function AboutPage({
         </section>
 
         {/* CTA */}
-        <section className="container mt-24 md:mt-32">
+        <section className="container mt-24 md:mt-32 cntr">
           <div className="relative overflow-hidden rounded-3xl bg-primary px-6 py-16 text-primary-foreground md:px-14 md:py-20">
             <div
               aria-hidden

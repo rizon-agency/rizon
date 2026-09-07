@@ -29,7 +29,7 @@ export const Footer = async () => {
   const tFooter = await getTranslations("footer");
   return (
     <footer className="mt-32 bg-primary text-primary-foreground md:mt-40">
-      <div className="container">
+      <div className="container cntr">
         <div className="grid grid-cols-1 gap-x-12 gap-y-12 py-16 lg:grid-cols-12 md:py-20">
           <div className="lg:col-span-4">
             <Link href="/" className="inline-block">
@@ -57,7 +57,9 @@ export const Footer = async () => {
                         }
                       : {})}
                   >
-                    {link.key === "getInTouch" || link.key === "howWeWork" || link.key === "whyUsShort"
+                    {link.key === "getInTouch" ||
+                    link.key === "howWeWork" ||
+                    link.key === "whyUsShort"
                       ? tFooter(link.key)
                       : tNav(link.key)}
                   </Link>
@@ -67,19 +69,42 @@ export const Footer = async () => {
           </nav>
 
           <nav className="lg:col-span-2" aria-label={tFooter("compare")}>
-            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/50">{tFooter("compare")}</h2>
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/50">
+              {tFooter("compare")}
+            </h2>
             <ul className="mt-5 space-y-3">
-              {alternatives.slice(0, 4).map((alternative) => <li key={alternative.slug}><Link href={`/alternatives/${alternative.slug}`} className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground">{alternative.competitor}</Link></li>)}
-              <li><Link href="/lms-alternatives" className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground">{tFooter("allAlternatives")}</Link></li>
+              {alternatives.slice(0, 4).map((alternative) => (
+                <li key={alternative.slug}>
+                  <Link
+                    href={`/alternatives/${alternative.slug}`}
+                    className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground"
+                  >
+                    {alternative.competitor}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/lms-alternatives"
+                  className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground"
+                >
+                  {tFooter("allAlternatives")}
+                </Link>
+              </li>
             </ul>
           </nav>
 
           <nav className="lg:col-span-2" aria-label={tFooter("products")}>
-            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/50">{tFooter("products")}</h2>
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground/50">
+              {tFooter("products")}
+            </h2>
             <ul className="mt-5 space-y-3">
               {productLabs.map((product) => (
                 <li key={product.slug}>
-                  <Link href={`/products/${product.slug}`} className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground">
+                  <Link
+                    href={`/products/${product.slug}`}
+                    className="text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground"
+                  >
                     {product.name}
                   </Link>
                 </li>
@@ -114,7 +139,13 @@ export const Footer = async () => {
                 </Link>
               ))}
             </div>
-            <a href="mailto:contact@rizon.agency" data-umami-event={AnalyticsEvent.EmailClick} className="mt-5 inline-block text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground">contact@rizon.agency</a>
+            <a
+              href="mailto:contact@rizon.agency"
+              data-umami-event={AnalyticsEvent.EmailClick}
+              className="mt-5 inline-block text-[15px] text-primary-foreground/80 transition-colors hover:text-primary-foreground"
+            >
+              contact@rizon.agency
+            </a>
           </div>
         </div>
 

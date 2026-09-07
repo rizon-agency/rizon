@@ -138,7 +138,7 @@ export default async function ServiceDetailPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <main>
-        <section className="container pt-24 md:pt-28">
+        <section className="container cntr pt-24 md:pt-28">
           <Breadcrumb items={crumbs} />
           <div className="mt-10 max-w-4xl">
             <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">
@@ -164,7 +164,7 @@ export default async function ServiceDetailPage({
             </Button>
           </div>
         </section>
-        <section className="container mt-24 md:mt-32">
+        <section className="container cntr mt-24 md:mt-32">
           <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
@@ -193,7 +193,7 @@ export default async function ServiceDetailPage({
             </div>
           </div>
         </section>
-        <section className="container mt-24 md:mt-32">
+        <section className="container cntr mt-24 md:mt-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
               {t("problemsWeSolve.label")}
@@ -218,7 +218,7 @@ export default async function ServiceDetailPage({
             ))}
           </div>
         </section>
-        <section className="container mt-24 md:mt-32">
+        <section className="container cntr mt-24 md:mt-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
               {t("capabilities.label")}
@@ -246,7 +246,7 @@ export default async function ServiceDetailPage({
             ))}
           </div>
         </section>
-        <section className="container mt-24 md:mt-32">
+        <section className="container cntr mt-24 md:mt-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
               {t("process.label")}
@@ -274,7 +274,7 @@ export default async function ServiceDetailPage({
             ))}
           </div>
         </section>
-        <section className="container mt-24 md:mt-32">
+        <section className="container cntr mt-24 md:mt-32">
           <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
@@ -287,10 +287,7 @@ export default async function ServiceDetailPage({
             <div className="lg:col-span-7 lg:col-start-6">
               <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {local(service.included).map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-3 text-muted-foreground"
-                  >
+                  <li key={item} className="flex gap-3 text-muted-foreground">
                     <Check
                       size={19}
                       className="mt-1 shrink-0 text-primary"
@@ -303,7 +300,7 @@ export default async function ServiceDetailPage({
             </div>
           </div>
         </section>
-        <section className="container mt-24 md:mt-32">
+        <section className="container cntr mt-24 md:mt-32">
           <div className="surface px-6 py-10 md:px-10 md:py-14">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
               {t("budget.label")}
@@ -319,12 +316,14 @@ export default async function ServiceDetailPage({
             </p>
             {service.stat && (
               <div className="mt-10">
-                <StatBlock stat={{ ...service.stat, label: local(service.stat.label) }} />
+                <StatBlock
+                  stat={{ ...service.stat, label: local(service.stat.label) }}
+                />
               </div>
             )}
           </div>
         </section>
-        <section className="container mt-24 md:mt-32">
+        <section className="container cntr mt-24 md:mt-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
               {t("afterLaunch.label")}
@@ -338,7 +337,7 @@ export default async function ServiceDetailPage({
           </div>
         </section>
         {(relatedAlternatives.length > 0 || relatedPosts.length > 0) && (
-          <section className="container mt-24 md:mt-32">
+          <section className="container cntr mt-24 md:mt-32">
             <div className="grid grid-cols-1 gap-12 border-t border-border pt-10 lg:grid-cols-12">
               <div className="lg:col-span-4">
                 <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
@@ -383,7 +382,7 @@ export default async function ServiceDetailPage({
             </div>
           </section>
         )}
-        <section className="container mt-24 md:mt-32">
+        <section className="container cntr mt-24 md:mt-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
               {t("faq.label")}
@@ -408,7 +407,7 @@ export default async function ServiceDetailPage({
             ))}
           </div>
         </section>
-        <section className="container mt-24 md:mt-32">
+        <section className="container cntr mt-24 md:mt-32">
           <div className="rounded-3xl bg-primary px-6 py-14 text-primary-foreground md:px-12 md:py-20">
             <h2 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance md:text-5xl">
               {t("bottomCta.title")}

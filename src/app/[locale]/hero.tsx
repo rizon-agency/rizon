@@ -45,7 +45,7 @@ export const Hero = () => {
         />
 
         {/* Centered hero content, cleared below the overlaid navigation */}
-        <div className="container flex flex-1 flex-col items-center justify-center px-6 pt-28 pb-16 text-center sm:px-10 sm:pt-32 lg:px-16">
+        <div className="container flex flex-1 flex-col items-center justify-center px-6 pt-28 pb-16 text-center sm:px-10 sm:pt-32 lg:px-16 cntr">
           <motion.h1
             {...fade(0.25)}
             className="max-w-3xl text-[2rem] font-semibold leading-[1.08] tracking-tight text-balance text-white sm:max-w-2xl sm:text-5xl sm:leading-[1.05] md:max-w-3xl md:text-6xl lg:max-w-4xl lg:text-7xl lg:leading-[1.02]"
@@ -86,7 +86,7 @@ export const Hero = () => {
       </div>
 
       {/* Stats row below the card */}
-      <motion.div {...fade(0.7)} className="container mt-10">
+      <motion.div {...fade(0.7)} className="container mt-10 cntr">
         <dl className="grid grid-cols-1 border-border sm:grid-cols-3">
           {[
             {

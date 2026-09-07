@@ -90,54 +90,59 @@ export const Navigation = () => {
           : "border-b border-transparent"
       } ${overHero ? "pt-3 sm:pt-5" : ""}`}
     >
-      <div className="container">
+      <div className="container cntr">
         <div className="flex h-16 items-center justify-between gap-8">
           <Link
-          href="/#home"
-          onClick={(e) => handleAnchorClick(e, "home")}
-          className="shrink-0 text-xl font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        >
-          <LogoWithText
-            size={70}
-            className={overHero ? "text-white" : "text-primary"}
-          />
-        </Link>
+            href="/#home"
+            onClick={(e) => handleAnchorClick(e, "home")}
+            className="shrink-0 text-xl font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            <LogoWithText
+              size={70}
+              className={overHero ? "text-white" : "text-primary"}
+            />
+          </Link>
 
-        <nav className="hidden items-center md:flex" aria-label={t("primary")}>
-          {linkDefs.map((link) => (
-            <Link
-              key={link.id}
-              href={link.href}
-              onClick={link.isPage ? undefined : (e) => handleAnchorClick(e, link.id)}
-              aria-current={isActive(link) ? "page" : undefined}
-              className={`px-4 py-2 text-[13px] font-medium tracking-tight transition-colors duration-200 focus-visible:outline-none ${
-                overHero
-                  ? isActive(link)
-                    ? "text-white"
-                    : "text-white/70 hover:text-white focus-visible:text-white"
-                  : isActive(link)
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground focus-visible:text-foreground"
-              }`}
-            >
-              {t(link.key)}
-            </Link>
-          ))}
-        </nav>
+          <nav
+            className="hidden items-center md:flex"
+            aria-label={t("primary")}
+          >
+            {linkDefs.map((link) => (
+              <Link
+                key={link.id}
+                href={link.href}
+                onClick={
+                  link.isPage ? undefined : (e) => handleAnchorClick(e, link.id)
+                }
+                aria-current={isActive(link) ? "page" : undefined}
+                className={`px-4 py-2 text-[13px] font-medium tracking-tight transition-colors duration-200 focus-visible:outline-none ${
+                  overHero
+                    ? isActive(link)
+                      ? "text-white"
+                      : "text-white/70 hover:text-white focus-visible:text-white"
+                    : isActive(link)
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground focus-visible:text-foreground"
+                }`}
+              >
+                {t(link.key)}
+              </Link>
+            ))}
+          </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <LocaleSwitcher overHero={overHero} />
-          <Button asChild size="sm">
-            <Link
-              href="/#contact"
-              onClick={(e) => handleAnchorClick(e, "contact")}
-              data-umami-event={AnalyticsEvent.ContactCta}
-              data-umami-event-location="nav"
-            >
-              {t("bookACall")}
-            </Link>
-          </Button>
-        </div>
+          <div className="hidden items-center gap-3 md:flex">
+            <LocaleSwitcher overHero={overHero} />
+            <Button asChild size="sm">
+              <Link
+                href="/#contact"
+                onClick={(e) => handleAnchorClick(e, "contact")}
+                data-umami-event={AnalyticsEvent.ContactCta}
+                data-umami-event-location="nav"
+              >
+                {t("bookACall")}
+              </Link>
+            </Button>
+          </div>
 
           <MobileNav activeId={activeId} overHero={overHero} />
         </div>

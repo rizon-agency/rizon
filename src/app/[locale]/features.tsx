@@ -29,21 +29,32 @@ const categoryDefs: {
 }[] = [
   { key: "ai", icon: Sparkles, itemIndexes: ["0", "1", "2", "3", "4"] },
   { key: "engagement", icon: Trophy, itemIndexes: ["0", "1", "2", "3", "4"] },
-  { key: "content", icon: BookOpen, itemIndexes: ["0", "1", "2", "3", "4", "5"] },
+  {
+    key: "content",
+    icon: BookOpen,
+    itemIndexes: ["0", "1", "2", "3", "4", "5"],
+  },
   { key: "tracking", icon: BarChart3, itemIndexes: ["0", "1", "2", "3", "4"] },
   {
     key: "usability",
     icon: MonitorSmartphone,
     itemIndexes: ["0", "1", "2", "3", "4"],
   },
-  { key: "security", icon: ShieldCheck, itemIndexes: ["0", "1", "2", "3", "4"] },
+  {
+    key: "security",
+    icon: ShieldCheck,
+    itemIndexes: ["0", "1", "2", "3", "4"],
+  },
 ];
 
 export const Features = () => {
   const t = useTranslations("features");
   return (
-    <section id="features" className="bg-primary text-primary-foreground mt-32 md:mt-40">
-      <div className="container py-20 md:py-28">
+    <section
+      id="features"
+      className="bg-primary text-primary-foreground mt-32 md:mt-40"
+    >
+      <div className="container py-20 md:py-28 cntr">
         <Reveal>
           <SectionHeader
             variant="primary"
@@ -58,7 +69,10 @@ export const Features = () => {
           />
         </Reveal>
 
-        <RevealGroup stagger={0.1} className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <RevealGroup
+          stagger={0.1}
+          className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {categoryDefs.map(({ key, icon: Icon, itemIndexes }) => (
             <RevealItem
               key={key}
@@ -84,7 +98,9 @@ export const Features = () => {
                     {t(
                       // Each category's items array has its own length; the
                       // typed key union makes cross-category paths unsafe.
-                      `categories.${key}.items.${idx}` as Parameters<typeof t>[0],
+                      `categories.${key}.items.${idx}` as Parameters<
+                        typeof t
+                      >[0],
                     )}
                   </li>
                 ))}

@@ -106,7 +106,7 @@ export default async function LmsAlternativesPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <main>
-        <section className="container pt-32 md:pt-40">
+        <section className="container cntr pt-32 md:pt-40">
           <div className="max-w-4xl">
             <Eyebrow>{t("eyebrow")}</Eyebrow>
             <h1 className="mt-6 text-5xl font-semibold tracking-tight leading-[1.02] text-balance md:text-6xl">
@@ -117,7 +117,7 @@ export default async function LmsAlternativesPage({
             </p>
           </div>
         </section>
-        <section className="container mt-16 md:mt-20">
+        <section className="container cntr mt-16 md:mt-20">
           <div className="surface overflow-x-auto">
             <table className="w-full min-w-[720px] text-left text-[15px]">
               <thead className="bg-muted/50">
@@ -156,7 +156,7 @@ export default async function LmsAlternativesPage({
             </table>
           </div>
         </section>
-        <section className="container mt-24 md:mt-32">
+        <section className="container cntr mt-24 md:mt-32">
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {alternatives.map((alternative) => (
               <article
@@ -187,7 +187,7 @@ export default async function LmsAlternativesPage({
             ))}
           </div>
         </section>
-        <section className="container mt-24 md:mt-32">
+        <section className="container cntr mt-24 md:mt-32">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
               {t("faq.eyebrow")}
@@ -212,7 +212,7 @@ export default async function LmsAlternativesPage({
             ))}
           </div>
         </section>
-        <section className="container mt-24 md:mt-32">
+        <section className="container cntr mt-24 md:mt-32">
           <div className="rounded-3xl bg-primary px-6 py-14 text-primary-foreground md:px-12 md:py-20">
             <h2 className="max-w-3xl text-4xl font-semibold tracking-tight md:text-5xl">
               {t("bottomCta.title")}
@@ -232,8 +232,7 @@ export default async function LmsAlternativesPage({
                 data-umami-event={AnalyticsEvent.BookCall}
                 data-umami-event-location="lms-alternatives"
               >
-                {t("bottomCta.button")}{" "}
-                <ArrowRight size={16} aria-hidden />
+                {t("bottomCta.button")} <ArrowRight size={16} aria-hidden />
               </Link>
             </Button>
           </div>
